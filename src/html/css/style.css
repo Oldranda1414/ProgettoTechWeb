@@ -75,6 +75,7 @@ min-height: 500px;
 }
 
 .title-carousel-post {
+	font-size: 1.35rem;
 	color: #ffe2e7;
 }
 
@@ -112,7 +113,7 @@ min-height: 500px;
 .fascia-carosello {
 	z-index:0;
 	position:relative;
-	background-image: url("../images/wallpapers/8bit-background.jpg") !important;
+	background-image: url("../images/wallpapers/slot-background.jpg") !important;
 	background-position-y: center;
 	min-height: 400px;
 	padding-bottom: 50px;

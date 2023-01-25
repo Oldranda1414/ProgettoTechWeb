@@ -14,6 +14,10 @@
 	background-color: #ffe5e5;
 }
 
+.text-1 {
+color: #ffe2e7;
+}
+
 .post-img-profile {
 	position: absolute;
     margin: 9px;
@@ -70,6 +74,14 @@ min-height: 500px;
     text-shadow: 2px 2px 4px #000000;
 }
 
+.title-carousel-post {
+	color: #ffe2e7;
+}
+
+.title-carousel-post:hover {
+    color: #90CFFF;
+}
+
 .modal-nickname-post {
     font-weight: 600;
 }
@@ -90,4 +102,21 @@ min-height: 500px;
 .carousel-caption {
 	font-weight: 500;
 	text-shadow: 2px 2px 4px #000000;
+}
+
+.open-post {
+	font-weight: lighter;
+	cursor: pointer;
+}
+
+.fascia-carosello {
+	z-index:0;
+	position:relative;
+	background-image: url("../images/wallpapers/8bit-background.jpg") !important;
+	background-position-y: center;
+	min-height: 400px;
+	padding-bottom: 50px;
+	max-width:100%;
+	background-attachment: fixed;
+    background-size: cover;
 }

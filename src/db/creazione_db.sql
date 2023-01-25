@@ -1,13 +1,8 @@
-
--- * mysql database code to generate the database for the project           
-
-
-
 -- Database Section
 -- ________________ 
 
-create database DBProgettoTWEB;
-
+create SCHEMA IF NOT EXISTS db_progetto_tech_web;
+use db_progetto_tech_web;
 
 -- DBSpace Section
 -- _______________
@@ -16,44 +11,44 @@ create database DBProgettoTWEB;
 -- Tables Section
 -- _____________ 
 
-create table POST (
-     Post_id char(1) not null,
-     Immagine char(1) not null,
-     Testo char(1) not null,
-     Data char(1) not null,
-     Ora char(1) not null,
-     Tag_id char(1) not null,
-     User_id char(1) not null,
+CREATE TABLE db_progetto_tech_web.POST (
+     Post_id int not null,
+     Immagine char(100) not null,
+     Testo char(100) not null,
+     Giorno char(10) not null,
+     Ora char(10) not null,
+     Tag_id int not null,
+     User_id int not null,
      constraint ID_POST_ID primary key (Post_id));
 
-create table Commento (
-     User_id char(1) not null,
-     Post_id char(1) not null,
-     Comment_id char(1) not null,
-     Testo char(1) not null,
+CREATE TABLE db_progetto_tech_web.Commento (
+     User_id int not null,
+     Post_id int not null,
+     Comment_id int not null,
+     Testo char(100) not null,
      constraint ID_Commento_ID primary key (User_id, Post_id, Comment_id));
 
-create table TAG (
-     Tag_id char(1) not null,
-     Nome_gioco char(1) not null,
+CREATE TABLE db_progetto_tech_web.TAG (
+     Tag_id int not null,
+     Nome_gioco char(30) not null,
      constraint ID_TAG_ID primary key (Tag_id));
 
-create table Mi_piace (
-     Post_id char(1) not null,
-     User_id char(1) not null,
+CREATE TABLE db_progetto_tech_web.Mi_piace (
+     Post_id int not null,
+     User_id int not null,
      constraint ID_Mi_piace_ID primary key (Post_id, User_id));
 
-create table Segue (
-     SEG_User_id char(1) not null,
-     User_id char(1) not null,
-     constraint ID_Segue_ID primary key (User_id, SEG_User_id));
+CREATE TABLE db_progetto_tech_web.Segue (
+     Seguace_User_id int not null,
+     Seguito_User_id int not null,
+     constraint ID_Segue_ID primary key (Seguito_User_id, Seguace_User_id));
 
-create table USER (
-     User_id char(1) not null,
-     Username char(1) not null,
-     E_mail char(1) not null,
-     Password char(1) not null,
-     Immagine_profilo char(1),
+CREATE TABLE db_progetto_tech_web.USER (
+     User_id int not null,
+     Username char(30) not null,
+     E_mail char(30) not null,
+     Password char(30) not null,
+     Immagine_profilo char(100),
      constraint ID_USER_ID primary key (User_id));
 
 
@@ -62,35 +57,35 @@ create table USER (
 
 alter table POST add constraint FKTaggato_FK
      foreign key (Tag_id)
-     references TAG;
+     references TAG(Tag_id);
 
 alter table POST add constraint FKPostato_FK
      foreign key (User_id)
-     references USER;
+     references USER(User_id);
 
 alter table Commento add constraint FKRiferito_FK
      foreign key (Post_id)
-     references POST;
+     references POST(Post_id);
 
 alter table Commento add constraint FKCreato
      foreign key (User_id)
-     references USER;
+     references USER(User_id);
 
 alter table Mi_piace add constraint FKMi__USE_FK
      foreign key (User_id)
-     references USER;
+     references USER(User_id);
 
 alter table Mi_piace add constraint FKMi__POS
      foreign key (Post_id)
-     references POST;
+     references POST(Post_id);
 
 alter table Segue add constraint FKSEGUITO
-     foreign key (User_id)
-     references USER;
+     foreign key (Seguito_User_id)
+     references USER(User_id);
 
 alter table Segue add constraint FKSEGUACE_FK
-     foreign key (SEG_User_id)
-     references USER;
+     foreign key (Seguace_User_id)
+     references USER(User_id);
 
 
 -- Index Section
@@ -121,10 +116,10 @@ create index FKMi__USE_IND
      on Mi_piace (User_id);
 
 create unique index ID_Segue_IND
-     on Segue (User_id, SEG_User_id);
+     on Segue (Seguito_User_id, Seguace_User_id);
 
 create index FKSEGUACE_IND
-     on Segue (SEG_User_id);
+     on Segue (Seguace_User_id);
 
 create unique index ID_USER_IND
      on USER (User_id);

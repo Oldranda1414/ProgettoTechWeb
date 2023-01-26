@@ -75,7 +75,8 @@ min-height: 500px;
 }
 
 .title-carousel-post {
-	font-size: 1.35rem;
+	cursor: pointer;
+	font-size: 1.40rem;
 	color: #ffe2e7;
 }
 
@@ -116,8 +117,30 @@ min-height: 500px;
 	background-image: url("../images/wallpapers/slot-background.jpg") !important;
 	background-position-y: center;
 	min-height: 400px;
+	padding-top: 20px;
 	padding-bottom: 50px;
 	max-width:100%;
 	background-attachment: fixed;
     background-size: cover;
+}
+
+.like-button {
+	color: black;
+	background-color: rgb(222 82 82);
+}
+
+.like-button:hover {
+	color: black;
+	background-color: rgb(255 38 38);
+
+}
+
+.post-button {
+	color: black;
+	background-color: #4faaf2;
+}
+
+.post-button:hover {
+	color: black;
+	background-color: #3781DB;
 }

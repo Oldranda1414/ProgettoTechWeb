@@ -144,3 +144,22 @@ min-height: 500px;
 	color: black;
 	background-color: #147efe;
 }
+
+.fascia-profilo {
+	z-index:0;
+	position:relative;
+	background-image: url("../images/wallpapers/slot-background.jpg") !important;
+	background-position-y: center;
+	/* min-height: 400px; */
+	/* padding-top: 20px; */
+	/* padding-bottom: 50px; */
+	max-width:100%;
+	background-attachment: fixed;
+    background-size: cover;
+}
+
+.scheda-profilo {
+	background: rgba(255, 219, 219, 0.9);
+	padding: 2em;
+	/* border-radius: 5px; */
+}

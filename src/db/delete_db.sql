@@ -1,0 +1,1 @@
+drop database db_progetto_tech_web;

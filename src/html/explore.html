@@ -1,26 +1,28 @@
 <!doctype html>
 <html lang="it">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="TEST PAGE">
-    <title>Life&Games - Esplora</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="TEST PAGE">
+	<title>Life&Games - Esplora</title>
 	<link href="./bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/css/bootstrap.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-	<link rel="stylesheet" href="./css/style.css" >
-  </head>
-  
-  <body class="bg-1">
-  
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="bg-1">
+
 	<nav class="navbar navbar-expand-lg bg-2">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="./home.html">
-			  <img src="./images/gamepad_logo.png" alt="Logo" width="38" height="24" class="d-inline-block align-text-top">
-			  Life&Games
+				<img src="./images/gamepad_logo.png" alt="Logo" width="38" height="24"
+					class="d-inline-block align-text-top">
+				Life&Games
 			</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			  <span class="navbar-toggler-icon"></span>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
@@ -31,75 +33,97 @@
 					<a class="nav-link" href="settings.html">Impostazioni</a>
 					<a class="nav-link" href="index.html">Esci</a>
 					<form class="d-flex me-1 mw-50 navbar-right" role="search">
-						<input class="form-control me-2 bg-4" type="search" placeholder="Cerca" aria-label="Search">
-					<button class="w-25 btn btn-sm bg-1" type="submit"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/800px-Vector_search_icon.svg.png" width="25"></button>
-			</form>
+						<input class="form-control me-2 bg-4" type="search" placeholder="Cerca" aria-label="Search"> <!--ci sono problemi di accessibilità per la label-->
+						<button class="w-25 btn btn-sm bg-1" type="submit"><img
+								src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/800px-Vector_search_icon.svg.png"
+								width="25" alt=""></button>
+					</form>
 				</div>
 			</div>
 		</div>
 	</nav>
-  
+
 	<div class="container fascia-carosello col-12 mx-0">
 		<div class="text-center display-5 pt-1 text-1">I PIÙ VOTATI</div>
 		<div class="text-center lead text-1">Una raccolta dei migliori 5 post della giornata</div>
 		<div class="row justify-content-center my-3">
-			<div id="carouselPostCaptions" class="carousel slide carousel-fade col-11 col-lg-9 col-xl-6 text-center" data-bs-ride="false">
+			<div id="carouselPostCaptions" class="carousel slide carousel-fade col-11 col-lg-9 col-xl-6 text-center"
+				data-bs-ride="false">
 				<div class="carousel-indicators">
-					<button type="button" data-bs-target="#carouselPostCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-					<button type="button" data-bs-target="#carouselPostCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-					<button type="button" data-bs-target="#carouselPostCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+					<button type="button" data-bs-target="#carouselPostCaptions" data-bs-slide-to="0" class="active"
+						aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselPostCaptions" data-bs-slide-to="1"
+						aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselPostCaptions" data-bs-slide-to="2"
+						aria-label="Slide 3"></button>
 				</div>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="./images/posts/post-example-7.jpg" class="d-block w-100 blurredbackground rounded-2" alt="...">
-						
+						<img src="./images/posts/post-example-7.jpg" class="d-block w-100 blurredbackground rounded-2"
+							alt="...">
+
 						<div class="carousel-caption d-md-block">
-							<div class="title-carousel-post text-truncate" data-bs-toggle="modal" data-bs-target="#postModal">Una manna dal cielo</div>
+							<div class="title-carousel-post text-truncate" data-bs-toggle="modal"
+								data-bs-target="#postModal">Una manna dal cielo</div>
 							<div class="row justify-content-center">
 								<div class="col">
-									<img src="./images/profiles/profile-2.jpg" class="rounded-circle shadow-lg mr-3" alt="profile icon" height="30">
+									<img src="./images/profiles/profile-2.jpg" class="rounded-circle shadow-lg mr-3"
+										alt="profile icon" height="30">
 									<div class="nickname-carousel-post">vdamianob</div>
 								</div>
 							</div>
 							<p class="text-truncate">
 								Non pensavo di trovare un oggetto così importante, a questo punto della storia.
 							</p>
-							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</div>			
+							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal"
+								data-bs-target="#postModal">Apri post</div>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="./images/posts/post-example-8.jpg" class="d-block w-100 blurredbackground rounded-2" alt="...">
+						<img src="./images/posts/post-example-8.jpg" class="d-block w-100 blurredbackground rounded-2"
+							alt="...">
 						<div class="carousel-caption d-md-block">
 							<div class="title-carousel-post text-truncate">LAN su MOW AS2</div>
 							<div class="row justify-content-center">
 								<div class="col">
-									<img src="./images/profiles/profile-1.jpg" class="rounded-circle shadow-lg mr-3" alt="profile icon" height="30"><div class="nickname-carousel-post">Caracas803</div>
+									<img src="./images/profiles/profile-1.jpg" class="rounded-circle shadow-lg mr-3"
+										alt="profile icon" height="30">
+									<div class="nickname-carousel-post">Caracas803</div>
 								</div>
 							</div>
-							<p class="text-truncate">Estenuante sessione di gioco in LAN col mio amigo. Inutile dire chi abbia vinto.</p>
-							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</div>
+							<p class="text-truncate">Estenuante sessione di gioco in LAN col mio amigo. Inutile dire chi
+								abbia vinto.</p>
+							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal"
+								data-bs-target="#postModal">Apri post</div>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="./images/posts/post-example-9.jpg" class="d-block w-100 blurredbackground rounded-2" alt="...">
+						<img src="./images/posts/post-example-9.jpg" class="d-block w-100 blurredbackground rounded-2"
+							alt="...">
 						<div class="carousel-caption d-md-block">
 							<div class="title-carousel-post text-truncate">Imperivm GBR</div>
 							<div class="row justify-content-center">
 								<div class="col">
-									<img src="./images/profiles/profile-2.jpg" class="rounded-circle shadow-lg mr-3" alt="profile icon" height="30"><div class="nickname-carousel-post">colluttorio.exe</div>
+									<img src="./images/profiles/profile-2.jpg" class="rounded-circle shadow-lg mr-3"
+										alt="profile icon" height="30">
+									<div class="nickname-carousel-post">colluttorio.exe</div>
 								</div>
 							</div>
-							<p class="text-truncate">Così è come ho conquistato i Galli a fine partita. Dopo 120 words troncare il testo del carosello con i "..."</p>
-							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</div>
+							<p class="text-truncate">Così è come ho conquistato i Galli a fine partita. Dopo 120 words
+								troncare il testo del carosello con i "..."</p>
+							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal"
+								data-bs-target="#postModal">Apri post</div>
 						</div>
 					</div>
 				</div>
-				
-				<button class="carousel-control-prev" type="button" data-bs-target="#carouselPostCaptions" data-bs-slide="prev" data-mdb-slide="prev">
+
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselPostCaptions"
+					data-bs-slide="prev" data-mdb-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					<span class="visually-hidden">Previous</span>
-				</button>			
-				<button class="carousel-control-next" type="button" data-bs-target="#carouselPostCaptions" data-bs-slide="next">
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselPostCaptions"
+					data-bs-slide="next">
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
 					<span class="visually-hidden">Next</span>
 				</button>
@@ -107,109 +131,138 @@
 		</div>
 	</div>
 
-		<!-- SUCCESSIONE DEI POST -->
-		<div class="container text-center my-3">
+	<!-- SUCCESSIONE DEI POST -->
+	<div class="container text-center my-3">
 		<div class="row">
 			<div class="col-12 col-md-6 col-lg-4">
 				<div class="card m-2 bg-4">
-					<img src="./images/profiles/profile-1.jpg" class="post-img-profile mr-3" alt="profile icon" height="50"><div class="nickname-post">Tux9000</div>
+					<img src="./images/profiles/profile-1.jpg" class="post-img-profile mr-3" alt="profile icon"
+						height="50">
+					<div class="nickname-post">Tux9000</div>
 					<img src="./images/posts/post-example-1.jpg" class="card-img-top" alt="Post Image">
 					<div class="card-body">
 						<div class="card-title post-title">SimCity 4 BUG!!!</div>
-						<p class="card-text">Guardate cos'è successo! Non ci posso credere, mai vista una cosa del genere... A voi i commenti.</p>
+						<p class="card-text">Guardate cos'è successo! Non ci posso credere, mai vista una cosa del
+							genere... A voi i commenti.</p>
 						<a href="#" class="btn like-button m-1">Mi piace</a>
 						<button type="button" class="btn post-button">Apri post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
 						04.08.2023
-					</div>	
+					</div>
 				</div>
 			</div>
 			<div class="col-12 col-md-6 col-lg-4">
 				<div class="card m-2 bg-4">
-					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon" height="50"><div class="nickname-post">CortinaDPG</div>
+					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon"
+						height="50">
+					<div class="nickname-post">CortinaDPG</div>
 					<img src="./images/posts/post-example-2.jpg" class="card-img-top" alt="Post Image">
 					<div class="card-body">
 						<div class="card-title post-title">A spasso su Driver 2</div>
-						<p class="card-text">Chicago anni '90 in Art Pixel. In questa corsa a tempo devo raggiungere la cima del ponte più importante di sta ceppa.</p>
-						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button" class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</button>
+						<p class="card-text">Chicago anni '90 in Art Pixel. In questa corsa a tempo devo raggiungere la
+							cima del ponte più importante di sta ceppa.</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button"
+							class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri
+							post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
 						05.28.2019
-					</div>	
+					</div>
 				</div>
 			</div>
 			<div class="col-12 col-md-6 col-lg-4">
 				<div class="card m-2 bg-4">
-					<img src="./images/profiles/profile-1.jpg" class="post-img-profile mr-3" alt="profile icon" height="50"><div class="nickname-post">Colcos94</div>
+					<img src="./images/profiles/profile-1.jpg" class="post-img-profile mr-3" alt="profile icon"
+						height="50">
+					<div class="nickname-post">Colcos94</div>
 					<img src="./images/posts/post-example-3.jpg" class="card-img-top" alt="Post Image">
 					<div class="card-body">
 						<div class="card-title post-title">Uno stupido gioco di nome "Poy Poy"</div>
 						<p class="card-text">Su PS1 e 2</p>
-						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button" class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</button>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button"
+							class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri
+							post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
 						02.04.2020
-					</div>	
+					</div>
 				</div>
 			</div>
 			<div class="col-12 col-md-6 col-lg-4">
 				<div class="card m-2 bg-4">
-					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon" height="50"><div class="nickname-post">TinoPino</div>
+					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon"
+						height="50">
+					<div class="nickname-post">TinoPino</div>
 					<img src="./images/posts/post-example-4.jpg" class="card-img-top" alt="Post Image">
 					<div class="card-body">
 						<div class="card-title post-title">Partita a Dominion</div>
-						<p class="card-text">Stravinta questa partita contro uno che, a quanto pare, ha le pezze al c**!</p>
-						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button" class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</button>
+						<p class="card-text">Stravinta questa partita contro uno che, a quanto pare, ha le pezze al c**!
+						</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button"
+							class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri
+							post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
 						1.03.2018
-					</div>	
+					</div>
 				</div>
 			</div>
 			<div class="col-12 col-md-6 col-lg-4">
 				<div class="card m-2 bg-4">
-					<img src="./images/profiles/profile-1.jpg" class="post-img-profile mr-3" alt="profile icon" height="50"><div class="nickname-post">TinoPino</div>
+					<img src="./images/profiles/profile-1.jpg" class="post-img-profile mr-3" alt="profile icon"
+						height="50">
+					<div class="nickname-post">TinoPino</div>
 					<img src="./images/posts/post-example-5.jpg" class="card-img-top" alt="Post Image">
 					<div class="card-body">
 						<div class="card-title post-title">La battaglia dell'araba (in)fenice</div>
-						<p class="card-text">Ho per caso rispolverato Strongholds Crusader, un vecchio gioco della FireFly Studios. E questo è stato il risultato</p>
-						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button" class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</button>
+						<p class="card-text">Ho per caso rispolverato Strongholds Crusader, un vecchio gioco della
+							FireFly Studios. E questo è stato il risultato</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button"
+							class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri
+							post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
 						09.10.2020
-					</div>	
+					</div>
 				</div>
 			</div>
 			<div class="col-12 col-md-6 col-lg-4">
 				<div class="card m-2 bg-4">
-					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon" height="50"><div class="nickname-post">vdamianob</div>
+					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon"
+						height="50">
+					<div class="nickname-post">vdamianob</div>
 					<img src="./images/posts/post-example-6.jpg" class="card-img-top" alt="Post Image">
 					<div class="card-body">
 						<div class="card-title post-title">OpenTTD</div>
-						<p class="card-text">Facciamo finta di gestire il traffico, un po' come fa l'ATR. Tieni conto che se il testo è maggiore di esempio 100 caratteri, bisogna tagliarlo.</p>
-						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button" class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</button>
+						<p class="card-text">Facciamo finta di gestire il traffico, un po' come fa l'ATR. Tieni conto
+							che se il testo è maggiore di esempio 100 caratteri, bisogna tagliarlo.</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button"
+							class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri
+							post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
 						14.11.2023
-					</div>	
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- MODALE	-->
 	<div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content bg-3">
 				<div class="modal-header">
-					<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2" alt="profile icon" height="40">
+					<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2" alt="profile icon"
+						height="40">
 					<h1 class="modal-title fs-5" id="postModalLabel">Una manna dal cielo</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<p class="text-muted">di <em class="nickname-label">vdamianob</em>, il <em class="modal-post-date">04.08.2023</em> alle <em class="modal-post-time">15:04</em></p>
-					<img src="./images/posts/post-example-7.jpg" class="card-img-top rounded" alt="Post Image">		
+					<p class="text-muted">di <em class="nickname-label">vdamianob</em>, il <em
+							class="modal-post-date">04.08.2023</em> alle <em class="modal-post-time">15:04</em></p>
+					<img src="./images/posts/post-example-7.jpg" class="card-img-top rounded" alt="Post Image">
 					<p class="post-body my-3">
 						Non pensavo di trovare un oggetto così importante, a questo punto della storia.
 					</p>
@@ -222,24 +275,32 @@
 					</h2>
 					<div class="post-comment-section">
 						<div class="post-comment mt-2 mb-5">
-								<p class="text-muted">
-									<img src="./images/profiles/profile-3.jpg" class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
-									di <em class="nickname-label">Xut-polisH</em>, il <em class="modal-comment-post-date">04.08.2023</em> alle <em class="modal-comment-post-time">18:39</em>
-								</p>
-								<p class="text-post-comment">
-									Avresti dovuto venderlo subito, così potevi comprarti il Giuggiolo d'Oro...
-								</p>
+							<p class="text-muted">
+								<img src="./images/profiles/profile-3.jpg" class="modal-post-img-profile me-2"
+									alt="comment profile icon" height="40">
+								di <em class="nickname-label">Xut-polisH</em>, il <em
+									class="modal-comment-post-date">04.08.2023</em> alle <em
+									class="modal-comment-post-time">18:39</em>
+							</p>
+							<p class="text-post-comment">
+								Avresti dovuto venderlo subito, così potevi comprarti il Giuggiolo d'Oro...
+							</p>
 						</div>
 						<div class="post-comment mt-2 mb-5">
 							<p class="text-muted">
-								<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
-								di <em class="nickname-label">CortinaDPG</em>, il <em class="modal-comment-post-date">04.08.2023</em> alle <em class="modal-comment-post-time">20:45</em>
+								<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2"
+									alt="comment profile icon" height="40">
+								di <em class="nickname-label">CortinaDPG</em>, il <em
+									class="modal-comment-post-date">04.08.2023</em> alle <em
+									class="modal-comment-post-time">20:45</em>
 							</p>
 							<p class="text-post-comment">
-								Credo che il limite massimo dei commenti debba essere di 5, poi ci debba essere la scritta "carica altri" che ne fa vedere altri 5, e così via... Inoltre, un commento può essere fatto solo se più corto di 250 caratteri
+								Credo che il limite massimo dei commenti debba essere di 5, poi ci debba essere la
+								scritta "carica altri" che ne fa vedere altri 5, e così via... Inoltre, un commento può
+								essere fatto solo se più corto di 250 caratteri
 							</p>
 						</div>
-					</div>	
+					</div>
 					<form>
 						<div class="mb-3">
 							<label for="message-text" class="col-form-label">Commenta:</label>
@@ -254,7 +315,7 @@
 			</div>
 		</div>
 	</div>
-	
-  </body>
+
+</body>
 
 </html>

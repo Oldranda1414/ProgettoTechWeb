@@ -14,8 +14,16 @@
 	background-color: #ffe5e5;
 }
 
+.bg-5 {
+	background-color: #6ca7ff;
+}
+
 .text-1 {
-color: #ffe2e7;
+	color: #ffe2e7;
+}
+
+.text-2 {
+	color: rgb(122, 52, 52);
 }
 
 .post-img-profile {
@@ -162,4 +170,9 @@ min-height: 500px;
 	background: rgba(255, 219, 219, 0.9);
 	padding: 2em;
 	/* border-radius: 5px; */
+}
+
+.profile-schede-title {
+	font-size: 1.2em;
+	margin-bottom: 0.4em;
 }

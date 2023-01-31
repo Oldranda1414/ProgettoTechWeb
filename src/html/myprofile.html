@@ -24,42 +24,136 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-				<div class="navbar-nav">
-					<a class="nav-link" aria-current="page" href="home.html">Home</a>
-					<a class="nav-link" href="explore.html">Esplora</a>
-					<a class="nav-link active" href="myprofile.html">Mio profilo</a>
-					<a class="nav-link" href="notification.html">Notifiche</a>
-					<a class="nav-link" href="settings.html">Impostazioni</a>
-					<a class="nav-link" href="index.html">Esci</a>
-				</div>
+			  <div class="navbar-nav">
+				<a class="nav-link" aria-current="page" href="home.html">Home</a>
+				<a class="nav-link" href="explore.html">Esplora</a>
+				<a class="nav-link active" href="myprofile.html">Mio profilo</a>
+				<a class="nav-link" href="notification.html">Notifiche<sup>2</sup></a>
+				<a class="nav-link" href="settings.html">Impostazioni</a>
+				<a class="nav-link" href="index.html">Esci</a>
+			  </div>
 			</div>
 		</div>
 	</nav>
 	<!-- Una schermata responsive in cui, in schermi piccoli sarà tutto allineato verticalmente con: immagine profilo, cambia immagine, email, I miei mi piaci, i miei commenti, followed, followers, sotto a mò di homepage tutti i post da me pubblicati. Mentre per schermi più grandi, a sx icona img utente, a dx menù poco fa descritto, e sotto sempre i post dell'utente -->
 	<div class="container fascia-profilo pt-3 pb-5">
-		<div class="text-center display-5 text-1 mb-3">IL MIO PROFILO</div>
-		<div class="scheda-profilo mx-5 rounded">
-			<div class="row justify-content-md-center text-center">
-				<div class="col-12 col-lg-4">
-					<p>vdamianob</p>
-					<img src="./images/profiles/profile-2.jpg" class="rounded-circle my-2" alt="profile icon"
-						height="150">
-					<p>calabrone84@gmail.com</p>
-					<p>Iscritto dal <em>18.01.2022</em></p>
-				</div>
-				<div class="col col-lg-4">
-					Informazioni profilo
-					<ul class="list-group">
-						<li class="list-group-item  bg-4">Cambia immagine profilo</li>
-						<li class="list-group-item  bg-4">I miei mi piace</li>
-						<li class="list-group-item  bg-4">I miei commenti</li>
-						<li class="list-group-item  bg-4">Le persone che seguo</li>
-						<li class="list-group-item  bg-4">Chi mi segue</li>
-					</ul>
+		<div class="text-center display-3 text-1 mb-3">IL MIO PROFILO</div>
+		<div class="row justify-content-center">
+			<div class="scheda-profilo mx-5 rounded col col-lg-9 justify-content-md-center">
+				<div class="row justify-content-md-center text-center">
+					<div class="col-12 col-lg-3 mb-2">
+						<div class="profile-schede-title">vdamianob</div>
+						<img src="./images/profiles/profile-2.jpg" class="rounded-circle my-2" alt="profile icon" height="150">
+						<p>calabrone84@gmail.com</p>
+						<p>Iscritto dal <em>18.01.2022</em></p>
+					</div>
+					<div class="col col-lg-3">
+						<div class="profile-schede-title">Informazioni profilo</div>
+						<ul class="list-group">
+						  <li class="list-group-item  bg-4">Cambia immagine profilo</li>
+						  <li class="list-group-item  bg-4">I miei mi piace</li>
+						  <li class="list-group-item  bg-4">I miei commenti</li>
+						  <li class="list-group-item  bg-4">Le persone che seguo</li>
+						  <li class="list-group-item  bg-4">Chi mi segue</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</body>
+	<div class="container text-center my-3">
+		<div class="text-center display-3 text-2 mb-3">I MIEI POST</div>
+		<div class="row">
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card m-2 bg-4">
+					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon" height="50"><div class="nickname-post">Tux9000</div>
+					<img src="./images/posts/post-example-1.jpg" class="card-img-top" alt="Post Image">
+					<div class="card-body">
+						<div class="card-title post-title">Scritto da me</div>
+						<p class="card-text">Tutti questi post sono scritti da me...!</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a>
+						<button type="button" class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</button>
+					</div>
+					<div class="card-footer text-muted small font-italic">
+						04.08.2023
+					</div>	
+				</div>
+			</div>
+			
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card m-2 bg-4">
+					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon" height="50"><div class="nickname-post">CortinaDPG</div>
+					<img src="./images/posts/post-example-2.jpg" class="card-img-top" alt="Post Image">
+					<div class="card-body">
+						<div class="card-title post-title">A spasso su Driver 2</div>
+						<p class="card-text">Chicago anni '90 in Art Pixel. In questa corsa a tempo devo raggiungere la cima del ponte più importante di sta ceppa.</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a>
+						<button type="button" class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</button>
+					</div>
+					<div class="card-footer text-muted small font-italic">
+						05.28.2019
+					</div>	
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card m-2 bg-4">
+					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon" height="50"><div class="nickname-post">Colcos94</div>
+					<img src="./images/posts/post-example-3.jpg" class="card-img-top" alt="Post Image">
+					<div class="card-body">
+						<div class="card-title post-title">Uno stupido gioco di nome "Poy Poy"</div>
+						<p class="card-text">Su PS1 e 2</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button" class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</button>
+					</div>
+					<div class="card-footer text-muted small font-italic">
+						02.04.2020
+					</div>	
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card m-2 bg-4">
+					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon" height="50"><div class="nickname-post">TinoPino</div>
+					<img src="./images/posts/post-example-4.jpg" class="card-img-top" alt="Post Image">
+					<div class="card-body">
+						<div class="card-title post-title">Partita a Dominion</div>
+						<p class="card-text">Stravinta questa partita contro uno che, a quanto pare, ha le pezze al c**!</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button" class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</button>
+					</div>
+					<div class="card-footer text-muted small font-italic">
+						1.03.2018
+					</div>	
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card m-2 bg-4">
+					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon" height="50"><div class="nickname-post">TinoPino</div>
+					<img src="./images/posts/post-example-5.jpg" class="card-img-top" alt="Post Image">
+					<div class="card-body">
+						<div class="card-title post-title">La battaglia dell'araba (in)fenice</div>
+						<p class="card-text">Ho per caso rispolverato Strongholds Crusader, un vecchio gioco della FireFly Studios. E questo è stato il risultato</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button" class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</button>
+					</div>
+					<div class="card-footer text-muted small font-italic">
+						09.10.2020
+					</div>	
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card m-2 bg-4">
+					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon" height="50"><div class="nickname-post">vdamianob</div>
+					<img src="./images/posts/post-example-6.jpg" class="card-img-top" alt="Post Image">
+					<div class="card-body">
+						<div class="card-title post-title">OpenTTD</div>
+						<p class="card-text">Facciamo finta di gestire il traffico, un po' come fa l'ATR. Tieni conto che se il testo è maggiore di esempio 100 caratteri, bisogna tagliarlo.</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button" class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</button>
+					</div>
+					<div class="card-footer text-muted small font-italic">
+						14.11.2023
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  </body>
 
 </html>

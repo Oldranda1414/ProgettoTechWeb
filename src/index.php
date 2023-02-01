@@ -8,7 +8,7 @@ $templateParams["post"] = $dbh->getPosts(6);
 foreach($templateParams["post"] as $post){
     $user = $dbh->getUser($post["User_id"]);
     $post["Username"] = $user[0]["Username"];
-    $post["UserProfilePic"] = $user[0]["Immagine"];
+    $post["UserProfilePic"] = $user[0]["Immagine_profilo"];
     $post["Tag"] = $dbh->getTag($post["Tag_id"])[0];
 }
 

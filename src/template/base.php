@@ -29,7 +29,11 @@
 		</nav>
 	</header>
 	<main>
-		main
+		<?php
+    		if(isset($templateParams["nome"])){
+        		require($templateParams["nome"]);
+			}	
+    	?>
 	</main>
 	<footer>
 	<!-- place footer here -->

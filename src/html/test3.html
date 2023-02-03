@@ -4,14 +4,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="home page">
-	<title>Life&Games - Home</title>
+	<meta name="description" content="TEST PAGE">
+	<title>Life&Games - Esplora</title>
 	<link href="./bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/css/bootstrap.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body class="bg-1">
+
 	<nav class="navbar navbar-expand-lg bg-2">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="./home.html">
@@ -20,6 +21,14 @@
 				Life&Games
 			</a>
 			<div class="d-flex flex-row order-2 order-lg-3">
+				<form class="d-flex me-1 mw-50 navbar-right" role="search">
+					<input class="form-control me-2 bg-4" type="search" placeholder="Cerca" aria-label="Search"> <!--ci sono problemi di accessibilità per la label-->
+					<button class="w-25 btn btn-sm bg-1" type="submit">
+						<img
+							src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/800px-Vector_search_icon.svg.png"
+							width="25" alt="">
+					</button>
+				</form>
 				<ul class="navbar-nav flex-row px-4">
 					<li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#notificationModal"><img src="./images/icons/bell2.png" height="30" alt="notification bell button"><sup class="notification-number">3</sup></a></li>
 				</ul>
@@ -29,8 +38,8 @@
 			</div>
 			<div class="collapse navbar-collapse order-3 order-lg-2" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link active" aria-current="page" href="home.html">Home</a>
-					<a class="nav-link" href="explore.html">Esplora</a>
+					<a class="nav-link" aria-current="page" href="home.html">Home</a>
+					<a class="nav-link active" href="explore.html">Esplora</a>
 					<a class="nav-link" href="myprofile.html">Mio profilo</a>
 					<a class="nav-link" href="settings.html">Impostazioni</a>
 					<a class="nav-link" href="index.html">Esci</a>
@@ -40,6 +49,132 @@
 		</div>
 	</nav>
 
+	<div class="container fascia-carosello col-12 mx-0">
+		<div class="text-center display-5 pt-1 text-1">I PIÙ VOTATI</div>
+		<div class="text-center lead text-1">Una raccolta dei migliori 5 post della giornata</div>
+		<div class="row justify-content-center my-3">
+			<div id="carouselPostCaptions" class="carousel slide carousel-fade col-11 col-lg-9 col-xl-6 text-center"
+				data-bs-ride="false">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselPostCaptions" data-bs-slide-to="0" class="active"
+						aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselPostCaptions" data-bs-slide-to="1"
+						aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselPostCaptions" data-bs-slide-to="2"
+						aria-label="Slide 3"></button>
+				</div>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="./images/posts/post-example-7.jpg" class="d-block w-100 blurredbackground rounded-2"
+							alt="...">
+
+						<div class="carousel-caption d-md-block">
+							<div class="title-carousel-post text-truncate" data-bs-toggle="modal"
+								data-bs-target="#postModal">Una manna dal cielo</div>
+							<div class="row justify-content-center">
+								<div class="col">
+									<img src="./images/profiles/profile-2.jpg" class="rounded-circle shadow-lg mr-3"
+										alt="profile icon" height="30">
+									<div class="nickname-carousel-post">vdamianob</div>
+								</div>
+							</div>
+							<p class="text-truncate">
+								Non pensavo di trovare un oggetto così importante, a questo punto della storia.
+							</p>
+							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal"
+								data-bs-target="#postModal">Apri post</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="./images/posts/post-example-8.jpg" class="d-block w-100 blurredbackground rounded-2"
+							alt="...">
+						<div class="carousel-caption d-md-block">
+							<div class="title-carousel-post text-truncate">LAN su MOW AS2</div>
+							<div class="row justify-content-center">
+								<div class="col">
+									<img src="./images/profiles/profile-1.jpg" class="rounded-circle shadow-lg mr-3"
+										alt="profile icon" height="30">
+									<div class="nickname-carousel-post">Caracas803</div>
+								</div>
+							</div>
+							<p class="text-truncate">Estenuante sessione di gioco in LAN col mio amigo. Inutile dire chi
+								abbia vinto.</p>
+							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal"
+								data-bs-target="#postModal">Apri post</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="./images/posts/post-example-9.jpg" class="d-block w-100 blurredbackground rounded-2"
+							alt="...">
+						<div class="carousel-caption d-md-block">
+							<div class="title-carousel-post text-truncate">Imperivm GBR</div>
+							<div class="row justify-content-center">
+								<div class="col">
+									<img src="./images/profiles/profile-2.jpg" class="rounded-circle shadow-lg mr-3"
+										alt="profile icon" height="30">
+									<div class="nickname-carousel-post">colluttorio.exe</div>
+								</div>
+							</div>
+							<p class="text-truncate">Così è come ho conquistato i Galli a fine partita. Dopo 120 words
+								troncare il testo del carosello con i "..."</p>
+							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal"
+								data-bs-target="#postModal">Apri post</div>
+						</div>
+					</div>
+				</div>
+
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselPostCaptions"
+					data-bs-slide="prev" data-mdb-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselPostCaptions"
+					data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-expand-lg bg-6">
+		<div class="container-fluid">
+			<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Cerca per post
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+    Cerca utente
+  </label>
+</div>
+			<div class="d-flex flex-row order-2 order-lg-3">
+				<form class="d-flex me-1 mw-50 navbar-right" role="search">
+					<input class="form-control me-2 bg-4" type="search" placeholder="Cerca post..." aria-label="Search"> <!--ci sono problemi di accessibilità per la label-->
+					<button class="w-25 btn btn-sm bg-1" type="submit">
+						<img
+							src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/800px-Vector_search_icon.svg.png"
+							width="25" alt="">
+					</button>
+				</form>
+			</div>
+			<div class="collapse navbar-collapse order-3 order-lg-2" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-link" aria-current="page" href="home.html">Home</a>
+					<a class="nav-link active" href="explore.html">Esplora</a>
+					<a class="nav-link" href="myprofile.html">Mio profilo</a>
+					<a class="nav-link" href="settings.html">Impostazioni</a>
+					<a class="nav-link" href="index.html">Esci</a>
+					
+				</div>
+			</div>
+		</div>
+	</nav>
+	
+	<!-- SUCCESSIONE DEI POST -->
 	<div class="container text-center my-3">
 		<div class="row">
 			<div class="col-12 col-md-6 col-lg-4">
@@ -53,8 +188,7 @@
 						<p class="card-text">Guardate cos'è successo! Non ci posso credere, mai vista una cosa del
 							genere... A voi i commenti.</p>
 						<a href="#" class="btn like-button m-1">Mi piace</a>
-						<button type="button" class="btn post-button" data-bs-toggle="modal"
-							data-bs-target="#postModal">Apri post</button>
+						<button type="button" class="btn post-button">Apri post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
 						04.08.2023
@@ -71,9 +205,9 @@
 						<div class="card-title post-title">A spasso su Driver 2</div>
 						<p class="card-text">Chicago anni '90 in Art Pixel. In questa corsa a tempo devo raggiungere la
 							cima del ponte più importante di sta ceppa.</p>
-						<a href="#" class="btn like-button m-1">Mi piace</a>
-						<button type="button" class="btn post-button" data-bs-toggle="modal"
-							data-bs-target="#postModal">Apri post</button>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button"
+							class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri
+							post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
 						05.28.2019
@@ -158,25 +292,25 @@
 		</div>
 	</div>
 
+	<!-- MODALE	-->
 	<div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content bg-3">
 				<div class="modal-header">
-					<img src="./images/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="profile icon"
+					<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2" alt="profile icon"
 						height="40">
-					<h1 class="modal-title fs-5" id="postModalLabel">SimCity 4 BUG!!!</h1>
+					<h1 class="modal-title fs-5" id="postModalLabel">Una manna dal cielo</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<p class="text-muted">di <em class="nickname-label">Tux9000</em>, il <em
+					<p class="text-muted">di <em class="nickname-label">vdamianob</em>, il <em
 							class="modal-post-date">04.08.2023</em> alle <em class="modal-post-time">15:04</em></p>
-					<img src="./images/posts/post-example-1.jpg" class="card-img-top rounded" alt="Post Image">
+					<img src="./images/posts/post-example-7.jpg" class="card-img-top rounded" alt="Post Image">
 					<p class="post-body my-3">
-						Guardate cos'è successo! Non ci posso credere, mai vista una cosa del genere... A voi i
-						commenti.
+						Non pensavo di trovare un oggetto così importante, a questo punto della storia.
 					</p>
 					<div class="like-number text-end me-3">
-						13 Mi piace
+						0 Mi piace
 					</div>
 					<hr>
 					<h2 class="fs-5 text-center">
@@ -192,8 +326,7 @@
 									class="modal-comment-post-time">18:39</em>
 							</p>
 							<p class="text-post-comment">
-								Da rabbrividire. Mi chiedo come non abbiano potuto far nulla per ovviare a tale
-								inconveniente.
+								Avresti dovuto venderlo subito, così potevi comprarti il Giuggiolo d'Oro...
 							</p>
 						</div>
 						<div class="post-comment mt-2 mb-5">
@@ -205,8 +338,9 @@
 									class="modal-comment-post-time">20:45</em>
 							</p>
 							<p class="text-post-comment">
-								Ne sono allibito, penso che qualcuno ne debba pagare le conseguenze,
-								SUBITO!!!!!!!!!!!!!!! Massimo 5 commenti, poi "carica altri"...
+								Credo che il limite massimo dei commenti debba essere di 5, poi ci debba essere la
+								scritta "carica altri" che ne fa vedere altri 5, e così via... Inoltre, un commento può
+								essere fatto solo se più corto di 250 caratteri
 							</p>
 						</div>
 					</div>
@@ -218,65 +352,8 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<!-- <button type="button" class="btn btn-primary">Mi piace</button> -->
 					<a href="#" class="btn like-button m-1">Mi piace</a>
 					<button type="button" class="btn btn-info">Invia commento</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content bg-5">
-				<div class="modal-header">
-					<img src="./images/icons/bell.png" class="modal-post-img-profile me-2" alt="profile icon" height="40">
-					<h1 class="modal-title fs-5" id="postModalLabel">Notifiche</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<div class="post-comment mt-2 mb-5">
-						<p class="text-muted">
-							<img src="./images/profiles/profile-3.jpg" class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
-							<em class="nickname-label">Xut-polisH</em>, il <em class="modal-comment-post-date">04.08.2023</em> alle <em class="modal-comment-post-time">18:39</em>
-						</p>
-						<p class="text-post-comment">
-							Ha messo <em>Mi piace</em> al <a href="">post</a> che hai pubblicato il <em>18.11.2022</em> alle <em>18:15</em>.
-						</p>
-					</div>
-					<hr>
-					<div class="post-comment mt-2 mb-5">
-						<p class="text-muted">
-							<img src="./images/profiles/profile-3.jpg" class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
-							<em class="nickname-label">Xut-polisH</em>, il <em class="modal-comment-post-date">04.08.2023</em> alle <em class="modal-comment-post-time">18:39</em>
-						</p>
-						<p class="text-post-comment">
-							Ha messo <em>Mi piace</em> al <a href="">post</a> che hai pubblicato il <em>18.11.2022</em> alle <em>18:15</em>.
-						</p>
-					</div>
-					<hr>
-					<div class="post-comment mt-2 mb-5">
-						<p class="text-muted">
-							<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
-							<em class="nickname-label">Can$as</em>, il <em class="modal-comment-post-date">04.08.2023</em> alle <em class="modal-comment-post-time">18:39</em>
-						</p>
-						<p class="text-post-comment">
-							Ha commentato il <a href="">post</a> che hai pubblicato il <em>18.11.2022</em> alle <em>18:15</em>.
-						</p>
-					</div>
-					<hr>
-					<div class="post-comment mt-2 mb-5">
-						<p class="text-muted">
-							<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
-							<em class="nickname-label">Can$as</em>, il <em class="modal-comment-post-date">04.08.2023</em> alle <em class="modal-comment-post-time">18:39</em>
-						</p>
-						<p class="text-post-comment">
-							Ha cominciato a seguirti.
-						</p>
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-info">Cancella tutto</button>
 				</div>
 			</div>
 		</div>

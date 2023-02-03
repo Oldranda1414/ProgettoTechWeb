@@ -18,6 +18,10 @@
 	background-color: #6ca7ff;
 }
 
+.bg-6 {
+	background-color: rgb(124, 53, 98);
+}
+
 .text-1 {
 	color: #ffe2e7;
 }
@@ -175,4 +179,26 @@ min-height: 500px;
 .profile-schede-title {
 	font-size: 1.2em;
 	margin-bottom: 0.4em;
+}
+
+.notification-number {
+	border-radius: 50%;
+    background-color: red;
+    font-weight: 700;
+    width: -2px;
+    /* display: block; */
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 1px;
+}
+
+.notification-number:hover {
+	border-radius: 50%;
+    background-color: rgb(255, 170, 170);
+    font-weight: 700;
+    width: -2px;
+    /* display: block; */
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 1px;
 }

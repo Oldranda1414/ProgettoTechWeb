@@ -10,7 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="./css/style.css" >
   </head>
-  
+
   <body class="bg-1">
 	<nav class="navbar navbar-expand-lg bg-2">
 		<div class="container-fluid">
@@ -18,49 +18,48 @@
 			  <img src="./images/gamepad_logo.png" alt="Logo" width="38" height="24" class="d-inline-block align-text-top">
 			  Life&Games
 			</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			  <span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <div class="d-flex flex-row order-2 order-lg-3">
+    <ul class="navbar-nav flex-row">
+        <li class="nav-item"><a class="nav-link px-2" href="#"><span class="fa fa-facebook"></span></a></li>
+        <li class="nav-item"><a class="nav-link px-2" href="#"><img src="./images/icons/bell.png" height="30"/></a></li>
+
+    </ul>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    </div>
+
+
+			<div class="collapse navbar-collapse order-3 order-lg-2" id="navbarNavAltMarkup">
 			  <ul class="navbar-nav me-auto mb-2">
 			        <li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="home.html">Home</a>
 					</li>
-					
+
 					<li class="nav-item">
 						<a class="nav-link" href="explore.html">Esplora</a>
 					</li>
-					
+
 					<li class="nav-item">
 						<a class="nav-link" href="myprofile.html">Mio profilo</a>
 					</li>
-					
+
 					<li class="nav-item">
 						<a class="nav-link" href="myprofile.html">Impostazioni</a>
 					</li>
-					
+
 					<li class="nav-item">
 						<a class="nav-link" href="myprofile.html">Esci</a>
 					</li>
-					
+
 				</ul>
-				
-			  <ul class="navbar-nav">
 
-						
-				<li class="nav-item">
-                    <img src="./images/icons/notification.svg" height="30"></i>
-                </li>
-
-			  	
-				
-				
-			  </ul>
 			  </div>
 			</div>
 		</div>
 	</nav>
-	
+
 	<button type="button" class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri post</button>
 
 	<div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
@@ -110,7 +109,7 @@
 						<p class="text-post-comment">
 							Ha cominciato a seguirti.
 						</p>
-					</div>					
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-info">Cancella tutto</button>

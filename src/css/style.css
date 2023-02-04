@@ -1,4 +1,204 @@
-body, header, h1, h2, h5, ul{
-    margin: 0;
-    padding: 0;
+.bg-1 {
+	background-color: rgb(255, 170, 170);
+}
+
+.bg-2 {
+	background-color: rgb(212, 106, 106);
+}
+
+.bg-3 {
+	background-color: rgb(230 201 201);
+}
+
+.bg-4 {
+	background-color: #ffe5e5;
+}
+
+.bg-5 {
+	background-color: #6ca7ff;
+}
+
+.bg-6 {
+	background-color: rgb(124, 53, 98);
+}
+
+.text-1 {
+	color: #ffe2e7;
+}
+
+.text-2 {
+	color: rgb(122, 52, 52);
+}
+
+.post-img-profile {
+	position: absolute;
+    margin: 9px;
+    border-radius: 50%;
+    box-shadow: 10px 10px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 78%), 0 6px 20px 0 rgb(0 0 0 / 56%);
+	object-fit: cover;
+	width: 50px;
+	height: 50px;
+}
+
+.modal-post-img-profile {
+    border-radius: 50%;
+	object-fit: cover;
+	width: 40px;
+	height: 40px;
+}
+
+.card {
+min-height: 500px;
+}
+
+.nickname-post {
+	position: absolute;
+    margin-top: 20px;
+    margin-left: 70px;
+    color: #ffe2e7;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.nickname-post:hover {
+	position: absolute;
+    margin-top: 20px;
+    margin-left: 70px;
+    color: #75ff75;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.nickname-carousel-post {
+	display: inline-block;
+	font-size: 0.85em;
+    margin-left: 10px;
+    color: #ffe2e7;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.nickname-carousel-post:hover {
+    margin-left: 10px;
+    color: #75ff75;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.title-carousel-post {
+	cursor: pointer;
+	font-size: 1.40rem;
+	color: #ffe2e7;
+}
+
+.title-carousel-post:hover {
+    color: #90CFFF;
+}
+
+.modal-nickname-post {
+    font-weight: 600;
+}
+
+.post-title {
+	font-size: 1.25rem;
+	font-weight: 500;
+    line-height: 1.2;
+	display: block;
+}
+
+.blurredbackground {
+    -webkit-filter: /*blur(2px)*/ brightness(70%);
+    filter: /*blur(2px)*/ brightness(80%);
+    z-index: -1;
+}
+
+.carousel-caption {
+	font-weight: 500;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+.open-post {
+	font-weight: lighter;
+	cursor: pointer;
+}
+
+.fascia-carosello {
+	z-index:0;
+	position:relative;
+	background-image: url("../images/wallpapers/slot-background.jpg") !important;
+	background-position-y: center;
+	min-height: 400px;
+	padding-top: 20px;
+	padding-bottom: 50px;
+	max-width:100%;
+	background-attachment: fixed;
+    background-size: cover;
+}
+
+.like-button {
+	color: black;
+	background-color: rgb(222 82 82);
+}
+
+.like-button:hover {
+	color: black;
+	background-color: rgb(255 38 38);
+
+}
+
+.post-button {
+	color: black;
+	background-color: #4faaf2;
+}
+
+.post-button:hover {
+	color: black;
+	background-color: #147efe;
+}
+
+.fascia-profilo {
+	z-index:0;
+	position:relative;
+	background-image: url("../images/wallpapers/slot-background.jpg") !important;
+	background-position-y: center;
+	/* min-height: 400px; */
+	/* padding-top: 20px; */
+	/* padding-bottom: 50px; */
+	max-width:100%;
+	background-attachment: fixed;
+    background-size: cover;
+}
+
+.scheda-profilo {
+	background: rgba(255, 219, 219, 0.9);
+	padding: 2em;
+	/* border-radius: 5px; */
+}
+
+.profile-schede-title {
+	font-size: 1.2em;
+	margin-bottom: 0.4em;
+}
+
+.notification-number {
+	border-radius: 50%;
+    background-color: red;
+    font-weight: 700;
+    width: -2px;
+    /* display: block; */
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 1px;
+}
+
+.notification-number:hover {
+	border-radius: 50%;
+    background-color: rgb(255, 170, 170);
+    font-weight: 700;
+    width: -2px;
+    /* display: block; */
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 1px;
 }

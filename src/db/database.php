@@ -19,7 +19,7 @@ class DatabaseHelper{
     }
 
     public function getUser($user_id){
-        $stmt = $this->db->prepare("SELECT User_id, Username, E-mail, Passwrd, Immagine_profilo FROM user_table WHERE User_id = ?");
+        $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Immagine_profilo FROM user_table WHERE User_id = ?");
         $stmt->bind_param('s', $user_id);
         $stmt->execute();
         $result = $stmt->get_result();

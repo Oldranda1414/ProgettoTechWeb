@@ -1,1 +1,1 @@
-drop database db_progetto_tech_web;
+drop database db_life_and_games;

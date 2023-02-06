@@ -3,7 +3,7 @@ require_once 'bootstrap.php';
 
 //Base Template
 $templateParams["titolo"] = "Progetto - Home";
-$templateParams["nome"] = "index.php";
+$templateParams["nome"] = "home.php";
 $templateParams["post"] = $dbh->getPosts(2);
 foreach($templateParams["post"] as &$post){
     $user = $dbh->getUser($post["User_id"]);

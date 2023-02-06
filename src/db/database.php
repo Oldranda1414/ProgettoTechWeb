@@ -10,7 +10,7 @@ class DatabaseHelper{
     }
 
     public function getPosts($numeroPost){
-        $stmt = $this->db->prepare("SELECT Post_id, Immagine, Testo, Giorno, Ora, Tag_id, User_id FROM post LIMIT ?");
+        $stmt = $this->db->prepare("SELECT Post_id, Img, Words, Day_posted, Time_posted, Tag_id, User_id FROM post LIMIT ?");
         $stmt->bind_param('i', $numeroPost);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -19,7 +19,7 @@ class DatabaseHelper{
     }
 
     public function getUser($user_id){
-        $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Immagine_profilo FROM user_table WHERE User_id = ?");
+        $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img FROM user_table WHERE User_id = ?");
         $stmt->bind_param('s', $user_id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -27,7 +27,7 @@ class DatabaseHelper{
     }
 
     public function getTag($tag_id){
-        $stmt = $this->db->prepare("SELECT Tag_id, Nome_gioco FROM Tag WHERE Tag_id = ?");
+        $stmt = $this->db->prepare("SELECT Tag_id, Game_name FROM Tag WHERE Tag_id = ?");
         $stmt->bind_param('s', $tag_id);
         $stmt->execute();
         $result = $stmt->get_result();

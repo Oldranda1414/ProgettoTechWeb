@@ -33,5 +33,14 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function checkLogin($username, $password){
+        $query = "SELECT User_id, Username FROM User_table WHERE username = ? AND passwrd = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$username, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>

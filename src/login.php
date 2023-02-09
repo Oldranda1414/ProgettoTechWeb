@@ -18,7 +18,7 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
 if(isUserLoggedIn()){
     $templateParams["titolo"] = "Home";
     $templateParams["nome"] = "home.php";
-    $templateParams["post"] = $dbh->getPosts(3);
+    $templateParams["post"] = $dbh->getFullPosts(3);
 }
 else{
     $templateParams["titolo"] = "Login";

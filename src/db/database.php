@@ -9,9 +9,9 @@ class DatabaseHelper{
         }        
     }
 
-    public function getPosts($numeroPost){
+    public function getPosts($nPost){
         $stmt = $this->db->prepare("SELECT Post_id, Img, Words, Day_posted, Time_posted, Tag_id, User_id FROM post LIMIT ?");
-        $stmt->bind_param('i', $numeroPost);
+        $stmt->bind_param('i', $nPost);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -41,6 +41,17 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getFullPosts($nPost){
+        $result = $this->getPosts($nPost);
+        foreach($result as &$post){
+            $user = $this->getUser($post["User_id"]);
+            $post["Username"] = $user[0]["Username"];
+            $post["UserProfilePic"] = $user[0]["Profile_img"];
+            $post["Tag"] = $this->getTag($post["Tag_id"])[0]["Game_name"];
+        }
+        return $result;
     }
 }
 ?>

@@ -46,11 +46,11 @@ INSERT INTO Post(Img, Words, Day_posted, Time_posted, Tag_id, User_id) Values("p
 
 -- inserting comments into commento table
 
-INSERT INTO Comment(User_id, Post_id, Words) Values((SELECT User_id FROM User_table WHERE Username = "vdamianob"), (SELECT Post_id FROM Post WHERE Img = "post-example-1.jpg"), "AHAHA hai proprio ragione");
+INSERT INTO Comment(User_id, Post_id, Words, Day_posted, Time_posted) Values((SELECT User_id FROM User_table WHERE Username = "vdamianob"), (SELECT Post_id FROM Post WHERE Img = "post-example-1.jpg"), "AHAHA hai proprio ragione", "02/08/2022", "15:03");
 
-INSERT INTO Comment(User_id, Post_id, Words) Values((SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"), (SELECT Post_id FROM Post WHERE Img = "post-example-1.jpg"), "Finis vitae sed non amoris");
+INSERT INTO Comment(User_id, Post_id, Words, Day_posted, Time_posted) Values((SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"), (SELECT Post_id FROM Post WHERE Img = "post-example-1.jpg"), "Finis vitae sed non amoris", "02/08/2022", "15:03");
 
-INSERT INTO Comment(User_id, Post_id, Words) Values((SELECT User_id FROM User_table WHERE Username = "filusbrius"), (SELECT Post_id FROM Post WHERE Img = "post-example-2.jpg"), "Ex vita discedo, tanquam ex hospitio, non tanquam ex domo");
+INSERT INTO Comment(User_id, Post_id, Words, Day_posted, Time_posted) Values((SELECT User_id FROM User_table WHERE Username = "filusbrius"), (SELECT Post_id FROM Post WHERE Img = "post-example-2.jpg"), "Ex vita discedo, tanquam ex hospitio, non tanquam ex domo", "02/08/2022", "15:03");
 
 -- inserting likes into mi_piace table
 

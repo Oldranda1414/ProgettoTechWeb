@@ -40,20 +40,20 @@
 								<?php echo $elemento["Words"]?>
 							</p>
 							<div class="like-number text-end me-3">
-								<?php echo $post["NumberOfLikes"]?>
+								<?php echo $elemento["NumberOfLikes"]?>
 							</div>
 							<hr>
 							<h2 class="fs-5 text-center">
 								Commenti
 							</h2>
 							<div class="post-comment-section">
-								<?php foreach($post["Comments"] as $singleComment): ?>
+								<?php foreach($elemento["Comments"] as $singleComment): ?>
 								<div class="post-comment mt-2 mb-5">
 									<p class="text-muted">
 										<img src="<?php echo UPLOAD_DIR."profiles/".$singleComment["Profile_img"] ?>" class="modal-post-img-profile me-2"
 											alt="comment profile icon" height="40">
 										di <em class="nickname-label"><?php echo $singleComment["Username"] ?></em>, il <em
-											class="modal-comment-post-date"><?php echo $singleComment["Date_posted"] ?></em> alle <em
+											class="modal-comment-post-date"><?php echo $singleComment["Day_posted"] ?></em> alle <em
 											class="modal-comment-post-time"><?php echo $singleComment["Time_posted"] ?></em>
 									</p>
 									<p class="text-post-comment">

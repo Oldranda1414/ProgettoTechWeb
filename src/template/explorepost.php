@@ -1,6 +1,138 @@
 <?php if(isset($templateParams["titolo_pagina"])): ?>
     <h2><?php echo $templateParams["titolo_pagina"]; ?></h2>
 <?php endif;?>
+	<div class="container fascia-carosello col-12 mx-0">
+		<div class="text-center display-5 pt-1 text-1">I PIÙ VOTATI</div>
+		<div class="text-center lead text-1">Una raccolta dei migliori 3 post della giornata</div>
+		<div class="row justify-content-center my-3">
+			<div id="carouselPostCaptions" class="carousel slide carousel-fade col-11 col-lg-9 col-xl-6 text-center"
+				data-bs-ride="false">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselPostCaptions" data-bs-slide-to="0" class="active"
+						aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselPostCaptions" data-bs-slide-to="1"
+						aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselPostCaptions" data-bs-slide-to="2"
+						aria-label="Slide 3"></button>
+				</div>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="./upload/posts/post-example-7.jpg" class="d-block w-100 blurredbackground rounded-2"
+							alt="...">
+
+						<div class="carousel-caption d-md-block">
+							<div class="title-carousel-post text-truncate" data-bs-toggle="modal"
+								data-bs-target="#postModal">Una manna dal cielo</div>
+							<div class="row justify-content-center">
+								<div class="col">
+									<img src="./upload/profiles/profile-2.jpg" class="rounded-circle shadow-lg mr-3"
+										alt="profile icon" height="30">
+									<div class="nickname-carousel-post">vdamianob</div>
+								</div>
+							</div>
+							<p class="text-truncate">
+								Non pensavo di trovare un oggetto così importante, a questo punto della storia.
+							</p>
+							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal"
+								data-bs-target="#postModal">Apri post</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="./upload/posts/post-example-8.jpg" class="d-block w-100 blurredbackground rounded-2"
+							alt="...">
+						<div class="carousel-caption d-md-block">
+							<div class="title-carousel-post text-truncate">LAN su MOW AS2</div>
+							<div class="row justify-content-center">
+								<div class="col">
+									<img src="./upload/profiles/profile-1.jpg" class="rounded-circle shadow-lg mr-3"
+										alt="profile icon" height="30">
+									<div class="nickname-carousel-post">Caracas803</div>
+								</div>
+							</div>
+							<p class="text-truncate">Estenuante sessione di gioco in LAN col mio amigo. Inutile dire chi
+								abbia vinto.</p>
+							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal"
+								data-bs-target="#postModal">Apri post</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="./upload/posts/post-example-9.jpg" class="d-block w-100 blurredbackground rounded-2"
+							alt="...">
+						<div class="carousel-caption d-md-block">
+							<div class="title-carousel-post text-truncate">Imperivm GBR</div>
+							<div class="row justify-content-center">
+								<div class="col">
+									<img src="./upload/profiles/profile-2.jpg" class="rounded-circle shadow-lg mr-3"
+										alt="profile icon" height="30">
+									<div class="nickname-carousel-post">colluttorio.exe</div>
+								</div>
+							</div>
+							<p class="text-truncate">Così è come ho conquistato i Galli a fine partita. Dopo 120 words
+								troncare il testo del carosello con i "..."</p>
+							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal"
+								data-bs-target="#postModal">Apri post</div>
+						</div>
+					</div>
+				</div>
+
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselPostCaptions"
+					data-bs-slide="prev" data-mdb-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselPostCaptions"
+					data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+		
+	<div class="container mt-4">
+		<div class="row justify-content-center">
+			<div class="scheda-profilo mx-5 rounded col col-sm-12 col-lg-7 col-xl-6 justify-content-md-center">
+				<div class="row justify-content-center text-center mb-2">
+					<div class="col-xs-10 col-sm-9 col-lg-5 mb-2">
+
+				<form class="d-flex me-1 mw-50 navbar-right mt-3" role="search">
+					<input class="form-control me-2 bg-4" type="search" placeholder="Cerca..." aria-label="Search"> <!--ci sono problemi di accessibilità per la label-->
+					<button class="w-25 btn btn-sm bg-1" type="submit">
+						<img
+							src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/800px-Vector_search_icon.svg.png"
+							width="25" alt="search button icon">
+					</button>
+				</form>
+
+					</div>
+					<div class="col col-lg-4 col-sm-4 ">
+									<div class="form-check">
+				<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+					<label class="form-check-label" for="flexRadioDefault1">
+						Cerca per post
+					</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+					<label class="form-check-label" for="flexRadioDefault2">
+						Cerca tag
+					</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+					<label class="form-check-label" for="flexRadioDefault3">
+						Cerca utente
+					</label>
+			</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 <div class="container text-center my-3">
 	<div class="row">
         <?php foreach($templateParams["post"] as $elemento): ?>

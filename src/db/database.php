@@ -43,6 +43,24 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getLikes($postId){
+        $query = "SELECT COUNT(Post_id) AS NumberOfLikes FROM Like_table WHERE Post_id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $postId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]["NumberOfLikes"];
+    }
+
+    public function getComment($postId){
+        $query = "SELECT U.Username, U.Profile_img, C.Words, C.Day_posted, C.Time_posted FROM U.User_table JOIN C.Comment ON U.User_id = C.User_id WHERE C.Post_id";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $postId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getFullPosts($nPost){
         $result = $this->getPosts($nPost);
         foreach($result as &$post){
@@ -50,8 +68,14 @@ class DatabaseHelper{
             $post["Username"] = $user[0]["Username"];
             $post["UserProfilePic"] = $user[0]["Profile_img"];
             $post["Tag"] = $this->getTag($post["Tag_id"])[0]["Game_name"];
+            $post["NumberOfLikes"] = $this->getLikes($post["Post_id"]);
+            $post["Comments"] = $this->getComment($post["Post_id"]);
         }
         return $result;
     }
+
+    
+
+    
 }
 ?>

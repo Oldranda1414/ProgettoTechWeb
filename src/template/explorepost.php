@@ -40,37 +40,24 @@
 								<?php echo $elemento["Words"]?>
 							</p>
 							<div class="like-number text-end me-3">
-								13 Mi piace
+								<?php echo $post["NumberOfLikes"]?>
 							</div>
 							<hr>
 							<h2 class="fs-5 text-center">
 								Commenti
 							</h2>
 							<div class="post-comment-section">
+							<?php foreach($post["Comments"] as $singleComment): ?>
 								<div class="post-comment mt-2 mb-5">
 									<p class="text-muted">
-										<img src="./images/profiles/profile-3.jpg" class="modal-post-img-profile me-2"
+										<img src="<?php echo UPLOAD_DIR."profiles/".$singleComment["Profile_img"] ?>" class="modal-post-img-profile me-2"
 											alt="comment profile icon" height="40">
-										di <em class="nickname-label">Xut-polisH</em>, il <em
-											class="modal-comment-post-date">04.08.2023</em> alle <em
-											class="modal-comment-post-time">18:39</em>
+										di <em class="nickname-label"><?php echo $singleComment["Username"] ?></em>, il <em
+											class="modal-comment-post-date"><?php echo $singleComment["Date_posted"] ?></em> alle <em
+											class="modal-comment-post-time"><?php echo $singleComment["Time_posted"] ?></em>
 									</p>
 									<p class="text-post-comment">
-										Da rabbrividire. Mi chiedo come non abbiano potuto far nulla per ovviare a tale
-										inconveniente.
-									</p>
-								</div>
-								<div class="post-comment mt-2 mb-5">
-									<p class="text-muted">
-										<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2"
-											alt="comment profile icon" height="40">
-										di <em class="nickname-label">CortinaDPG</em>, il <em
-											class="modal-comment-post-date">04.08.2023</em> alle <em
-											class="modal-comment-post-time">20:45</em>
-									</p>
-									<p class="text-post-comment">
-										Ne sono allibito, penso che qualcuno ne debba pagare le conseguenze,
-										SUBITO!!!!!!!!!!!!!!! Massimo 5 commenti, poi "carica altri"...
+										<?php echo $singleComment["Words"] ?>
 									</p>
 								</div>
 							</div>

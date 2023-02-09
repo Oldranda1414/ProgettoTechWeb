@@ -26,6 +26,8 @@ CREATE TABLE db_life_and_games.Comment (
      User_id int not null,
      Post_id int not null,
      Words char(100) not null,
+     Day_posted char(10) not null,
+     Time_posted char(10) not null,
      constraint ID_Comment_ID primary key (Comment_id));
 
 CREATE TABLE db_life_and_games.Tag (

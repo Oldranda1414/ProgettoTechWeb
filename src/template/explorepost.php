@@ -40,7 +40,7 @@
 								<?php echo $elemento["Words"]?>
 							</p>
 							<div class="like-number text-end me-3">
-								<?php echo $elemento["NumberOfLikes"]?>
+								numero di mi piace: <?php echo $elemento["NumberOfLikes"]?>
 							</div>
 							<hr>
 							<h2 class="fs-5 text-center">

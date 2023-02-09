@@ -44,7 +44,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content bg-3">
 				<div class="modal-header">
-					<img src="./images/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="profile icon"
+					<img src="./upload/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="profile icon"
 						height="40">
 					<h1 class="modal-title fs-5" id="postModalLabel">Nuovo post</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -78,7 +78,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content bg-5">
 				<div class="modal-header">
-					<img src="./images/icons/bell.png" class="modal-post-img-profile me-2" alt="profile icon" height="40">
+					<img src="./upload/icons/bell.png" class="modal-post-img-profile me-2" alt="profile icon" height="40">
 					<h1 class="modal-title fs-5" id="postModalLabel">Notifiche</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>

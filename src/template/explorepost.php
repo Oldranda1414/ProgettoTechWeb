@@ -47,7 +47,7 @@
 								Commenti
 							</h2>
 							<div class="post-comment-section">
-							<?php foreach($post["Comments"] as $singleComment): ?>
+								<?php foreach($post["Comments"] as $singleComment): ?>
 								<div class="post-comment mt-2 mb-5">
 									<p class="text-muted">
 										<img src="<?php echo UPLOAD_DIR."profiles/".$singleComment["Profile_img"] ?>" class="modal-post-img-profile me-2"
@@ -60,6 +60,7 @@
 										<?php echo $singleComment["Words"] ?>
 									</p>
 								</div>
+								<?php endforeach; ?>
 							</div>
 							<form>
 								<div class="mb-3">

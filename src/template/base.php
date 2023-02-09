@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="home page">
-	<title>Life&Games - Home</title>
+	<title>Life&Games - <?php echo $templateParams["titolo"]?></title>
 	<link href="./bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/css/bootstrap.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="./css/style.css">
@@ -14,7 +14,7 @@
 <body class="bg-1">
 	<nav class="navbar navbar-expand-lg bg-2">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="./home.html">
+			<a class="navbar-brand" href="index.php">
 				<img src= "<?php echo UPLOAD_DIR."gamepad_logo.png"?>" alt="Logo" width="38" height="24"
 					class="d-inline-block align-text-top">
 				Life&Games
@@ -29,11 +29,10 @@
 			</div>
 			<div class="collapse navbar-collapse order-3 order-lg-2" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link active" aria-current="page" href="home.html">Home</a>
-					<a class="nav-link" href="explore.html">Esplora</a>
-					<a class="nav-link" href="myprofile.html">Mio profilo</a>
-					<a class="nav-link" href="settings.html">Impostazioni</a>
-					<a class="nav-link" href="index.html">Esci</a>
+					<a class="nav-link active" aria-current="page" href="index.php">Home</a>
+					<a class="nav-link" href="explore.php">Esplora</a>
+					<a class="nav-link" href="myprofile.php">Mio profilo</a>
+					<a class="nav-link" href="login.php">Esci</a>
 					
 				</div>
 			</div>

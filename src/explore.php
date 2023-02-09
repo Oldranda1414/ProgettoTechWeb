@@ -2,7 +2,7 @@
 require_once 'bootstrap.php';
 
 //Base Template
-$templateParams["titolo"] = "Home";
+$templateParams["titolo"] = "Esplora";
 $templateParams["nome"] = "home.php";
 $templateParams["post"] = $dbh->getPosts(6);
 foreach($templateParams["post"] as &$post){

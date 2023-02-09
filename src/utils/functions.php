@@ -58,7 +58,7 @@ function uploadImage($path, $image){
 }
 
 function isUserLoggedIn(){
-    return !empty($_SESSION['idautore']);
+    return !empty($_SESSION['User_id']);
 }
 
 function registerLoggedUser($user){

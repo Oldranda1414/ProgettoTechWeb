@@ -14,7 +14,7 @@
 <body class="bg-1">
 	<nav class="navbar navbar-expand-lg bg-2">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="./home.html">
+			<a class="navbar-brand" href="./index.php">
 				<img src="<?php echo UPLOAD_DIR."gamepad_logo.png"?>" alt="Logo" width="38" height="24"
 					class="d-inline-block align-text-top">
 				Life&Games

@@ -31,5 +31,5 @@ else{
     $templateParams["titolo"] = "Login";
     $templateParams["nome"] = "login.php";
 }
-require 'template/base.php';
+require 'template/login.php';
 ?>

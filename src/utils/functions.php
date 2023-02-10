@@ -59,31 +59,34 @@ function uploadImage($path, $image){
 
 //checks if the user is logged in, through session or cookies. returns true if yes, false otherwise
 function isUserLoggedIn(){
-    if(empty($_SESSION['User_id'])){
-        if(isset($_COOKIE["Username"]) && isset($_COOKIE["User_id"])){
-            registerLoggedUser(array("Username" => $_COOKIE["Username"], "User_id" => $_COOKIE["User_id"]));
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-    else{
+    if(isset($_SESSION['User_id']) && isset($_SESSION['Username'])){
         return true;
     }
+    else if(isset($_COOKIE["Username"]) && isset($_COOKIE["User_id"])){
+        registerLoggedUser(array("Username" => $_COOKIE["Username"], "User_id" => $_COOKIE["User_id"]));
+        return true;
+    }
+    else{
+        return false;
+    }
 }
+
 
 function registerLoggedUser($user){
     $_SESSION["User_id"] = $user["User_id"];
     $_SESSION["Username"] = $user["Username"];
 }
 
+//TODO solve the fact that cookies do not get deleted instantly
 function logoutUser(){
     if(isUserLoggedIn()){
         unset($_SESSION["User_id"]);
         unset($_SESSION["Username"]);
-        setcookie("Username", "", time()-3600, "/");
-        setcookie("User_id", "", time()-3600, "/");
+        if(isset($_COOKIE["Username"]) && isset($_COOKIE["User_id"])){
+            setcookie("Username", "", time()-3600, "/");
+            setcookie("User_id", "", time()-3600, "/");
+            echo "tried to desrtoy cookies";
+        }  
     }
 }
 ?>

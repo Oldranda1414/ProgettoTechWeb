@@ -80,11 +80,19 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
-
     }
 
-    
-
-    
+    public function getFullMostLikedPosts($day, $nPost){
+        $result = $this->getMostLikePosts($day, $nPost);
+        foreach($result as &$post){
+            $user = $this->getUser($post["User_id"]);
+            $post["Username"] = $user[0]["Username"];
+            $post["UserProfilePic"] = $user[0]["Profile_img"];
+            $post["Tag"] = $this->getTag($post["Tag_id"])[0]["Game_name"];
+            $post["NumberOfLikes"] = $this->getLikes($post["Post_id"]);
+            $post["Comments"] = $this->getComment($post["Post_id"]);
+        }
+        return $result;
+    }
 }
 ?>

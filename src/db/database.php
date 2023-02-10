@@ -73,6 +73,15 @@ class DatabaseHelper{
         }
         return $result;
     }
+	
+    public function getMostLikePosts($day, $nPost){
+        $stmt = $this->db->prepare("SELECT COUNT(L.User_id) AS Likes, P.Post_id, Img, Words, Day_posted, Time_posted, Tag_id, P.User_id FROM like_table AS L JOIN post AS P ON L.Post_id=P.Post_id WHERE Day_posted = ? GROUP BY Post_id ORDER BY Likes DESC LIMIT ?");
+        $stmt->bind_param('si', $day, $nPost);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+
+    }
 
     
 

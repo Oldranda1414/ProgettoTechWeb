@@ -4,9 +4,8 @@
 create SCHEMA IF NOT EXISTS db_life_and_games;
 use db_life_and_games;
 
--- DBSpace Section
--- _______________
-
+CREATE USER 'sec_user'@'localhost' IDENTIFIED BY '5MsJ6E7vcgTKuK4ddJsy4wpa';
+GRANT SELECT, INSERT, UPDATE ON `db_life_and_games`.* TO 'sec_user'@'localhost';
 
 -- Tables Section
 -- _____________ 
@@ -49,9 +48,15 @@ CREATE TABLE db_life_and_games.User_table (
      User_id int not null auto_increment,
      Username char(30) not null,
      E_mail char(30) not null,
-     Passwrd char(30) not null,
+     Passwrd char(128) not null,
      Profile_img char(100),
+     Salt char(128),
      constraint ID_USER_ID primary key (User_id));
+
+CREATE TABLE db_life_and_games.Login_attempts (
+  User_id INT(11) NOT NULL,
+  Time_login VARCHAR(30) NOT NULL 
+)
 
 
 -- Constraints Section

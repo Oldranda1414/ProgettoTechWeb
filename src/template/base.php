@@ -10,7 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="./css/style.css">
 </head>
-
+	
 <body class="bg-1">
 	<nav class="navbar navbar-expand-lg bg-2">
 		<div class="container-fluid">
@@ -129,15 +129,13 @@
 			</div>
 		</div>
 	</div>
-
 	<main>
 		<?php
     		if(isset($templateParams["nome"])){
         		require($templateParams["nome"]);
 			}	
     	?>
-	</main>
-
+	</main>	
 	<?php
 		if(isset($templateParams["js"])):
 			foreach($templateParams["js"] as $script):

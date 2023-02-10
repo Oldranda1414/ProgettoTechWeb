@@ -67,6 +67,12 @@ INSERT INTO Like_table(Post_id, User_id) VALUES ((SELECT User_id FROM User_table
 
 INSERT INTO Like_table(Post_id, User_id) VALUES ((SELECT User_id FROM User_table WHERE Username = "vdamianob"), (SELECT Post_id FROM Post WHERE Img = "post-example-2.jpg"));
 
+-- INSERT INTO Like_table(Post_id, User_id) VALUES ((SELECT User_id FROM User_table WHERE Username = "vdamianob"), (SELECT Post_id FROM Post WHERE Img = "post-example-7.jpg"));
+
+INSERT INTO Like_table(Post_id, User_id) VALUES ((SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"), (SELECT Post_id FROM Post WHERE Img = "post-example-7.jpg"));
+
+INSERT INTO Like_table(Post_id, User_id) VALUES ((SELECT User_id FROM User_table WHERE Username = "vdamianob"), (SELECT Post_id FROM Post WHERE Img = "post-example-8.jpg"));
+
 -- inserting follower into segue table
 
 INSERT INTO Follow(Follower_User_id, Followed_User_id) VALUES((SELECT User_id FROM User_table WHERE Username = "vdamianob"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"));

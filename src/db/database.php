@@ -15,7 +15,6 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
-
     }
 
     public function getUser($user_id){

@@ -33,7 +33,7 @@
 					<a class="nav-link active" aria-current="page" href="index.php">Home</a>
 					<a class="nav-link" href="explore.php">Esplora</a>
 					<a class="nav-link" href="myprofile.php">Mio profilo</a>
-					<a class="nav-link" href="login.php">Esci</a>
+					<a class="nav-link" href="exit.php">Esci</a>
 					
 				</div>
 			</div>

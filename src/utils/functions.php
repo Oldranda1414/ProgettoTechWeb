@@ -65,4 +65,11 @@ function registerLoggedUser($user){
     $_SESSION["User_id"] = $user["User_id"];
     $_SESSION["Username"] = $user["Username"];
 }
+
+function logoutUser(){
+    if(isUserLoggedIn()){
+        unset($_SESSION["User_id"]);
+        unset($_SESSION["Username"]);
+    }
+}
 ?>

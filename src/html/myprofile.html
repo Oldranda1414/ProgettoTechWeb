@@ -56,7 +56,7 @@
 						<div class="profile-schede-title">Informazioni profilo</div>
 						<ul class="list-group">
 						  <li class="list-group-item  bg-4">Cambia immagine profilo</li>
-						  <li class="list-group-item  bg-4">Cambia password</li>
+						  <li class="list-group-item  bg-4" data-bs-toggle="modal" data-bs-target="#changePasswordModal">Cambia password</li>
 						  <li class="list-group-item  bg-4">I miei mi piace</li>
 						  <li class="list-group-item  bg-4">I miei commenti</li>
 						  <li class="list-group-item  bg-4">Le persone che seguo</li>
@@ -155,6 +155,37 @@
 					<div class="card-footer text-muted small font-italic">
 						14.11.2023
 					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content bg-3">
+				<div class="modal-header">
+					<img src="./images/icons/key.png" class="me-2" alt="profile icon"
+						height="40">
+					<h1 class="modal-title fs-5" id="postModalLabel">Cambia Password</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<label for="message-text" class="col-form-label">Inserisci la password attuale:</label>
+							<input class="form-control me-2 bg-4  mb-2" type="password" placeholder="Password corrente" aria-label="Password">
+							<label for="message-text" class="col-form-label">Inserisci la nuova password scelta:</label>
+							<input class="form-control me-2 bg-4  mb-2" type="password" placeholder="Nuova password" aria-label="Password">
+							<label for="message-text" class="col-form-label">Digitare nuovamente la nuova password:</label>
+							<input class="form-control me-2 bg-4  mb-2" type="password" placeholder="Nuova password" aria-label="Password">
+						</div>
+					</form>
+
+					
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Mi piace</button> -->
+					<button type="button" class="btn btn-info">Conferma</button>
 				</div>
 			</div>
 		</div>

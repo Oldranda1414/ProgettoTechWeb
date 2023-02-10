@@ -1,6 +1,7 @@
 <?php if(isset($templateParams["titolo_pagina"])): ?>
     <h2><?php echo $templateParams["titolo_pagina"]; ?></h2>
 <?php endif;?>
+<?php if(isset($templateParams["mostLikedPosts"])):?>
 	<div class="container fascia-carosello col-12 mx-0">
 		<div class="text-center display-5 pt-1 text-1">I PIÙ VOTATI</div>
 		<div class="text-center lead text-1">Una raccolta dei migliori 3 post della giornata</div>
@@ -15,66 +16,41 @@
 					<button type="button" data-bs-target="#carouselPostCaptions" data-bs-slide-to="2"
 						aria-label="Slide 3"></button>
 				</div>
+				
 				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img src="./upload/posts/post-example-7.jpg" class="d-block w-100 blurredbackground rounded-2"
-							alt="...">
+					
+					<?php
+					$activeAdded = false;  
+					foreach ($templateParams["mostLikedPosts"] as $elemento) :
+					?>
+					<div class="carousel-item <?php if (!$activeAdded) {
+						echo "Active";
+						$activeAdded = true;
+					}?>">
+						<img src="<?php echo UPLOAD_DIR."posts/".$elemento["Img"] ?>" class="d-block w-100 blurredbackground rounded-2"
+							alt="Post Image">
 
 						<div class="carousel-caption d-md-block">
 							<div class="title-carousel-post text-truncate" data-bs-toggle="modal"
-								data-bs-target="#postModal">Una manna dal cielo</div>
+								data-bs-target="#postModal"><?php echo $elemento["Tag"]?></div>
 							<div class="row justify-content-center">
 								<div class="col">
-									<img src="./upload/profiles/profile-2.jpg" class="rounded-circle shadow-lg mr-3"
+									<img src="<?php echo UPLOAD_DIR."profiles/".$elemento["UserProfilePic"]; ?>" class="rounded-circle shadow-lg mr-3"
 										alt="profile icon" height="30">
-									<div class="nickname-carousel-post">vdamianob</div>
+									<div class="nickname-carousel-post"><?php echo $elemento["Username"] ?></div>
 								</div>
 							</div>
 							<p class="text-truncate">
-								Non pensavo di trovare un oggetto così importante, a questo punto della storia.
+								<?php echo $elemento["Words"]?>
 							</p>
 							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal"
 								data-bs-target="#postModal">Apri post</div>
 						</div>
 					</div>
-					<div class="carousel-item">
-						<img src="./upload/posts/post-example-8.jpg" class="d-block w-100 blurredbackground rounded-2"
-							alt="...">
-						<div class="carousel-caption d-md-block">
-							<div class="title-carousel-post text-truncate">LAN su MOW AS2</div>
-							<div class="row justify-content-center">
-								<div class="col">
-									<img src="./upload/profiles/profile-1.jpg" class="rounded-circle shadow-lg mr-3"
-										alt="profile icon" height="30">
-									<div class="nickname-carousel-post">Caracas803</div>
-								</div>
-							</div>
-							<p class="text-truncate">Estenuante sessione di gioco in LAN col mio amigo. Inutile dire chi
-								abbia vinto.</p>
-							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal"
-								data-bs-target="#postModal">Apri post</div>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<img src="./upload/posts/post-example-9.jpg" class="d-block w-100 blurredbackground rounded-2"
-							alt="...">
-						<div class="carousel-caption d-md-block">
-							<div class="title-carousel-post text-truncate">Imperivm GBR</div>
-							<div class="row justify-content-center">
-								<div class="col">
-									<img src="./upload/profiles/profile-2.jpg" class="rounded-circle shadow-lg mr-3"
-										alt="profile icon" height="30">
-									<div class="nickname-carousel-post">colluttorio.exe</div>
-								</div>
-							</div>
-							<p class="text-truncate">Così è come ho conquistato i Galli a fine partita. Dopo 120 words
-								troncare il testo del carosello con i "..."</p>
-							<div class="open-post d-none d-sm-block d-md-block" data-bs-toggle="modal"
-								data-bs-target="#postModal">Apri post</div>
-						</div>
-					</div>
+					<?php endforeach ?>
+					
 				</div>
-
+				
 				<button class="carousel-control-prev" type="button" data-bs-target="#carouselPostCaptions"
 					data-bs-slide="prev" data-mdb-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -88,7 +64,7 @@
 			</div>
 		</div>
 	</div>
-
+<?php endif ?>
 		
 	<div class="container mt-4">
 		<div class="row justify-content-center">

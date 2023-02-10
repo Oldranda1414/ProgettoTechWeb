@@ -24,7 +24,7 @@
 					foreach ($templateParams["mostLikedPosts"] as $elemento) :
 					?>
 					<div class="carousel-item <?php if (!$activeAdded) {
-						echo "Active";
+						echo "active";
 						$activeAdded = true;
 					}?>">
 						<img src="<?php echo UPLOAD_DIR."posts/".$elemento["Img"] ?>" class="d-block w-100 blurredbackground rounded-2"

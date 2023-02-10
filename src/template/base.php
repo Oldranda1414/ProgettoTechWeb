@@ -1,3 +1,6 @@
+<?php if($templateParams["nome"] != "login.php") : ?>
+
+
 <!doctype html>
 <html lang="it">
 
@@ -149,4 +152,12 @@
 
 </html>
 
+<?php else : ?>
 
+	<?php
+    		if(isset($templateParams["nome"])){
+        		require($templateParams["nome"]);
+			}	
+    ?>
+
+<?php endif ?>

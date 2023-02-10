@@ -2,6 +2,7 @@
     require_once 'bootstrap.php';
 
     logoutUser();
-
-    require "login.php";
+    $templateParams["titolo"] = "Login";
+    $templateParams["nome"] = "login.php";
+    header('Location:login.php');
 ?>

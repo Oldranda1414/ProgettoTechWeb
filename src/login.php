@@ -20,7 +20,6 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
 
     
 }
-//TODO check if user is logged in and load the home page accordigly
 
 if(isUserLoggedIn()){
     $templateParams["titolo"] = "Home";
@@ -31,5 +30,5 @@ else{
     $templateParams["titolo"] = "Login";
     $templateParams["nome"] = "login.php";
 }
-require 'template/login.php';
+require 'template/base.php';
 ?>

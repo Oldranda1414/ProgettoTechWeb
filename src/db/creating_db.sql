@@ -4,8 +4,8 @@
 create SCHEMA IF NOT EXISTS db_life_and_games;
 use db_life_and_games;
 
-CREATE USER 'sec_user'@'localhost' IDENTIFIED BY '5MsJ6E7vcgTKuK4ddJsy4wpa';
-GRANT SELECT, INSERT, UPDATE ON `db_life_and_games`.* TO 'sec_user'@'localhost';
+CREATE USER 'admin'@'localhost' IDENTIFIED BY '5MsJ6E7vcgTKuK4ddJsy4wpa';
+GRANT SELECT, INSERT, UPDATE ON `db_life_and_games`.* TO 'admin'@'localhost';
 
 -- Tables Section
 -- _____________ 
@@ -54,9 +54,8 @@ CREATE TABLE db_life_and_games.User_table (
      constraint ID_USER_ID primary key (User_id));
 
 CREATE TABLE db_life_and_games.Login_attempts (
-  User_id INT(11) NOT NULL,
-  Time_login VARCHAR(30) NOT NULL 
-)
+  User_id int(11) not null,
+  Time_login char(30) not null );
 
 
 -- Constraints Section

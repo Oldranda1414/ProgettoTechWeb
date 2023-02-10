@@ -202,3 +202,12 @@ min-height: 500px;
     padding-left: 5px;
     padding-bottom: 1px;
 }
+
+.scheda-profilo .list-group-item {
+	cursor: pointer;
+}
+
+.scheda-profilo .list-group-item:hover {
+	cursor: pointer;
+	background-color: #ac7e7e;
+}

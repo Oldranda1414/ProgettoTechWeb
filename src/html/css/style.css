@@ -211,3 +211,11 @@ min-height: 500px;
 	cursor: pointer;
 	background-color: #ac7e7e;
 }
+
+.miniatura-immagine-post {
+	max-width: 100px;
+	height: 60px;
+	object-fit: cover;
+	float: left;
+	margin-right: 5px;
+}

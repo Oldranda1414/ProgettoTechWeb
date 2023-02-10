@@ -10,9 +10,16 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
     }
     else{
         registerLoggedUser($login_result[0]);
+        
+        if(isset($_POST["rememberMeCheckbox"])){
+            $daysToExpire = 1;
+            setcookie("Username", $login_result[0]["Username"], time() + (86400 * $daysToExpire), "/");
+            setcookie("User_id", $login_result[0]["User_id"], time() + (86400 * $daysToExpire), "/");
+        }
     }
-}
 
+    
+}
 //TODO check if user is logged in and load the home page accordigly
 
 if(isUserLoggedIn()){

@@ -14,7 +14,7 @@
 
     <div class="checkbox mb-3">
         <label for="rememberMeCheckbox">
-            <input type="checkbox" value="remember-me" id="rememberMeCheckbox"> Ricordami
+            <input type="checkbox" value="remember-me" id="rememberMeCheckbox" name="rememberMeCheckbox"> Ricordami
         </label>
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Accedi</button>

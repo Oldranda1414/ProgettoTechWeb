@@ -57,8 +57,20 @@ function uploadImage($path, $image){
     return array($result, $msg);
 }
 
+//checks if the user is logged in, through session or cookies. returns true if yes, false otherwise
 function isUserLoggedIn(){
-    return !empty($_SESSION['User_id']);
+    if(empty($_SESSION['User_id'])){
+        if(isset($_COOKIE["Username"]) && isset($_COOKIE["User_id"])){
+            registerLoggedUser(array("Username" => $_COOKIE["Username"], "User_id" => $_COOKIE["User_id"]));
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    else{
+        return true;
+    }
 }
 
 function registerLoggedUser($user){
@@ -70,6 +82,8 @@ function logoutUser(){
     if(isUserLoggedIn()){
         unset($_SESSION["User_id"]);
         unset($_SESSION["Username"]);
+        setcookie("Username", "", time()-3600, "/");
+        setcookie("User_id", "", time()-3600, "/");
     }
 }
 ?>

@@ -230,3 +230,19 @@ min-height: 500px;
 	float: left;
 	margin-right: 5px;
 }
+
+.follow-list-icon {
+	width: 100px;
+	height: 100px;
+    object-fit: cover;
+}
+
+.username-link:hover {
+	color: rgb(15, 126, 103);
+	font-weight: 700;
+}
+
+a {
+	color: #212529;
+	text-decoration: none; /* no underline */
+}

@@ -143,7 +143,7 @@ min-height: 500px;
 
 .like-button:hover {
 	color: black;
-	background-color: rgb(255 38 38);
+	background-color: rgb(222 82 82);
 
 }
 
@@ -155,6 +155,17 @@ min-height: 500px;
 .post-button:hover {
 	color: black;
 	background-color: #147efe;
+}
+
+.upload-button {
+	max-width: 160px;
+	color: black;
+	background-color: rgb(212, 106, 106);
+}
+
+.upload-button:hover {
+	color: black;
+	background-color: rgb(24, 198, 162);
 }
 
 .fascia-profilo {

@@ -2,33 +2,28 @@
 require_once 'bootstrap.php';
 
 if(isset($_POST["username"]) && isset($_POST["password"])){
-    
-    $login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
-    if(count($login_result)==0){
-        //Login fallito
-        $templateParams["errorelogin"] = "Errore! Controllare username o password!";
+    if($dbh->secureLoginUser($_POST["username"], $_POST["password"])){
+        //Login riuscito
+        if(isset($_POST["rememberMeCheckbox"])){
+            setCookiesWithSession();
+        }
+        
     }
     else{
-        registerLoggedUser($login_result[0]);
-        
-        if(isset($_POST["rememberMeCheckbox"])){
-            $daysToExpire = 1;
-            setcookie("Username", $login_result[0]["Username"], time() + (86400 * $daysToExpire), "/");
-            setcookie("User_id", $login_result[0]["User_id"], time() + (86400 * $daysToExpire), "/");
-        }
+        //login non riuscito
+        //$templateParams["errorelogin"] = "Errore! Controllare username o password!";
     }
-
-    
 }
 
-if(isUserLoggedIn()){
+if(isUserLoggedIn($dbh)){
     $templateParams["titolo"] = "Home";
     $templateParams["nome"] = "home.php";
-    $templateParams["post"] = $dbh->getFullPosts(3);
+    $templateParams["post"] = $dbh->getFullPosts(6);
 }
 else{
     $templateParams["titolo"] = "Login";
     $templateParams["nome"] = "login.php";
+    $templateParams["js"] = array("sha512.js", "forms.js");
 }
 require 'template/base.php';
 ?>

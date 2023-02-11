@@ -4,6 +4,8 @@
 create SCHEMA IF NOT EXISTS db_life_and_games;
 use db_life_and_games;
 
+DROP USER 'admin'@'localhost';
+FLUSH PRIVILEGES;
 CREATE USER 'admin'@'localhost' IDENTIFIED BY '5MsJ6E7vcgTKuK4ddJsy4wpa';
 GRANT SELECT, INSERT, UPDATE ON `db_life_and_games`.* TO 'admin'@'localhost';
 
@@ -50,7 +52,7 @@ CREATE TABLE db_life_and_games.User_table (
      E_mail char(30) not null,
      Passwrd char(128) not null,
      Profile_img char(100),
-     Salt char(128),
+     Salt char(128) not null,
      constraint ID_USER_ID primary key (User_id));
 
 CREATE TABLE db_life_and_games.Login_attempts (

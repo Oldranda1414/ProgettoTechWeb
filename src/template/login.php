@@ -30,7 +30,7 @@
             </div>
             <div class="form-floating">
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                    name="password">
+                    name="password" onclick="formhash(this.form, this.form.password);">
                 <label for="floatingPassword">Password</label>
             </div>
 

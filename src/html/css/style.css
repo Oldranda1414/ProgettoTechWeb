@@ -138,12 +138,12 @@ min-height: 500px;
 
 .like-button {
 	color: black;
-	background-color: rgb(222 82 82);
+	background-color: rgb(222, 82, 82);
 }
 
 .like-button:hover {
 	color: black;
-	background-color: rgb(222 82 82);
+	background-color: rgb(196, 40, 40);
 
 }
 
@@ -166,6 +166,20 @@ min-height: 500px;
 .upload-button:hover {
 	color: black;
 	background-color: rgb(24, 198, 162);
+}
+
+.liked-button {
+	color: black;
+	background-color: rgb(222, 82, 82);
+}
+
+.liked-button:hover {
+	color: white;
+	background-color: rgb(135, 71, 71);
+}
+
+.liked-button:hover:before {
+	content: "✗ ";
 }
 
 .fascia-profilo {
@@ -245,4 +259,8 @@ min-height: 500px;
 a {
 	color: #212529;
 	text-decoration: none; /* no underline */
+}
+
+.nickname-label {
+	font-style: italic;
 }

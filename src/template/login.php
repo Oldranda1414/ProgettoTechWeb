@@ -41,7 +41,7 @@
                 </label>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Accedi</button>
-            <p class="mt-3 mb-2 text-muted">Oppure <a href="register.html">registrati ora</a>.</p>
+            <p class="mt-3 mb-2 text-muted">Oppure <a href="register.php">registrati ora</a>.</p>
         </form>
     </main>
 

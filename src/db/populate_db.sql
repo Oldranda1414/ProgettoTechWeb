@@ -4,11 +4,12 @@ use db_life_and_games;
 
 -- inserting users into user_table
 
-INSERT INTO User_table(Username, E_mail, Passwrd, Profile_img) Values("leonardo.randacio", "leTime_postednd@amail.com", "tonnoConForza", "profile-1.jpg");
-
-INSERT INTO User_table(Username, E_mail, Passwrd, Profile_img)Values("vdamianob", "vdamianb@amail.com", "12345", "profile-2.jpg");
-
-INSERT INTO User_table(Username, E_mail, Passwrd, Profile_img) Values("filusbrius", "filippo@amail.com", "ioSonoFilippo", "profile-3.jpg");
+-- password is "tonnoConForza"
+INSERT INTO User_table(Username, E_mail, Passwrd, Profile_img, Salt) Values("leonardo.randacio", "leTime_postednd@amail.com", "0f288564280541542c47da174037af1aef9aaf3b38046fcdb32d3b8e1dad58e9b4f0f91530f3fc33e893f2b26a970bb496533d4a6161194fe0cd469dacbc69a4", "profile-1.jpg", "c77b9a5b198ae0ef00973614454a0a6f3b9f2a9868948719c8727e29c09b0f4f8e480b49e4cb58908cd61b48dd725c6229e7491c93025f61dae768ecdd876fb7");
+-- password is "12345"
+INSERT INTO User_table(Username, E_mail, Passwrd, Profile_img, Salt) Values("vdamianob", "vdamianb@amail.com", "a7bddfb79be9f53ff4b81ec410fddcea6cd7cfd09cab0b543b990043f8dfdd901c8062975c8579233adf249cc7f4f0e430b75a3bfcd2a8677697e0b2fdbdcf23", "profile-2.jpg", "555b07c4a054e9b8362b3655bcd770207022c28616a0707d7d662a2929d320de5efb64d77aa3eb54b01428f8e6ca3f87123b64f74a5fbb4f6e0d8e69b83248a6"); 
+-- password is "ioSonoFilippo"
+INSERT INTO User_table(Username, E_mail, Passwrd, Profile_img, Salt) Values("filusbrius", "filippo@amail.com", "d2adeb82802938a2e111f30654277ed86a91c0627abeac9e3bfe60b9e95dfd133f032b58383841d1f0de8f441ce44965407b8daf43e6f00759b3e1f1b52752c9", "profile-3.jpg", "fe84c274287112ae88b601d447ee3c159671f6216ddc2f6bff7339eff84194ae9f527d5b6506a9ebf8df350d17a5bdee67b48545dab0b02256bb67a3b5c4e1c5");
 
 -- inserting tags into Tag table
 

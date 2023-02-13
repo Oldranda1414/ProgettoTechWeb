@@ -23,7 +23,7 @@ if(isUserLoggedIn($dbh)){
 else{
     $templateParams["titolo"] = "Login";
     $templateParams["nome"] = "login.php";
-    $templateParams["js"] = array("sha512.js", "forms.js");
+    $templateParams["js"] = array("js/sha512.js", "js/forms.js");
 }
 require 'template/base.php';
 ?>

@@ -30,7 +30,7 @@
             </div>
             <div class="form-floating">
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                    name="password" onclick="formhash(this.form, this.form.password);">
+                    name="password" >
                 <label for="floatingPassword">Password</label>
             </div>
 
@@ -40,7 +40,7 @@
                     Ricordami
                 </label>
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Accedi</button>
+            <button class="w-100 btn btn-lg btn-primary" type="submit" onclick="formhash(this.form, this.form.password);">Accedi</button>
             <p class="mt-3 mb-2 text-muted">Oppure <a href="register.php">registrati ora</a>.</p>
         </form>
     </main>

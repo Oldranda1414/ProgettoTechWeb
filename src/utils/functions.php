@@ -63,9 +63,9 @@ function uploadImage($path, $image)
 function isUserLoggedIn($dbh)
 {
     if (isset($_SESSION['user_id']) && isset($_SESSION['login_string'])) {
-        return $dbh->checkLogin($_SESSION['user_id'], $_SESSION['login_string']);
+        return $dbh->login_check($_SESSION['user_id'], $_SESSION['login_string'], $_SERVER['HTTP_USER_AGENT']);
     } else if (isset($_COOKIE["user_id"]) && isset($_COOKIE["login_string"])) {
-        if ($dbh->checkLogin($_COOKIE['user_id'], $_COOKIE['login_string'])) {
+        if ($dbh->login_check($_COOKIE['user_id'], $_COOKIE['login_string'], $_SERVER['HTTP_USER_AGENT'])) {
             setSessionWithCookies();
             return true;
         }

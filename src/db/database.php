@@ -118,6 +118,7 @@ class DatabaseHelper
          if ($stmt->num_rows == 1) { // se l'utente esiste
             // verifichiamo che non sia disabilitato in seguito all'esecuzione di troppi tentativi di accesso errati.
             if ($this->checkbrute($user_id) == true) {
+               echo "account disabilitato per troppi tentativi";
                // Account disabilitato
                // Invia un e-mail all'utente avvisandolo che il suo account è stato disabilitato.
                return false;
@@ -134,6 +135,7 @@ class DatabaseHelper
                   // Login eseguito con successo.
                   return true;
                } else {
+                  echo "password non corretta";
                   // Password incorretta.
                   // Registriamo il tentativo fallito nel database.
                   $now = time();
@@ -143,6 +145,7 @@ class DatabaseHelper
             }
          } else {
             // L'utente inserito non esiste.
+            echo "lutente inserito non esiste";
             return false;
          }
       }
@@ -170,7 +173,7 @@ class DatabaseHelper
    public function login_check($user_id, $login_string, $user_browser)
    {
       // Verifica che tutte le variabili di sessione siano impostate correttamente
-      if ($stmt = $this->db->prepare("SELECT Passwrd FROM User_table WHERE id = ? LIMIT 1")) {
+      if ($stmt = $this->db->prepare("SELECT Passwrd FROM User_table WHERE User_id = ? LIMIT 1")) {
          $stmt->bind_param('i', $user_id); // esegue il bind del parametro '$user_id'.
          $stmt->execute(); // Esegue la query creata.
          $stmt->store_result();

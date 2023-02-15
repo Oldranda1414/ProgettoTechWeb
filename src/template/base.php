@@ -1,4 +1,4 @@
-<?php if ($templateParams["nome"] != "login.php" || $templateParams["nome"] != "register.php") : ?>
+<?php if ($templateParams["nome"] != "login.php" && $templateParams["nome"] != "register.php") : ?>
 
 
 	<!doctype html>

@@ -3,7 +3,7 @@ require_once 'bootstrap.php';
 
 if(isUserLoggedIn($dbh)){
     $templateParams["titolo"] = "Esplora";
-    $templateParams["nome"] = "explorepost.php";
+    $templateParams["nome"] = "explore.php";
     $templateParams["post"] = $dbh->getFullPosts(8);
     //TODO update date with todays date
     $templateParams["mostLikedPosts"] = $dbh->getFullMostLikedPosts("02/08/2022", 3);

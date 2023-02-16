@@ -62,8 +62,8 @@
 										<p class="text-muted">
 											<img src="<?php echo UPLOAD_DIR . "profiles/" . $singleComment["Profile_img"] ?>"
 												class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
-											di <a href="profile.php?Username=<?php echo $singleComment["Username"] ?>"><em class="nickname-label">
-												<?php echo $singleComment["Username"] ?></em></a>, il <em class="modal-comment-post-date">
+											di <a href="profile.php?Username=<?php echo $singleComment["Username"] ?>"><em class="nickname-label"><?php echo $singleComment["Username"] ?></em></a>, 
+												il <em class="modal-comment-post-date">
 												<?php echo $singleComment["Day_posted"] ?>
 											</em> alle <em class="modal-comment-post-time">
 												<?php echo $singleComment["Time_posted"] ?>

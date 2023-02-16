@@ -34,13 +34,16 @@
 								<div class="title-carousel-post text-truncate" data-bs-toggle="modal"
 									data-bs-target="#post<?php echo $elemento["Post_id"] ?>ModalCarousel"><?php echo $elemento["Tag"] ?></div>
 								<div class="row justify-content-center">
-									<div class="col">
-										<img src="<?php echo UPLOAD_DIR . "profiles/" . $elemento["UserProfilePic"]; ?>"
-											class="rounded-circle shadow-lg mr-3" alt="profile icon" height="30">
-										<div class="nickname-carousel-post">
-											<?php echo $elemento["Username"] ?>
+									<a href="profile.php?Username=<?php echo $elemento["Username"] ?>">
+										<div class="col">
+											<img src="<?php echo UPLOAD_DIR . "profiles/" . $elemento["UserProfilePic"]; ?>"
+												class="rounded-circle shadow-lg mr-3" alt="profile icon" height="30">
+											<div class="nickname-carousel-post">
+												<?php echo $elemento["Username"] ?>
+											</div>
 										</div>
-									</div>
+									</a>
+									
 								</div>
 								<p class="text-truncate">
 									<?php echo $elemento["Words"] ?>
@@ -78,9 +81,8 @@
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-						<p class="text-muted">di <em class="nickname-label">
-								<?php echo $elemento["Username"] ?>
-							</em>, il <em class="modal-post-date">
+						<p class="text-muted">di <a href="profile.php?Username=<?php echo $elemento["Username"]?>"><em class="nickname-label">
+									<?php echo $elemento["Username"] ?></em></a>, il <em class="modal-post-date">
 								<?php echo $elemento["Day_posted"] ?>
 							</em> alle <em class="modal-post-time">
 								<?php echo $elemento["Time_posted"] ?>
@@ -103,9 +105,8 @@
 									<p class="text-muted">
 										<img src="<?php echo UPLOAD_DIR . "profiles/" . $singleComment["Profile_img"] ?>"
 											class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
-										di <em class="nickname-label">
-											<?php echo $singleComment["Username"] ?>
-										</em>, il <em class="modal-comment-post-date">
+										di <a href="profile.php?Username=<?php echo $singleComment["Username"] ?>"><em class="nickname-label"><?php echo $singleComment["Username"] ?></em></a>,
+										il <em class="modal-comment-post-date">
 											<?php echo $singleComment["Day_posted"] ?>
 										</em> alle <em class="modal-comment-post-time">
 											<?php echo $singleComment["Time_posted"] ?>
@@ -179,7 +180,7 @@
 	</div>
 </div>
 
-<div class="container text-center my-3">
+<div class="container  my-3">
 	<div class="row">
 		<?php foreach ($templateParams["post"] as $elemento): ?>
 			<div class="col-12 col-md-6 col-lg-4">
@@ -190,7 +191,7 @@
 						<?php echo $elemento["Username"] ?>
 					</div>
 					<img src="<?php echo UPLOAD_DIR . "posts/" . $elemento["Img"] ?>" class="card-img-top" alt="Post Image">
-					<div class="card-body">
+					<div class="card-body text-center">
 						<div class="card-title post-title">
 							<?php echo $elemento["Tag"] ?>
 						</div>
@@ -219,9 +220,8 @@
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<p class="text-muted">di <em class="nickname-label">
-									<?php echo $elemento["Username"] ?>
-								</em>, il <em class="modal-post-date">
+							<p class="text-muted">di <a href="profile.php?Username=<?php echo $elemento["Username"]?>"><em class="nickname-label">
+									<?php echo $elemento["Username"] ?></em></a>, il <em class="modal-post-date">
 									<?php echo $elemento["Day_posted"] ?>
 								</em> alle <em class="modal-post-time">
 									<?php echo $elemento["Time_posted"] ?>
@@ -244,9 +244,7 @@
 										<p class="text-muted">
 											<img src="<?php echo UPLOAD_DIR . "profiles/" . $singleComment["Profile_img"] ?>"
 												class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
-											di <em class="nickname-label">
-												<?php echo $singleComment["Username"] ?>
-											</em>, il <em class="modal-comment-post-date">
+											di <a href="profile.php?Username=<?php echo $singleComment["Username"] ?>"><em class="nickname-label"><?php echo $singleComment["Username"] ?></em></a>, il <em class="modal-comment-post-date">
 												<?php echo $singleComment["Day_posted"] ?>
 											</em> alle <em class="modal-comment-post-time">
 												<?php echo $singleComment["Time_posted"] ?>

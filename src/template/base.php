@@ -32,9 +32,21 @@
 				</div>
 				<div class="collapse navbar-collapse order-3 order-lg-2" id="navbarNavAltMarkup">
 					<div class="navbar-nav">
-						<a class="nav-link active" aria-current="page" href="index.php">Home</a>
-						<a class="nav-link" href="explore.php">Esplora</a>
-						<a class="nav-link" href="myprofile.php">Mio profilo</a>
+						<?php if ($templateParams["nome"] == "index.php" || $templateParams["nome"] == "home.php"):?>
+							<a class="nav-link active" aria-current="page" href="index.php">Home</a>
+						<?php else: ?>
+							<a class="nav-link" href="index.php">Home</a>
+						<?php endif ?>
+						<?php if ($templateParams["nome"] == "explore.php"):?>
+							<a class="nav-link active" aria-current="page" href="explore.php">Esplora</a>
+						<?php else: ?>
+							<a class="nav-link" href="explore.php">Esplora</a>
+						<?php endif ?>
+						<?php if ($templateParams["nome"] == "myprofile.php"):?>
+							<a class="nav-link active" aria-current="page" href="explore.php">Mio profilo</a>
+						<?php else: ?>
+							<a class="nav-link" href="myprofile.php">Mio profilo</a>
+						<?php endif ?>				
 						<a class="nav-link" href="exit.php">Esci</a>
 
 					</div>

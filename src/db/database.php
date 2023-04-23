@@ -114,9 +114,7 @@ class DatabaseHelper
          $stmt->store_result();
          $stmt->bind_result($user_id, $username, $db_password, $salt); // recupera il risultato della query e lo memorizza nelle relative variabili.
          $stmt->fetch();
-         echo "this is password.salt",$password.$salt;
          $passwordHashed = hash('sha512', $password.$salt); // codifica la password usando una chiave univoca.
-         echo "eseguo hashing di password e salt: ", $passwordHashed;
          if ($stmt->num_rows == 1) { // se l'utente esiste
             // verifichiamo che non sia disabilitato in seguito all'esecuzione di troppi tentativi di accesso errati.
             if ($this->checkbrute($user_id) == true) {
@@ -126,9 +124,7 @@ class DatabaseHelper
                return false;
             } else {
                if ($db_password == $passwordHashed) { // Verifica che la password memorizzata nel database corrisponda alla password fornita dall'utente.
-                  // Password corretta!
-                  echo "password dal db: ",$db_password;
-                  echo "password immessa: ",$passwordHashed;   
+                  // Password corretta! 
                   $user_browser = $_SERVER['HTTP_USER_AGENT']; // Recupero il parametro 'user-agent' relativo all'utente corrente.
 
                   $user_id = preg_replace("/[^0-9]+/", "", $user_id); // ci proteggiamo da un attacco XSS

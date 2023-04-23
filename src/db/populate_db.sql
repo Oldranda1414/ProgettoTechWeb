@@ -5,11 +5,11 @@ use db_life_and_games;
 -- inserting users into user_table
 
 -- password is "tonnoConForza"
-INSERT INTO User_table(Username, E_mail, Passwrd, Profile_img, Salt) Values("leonardo.randacio", "leTime_postednd@amail.com", "0f288564280541542c47da174037af1aef9aaf3b38046fcdb32d3b8e1dad58e9b4f0f91530f3fc33e893f2b26a970bb496533d4a6161194fe0cd469dacbc69a4", "profile-1.jpg", "c77b9a5b198ae0ef00973614454a0a6f3b9f2a9868948719c8727e29c09b0f4f8e480b49e4cb58908cd61b48dd725c6229e7491c93025f61dae768ecdd876fb7");
+INSERT INTO User_table(Username, E_mail, Passwrd, Profile_img, Salt) Values("leonardo.randacio", "leTime_postednd@amail.com", "8282f881f260443ae6c87850444e403a0162be6c8f3febf23b5fd36b1300c3be53e7270f6b3ae72bdf15bfcb10d60f90d908c42d5300f1d5fad069e6bb3def5b", "profile-1.jpg", "13b45e5adaf27b8f714adf93afd449ace51a5d6835be924695ff1e9791b06ec0ccebe0dd62108e5eae47329615b390615a2b5e9ef3a40ccdd12f44410f628db3");
 -- password is "12345"
-INSERT INTO User_table(Username, E_mail, Passwrd, Profile_img, Salt) Values("vdamianob", "vdamianb@amail.com", "a7bddfb79be9f53ff4b81ec410fddcea6cd7cfd09cab0b543b990043f8dfdd901c8062975c8579233adf249cc7f4f0e430b75a3bfcd2a8677697e0b2fdbdcf23", "profile-2.jpg", "555b07c4a054e9b8362b3655bcd770207022c28616a0707d7d662a2929d320de5efb64d77aa3eb54b01428f8e6ca3f87123b64f74a5fbb4f6e0d8e69b83248a6"); 
+INSERT INTO User_table(Username, E_mail, Passwrd, Profile_img, Salt) Values("vdamianob", "vdamianb@amail.com", "1da1555d361cdbeb61ab92a8c8a050694792e927ea1592adf8a49300b71d910ba855e9bae0d6ffc31da8a3c2155399c818e065e852447e3f5a8cc89210d1363f", "profile-2.jpg", "50c82fc0b73d63e2c0b76bbb30e7ff726842ab0b488a162ff2a206d0b25232551d8574c6673ce5a2bc243e1bad61b2c9c8f4d2f851d6e498ef3b70174dbf9b0e"); 
 -- password is "ioSonoFilippo"
-INSERT INTO User_table(Username, E_mail, Passwrd, Profile_img, Salt) Values("filusbrius", "filippo@amail.com", "d2adeb82802938a2e111f30654277ed86a91c0627abeac9e3bfe60b9e95dfd133f032b58383841d1f0de8f441ce44965407b8daf43e6f00759b3e1f1b52752c9", "profile-3.jpg", "fe84c274287112ae88b601d447ee3c159671f6216ddc2f6bff7339eff84194ae9f527d5b6506a9ebf8df350d17a5bdee67b48545dab0b02256bb67a3b5c4e1c5");
+INSERT INTO User_table(Username, E_mail, Passwrd, Profile_img, Salt) Values("filusbrius", "filippo@amail.com", "baf721d375d47be7fac94792e19f3f572e8f6a1be32adf31aedcab1e8597af99c1c731bb2d12034bf0f640bd024e6faf90584a20baa9305dd7d6b87c9b256efc", "profile-3.jpg", "d533c310d12773ef9ee9b589a1b0f805c7a67a55f8e36231175eb7495abb245a8b75afc304cad4d0cd84e338b2693744ac024c9208d4d44bbcc164827afb7d04");
 
 -- inserting tags into Tag table
 

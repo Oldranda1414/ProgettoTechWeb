@@ -4,8 +4,8 @@ require_once 'bootstrap.php';
 //TODO check if passwords are the same
 //TODO check if values inserted by user are correct/usable
 //getting the password from the register form
-if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["email"])) {
-    $dbh->registerUser($_POST["username"], $_POST["email"],  $_POST["password"]);
+if (isset($_POST["username"]) && isset($_POST["p"]) && isset($_POST["email"])) {
+    $dbh->registerUser($_POST["username"], $_POST["email"],  $_POST["p"]);
     $templateParams["titolo"] = "Register";
     $templateParams["nome"] = "register.php";
     $templateParams["js"] = array("js/sha512.js", "js/forms.js");

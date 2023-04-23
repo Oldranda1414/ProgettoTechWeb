@@ -1,15 +1,18 @@
 <?php
 require_once 'bootstrap.php';
 
-if(isset($_POST["username"]) && isset($_POST["password"])){
-    if($dbh->secureLoginUser($_POST["username"], $_POST["password"])){
+if(isset($_POST["username"]) && isset($_POST["p"])){
+    if($dbh->secureLoginUser($_POST["username"], $_POST["p"])){
         //Login riuscito
+        echo("login riuscito con variabili post");
         if(isset($_POST["rememberMeCheckbox"])){
             setCookiesWithSession();
         }
         
     }
     else{
+        echo("login non riuscito");
+
         //login non riuscito
         //$templateParams["errorelogin"] = "Errore! Controllare username o password!";
     }

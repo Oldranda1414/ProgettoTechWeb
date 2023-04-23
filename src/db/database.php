@@ -114,28 +114,32 @@ class DatabaseHelper
          $stmt->store_result();
          $stmt->bind_result($user_id, $username, $db_password, $salt); // recupera il risultato della query e lo memorizza nelle relative variabili.
          $stmt->fetch();
-         $password = hash('sha512', $password . $salt); // codifica la password usando una chiave univoca.
+         echo "this is password.salt",$password.$salt;
+         $passwordHashed = hash('sha512', $password.$salt); // codifica la password usando una chiave univoca.
+         echo "eseguo hashing di password e salt: ", $passwordHashed;
          if ($stmt->num_rows == 1) { // se l'utente esiste
             // verifichiamo che non sia disabilitato in seguito all'esecuzione di troppi tentativi di accesso errati.
             if ($this->checkbrute($user_id) == true) {
-               echo "account disabilitato per troppi tentativi";
+               echo "account disabilitato per troppi tentativi"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
                // Account disabilitato
                // Invia un e-mail all'utente avvisandolo che il suo account è stato disabilitato.
                return false;
             } else {
-               if ($db_password == $password) { // Verifica che la password memorizzata nel database corrisponda alla password fornita dall'utente.
-                  // Password corretta!            
+               if ($db_password == $passwordHashed) { // Verifica che la password memorizzata nel database corrisponda alla password fornita dall'utente.
+                  // Password corretta!
+                  echo "password dal db: ",$db_password;
+                  echo "password immessa: ",$passwordHashed;   
                   $user_browser = $_SERVER['HTTP_USER_AGENT']; // Recupero il parametro 'user-agent' relativo all'utente corrente.
 
                   $user_id = preg_replace("/[^0-9]+/", "", $user_id); // ci proteggiamo da un attacco XSS
                   $_SESSION['user_id'] = $user_id;
                   $username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); // ci proteggiamo da un attacco XSS
                   $_SESSION['username'] = $username;
-                  $_SESSION['login_string'] = hash('sha512', $password . $user_browser);
+                  $_SESSION['login_string'] = hash('sha512', $passwordHashed.$user_browser);
                   // Login eseguito con successo.
                   return true;
                } else {
-                  echo "password non corretta";
+                  echo "password non corretta"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
                   // Password incorretta.
                   // Registriamo il tentativo fallito nel database.
                   $now = time();
@@ -145,7 +149,7 @@ class DatabaseHelper
             }
          } else {
             // L'utente inserito non esiste.
-            echo "lutente inserito non esiste";
+            echo "lutente inserito non esiste"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
             return false;
          }
       }

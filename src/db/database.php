@@ -11,6 +11,20 @@ class DatabaseHelper
       }
    }
 
+   //receives an associative array of posts and completes the array with additional data on the posts
+   public function getCompletePostsData($result)
+   {
+      foreach ($result as &$post) {
+         $user = $this->getUser($post["User_id"]);
+         $post["Username"] = $user[0]["Username"];
+         $post["UserProfilePic"] = $user[0]["Profile_img"];
+         $post["Tag"] = $this->getTag($post["Tag_id"])[0]["Game_name"];
+         $post["NumberOfLikes"] = $this->getLikes($post["Post_id"]);
+         $post["Comments"] = $this->getComment($post["Post_id"]);
+      }
+      return $result;
+   }
+
    public function getPosts($nPost)
    {
       $stmt = $this->db->prepare("SELECT Post_id, Img, Words, Day_posted, Time_posted, Tag_id, User_id FROM post LIMIT ?");
@@ -71,15 +85,7 @@ class DatabaseHelper
    public function getFullPosts($nPost)
    {
       $result = $this->getPosts($nPost);
-      foreach ($result as &$post) {
-         $user = $this->getUser($post["User_id"]);
-         $post["Username"] = $user[0]["Username"];
-         $post["UserProfilePic"] = $user[0]["Profile_img"];
-         $post["Tag"] = $this->getTag($post["Tag_id"])[0]["Game_name"];
-         $post["NumberOfLikes"] = $this->getLikes($post["Post_id"]);
-         $post["Comments"] = $this->getComment($post["Post_id"]);
-      }
-      return $result;
+      return $this->getCompletePostsData($result);
    }
 
    public function getMostLikePosts($day, $nPost)
@@ -94,15 +100,31 @@ class DatabaseHelper
    public function getFullMostLikedPosts($day, $nPost)
    {
       $result = $this->getMostLikePosts($day, $nPost);
-      foreach ($result as &$post) {
-         $user = $this->getUser($post["User_id"]);
-         $post["Username"] = $user[0]["Username"];
-         $post["UserProfilePic"] = $user[0]["Profile_img"];
-         $post["Tag"] = $this->getTag($post["Tag_id"])[0]["Game_name"];
-         $post["NumberOfLikes"] = $this->getLikes($post["Post_id"]);
-         $post["Comments"] = $this->getComment($post["Post_id"]);
-      }
-      return $result;
+      return $this->getCompletePostsData($result);
+   }
+
+   public function getUserId($username)
+   {
+      $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img FROM user_table WHERE Username = ?");
+      $stmt->bind_param('s', $username);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+
+   public function getPostsByUser($user_id)
+   {
+      $stmt = $this->db->prepare("SELECT Post_id, Img, Words, Day_posted, Time_posted, Tag_id, User_id FROM post WHERE User_id = ?");
+      $stmt->bind_param('s', $user_id);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+
+   public function getFullPostsByUser($user_id)
+   {
+      $result = $this->getPostsByUser($user_id);
+      return $this->getCompletePostsData($result);
    }
 
    public function secureLoginUser($user, $password)

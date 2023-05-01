@@ -103,7 +103,7 @@ class DatabaseHelper
       return $this->getCompletePostsData($result);
    }
 
-   public function getUserId($username)
+   public function getUserByUsername($username)
    {
       $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img FROM user_table WHERE Username = ?");
       $stmt->bind_param('s', $username);

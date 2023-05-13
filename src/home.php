@@ -1,0 +1,14 @@
+<?php
+require_once 'bootstrap.php';
+
+if(isUserLoggedIn($dbh)){
+    $templateParams["titolo"] = "Home";
+    $templateParams["nome"] = "home.php";
+    $templateParams["posts"] = $dbh->getFullPosts(8);
+    require 'template/base.php';
+}
+else{
+    require 'login.php';
+}
+
+?>

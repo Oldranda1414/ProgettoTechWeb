@@ -8,11 +8,11 @@ if (isset($_POST["username"]) && isset($_POST["p"]) && isset($_POST["email"])) {
     $dbh->registerUser($_POST["username"], $_POST["email"],  $_POST["p"]);
     $templateParams["titolo"] = "Register";
     $templateParams["nome"] = "register.php";
-    $templateParams["js"] = array("js/sha512.js", "js/forms.js");
+    $templateParams["js"] = array("js/sha512.js", "js/forms.js", "js/register.js");
     $templateParams["registrationResult"] = true;
 } else {
     $templateParams["titolo"] = "Register";
     $templateParams["nome"] = "register.php";
-    $templateParams["js"] = array("js/sha512.js", "js/forms.js");
+    $templateParams["js"] = array("js/sha512.js", "js/forms.js", "js/register.js");
 }
 require 'template/base.php';

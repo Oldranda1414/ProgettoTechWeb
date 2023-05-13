@@ -48,6 +48,12 @@
         <input type="password" class="form-control lastForm" id="floatingRPassword" placeholder="Password" name="verificaPassword">
         <label for="floatingRPassword">Verifica password</label>
       </div>
+
+      <p class="text-center user">...</p>
+      <p class="text-center mail">...</p>
+      <p class="text-center pass">...</p>
+      <p class="text-center Rpass">...</p>
+      
       <!--
       <div class="g-recaptcha mb-2" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW">j</div>
         -->

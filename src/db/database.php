@@ -11,6 +11,16 @@ class DatabaseHelper
       }
    }
 
+   //retrieves full post data for the latest n posts
+   //TODO FINISH THIS QUERY
+   public function getLatestPosts($n){
+      $stmt = $this->db->prepare("SELECT Post_id, Img, Words, DT, Tag_id, User_id FROM post ORDER BY DT DESC LIMIT ?");
+      $stmt->bind_param('i', $nPost);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+
    //receives an associative array of posts and completes the array with additional data on the posts
    public function getCompletePostsData($result)
    {

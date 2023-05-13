@@ -33,28 +33,28 @@ INSERT INTO Tag(Game_name) VALUES ("Tarantola 412");
 
 -- inserting posts into post table
 
-INSERT INTO Post(Img, Words, Day_posted, Time_posted, Tag_id, User_id) Values("post-example-1.jpg", "guardate che figo mamma mia", "07/01/2022", "14:00", (SELECT Tag_id FROM Tag WHERE Game_name = "SimCity"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"));
+INSERT INTO Post(Img, Words, DT, Tag_id, User_id) Values("post-example-1.jpg", "guardate che figo mamma mia", "2022-01-07 12:00:00", (SELECT Tag_id FROM Tag WHERE Game_name = "SimCity"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"));
 
-INSERT INTO Post(Img, Words, Day_posted, Time_posted, Tag_id, User_id) Values("post-example-2.jpg", "bug incredibile in Driver 2, da non credere", "08/02/2022", "13:00", (SELECT Tag_id FROM Tag WHERE Game_name = "Driver"), (SELECT User_id FROM User_table WHERE Username = "vdamianob"));
+INSERT INTO Post(Img, Words, DT, Tag_id, User_id) Values("post-example-2.jpg", "bug incredibile in Driver 2, da non credere", "2022-01-07 13:00:00", (SELECT Tag_id FROM Tag WHERE Game_name = "Driver"), (SELECT User_id FROM User_table WHERE Username = "vdamianob"));
 
-INSERT INTO Post(Img, Words, Day_posted, Time_posted, Tag_id, User_id) Values("post-example-3.jpg", "Su PS1 e 2", "05/01/2020", "10:15", (SELECT Tag_id FROM Tag WHERE Game_name = "Poy Poy"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"));
+INSERT INTO Post(Img, Words, DT, Tag_id, User_id) Values("post-example-3.jpg", "Su PS1 e 2", "2022-01-08 10:15:00", (SELECT Tag_id FROM Tag WHERE Game_name = "Poy Poy"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"));
 
-INSERT INTO Post(Img, Words, Day_posted, Time_posted, Tag_id, User_id) Values("post-example-4.jpg", "Stravinta questa partita contro uno che, a quanto pare, blablabla!", "01/01/2021", "10:04", (SELECT Tag_id FROM Tag WHERE Game_name = "Dominion"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"));
+INSERT INTO Post(Img, Words, DT, Tag_id, User_id) Values("post-example-4.jpg", "Stravinta questa partita contro uno che, a quanto pare, blablabla!", "2022-01-10 10:04:00", (SELECT Tag_id FROM Tag WHERE Game_name = "Dominion"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"));
 
-INSERT INTO Post(Img, Words, Day_posted, Time_posted, Tag_id, User_id) Values("post-example-5.jpg", "Ho per caso rispolverato Strongholds Crusader, un vecchio gioco della FireFly Studios. E questo è stato il risultato", "02/08/2022", "15:03", (SELECT Tag_id FROM Tag WHERE Game_name = "Strongholds"), (SELECT User_id FROM User_table WHERE Username = "vdamianob"));
+INSERT INTO Post(Img, Words, DT, Tag_id, User_id) Values("post-example-5.jpg", "Ho per caso rispolverato Strongholds Crusader, un vecchio gioco della FireFly Studios. E questo è stato il risultato", "2022-05-12 15:03:00", (SELECT Tag_id FROM Tag WHERE Game_name = "Strongholds"), (SELECT User_id FROM User_table WHERE Username = "vdamianob"));
 
-INSERT INTO Post(Img, Words, Day_posted, Time_posted, Tag_id, User_id) Values("post-example-6.jpg", "Facciamo finta di gestire il traffico, un po' come fa l'ATR.", "01/08/2022", "19:03", (SELECT Tag_id FROM Tag WHERE Game_name = "OpenTTD"), (SELECT User_id FROM User_table WHERE Username = "vdamianob"));
+INSERT INTO Post(Img, Words, DT, Tag_id, User_id) Values("post-example-6.jpg", "Facciamo finta di gestire il traffico, un po' come fa l'ATR.", "2022-05-12 19:03:00", (SELECT Tag_id FROM Tag WHERE Game_name = "OpenTTD"), (SELECT User_id FROM User_table WHERE Username = "vdamianob"));
 
-INSERT INTO Post(Img, Words, Day_posted, Time_posted, Tag_id, User_id) Values("post-example-7.jpg", "Asdrubale 123 stella terapia lunare", "02/08/2022", "19:04", (SELECT Tag_id FROM Tag WHERE Game_name = "Strongholds"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"));
+INSERT INTO Post(Img, Words, DT, Tag_id, User_id) Values("post-example-7.jpg", "Asdrubale 123 stella terapia lunare", "2022-05-12 19:04:00", (SELECT Tag_id FROM Tag WHERE Game_name = "Strongholds"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"));
 
-INSERT INTO Post(Img, Words, Day_posted, Time_posted, Tag_id, User_id) Values("post-example-8.jpg", "Facciamo finta di gestire il traffico, un po' come fa l'ATR.", "02/08/2022", "19:06", (SELECT Tag_id FROM Tag WHERE Game_name = "Dominion"), (SELECT User_id FROM User_table WHERE Username = "vdamianob"));
+INSERT INTO Post(Img, Words, DT, Tag_id, User_id) Values("post-example-8.jpg", "Facciamo finta di gestire il traffico, un po' come fa l'ATR.", "2022-05-12 19:06:00", (SELECT Tag_id FROM Tag WHERE Game_name = "Dominion"), (SELECT User_id FROM User_table WHERE Username = "vdamianob"));
 -- inserting comments into commento table
 
-INSERT INTO Comment(User_id, Post_id, Words, Day_posted, Time_posted) Values((SELECT User_id FROM User_table WHERE Username = "vdamianob"), (SELECT Post_id FROM Post WHERE Img = "post-example-1.jpg"), "AHAHA hai proprio ragione", "02/08/2022", "15:03");
+INSERT INTO Comment(User_id, Post_id, Words, DT) Values((SELECT User_id FROM User_table WHERE Username = "vdamianob"), (SELECT Post_id FROM Post WHERE Img = "post-example-1.jpg"), "AHAHA hai proprio ragione", "2022-05-13 15:03:00");
 
-INSERT INTO Comment(User_id, Post_id, Words, Day_posted, Time_posted) Values((SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"), (SELECT Post_id FROM Post WHERE Img = "post-example-1.jpg"), "Finis vitae sed non amoris", "02/08/2022", "15:03");
+INSERT INTO Comment(User_id, Post_id, Words, DT) Values((SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"), (SELECT Post_id FROM Post WHERE Img = "post-example-1.jpg"), "Finis vitae sed non amoris", "2022-05-13 15:03:13");
 
-INSERT INTO Comment(User_id, Post_id, Words, Day_posted, Time_posted) Values((SELECT User_id FROM User_table WHERE Username = "filusbrius"), (SELECT Post_id FROM Post WHERE Img = "post-example-2.jpg"), "Ex vita discedo, tanquam ex hospitio, non tanquam ex domo", "02/08/2022", "15:03");
+INSERT INTO Comment(User_id, Post_id, Words, DT) Values((SELECT User_id FROM User_table WHERE Username = "filusbrius"), (SELECT Post_id FROM Post WHERE Img = "post-example-2.jpg"), "Ex vita discedo, tanquam ex hospitio, non tanquam ex domo", "2022-05-13 15:04:00");
 
 -- inserting likes into mi_piace table
 

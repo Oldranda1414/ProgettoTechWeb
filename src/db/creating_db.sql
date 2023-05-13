@@ -16,8 +16,7 @@ CREATE TABLE db_life_and_games.Post (
      Post_id int not null auto_increment,
      Img char(100) not null,
      Words char(100) not null,
-     Day_posted char(10) not null,
-     Time_posted char(10) not null,
+     DT DATETIME DEFAULT CURRENT_TIMESTAMP,
      Tag_id int not null,
      User_id int not null,
      constraint ID_POST_ID primary key (Post_id));
@@ -27,8 +26,7 @@ CREATE TABLE db_life_and_games.Comment (
      User_id int not null,
      Post_id int not null,
      Words char(100) not null,
-     Day_posted char(10) not null,
-     Time_posted char(10) not null,
+     DT DATETIME DEFAULT CURRENT_TIMESTAMP,
      constraint ID_Comment_ID primary key (Comment_id));
 
 CREATE TABLE db_life_and_games.Tag (

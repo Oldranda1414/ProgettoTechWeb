@@ -7,9 +7,9 @@
 			<div class="scheda-profilo mx-5 rounded col col-lg-9 justify-content-md-center">
 				<div class="row justify-content-md-center text-center">
 					<div class="col-12 col-lg-3 mb-2">
-						<div class="profile-schede-title"><?php echo $templateParams["user"][0]["Username"]?></div>
-						<img src="<?php echo UPLOAD_DIR."profiles/".$templateParams["user"][0]["Profile_img"] ?>" class="rounded-circle my-2" alt="profile icon" height="150">
-						<p><?php echo $templateParams["user"][0]["E_mail"] ?></p>
+						<div class="profile-schede-title"><?php echo $templateParams["user"]["Username"]?></div>
+						<img src="<?php echo UPLOAD_DIR."profiles/".$templateParams["user"]["Profile_img"] ?>" class="rounded-circle my-2" alt="profile icon" height="150">
+						<p><?php echo $templateParams["user"]["E_mail"] ?></p>
 						<p>Iscritto dal <em>/*TODO AGGIUNGERE LA DATA DI ISCRIZIONE O TOGLIERE*/</em></p>
 					</div>
 					<div class="col col-lg-3">
@@ -74,7 +74,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content bg-3">
 				<div class="modal-header">
-					<img src="<?php echo UPLOAD_DIR."profiles/".$templateParams["user"][0]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon"
+					<img src="<?php echo UPLOAD_DIR."profiles/".$templateParams["user"]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon"
 						height="40">
 					<h1 class="modal-title fs-5" id="postModalLabel">Nuova foto profilo</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -105,7 +105,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content bg-3">
 				<div class="modal-header">
-					<img src="<?php echo UPLOAD_DIR."profiles/".$templateParams["user"][0]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon"
+					<img src="<?php echo UPLOAD_DIR."profiles/".$templateParams["user"]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon"
 						height="40">
 					<h1 class="modal-title fs-5" id="postModalLabel">I miei "Mi piace"</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

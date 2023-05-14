@@ -4,9 +4,9 @@ require_once 'bootstrap.php';
 if(isUserLoggedIn($dbh)){
     $templateParams["titolo"] = "Esplora";
     $templateParams["nome"] = "explore.php";
-    $templateParams["posts"] = $dbh->getFullPosts(8);
-    //TODO update date with todays date
-    $templateParams["mostLikedPosts"] = $dbh->getFullMostLikedPosts("02/08/2022", 3);
+    $templateParams["posts"] = $dbh->getLatestPostsAndComments(8);
+    //TODO update date with todays date using {date("y-m-d")}
+    $templateParams["mostLikedPosts"] = $dbh->getMostLikedPostsAndComments("2022-01-07", 3);
     require 'template/base.php';
 }
 else{

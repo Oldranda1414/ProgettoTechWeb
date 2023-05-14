@@ -4,8 +4,8 @@ require_once 'bootstrap.php';
 if(isUserLoggedIn($dbh)){
     $templateParams["titolo"] = "Mio profilo";
     $templateParams["nome"] = "myProfile.php";
-    $templateParams["user"] = $dbh->getUser($_SESSION['user_id']);
-    $templateParams["posts"] = $dbh->getFullPostsByUser($templateParams["user"][0]["User_id"]);
+    $templateParams["posts"] = $dbh->getPostsAndCommentsByUser($_SESSION['username'], 8);
+    $templateParams["user"] = $dbh->getUser($_SESSION['username'])[0];
     require 'template/base.php';
 }
 else{

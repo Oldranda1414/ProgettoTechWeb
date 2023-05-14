@@ -11,8 +11,8 @@ if(isUserLoggedIn($dbh)){
             $searchedUser = htmlspecialchars($_GET['Username']);
             $templateParams["titolo"] = "Profilo di ".$searchedUser;
             $templateParams["nome"] = "profile.php";
-            $templateParams["user"] = $dbh->getUserByUsername($searchedUser);
-            $templateParams["posts"] = $dbh->getFullPostsByUser($templateParams["user"][0]["User_id"]);
+            $templateParams["posts"] = $dbh->getPostsAndCommentsByUser($searchedUser, 8);
+            $templateParams["user"] = $dbh->getUser($_SESSION['username'])[0];
         }
     }
     else{

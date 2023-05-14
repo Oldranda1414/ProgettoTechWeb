@@ -11,9 +11,28 @@ class DatabaseHelper
       }
    }
 
-   //retrieves post data for the latest n posts
+   //returns an assoc array containing comments referring to post with $postId as Post_id
+   public function getComment($postId)
+   {
+      $query = "SELECT U.Username, U.Profile_img, C.Words, C.DT FROM User_table AS U JOIN Comment AS C ON U.User_id = C.User_id WHERE C.Post_id = ? ORDER BY C.DT";
+      $stmt = $this->db->prepare($query);
+      $stmt->bind_param('i', $postId);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+
+   //receives an associative array of posts and compleates the array adding all the comments relative to each post
+   public function getPostsAndComments($result)
+   {
+      foreach ($result as &$post) {
+         $post["Comments"] = $this->getComment($post["Post_id"]);
+      }
+      return $result;
+   }
+
+   //retrieves post data for the latest $n posts
    //note that the only data missing is about comments related to each post
-   //note that parentesis are redundant in the mysql query. They have been placed only for better readability
    public function getLatestNPosts($n){
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes 
                                  FROM (((post AS P 
@@ -29,124 +48,72 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
-   //receives an associative array of posts and completes the array adding all the comments relative to each post
-   public function getPostsAndComments($result)
-   {
-      foreach ($result as &$post) {
-         $post["Comments"] = $this->getComment($post["Post_id"]);
-      }
-      return $result;
-   }
-
-   //retrieves post data and the comments related to them for the latest n posts
+   //retrieves post data and the comments related to them for the latest $n posts
    public function getLatestPostsAndComments($n){
       $result = $this->getLatestNPosts($n);
       return $this->getPostsAndComments($result);
    }
 
-
-   //TODO DELETE NOT USED
-   public function getPosts($nPost)
+   //retrieves post data for the $n most liked posts of the day $day
+   //note that the only data missing is about comments related to each post
+   public function getMostLikedPosts($day, $n)
    {
-      $stmt = $this->db->prepare("SELECT Post_id, Img, Words, Day_posted, Time_posted, Tag_id, User_id FROM post LIMIT ?");
-      $stmt->bind_param('i', $nPost);
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes 
+                                 FROM (((post AS P 
+                                 JOIN user_table AS U ON P.User_id=U.User_id) 
+                                 JOIN tag AS T ON P.Tag_id=T.Tag_id) 
+                                 LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
+                                             FROM Like_table GROUP BY Post_id) 
+                                 AS L ON P.Post_id=L.Post_id) 
+                                 WHERE P.DT<DATE_ADD(?, INTERVAL 1 DAY) AND P.DT>?
+                                 ORDER BY L.Likes DESC LIMIT ?");
+      $stmt->bind_param('ssi', $day, $day, $n);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
-   //TODO DELETE NOT USED
-   public function getUser($user_id)
+   //retrieves post data and the comments related to them for the $n most liked posts of the day $day
+   public function getMostLikedPostsAndComments($day, $n)
    {
-      $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img FROM user_table WHERE User_id = ?");
-      $stmt->bind_param('s', $user_id);
+      $result = $this->getMostLikedPosts($day, $n);
+      return $this->getPostsAndComments($result);
+   }
+
+   //retrieves post data for the latest $n posts posted by user with Username $username
+   //note that the only data missing is about comments related to each post
+   public function getPostsByUser($username, $n)
+   {
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes 
+                                 FROM (((post AS P 
+                                 JOIN user_table AS U ON P.User_id=U.User_id) 
+                                 JOIN tag AS T ON P.Tag_id=T.Tag_id) 
+                                 LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
+                                             FROM Like_table GROUP BY Post_id) 
+                                 AS L ON P.Post_id=L.Post_id)
+                                 WHERE U.Username= ?
+                                 ORDER BY P.DT DESC LIMIT ?");
+      $stmt->bind_param('si', $username, $n);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
-   //TODO DELETE NOT USED
-   public function getTag($tag_id)
+   //retrieves post data and the comments related to them for the latest $n posts posted by user with Username $username
+   public function getPostsAndCommentsByUser($username, $n)
    {
-      $stmt = $this->db->prepare("SELECT Tag_id, Game_name FROM Tag WHERE Tag_id = ?");
-      $stmt->bind_param('s', $tag_id);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      return $result->fetch_all(MYSQLI_ASSOC);
+      $result = $this->getPostsByUser($username, $n);
+      return $this->getPostsAndComments($result);
    }
 
-   public function checkLogin($username, $password)
-   {
-      $query = "SELECT User_id, Username FROM User_table WHERE username = ? AND passwrd = ?";
-      $stmt = $this->db->prepare($query);
-      $stmt->bind_param('ss', $username, $password);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      return $result->fetch_all(MYSQLI_ASSOC);
-   }
-
-   //TODO DELETE NOT USED
-   public function getLikes($postId)
-   {
-      $query = "SELECT COUNT(Post_id) AS NumberOfLikes FROM Like_table WHERE Post_id = ?";
-      $stmt = $this->db->prepare($query);
-      $stmt->bind_param('i', $postId);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      return $result->fetch_all(MYSQLI_ASSOC)[0]["NumberOfLikes"];
-   }
-
-   public function getComment($postId)
-   {
-      $query = "SELECT U.Username, U.Profile_img, C.Words, C.DT FROM User_table AS U JOIN Comment AS C ON U.User_id = C.User_id WHERE C.Post_id = ? ORDER BY C.DT";
-      $stmt = $this->db->prepare($query);
-      $stmt->bind_param('i', $postId);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      return $result->fetch_all(MYSQLI_ASSOC);
-   }
-
-   //TODO MODIFY WITH BETTER QUERY
-   public function getMostLikePosts($day, $nPost)
-   {
-      $stmt = $this->db->prepare("SELECT COUNT(L.User_id) AS Likes, P.Post_id, Img, Words, Day_posted, Time_posted, Tag_id, P.User_id FROM like_table AS L JOIN post AS P ON L.Post_id=P.Post_id WHERE Day_posted = ? GROUP BY Post_id ORDER BY Likes DESC LIMIT ?");
-      $stmt->bind_param('si', $day, $nPost);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      return $result->fetch_all(MYSQLI_ASSOC);
-   }
-
-   //TODO MODIFY WITH BETTER QUERY
-   public function getFullMostLikedPosts($day, $nPost)
-   {
-      $result = $this->getMostLikePosts($day, $nPost);
-      return $this->getCompletePostsData($result);
-   }
-
-   public function getUserByUsername($username)
+   //retrieves data about a user
+   public function getUser($username)
    {
       $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img FROM user_table WHERE Username = ?");
       $stmt->bind_param('s', $username);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
-   }
-
-   //TODO MODIFY WITH BETTER QUERY
-   public function getPostsByUser($user_id)
-   {
-      $stmt = $this->db->prepare("SELECT Post_id, Img, Words, Day_posted, Time_posted, Tag_id, User_id FROM post WHERE User_id = ?");
-      $stmt->bind_param('s', $user_id);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      return $result->fetch_all(MYSQLI_ASSOC);
-   }
-
-   //TODO MODIFY WITH BETTER QUERY
-   public function getFullPostsByUser($user_id)
-   {
-      $result = $this->getPostsByUser($user_id);
-      return $this->getCompletePostsData($result);
    }
 
    public function secureLoginUser($user, $password)
@@ -212,6 +179,17 @@ class DatabaseHelper
             return false;
          }
       }
+   }
+
+   //TODO understand which is correct and used: checkLogin or login_check
+   public function checkLogin($username, $password)
+   {
+      $query = "SELECT User_id, Username FROM User_table WHERE username = ? AND passwrd = ?";
+      $stmt = $this->db->prepare($query);
+      $stmt->bind_param('ss', $username, $password);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
    }
 
    public function login_check($user_id, $login_string, $user_browser)

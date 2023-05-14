@@ -32,11 +32,11 @@
 
 							<div class="carousel-caption d-md-block">
 								<div class="title-carousel-post text-truncate" data-bs-toggle="modal"
-									data-bs-target="#post<?php echo $elemento["Post_id"] ?>ModalCarousel"><?php echo $elemento["Tag"] ?></div>
+									data-bs-target="#post<?php echo $elemento["Post_id"] ?>ModalCarousel"><?php echo $elemento["Game_name"] ?></div>
 								<div class="row justify-content-center">
 									<a href="profile.php?Username=<?php echo $elemento["Username"] ?>">
 										<div class="col">
-											<img src="<?php echo UPLOAD_DIR . "profiles/" . $elemento["UserProfilePic"]; ?>"
+											<img src="<?php echo UPLOAD_DIR . "profiles/" . $elemento["Profile_img"]; ?>"
 												class="rounded-circle shadow-lg mr-3" alt="profile icon" height="30">
 											<div class="nickname-carousel-post">
 												<?php echo $elemento["Username"] ?>
@@ -73,27 +73,26 @@
 			<div class="modal-dialog">
 				<div class="modal-content bg-3">
 					<div class="modal-header">
-						<img src="<?php echo UPLOAD_DIR . "profiles/" . $elemento["UserProfilePic"]; ?>"
+						<img src="<?php echo UPLOAD_DIR . "profiles/" . $elemento["Profile_img"]; ?>"
 							class="modal-post-img-profile me-2" alt="profile icon" height="40">
+						<a href="">
+						<a href="TagPage.php?Tag=<?php echo $elemento["Game_name"] ?>">
 						<h1 class="modal-title fs-5" id="postModalLabel">
-							<?php echo $elemento["Tag"] ?>
+							<?php echo $elemento["Game_name"] ?>
 						</h1>
+						</a>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
 						<p class="text-muted">di <a href="profile.php?Username=<?php echo $elemento["Username"]?>"><em class="nickname-label">
-									<?php echo $elemento["Username"] ?></em></a>, il <em class="modal-post-date">
-								<?php echo $elemento["Day_posted"] ?>
-							</em> alle <em class="modal-post-time">
-								<?php echo $elemento["Time_posted"] ?>
-							</em></p>
+									<?php echo $elemento["Username"] ?></em></a>, il <?php echo date("d-m-y" ,strtotime($elemento["DT"]))." alle ".date("h:i:s" ,strtotime($elemento["DT"]))?></p>
 						<img src="<?php echo UPLOAD_DIR . "posts/" . $elemento["Img"] ?>" class="card-img-top rounded"
 							alt="Post Image">
 						<p class="post-body my-3">
 							<?php echo $elemento["Words"] ?>
 						</p>
 						<div class="like-number text-end me-3">
-							<?php echo $elemento["NumberOfLikes"] ?> Mi piace
+							<?php echo $elemento["Likes"] ?> Mi piace
 						</div>
 						<hr>
 						<h2 class="fs-5 text-center">
@@ -106,11 +105,7 @@
 										<img src="<?php echo UPLOAD_DIR . "profiles/" . $singleComment["Profile_img"] ?>"
 											class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
 										di <a href="profile.php?Username=<?php echo $singleComment["Username"] ?>"><em class="nickname-label"><?php echo $singleComment["Username"] ?></em></a>,
-										il <em class="modal-comment-post-date">
-											<?php echo $singleComment["Day_posted"] ?>
-										</em> alle <em class="modal-comment-post-time">
-											<?php echo $singleComment["Time_posted"] ?>
-										</em>
+										il <?php echo date("d-m-y" ,strtotime($elemento["DT"]))." alle ".date("h:i:s" ,strtotime($elemento["DT"]))?>
 									</p>
 									<p class="text-post-comment">
 										<?php echo $singleComment["Words"] ?>

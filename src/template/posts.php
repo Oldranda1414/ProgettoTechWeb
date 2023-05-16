@@ -58,7 +58,7 @@
 											<img src="<?php echo UPLOAD_DIR . "profiles/" . $singleComment["Profile_img"] ?>"
 												class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
 											di <a href="profile.php?Username=<?php echo $singleComment["Username"] ?>"><em class="nickname-label"><?php echo $singleComment["Username"] ?></em></a>, 
-												il <?php echo date("d-m-y" ,strtotime($elemento["DT"]))." alle ".date("h:i:s" ,strtotime($elemento["DT"]))?>
+												il <?php echo date("d-m-y" ,strtotime($singleComment["DT"]))." alle ".date("h:i:s" ,strtotime($singleComment["DT"]))?>
 										</p>
 										<p class="text-post-comment">
 											<?php echo $singleComment["Words"] ?>

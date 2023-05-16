@@ -106,10 +106,50 @@ class DatabaseHelper
       return $this->getPostsAndComments($result);
    }
 
-   //retrieves data about a user
-   public function getUser($username)
+   //retrieves data about a user with username $username
+   public function getUserInfo($username)
    {
       $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img FROM user_table WHERE Username = ?");
+      $stmt->bind_param('s', $username);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+
+   //retrieves data about comments by the user with username $username
+   public function getUserComments($username){
+      $stmt = $this->db->prepare("SELECT C.Words, C.DT, P.Img AS Post_img, P.Words AS Post_Words, Up.Username AS Poster_Username, Up.Profile_img AS Poster_img 
+                                 FROM user_table AS Uc 
+                                 JOIN comment AS C ON Uc.User_id=C.User_id 
+                                 JOIN post AS P ON C.Post_id=P.Post_id 
+                                 JOIN user_table AS Up ON Up.User_id=P.User_id 
+                                 WHERE Uc.Username = ?");
+      $stmt->bind_param('s', $username);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+
+   //retrieves usernames and profile imgs of users following the user with username $username
+   public function getUserFollowers($username){
+      $stmt = $this->db->prepare("SELECT Uf.Username, Uf.Profile_img 
+                                 FROM user_table AS Uq 
+                                 JOIN follow AS F ON Uq.User_id=F.Followed_User_id 
+                                 JOIN user_table AS Uf ON F.Follower_User_id=Uf.User_id 
+                                 WHERE Uq.Username = ?");
+      $stmt->bind_param('s', $username);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+
+   //retrieves usernames and profile imgs of users followed by the user with username $username
+   public function getUserFollowed($username){
+      $stmt = $this->db->prepare("SELECT Uf.Username, Uf.Profile_img 
+                                 FROM user_table AS Uq 
+                                 JOIN follow AS F ON Uq.User_id=F.Follower_User_id 
+                                 JOIN user_table AS Uf ON F.Followed_User_id=Uf.User_id 
+                                 WHERE Uq.Username = ?");
       $stmt->bind_param('s', $username);
       $stmt->execute();
       $result = $stmt->get_result();

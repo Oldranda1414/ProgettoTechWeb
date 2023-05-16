@@ -78,4 +78,6 @@ INSERT INTO Like_table(User_id, Post_id) VALUES ((SELECT User_id FROM User_table
 
 INSERT INTO Follow(Follower_User_id, Followed_User_id) VALUES((SELECT User_id FROM User_table WHERE Username = "vdamianob"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"));
 
+INSERT INTO Follow(Follower_User_id, Followed_User_id) VALUES((SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"), (SELECT User_id FROM User_table WHERE Username = "vdamianob"));
+
 INSERT INTO Follow(Follower_User_id, Followed_User_id) VALUES((SELECT User_id FROM User_table WHERE Username = "filusbrius"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"));

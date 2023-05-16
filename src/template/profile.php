@@ -159,60 +159,14 @@
 				</div>
 				<div class="modal-body">
 					<div class="row justify-content-center">
+						<?php foreach($templateParams["followed"] as $followedUser): ?>
 						<div class="col-3 mx-2 mb-4">
-							<a href="" class="username-link">
-								<p class="text-center">username_1</p>
-								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
+							<a href="profile.php?Username=<?php echo $followedUser["Username"] ?>" class="username-link">
+								<p class="text-center"><?php echo $followedUser["Username"] ?></p>
+								<img src="<?php echo UPLOAD_DIR . "profiles/" . $followedUser["Profile_img"] ?>" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
 							</a>
 						</div>
-						<div class="col-3 mx-2 mb-4">
-							<a href="" class="username-link">
-								<p class="text-center">username_2</p>
-								<img src="./images/profiles/profile-3.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
-							</a>
-						</div>
-						<div class="col-3 mx-2 mb-4">
-							<a href="" class="username-link">
-								<p class="text-center">username_3</p>
-								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
-							</a>
-						</div>
-						<div class="col-3 mx-2 mb-4">
-							<a href="" class="username-link">
-								<p class="text-center">username_4</p>
-								<img src="./images/profiles/profile-3.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
-							</a>
-						</div>
-						<div class="col-3 mx-2 mb-4">
-							<a href="" class="username-link">
-								<p class="text-center">username_5</p>
-								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
-							</a>
-						</div>
-						<div class="col-3 mx-2 mb-4">
-							<a href="" class="username-link">
-								<p class="text-center">username_6</p>
-								<img src="./images/profiles/profile-3.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
-							</a>
-						</div>
-						<div class="col-3 mx-2 mb-4">
-							<a href="" class="username-link">
-								<p class="text-center">username_7</p>
-								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
-							</a>
-						</div>
-						<div class="col-3 mx-2 mb-4">
-							<a href="" class="username-link">
-								<p class="text-center">username_8</p>
-								<img src="./images/profiles/profile-3.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
-							</a>
-						</div>
-						<div class="col-3 mx-2 mb-4">
-							<a href="" class="username-link">
-								<p class="text-center">username_9</p>
-								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
-							</a>
-						</div>
+						<?php endforeach; ?>
 					</div>
 					<hr>
 					<div class="row justify-content-center">

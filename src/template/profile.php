@@ -39,63 +39,29 @@
 		<div class="modal-dialog">
 			<div class="modal-content bg-3">
 				<div class="modal-header">
-					<img src="./images/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="profile icon"
+					<img src="<?php echo UPLOAD_DIR."profiles/".$templateParams["user"]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon"
 						height="40">
 					<h1 class="modal-title fs-5" id="postModalLabel">I "Mi piace" di <?php echo $templateParams["user"]["Username"]?></h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
+					<?php foreach($templateParams["likes"] as $like): ?>
 					<p class="text-muted">
-						<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2"
+						<img src="<?php echo UPLOAD_DIR."profiles/".$like["Poster_img"] ?>" class="modal-post-img-profile me-2"
 									alt="post user profile icon" height="40">
-						Hai apprezzato il <a href="" class="">post</a> di <a href="" class="nickname-label">Tux9000</a>
+						Ha apprezzato il <a href="" class="">post</a> di <a href="profile.php?Username=<?php $like["Poster_Username"] ?>" class="nickname-label"><?php echo $like["Poster_Username"] ?></a>
 					</p>
 
-					<img src="./images/posts/post-example-1.jpg" class="card-img-top rounded miniatura-immagine-post" alt="Post Image">
+					<img src="<?php echo UPLOAD_DIR."posts/".$like["Post_img"] ?>" class="card-img-top rounded miniatura-immagine-post" alt="Post Image">
 					
 					<p class="post-body text-truncate mt-4 mb-5">
-						Guardate cos'è successo! Non ci posso credere, mai vista una cosa del genere... A voi i
-						commenti.
+						<?php echo $like["Post_Words"] ?>
 					</p>
 					<div class="text-end">
 						<a href="#" class="btn liked-button m-1 text-right">Mi piace</a>
 					</div>
 					<hr>
-					<p class="text-muted">
-						<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2"
-									alt="post user profile icon" height="40">
-						Hai apprezzato il <a href="" class="">post</a> di <a href="" class="nickname-label">Tux9000</a>
-					</p>
-
-					<img src="./images/posts/post-example-1.jpg" class="card-img-top rounded miniatura-immagine-post" alt="Post Image">
-					
-					<p class="post-body text-truncate mt-4 mb-5">
-						Guardate cos'è successo! Non ci posso credere, mai vista una cosa del genere... A voi i
-						commenti.
-					</p>
-					
-					<div class="text-end">
-						<a href="#" class="btn liked-button m-1 text-right">Mi piace</a>
-					</div>
-
-					<hr>
-					<p class="text-muted">
-						<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2"
-									alt="post user profile icon" height="40">
-						Hai apprezzato il <a href="" class="">post</a> di <a href="" class="nickname-label">Tux9000</a>
-					</p>
-
-					<img src="./images/posts/post-example-1.jpg" class="card-img-top rounded miniatura-immagine-post" alt="Post Image">
-					
-					<p class="post-body text-truncate mt-4 mb-5">
-						Guardate cos'è successo! Non ci posso credere, mai vista una cosa del genere... A voi i
-						commenti.
-					</p>
-					
-					<div class="text-end">
-						<a href="#" class="btn liked-button m-1 text-right">Mi piace</a>
-					</div>
-					<hr>
+					<?php endforeach; ?>
 					<div class="row justify-content-center">
 						<a href="#" class="btn upload-button m-1">Carica altro...</a>
 					</div>

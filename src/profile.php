@@ -17,7 +17,7 @@ if(isUserLoggedIn($dbh)){
             $templateParams["comments"] = $dbh->getUserComments($searchedUser);
             $templateParams["followers"] = $dbh->getUserFollowers($searchedUser);
             $templateParams["followed"] = $dbh->getUserFollowed($searchedUser);
-            
+            var_dump($templateParams["likes"]);
         }
     }
     else{

@@ -116,7 +116,7 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
-   //TODO retrieves data about likes from the user with username $username
+   //retrieves data about likes from the user with username $username
    public function getUserLikes($username){
       $stmt = $this->db->prepare("SELECT P.Img AS Post_img, P.Words AS Post_Words, Up.Username AS Poster_Username, Up.Profile_img AS Poster_img 
                                  FROM like_table AS L 

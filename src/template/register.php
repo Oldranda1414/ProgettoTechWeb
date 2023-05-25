@@ -28,7 +28,7 @@
     ?>
     <form action="#" method="POST">
       <p class="h1 text-center">Entra a far parte della community di Life&Games!</p>
-      <img class="mb-4" src="./images/gamepad_logo.png" alt="" width="200">
+      <img class="mb-4" src="<?php echo UPLOAD_DIR."gamepad_logo.png"?>" alt="life and games logo" width="200">
       <h1 class="h3 mb-2 fw-normal">Iscriviti</h1>
       <h2 class="h5 mb-3 fw-normal">compilando i campi qui sotto</h2>
 

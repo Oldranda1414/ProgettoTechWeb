@@ -21,7 +21,7 @@
     <main class="form-signin w-100 m-auto">
         <form action="#" method="POST">
             <p class="h1 text-center">Benvenuto su Life&Games</p>
-            <img class="mb-4" src="./images/gamepad_logo.png" alt="" width="200">
+            <img class="mb-4" src="<?php echo UPLOAD_DIR."gamepad_logo.png"?>" alt="life and games logo" width="200">
             <h1 class="h3 mb-3 fw-normal">Effettua il login</h1>
 
             <div class="form-floating">

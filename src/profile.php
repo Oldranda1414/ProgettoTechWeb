@@ -13,6 +13,7 @@ if(isUserLoggedIn($dbh)){
             $templateParams["nome"] = "profile.php";
             $templateParams["posts"] = $dbh->getPostsAndCommentsByUser($searchedUser, 8);
             $templateParams["user"] = $dbh->getUserInfo($searchedUser)[0];
+            $templateParams["likes"] = $dbh->getUserLikes($searchedUser);
             $templateParams["comments"] = $dbh->getUserComments($searchedUser);
             $templateParams["followers"] = $dbh->getUserFollowers($searchedUser);
             $templateParams["followed"] = $dbh->getUserFollowed($searchedUser);

@@ -116,6 +116,20 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
+   //TODO retrieves data about likes from the user with username $username
+   public function getUserLikes($username){
+      $stmt = $this->db->prepare("SELECT P.Img AS Post_img, P.Words AS Post_Words, Up.Username AS Poster_Username, Up.Profile_img AS Poster_img 
+                                 FROM like_table AS L 
+                                 JOIN post AS P ON L.Post_id=P.Post_id 
+                                 JOIN user_table AS Up ON Up.User_id=P.User_id 
+                                 JOIN user_table AS Uq ON Uq.User_id=L.User_id 
+                                 WHERE Uq.Username = ?");
+      $stmt->bind_param('s', $username);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+
    //retrieves data about comments by the user with username $username
    public function getUserComments($username){
       $stmt = $this->db->prepare("SELECT C.Words, C.DT, P.Img AS Post_img, P.Words AS Post_Words, Up.Username AS Poster_Username, Up.Profile_img AS Poster_img 

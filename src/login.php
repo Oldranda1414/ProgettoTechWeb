@@ -23,6 +23,7 @@ else{
     $templateParams["titolo"] = "Login";
     $templateParams["nome"] = "login.php";
     $templateParams["js"] = array("js/sha512.js", "js/forms.js", "js/login.js");
+    require 'template/base.php';
 }
-require 'template/base.php';
+
 ?>

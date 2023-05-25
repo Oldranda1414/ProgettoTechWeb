@@ -81,7 +81,7 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-				<?php foreach($templateParams["comments"] as $comment): ?>
+					<?php foreach($templateParams["comments"] as $comment): ?>
 					<p class="text-muted">
 						<img src="<?php echo UPLOAD_DIR . "profiles/" . $comment["Poster_img"] ?>"
 									alt="post user profile icon" height="40">
@@ -123,23 +123,11 @@
 					<h1 class="modal-title fs-5" id="postModalLabel">Le persone seguite da <?php echo $templateParams["user"]["Username"]?></h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-				<div class="modal-body">
-					<div class="row justify-content-center">
-						<?php foreach($templateParams["followed"] as $followedUser): ?>
-						<div class="col-3 mx-2 mb-4">
-							<a href="profile.php?Username=<?php echo $followedUser["Username"] ?>" class="username-link">
-								<p class="text-center"><?php echo $followedUser["Username"] ?></p>
-								<img src="<?php echo UPLOAD_DIR . "profiles/" . $followedUser["Profile_img"] ?>" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
-							</a>
-						</div>
-						<?php endforeach; ?>
-					</div>
-					<hr>
-					<div class="row justify-content-center">
-						<a href="#" class="btn upload-button m-1">Carica altro...</a>
-					</div>
-				</div>
-
+				<?php
+					if(isset($templateParams["followed"])){
+						require("followed.php");
+					}
+				?>
 			</div>
 		</div>
 	</div>
@@ -154,23 +142,11 @@
 					<h1 class="modal-title fs-5" id="postModalLabel">Le persone che seguono <?php echo $templateParams["user"]["Username"]?></h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-				<div class="modal-body">
-					<div class="row justify-content-center">
-					<?php foreach($templateParams["followers"] as $followerUser): ?>
-						<div class="col-3 mx-2 mb-4">
-							<a href="profile.php?Username=<?php echo $followerUser["Username"] ?>" class="username-link">
-								<p class="text-center"><?php echo $followerUser["Username"] ?></p>
-								<img src="<?php echo UPLOAD_DIR . "profiles/" . $followerUser["Profile_img"] ?>" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
-							</a>
-						</div>
-						<?php endforeach; ?>
-					</div>
-					<hr>
-					<div class="row justify-content-center">
-						<a href="#" class="btn upload-button m-1">Carica altro...</a>
-					</div>
-				</div>
-
+				<?php
+					if(isset($templateParams["followers"])){
+						require("follower.php");
+					}
+				?>
 			</div>
 		</div>
 	</div>

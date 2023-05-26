@@ -7,6 +7,7 @@ if(isUserLoggedIn($dbh)){
     $templateParams["posts"] = $dbh->getLatestPostsAndComments(8);
     //TODO update date with todays date using {date("y-m-d")}
     $templateParams["mostLikedPosts"] = $dbh->getMostLikedPostsAndComments("2022-01-07", 3);
+    $templateParams["js"] = array("js/explore.js");
     require 'template/base.php';
 }
 else{

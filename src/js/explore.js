@@ -1,5 +1,5 @@
 const button = document.querySelector(".w-25.btn.btn-sm.bg-1");
-const form = document.querySelector(".form-control.me-2.bg-4");
+const form = document.querySelector(".search");
 
 function reactiveButton(){
     let p=false;

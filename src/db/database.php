@@ -13,6 +13,27 @@ class DatabaseHelper
 
    //selection queries start here ------------------------------------------------------------------------------------------------------------
 
+
+   //TODO returns an array containing the notifications, that haven't still been read, referring to the user with username $username
+   public function getNotifications($username){
+      $query = "SELECT N.Notification_type, F.Username AS Follower_Username, F.Profile_img AS Follower_Profile_img, 
+               Commenter.Username AS Commenter_Username, Commenter.Profile_img AS Commenter_Profile_img, 
+               C.Post_id AS Commented_Post_id, N.Liked_Post_id, Liker.Username AS Liker_Username, 
+               Liker.Profile_img AS Liker_Profile_img, N.DT 
+               FROM notifications AS N 
+               JOIN user_table AS U ON N.User_id=U.User_id 
+               LEFT JOIN user_table AS F ON F.User_id=N.Follower_User_id 
+               LEFT JOIN comment AS C ON C.Comment_id=N.Comment_id 
+               LEFT JOIN user_table AS Commenter ON Commenter.User_id=C.User_id 
+               LEFT JOIN user_table AS Liker ON Liker.User_id=N.Like_User_id 
+               WHERE U.Username = ? AND NOT N.Notified ORDER BY N.DT DESC";
+      $stmt = $this->db->prepare($query);
+      $stmt->bind_param('s', $username);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+
    //returns an assoc array containing comments referring to post with $postId as Post_id
    public function getComment($postId)
    {

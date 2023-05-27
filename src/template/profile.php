@@ -6,7 +6,7 @@
 					<div class="col-12 col-lg-3 mb-2">
 						<div class="profile-schede-title"><?php echo $templateParams["searchedUser"]["Username"]?></div>
 						<img src="<?php echo UPLOAD_DIR."profiles/".$templateParams["searchedUser"]["Profile_img"] ?>" class="rounded-circle my-2" alt="profile icon" height="150">
-						<p><?php echo $templateParams["searchedUser"]["E_mail"] ?></p>
+						<p class="small italic"><em><?php echo $templateParams["searchedUser"]["E_mail"] ?></em></p>
 						<p>Iscritto dal <em><?php echo date("d-m-y" ,strtotime($templateParams["searchedUser"]["DT"])); ?></em></p>
 					</div>
 					<div class="col col-lg-3">

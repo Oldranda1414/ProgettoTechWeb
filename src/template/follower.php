@@ -3,7 +3,9 @@
 						<?php foreach($templateParams["followers"] as $followerUser): ?>
 						<div class="col-3 mx-2 mb-4">
 							<a href="profile.php?Username=<?php echo $followerUser["Username"] ?>" class="username-link">
-								<p class="text-center"><?php echo $followerUser["Username"] ?></p>
+								<?php if (strlen($followerUser["Username"])  >= 14) {echo '<p class="small text-center">'.$followerUser["Username"].'</p>';} else {
+									echo '<p class="text-center">'.$followerUser["Username"].'</p>';
+								} ?>
 								<img src="<?php echo UPLOAD_DIR . "profiles/" . $followerUser["Profile_img"] ?>" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
 							</a>
 						</div>

@@ -68,8 +68,8 @@
 							</div>
 							<form>
 								<div class="mb-3">
-									<label for="message-text" class="col-form-label">Commenta:</label>
-									<textarea class="form-control" id="message-text"></textarea>
+									<label for="comment-text" class="col-form-label">Commenta:</label>
+									<textarea class="form-control" id="comment-text"></textarea>
 								</div>
 							</form>
 						</div>

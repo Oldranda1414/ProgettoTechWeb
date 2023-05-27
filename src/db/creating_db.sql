@@ -55,9 +55,20 @@ CREATE TABLE db_life_and_games.User_table (
      constraint ID_USER_ID primary key (User_id));
 
 CREATE TABLE db_life_and_games.Login_attempts (
-  User_id int(11) not null,
-  Time_login char(30) not null );
+     User_id int not null,
+     Time_login char(30) not null );
 
+
+CREATE TABLE db_life_and_games.Notifications (
+     Notification_id int not null auto_increment,
+     Notification_type enum("follower", "comment", "like"),
+     User_id int not null,
+     Follower_User_id int DEFAULT null,
+     Commented_Post_id int DEFAULT null,
+     Comment_id int DEFAULT null,
+     Liked_Post_id int DEFAULT null,
+     'Read' BOOLEAN DEFAULT false,
+     constraint ID_NOTIFICATION_ID primary key (Notification_id));
 
 -- Constraints Section
 -- ___________________ 
@@ -110,6 +121,36 @@ alter table Follow add constraint FKFollower_FK
      on update cascade
      on delete cascade;
 
+alter table Notifications add constraint FKCreato_FK
+     foreign key (User_id)
+     references User_table(User_id)
+     on update cascade
+     on delete cascade;
+
+alter table Notifications add constraint FKReferencesFollower_FK
+     foreign key (Follower_User_id)
+     references User_table(User_id)
+     on update cascade
+     on delete cascade;
+
+alter table Notifications add constraint FKReferencesCommentedPost_FK
+     foreign key (Commented_Post_id)
+     references Post(Post_id)
+     on update cascade
+     on delete cascade;
+
+alter table Notifications add constraint FKReferencesComment_FK
+     foreign key (Comment_id)
+     references Comment(Comment_id)
+     on update cascade
+     on delete cascade;
+
+alter table Notifications add constraint FKReferencesLikedPost_FK
+     foreign key (Liked_Post_id)
+     references Post(Post_id)
+     on update cascade
+     on delete cascade;
+
 
 -- Index Section
 -- _____________ 
@@ -146,3 +187,6 @@ create index FKFollower_IND
 
 create unique index ID_USER_IND
      on User_table (User_id);
+
+create unique index ID_NOTIFICATION_IND
+     on Notifications (Notification_id);

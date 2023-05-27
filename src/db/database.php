@@ -246,10 +246,13 @@ class DatabaseHelper
                if ($db_password == $passwordHashed) { // Verifica che la password memorizzata nel database corrisponda alla password fornita dall'utente.
                   // Password corretta! 
                   $user_browser = $_SERVER['HTTP_USER_AGENT']; // Recupero il parametro 'user-agent' relativo all'utente corrente.
-
-                  $user_id = preg_replace("/[^0-9]+/", "", $user_id); // ci proteggiamo da un attacco XSS
+                  
+                  //TODO CHECK IF THIS IS A PROBLEM. I HAVE SUBSTITUTED THE FOLLOWING LINE WITH A SIMPLER CHECK FOR CARACTERS
+                  //$user_id = preg_replace("/[^0-9]+/", "", $user_id); // ci proteggiamo da un attacco XSS
+                  $user_id = htmlspecialchars($user_id);
                   $_SESSION['user_id'] = $user_id;
-                  $username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); // ci proteggiamo da un attacco XSS
+                  //$username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); // ci proteggiamo da un attacco XSS
+                  $username = htmlspecialchars($username);
                   $_SESSION['username'] = $username;
                   $_SESSION['login_string'] = hash('sha512', $passwordHashed.$user_browser);
                   // Login eseguito con successo.

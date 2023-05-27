@@ -67,6 +67,7 @@ CREATE TABLE db_life_and_games.Notifications (
      Commented_Post_id int DEFAULT null,
      Comment_id int DEFAULT null,
      Liked_Post_id int DEFAULT null,
+     DT DATETIME DEFAULT CURRENT_TIMESTAMP,
      'Read' BOOLEAN DEFAULT false,
      constraint ID_NOTIFICATION_ID primary key (Notification_id));
 

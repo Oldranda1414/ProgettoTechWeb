@@ -111,7 +111,7 @@ class DatabaseHelper
    //retrieves data about a user with username $username
    public function getUserInfo($username)
    {
-      $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img FROM user_table WHERE Username = ?");
+      $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img, DT FROM user_table WHERE Username = ?");
       $stmt->bind_param('s', $username);
       $stmt->execute();
       $result = $stmt->get_result();
@@ -198,7 +198,7 @@ class DatabaseHelper
    //db insertions start here ------------------------------------------------------------------------------------------------------------
 
    public function insertPost(){
-      
+
    }
 
    //db insertions end here ------------------------------------------------------------------------------------------------------------

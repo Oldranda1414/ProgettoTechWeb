@@ -50,6 +50,7 @@ CREATE TABLE db_life_and_games.User_table (
      E_mail char(30) not null,
      Passwrd char(128) not null,
      Profile_img char(100),
+     DT DATETIME DEFAULT CURRENT_TIMESTAMP,
      Salt char(128) not null,
      constraint ID_USER_ID primary key (User_id));
 

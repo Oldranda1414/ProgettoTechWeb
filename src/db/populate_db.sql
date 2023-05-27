@@ -56,7 +56,7 @@ INSERT INTO Comment(User_id, Post_id, Words, DT) Values((SELECT User_id FROM Use
 
 INSERT INTO Comment(User_id, Post_id, Words, DT) Values((SELECT User_id FROM User_table WHERE Username = "filusbrius"), (SELECT Post_id FROM Post WHERE Img = "post-example-2.jpg"), "Ex vita discedo, tanquam ex hospitio, non tanquam ex domo", "2022-05-13 15:04:00");
 
--- inserting likes into mi_piace table
+-- inserting likes into Like_table
 
 INSERT INTO Like_table(User_id, Post_id) VALUES ((SELECT User_id FROM User_table WHERE Username = "filusbrius"), (SELECT Post_id FROM Post WHERE Img = "post-example-1.jpg"));
 
@@ -74,10 +74,22 @@ INSERT INTO Like_table(User_id, Post_id) VALUES ((SELECT User_id FROM User_table
 
 INSERT INTO Like_table(User_id, Post_id) VALUES ((SELECT User_id FROM User_table WHERE Username = "vdamianob"), (SELECT Post_id FROM Post WHERE Img = "post-example-8.jpg"));
 
--- inserting follower into segue table
+-- inserting follower into Follow table
 
 INSERT INTO Follow(Follower_User_id, Followed_User_id) VALUES((SELECT User_id FROM User_table WHERE Username = "vdamianob"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"));
 
 INSERT INTO Follow(Follower_User_id, Followed_User_id) VALUES((SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"), (SELECT User_id FROM User_table WHERE Username = "vdamianob"));
 
 INSERT INTO Follow(Follower_User_id, Followed_User_id) VALUES((SELECT User_id FROM User_table WHERE Username = "filusbrius"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"));
+
+-- inserting notifications into notifications TABLE
+
+INSERT INTO Notifications(Notification_type, User_id, Follower_User_id, DT) VALUES("follower", (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"), (SELECT User_id FROM User_table WHERE Username = "vdamianob"), "2022-05-12 15:03:00");
+
+INSERT INTO Notifications(Notification_type, User_id, Follower_User_id, DT) VALUES("follower", (SELECT User_id FROM User_table WHERE Username = "vdamianob"), (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"), "2022-05-11 15:03:00");
+
+INSERT INTO Notifications(Notification_type, User_id, Follower_User_id, DT) VALUES("follower", (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"), (SELECT User_id FROM User_table WHERE Username = "filusbrius"), "2022-05-11 14:03:00");
+
+INSERT INTO Notifications(Notification_type, User_id, Liked_Post_id, Like_User_id, DT) VALUES("like", (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"), (SELECT Post_id FROM Post WHERE Img = "post-example-1.jpg"), (SELECT User_id FROM User_table WHERE Username = "filusbrius"), "2022-05-11 20:03:00");
+
+INSERT INTO Notifications(Notification_type, User_id, Comment_id, DT) VALUES("comment", (SELECT User_id FROM User_table WHERE Username = "leonardo.randacio"), (SELECT Comment_id FROM Comment WHERE DT = "2022-05-13 15:03:00"), "2022-05-13 15:03:00");

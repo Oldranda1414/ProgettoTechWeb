@@ -64,11 +64,11 @@ CREATE TABLE db_life_and_games.Notifications (
      Notification_type enum("follower", "comment", "like"),
      User_id int not null,
      Follower_User_id int DEFAULT null,
-     Commented_Post_id int DEFAULT null,
      Comment_id int DEFAULT null,
      Liked_Post_id int DEFAULT null,
+     Like_User_id int DEFAULT null,
      DT DATETIME DEFAULT CURRENT_TIMESTAMP,
-     'Read' BOOLEAN DEFAULT false,
+     Notified BOOLEAN DEFAULT false,
      constraint ID_NOTIFICATION_ID primary key (Notification_id));
 
 -- Constraints Section
@@ -134,12 +134,6 @@ alter table Notifications add constraint FKReferencesFollower_FK
      on update cascade
      on delete cascade;
 
-alter table Notifications add constraint FKReferencesCommentedPost_FK
-     foreign key (Commented_Post_id)
-     references Post(Post_id)
-     on update cascade
-     on delete cascade;
-
 alter table Notifications add constraint FKReferencesComment_FK
      foreign key (Comment_id)
      references Comment(Comment_id)
@@ -149,6 +143,12 @@ alter table Notifications add constraint FKReferencesComment_FK
 alter table Notifications add constraint FKReferencesLikedPost_FK
      foreign key (Liked_Post_id)
      references Post(Post_id)
+     on update cascade
+     on delete cascade;
+
+alter table Notifications add constraint FKReferencesLikedUser_FK
+     foreign key (Like_User_id)
+     references User_table(User_id)
      on update cascade
      on delete cascade;
 

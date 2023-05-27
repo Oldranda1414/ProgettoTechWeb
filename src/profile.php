@@ -1,5 +1,6 @@
 <?php
 require_once 'bootstrap.php';
+require "base.php";
 
 if(isUserLoggedIn($dbh)){
     if(isset($_GET["Username"])){
@@ -12,7 +13,7 @@ if(isUserLoggedIn($dbh)){
             $templateParams["titolo"] = "Profilo di ".$searchedUser;
             $templateParams["nome"] = "profile.php";
             $templateParams["posts"] = $dbh->getPostsAndCommentsByUser($searchedUser, 8);
-            $templateParams["user"] = $dbh->getUserInfo($searchedUser)[0];
+            $templateParams["searchedUser"] = $dbh->getUserInfo($searchedUser)[0];
             $templateParams["likes"] = $dbh->getUserLikes($searchedUser);
             $templateParams["comments"] = $dbh->getUserComments($searchedUser);
             $templateParams["followers"] = $dbh->getUserFollowers($searchedUser);

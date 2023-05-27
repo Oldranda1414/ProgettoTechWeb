@@ -11,6 +11,8 @@ class DatabaseHelper
       }
    }
 
+   //selection queries start here ------------------------------------------------------------------------------------------------------------
+
    //returns an assoc array containing comments referring to post with $postId as Post_id
    public function getComment($postId)
    {
@@ -170,6 +172,38 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
+   //checks if user with $user_id should be blocked for too many consecutive accesses (brute force)
+   public function checkbrute($user_id)
+   {
+      // Recupero il timestamp
+      $now = time();
+      // Vengono analizzati tutti i tentativi di login a partire dalle ultime due ore.
+      $valid_attempts = $now - (2 * 60 * 60);
+      if ($stmt = $this->db->prepare("SELECT Time_login FROM login_attempts WHERE User_id = ? AND Time_login > '$valid_attempts'")) {
+         $stmt->bind_param('i', $user_id);
+         // Eseguo la query creata.
+         $stmt->execute();
+         $stmt->store_result();
+         // Verifico l'esistenza di più di 5 tentativi di login falliti.
+         if ($stmt->num_rows > 5) {
+            return true;
+         } else {
+            return false;
+         }
+      }
+   }
+
+   //selection queries end here ------------------------------------------------------------------------------------------------------------
+
+   //db insertions start here ------------------------------------------------------------------------------------------------------------
+
+   public function insertPost(){
+      
+   }
+
+   //db insertions end here ------------------------------------------------------------------------------------------------------------
+
+
    public function secureLoginUser($user, $password)
    {
       // Usando statement sql 'prepared' non sarà possibile attuare un attacco di tipo SQL injection.
@@ -215,25 +249,8 @@ class DatabaseHelper
          }
       }
    }
-   public function checkbrute($user_id)
-   {
-      // Recupero il timestamp
-      $now = time();
-      // Vengono analizzati tutti i tentativi di login a partire dalle ultime due ore.
-      $valid_attempts = $now - (2 * 60 * 60);
-      if ($stmt = $this->db->prepare("SELECT Time_login FROM login_attempts WHERE User_id = ? AND Time_login > '$valid_attempts'")) {
-         $stmt->bind_param('i', $user_id);
-         // Eseguo la query creata.
-         $stmt->execute();
-         $stmt->store_result();
-         // Verifico l'esistenza di più di 5 tentativi di login falliti.
-         if ($stmt->num_rows > 5) {
-            return true;
-         } else {
-            return false;
-         }
-      }
-   }
+
+   
 
    //TODO understand which is correct and used: checkLogin or login_check
    public function checkLogin($username, $password)

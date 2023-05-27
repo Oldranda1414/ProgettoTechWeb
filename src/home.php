@@ -1,5 +1,6 @@
 <?php
 require_once 'bootstrap.php';
+require "base.php";
 
 if(isUserLoggedIn($dbh)){
     $templateParams["titolo"] = "Home";

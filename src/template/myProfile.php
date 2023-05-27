@@ -43,7 +43,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content bg-3">
 				<div class="modal-header">
-					<img src="<?php echo UPLOAD_DIR."/icons/key.png"; ?>" class="me-2" alt="profile icon"
+					<img src="<?php echo UPLOAD_DIR."icons/key.png"; ?>" class="me-2" alt="profile icon"
 						height="40">
 					<h1 class="modal-title fs-5" id="postModalLabel">Cambia Password</h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

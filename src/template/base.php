@@ -24,7 +24,7 @@
 				<div class="d-flex flex-row order-2 order-lg-3">
 					<ul class="navbar-nav flex-row px-4">
 						<li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#newPostModal"><img src="./upload/icons/add-post.png" height="30" alt="add post icon"></a></li>
-						<li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#notificationModal"><img src="./upload/icons/bell2.png" height="30" alt="notification bell button"><sup class="notification-number">3</sup></a></li>
+						<li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#notificationModal"><img src="./upload/icons/bell2.png" height="30" alt="notification bell button"><sup class="notification-number"><?php echo count($templateParams["notifications"]) ?></sup></a></li>
 					</ul>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>

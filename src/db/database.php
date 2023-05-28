@@ -218,8 +218,28 @@ class DatabaseHelper
 
    //db insertions start here ------------------------------------------------------------------------------------------------------------
 
-   public function insertPost(){
-
+   //inserts new post in the db and adds the post img to the upload directory.
+   public function insertPost($user_id, $words, $tag, $img){
+      //check if tag exists already in database
+      $stmt = $this->db->prepare("SELECT Tag_id FROM tag WHERE Game_name = ?");
+      $stmt->bind_param('s', $tag);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      $result = $result->fetch_all(MYSQLI_ASSOC);
+      //if tag doesn't exist, create new tag and retrieve tag_id
+      if(empty($result)){
+         $stmt = $this->db->prepare("INSERT INTO tag(Game_name) VALUES(?)");
+         $stmt->bind_param('s', $tag);
+         $stmt->execute();
+         $stmt = $this->db->prepare("SELECT Tag_id FROM tag WHERE Game_name = ?");
+         $stmt->bind_param('s', $tag);
+         $stmt->execute();
+         $result = $stmt->get_result();
+         $tagId = $result->fetch_all(MYSQLI_ASSOC)[0];
+      }
+      $stmt = $this->db->prepare("INSERT INTO post(Img, Words, Tag_id, User_id) VALUES(?, ?, ?, ?)");
+      $stmt->bind_param('ssii', $img, $words, $tagId, $user_id);
+      $stmt->execute();
    }
 
    //db insertions end here ------------------------------------------------------------------------------------------------------------

@@ -62,7 +62,7 @@
 						<h1 class="modal-title fs-5" id="postModalLabel">Nuovo post</h1>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
-					<form action="#" method="POST">
+					<form action="#" method="POST" enctype="multipart/form-data">
 						<div class="modal-body">
 								<div class="mb-3">
 									<input class="form-control me-2 bg-4  mb-2" type="search" placeholder="Inserisci tag..." aria-label="Search" id="tagNewPost" name="tagNewPost">

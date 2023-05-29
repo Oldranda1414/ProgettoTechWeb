@@ -228,6 +228,7 @@ class DatabaseHelper
       $result = $result->fetch_all(MYSQLI_ASSOC);
       //if tag doesn't exist, create new tag and retrieve tag_id
       if(empty($result)){
+         echo "inside the if result empty";
          $stmt = $this->db->prepare("INSERT INTO tag(Game_name) VALUES(?)");
          $stmt->bind_param('s', $tag);
          $stmt->execute();
@@ -235,9 +236,13 @@ class DatabaseHelper
          $stmt->bind_param('s', $tag);
          $stmt->execute();
          $result = $stmt->get_result();
-         $tagId = $result->fetch_all(MYSQLI_ASSOC)[0];
+         $tagId = $result->fetch_all(MYSQLI_ASSOC)[0]["Tag_id"];
+      }
+      else{
+         $tagId = $result[0]["Tag_id"];
       }
       $stmt = $this->db->prepare("INSERT INTO post(Img, Words, Tag_id, User_id) VALUES(?, ?, ?, ?)");
+      var_dump($img, $words, $tagId, $user_id);
       $stmt->bind_param('ssii', $img, $words, $tagId, $user_id);
       $stmt->execute();
    }

@@ -242,7 +242,6 @@ class DatabaseHelper
          $tagId = $result[0]["Tag_id"];
       }
       $stmt = $this->db->prepare("INSERT INTO post(Img, Words, Tag_id, User_id) VALUES(?, ?, ?, ?)");
-      var_dump($img, $words, $tagId, $user_id);
       $stmt->bind_param('ssii', $img, $words, $tagId, $user_id);
       $stmt->execute();
    }

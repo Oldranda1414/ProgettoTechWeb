@@ -4,11 +4,10 @@ var_dump($_POST);
         if(!empty($_POST["tagNewPost"]) || !empty($_POST["textNewPost"]) || !empty($_POST["fileNewPost"])){
             var_dump($_FILES);
             if(isset($_FILES["fileNewPost"]) && strlen($_FILES["fileNewPost"]["name"])>0){
-                echo "trying to upload new image";
                 list($imgUploadResult, $imgUploadMsg) = uploadImage(UPLOAD_DIR."posts/", $_FILES["fileNewPost"]);
                 if($imgUploadResult != 0){
                     $dbh->insertPost($_SESSION["user_id"], htmlspecialchars($_POST["textNewPost"]), htmlspecialchars($_POST["tagNewPost"]), $imgUploadMsg);
-                    echo "file inserted correctly";
+                    echo "Post inserted correctly";
                     //TODO FILE CARICATO CORRETTAMENTE, NOTIFICARE UTENTE
                 }
                 else{

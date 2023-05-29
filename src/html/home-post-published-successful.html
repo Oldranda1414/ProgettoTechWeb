@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="home page">
+	<title>Life&Games - Home</title>
+	<link href="./bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/css/bootstrap.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="bg-1">
+
+	<nav class="navbar navbar-expand-lg bg-2">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="./home.html">
+				<img src="./images/gamepad_logo.png" alt="Logo" width="38" height="24"
+					class="d-inline-block align-text-top">
+				Life&Games
+			</a>
+			<div class="d-flex flex-row order-2 order-lg-3">
+				<ul class="navbar-nav flex-row px-4">
+					<li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#newPostModal"><img src="./images/icons/add-post.png" height="30" alt="add post icon"></a></li>
+					<li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#notificationModal"><img src="./images/icons/bell2.png" height="30" alt="notification bell button"><sup class="notification-number">3</sup></a></li>
+				</ul>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse order-3 order-lg-2" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-link active" aria-current="page" href="home.html">Home</a>
+					<a class="nav-link" href="explore.html">Esplora</a>
+					<a class="nav-link" href="myprofile.html">Mio profilo</a>
+					<!-- <a class="nav-link" href="settings.html">Impostazioni</a> -->
+					<a class="nav-link" href="index.html">Esci</a>
+					
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container my-3">
+	
+		  	<!-- qua comincia la notifica toast "POST PUBBLICATO CON SUCCESSO" -->
+	<div aria-live="" aria-atomic="true" class="" style="position: absolute; min-height: 200px; z-index:5">
+	  <div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3300">
+		<div class="toast-header bg-3">
+		  <img src="./images/icons/success.png" class="rounded mr-2 alert-icon" alt="post published icon">
+		  <strong class="mr-auto">Avviso</strong>
+		</div>
+		<div class="toast-body">
+		  <p>Il post è stato pubblicato con successo!</p>
+		  <p><small>Clicca <a href>qui</a> per visualizzarlo.</small></p>
+		</div>
+	  </div>
+	</div>
+			<!-- fine notifica toast -->
+		<div class="row">
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card m-2 bg-4">
+					<a href="profile.php?Username=username">
+						<img src="./images/profiles/profile-1.jpg" class="post-img-profile mr-3" alt="profile icon" height="50">
+						<div class="nickname-post">Tux9000</div>
+					</a>
+					<img src="./images/posts/post-example-1.jpg" class="card-img-top" alt="Post Image">
+					<div class="card-body text-center">
+						<div class="card-title post-title">SimCity 4 BUG!!!</div>
+						<p class="card-text">Guardate cos'è successo! Non ci posso credere, mai vista una cosa del
+							genere... A voi i commenti.</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a>
+						<button type="button" class="btn post-button" data-bs-toggle="modal"
+							data-bs-target="#postModal">Apri post</button>
+					</div>
+					<div class="card-footer text-muted small font-italic">
+						04.08.2023
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card m-2 bg-4">
+					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon"
+						height="50">
+					<div class="nickname-post">CortinaDPG</div>
+					<img src="./images/posts/post-example-2.jpg" class="card-img-top" alt="Post Image">
+					<div class="card-body text-center">
+						<div class="card-title post-title">A spasso su Driver 2</div>
+						<p class="card-text">Chicago anni '90 in Art Pixel. In questa corsa a tempo devo raggiungere la
+							cima del ponte più importante di sta ceppa.</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a>
+						<button type="button" class="btn post-button" data-bs-toggle="modal"
+							data-bs-target="#postModal">Apri post</button>
+					</div>
+					<div class="card-footer text-muted small font-italic">
+						05.28.2019
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card m-2 bg-4">
+					<img src="./images/profiles/profile-1.jpg" class="post-img-profile mr-3" alt="profile icon"
+						height="50">
+					<div class="nickname-post">Colcos94</div>
+					<img src="./images/posts/post-example-3.jpg" class="card-img-top" alt="Post Image">
+					<div class="card-body text-center">
+						<div class="card-title post-title">Uno stupido gioco di nome "Poy Poy"</div>
+						<p class="card-text">Su PS1 e 2</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button"
+							class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri
+							post</button>
+					</div>
+					<div class="card-footer text-muted small font-italic">
+						02.04.2020
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card m-2 bg-4">
+					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon"
+						height="50">
+					<div class="nickname-post">TinoPino</div>
+					<img src="./images/posts/post-example-4.jpg" class="card-img-top" alt="Post Image">
+					<div class="card-body text-center">
+						<div class="card-title post-title">Partita a Dominion</div>
+						<p class="card-text">Stravinta questa partita contro uno che, a quanto pare, ha le pezze al c**!
+						</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button"
+							class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri
+							post</button>
+					</div>
+					<div class="card-footer text-muted small font-italic">
+						1.03.2018
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card m-2 bg-4">
+					<img src="./images/profiles/profile-1.jpg" class="post-img-profile mr-3" alt="profile icon"
+						height="50">
+					<div class="nickname-post">TinoPino</div>
+					<img src="./images/posts/post-example-5.jpg" class="card-img-top" alt="Post Image">
+					<div class="card-body text-center">
+						<div class="card-title post-title">La battaglia dell'araba (in)fenice</div>
+						<p class="card-text">Ho per caso rispolverato Strongholds Crusader, un vecchio gioco della
+							FireFly Studios. E questo è stato il risultato</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button"
+							class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri
+							post</button>
+					</div>
+					<div class="card-footer text-muted small font-italic">
+						09.10.2020
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card m-2 bg-4">
+					<img src="./images/profiles/profile-2.jpg" class="post-img-profile mr-3" alt="profile icon"
+						height="50">
+					<div class="nickname-post">vdamianob</div>
+					<img src="./images/posts/post-example-6.jpg" class="card-img-top" alt="Post Image">
+					<div class="card-body text-center">
+						<div class="card-title post-title">OpenTTD</div>
+						<p class="card-text">Facciamo finta di gestire il traffico, un po' come fa l'ATR. Tieni conto
+							che se il testo è maggiore di esempio 100 caratteri, bisogna tagliarlo.</p>
+						<a href="#" class="btn like-button m-1">Mi piace</a> <button type="button"
+							class="btn post-button" data-bs-toggle="modal" data-bs-target="#postModal">Apri
+							post</button>
+					</div>
+					<div class="card-footer text-muted small font-italic">
+						14.11.2023
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+
+	<div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content bg-3">
+				<div class="modal-header">
+					<img src="./images/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="profile icon"
+						height="40">
+					<h1 class="modal-title fs-5" id="postModalLabel">SimCity 4 BUG!!!</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p class="text-muted">di <a href="profile.php?Username=username"><em class="nickname-label">Tux9000</em></a>, il <em
+							class="modal-post-date">04.08.2023</em> alle <em class="modal-post-time">15:04</em></p>
+					<img src="./images/posts/post-example-1.jpg" class="card-img-top rounded" alt="Post Image">
+					<p class="post-body my-3">
+						Guardate cos'è successo! Non ci posso credere, mai vista una cosa del genere... A voi i
+						commenti.
+					</p>
+					<div class="like-number text-end me-3">
+						13 Mi piace
+					</div>
+					<hr>
+					<h2 class="fs-5 text-center">
+						Commenti
+					</h2>
+					<div class="post-comment-section">
+						<div class="post-comment mt-2 mb-5">
+							<p class="text-muted">
+								<img src="./images/profiles/profile-3.jpg" class="modal-post-img-profile me-2"
+									alt="comment profile icon" height="40">
+								di <a href="profile.php?Username=username"><em class="nickname-label">Xut-polisH</em></a>, il <em
+									class="modal-comment-post-date">04.08.2023</em> alle <em
+									class="modal-comment-post-time">18:39</em>
+							</p>
+							<p class="text-post-comment">
+								Da rabbrividire. Mi chiedo come non abbiano potuto far nulla per ovviare a tale
+								inconveniente.
+							</p>
+						</div>
+						<div class="post-comment mt-2 mb-5">
+							<p class="text-muted">
+								<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2"
+									alt="comment profile icon" height="40">
+								di <a href="profile.php?Username=username"><em class="nickname-label">CortinaDPG</em></a>, il <em
+									class="modal-comment-post-date">04.08.2023</em> alle <em
+									class="modal-comment-post-time">20:45</em>
+							</p>
+							<p class="text-post-comment">
+								Ne sono allibito, penso che qualcuno ne debba pagare le conseguenze,
+								SUBITO!!!!!!!!!!!!!!! Massimo 5 commenti, poi "carica altri"...
+							</p>
+						</div>
+					</div>
+					<form>
+						<div class="mb-3">
+							<label for="message-text" class="col-form-label">Commenta:</label>
+							<textarea class="form-control" id="message-text"></textarea>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Mi piace</button> -->
+					<a href="#" class="btn like-button m-1">Mi piace</a>
+					<button type="button" class="btn btn-info">Invia commento</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		<div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="newPostModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content bg-3">
+				<div class="modal-header">
+					<img src="./images/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="profile icon"
+						height="40">
+					<h1 class="modal-title fs-5" id="postModalLabel">Nuovo post</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="mb-3">
+							<input class="form-control me-2 bg-4  mb-2" type="search" placeholder="Inserisci tag..." aria-label="Search">
+							<label for="message-text" class="col-form-label">Testo:</label>
+							<textarea class="form-control" id="message-text" maxlength="250"></textarea>
+						</div>
+					</form>
+					<hr>
+					<h2 class="fs-5 text-center">
+						Carica immagine
+					</h2>
+					<div class="mb-3">
+						<input class="form-control" type="file" id="formFile" accept=".jpg,.png">
+					</div>
+					
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Mi piace</button> -->
+					<button type="button" class="btn btn-info">Pubblica post</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content bg-5">
+				<div class="modal-header">
+					<img src="./images/icons/bell.png" class="modal-post-img-profile me-2" alt="profile icon" height="40">
+					<h1 class="modal-title fs-5" id="postModalLabel">Notifiche</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="post-comment mt-2 mb-5">
+						<p class="text-muted">
+							<img src="./images/profiles/profile-3.jpg" class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
+							<em class="nickname-label">Xut-polisH</em>, il <em class="modal-comment-post-date">04.08.2023</em> alle <em class="modal-comment-post-time">18:39</em>
+						</p>
+						<p class="text-post-comment">
+							Ha messo <em>Mi piace</em> al <a href="">post</a> che hai pubblicato il <em>18.11.2022</em> alle <em>18:15</em>.
+						</p>
+					</div>
+					<hr>
+					<div class="post-comment mt-2 mb-5">
+						<p class="text-muted">
+							<img src="./images/profiles/profile-3.jpg" class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
+							<em class="nickname-label">Xut-polisH</em>, il <em class="modal-comment-post-date">04.08.2023</em> alle <em class="modal-comment-post-time">18:39</em>
+						</p>
+						<p class="text-post-comment">
+							Ha messo <em>Mi piace</em> al <a href="">post</a> che hai pubblicato il <em>18.11.2022</em> alle <em>18:15</em>.
+						</p>
+					</div>
+					<hr>
+					<div class="post-comment mt-2 mb-5">
+						<p class="text-muted">
+							<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
+							<em class="nickname-label">Can$as</em>, il <em class="modal-comment-post-date">04.08.2023</em> alle <em class="modal-comment-post-time">18:39</em>
+						</p>
+						<p class="text-post-comment">
+							Ha commentato il <a href="">post</a> che hai pubblicato il <em>18.11.2022</em> alle <em>18:15</em>.
+						</p>
+					</div>
+					<hr>
+					<div class="post-comment mt-2 mb-5">
+						<p class="text-muted">
+							<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
+							<em class="nickname-label">Can$as</em>, il <em class="modal-comment-post-date">04.08.2023</em> alle <em class="modal-comment-post-time">18:39</em>
+						</p>
+						<p class="text-post-comment">
+							Ha cominciato a seguirti.
+						</p>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-info">Cancella tutto</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- da aggiungere per visualizzare la notifica toast -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.toast').toast('show');
+    });
+  </script>
+	<!-- fine -->
+</body>
+
+</html>

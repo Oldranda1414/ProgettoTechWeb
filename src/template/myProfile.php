@@ -1,7 +1,7 @@
 <?php if(isset($templateParams["titolo_pagina"])): ?>
     <h2><?php echo $templateParams["titolo_pagina"]; ?></h2>
 <?php endif;?>
-<div class="container fascia-profilo pt-3 pb-5">
+	<div class="container fascia-profilo pt-3 pb-5">
 		<div class="text-center display-3 text-1 mb-3">IL MIO PROFILO</div>
 		<div class="row justify-content-center">
 			<div class="scheda-profilo mx-5 rounded col col-lg-9 justify-content-md-center">

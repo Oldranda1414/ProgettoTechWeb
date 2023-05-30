@@ -106,7 +106,10 @@
 			</div>
 		</div>
 		<main>
-			<?php
+			<?php 
+			if(isset($templateParams["newPostId"])){
+				require "postPublishedSuccessfull.php";
+			}
 			if (isset($templateParams["nome"])) {
 				require($templateParams["nome"]);
 			}

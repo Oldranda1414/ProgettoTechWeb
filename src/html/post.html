@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="user's profile">
+	<title>Life&Games - Post</title>
+	<link href="./bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/css/bootstrap.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="bg-1">
+	<nav class="navbar navbar-expand-lg bg-2">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="./home.html">
+				<img src="./images/gamepad_logo.png" alt="Logo" width="38" height="24"
+					class="d-inline-block align-text-top">
+				Life&Games
+			</a>
+			<div class="d-flex flex-row order-2 order-lg-3">
+				<ul class="navbar-nav flex-row px-4">
+					<li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#newPostModal"><img src="./images/icons/add-post.png" height="30" alt="add post icon"></a></li>
+					<li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#notificationModal"><img src="./images/icons/bell2.png" height="30" alt="notification bell button"><sup class="notification-number">3</sup></a></li>
+				</ul>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse order-3 order-lg-2" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-link" aria-current="page" href="home.html">Home</a>
+					<a class="nav-link" href="explore.html">Esplora</a>
+					<a class="nav-link active" href="myprofile.html">Mio profilo</a>
+					<!-- <a class="nav-link" href="settings.html">Impostazioni</a> -->
+					<a class="nav-link" href="index.html">Esci</a>
+					
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- Una schermata responsive in cui, in schermi piccoli sarà tutto allineato verticalmente con: immagine profilo, cambia immagine, email, I miei mi piaci, i miei commenti, followed, followers, sotto a mò di homepage tutti i post da me pubblicati. Mentre per schermi più grandi, a sx icona img utente, a dx menù poco fa descritto, e sotto sempre i post dell'utente -->
+	<div class="container fascia-profilo pt-3 pb-5">
+		<div class="text-center display-4 text-1 mb-3">Simcity4 BUG</div>
+		<div class="row justify-content-center">
+			<div class="scheda-profilo mx-1 rounded col col-lg-10 justify-content-md-center">
+				<div class="row justify-content-md-center text-center">
+					<div class="col-12 col-lg-6 mb-2">
+					<p class="text-muted">
+						<img src="./images/profiles/profile-1.jpg" class="post-author-img me-2" alt="profile icon"
+							height="100">
+						di <a href="profile.php?Username=username"><em class="nickname-label">Tux9000</em></a>, il <em
+							class="modal-post-date">04.08.2023</em> alle <em class="modal-post-time">15:04</em></p>
+						<img src="./images/posts/post-example-11.jpg" class="card-img-top rounded" alt="Post Image">
+						<p class="post-body my-3">
+							Guardate cos'è successo! Non ci posso credere, mai vista una cosa del genere... A voi i
+							commenti.
+						</p>
+						<div class="like-number text-end me-3">
+							A 13 utenti è piaciuto
+							<a href="#" class="btn like-button m-1">Mi piace</a>
+						</div>
+					</div>
+					<div class="col col-lg-4 mt-5 overflow-auto" style="max-height: 400px">
+						<div class="profile-schede-title">Commenti</div>
+						<div class="post-comment-section">
+							<div class="post-comment mt-2 mb-5">
+								<p class="text-muted">
+									<img src="./images/profiles/profile-3.jpg" class="modal-post-img-profile me-2"
+									alt="comment profile icon" height="40">
+								di <a href="profile.php?Username=username"><em class="nickname-label">Xut-polisH</em></a>, il <em
+									class="modal-comment-post-date">04.08.2023</em> alle <em
+									class="modal-comment-post-time">18:39</em>
+								</p>
+								<p class="text-post-comment">
+									Da rabbrividire. Mi chiedo come non abbiano potuto far nulla per ovviare a tale
+									inconveniente.
+								</p>
+							</div>
+							<div class="post-comment mt-2 mb-5">
+								<p class="text-muted">
+									<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2"
+										alt="comment profile icon" height="40">
+									di <a href="profile.php?Username=username"><em class="nickname-label">CortinaDPG</em></a>, il <em
+										class="modal-comment-post-date">04.08.2023</em> alle <em
+										class="modal-comment-post-time">20:45</em>
+								</p>
+								<p class="text-post-comment">
+									Ne sono allibito, penso che qualcuno ne debba pagare le conseguenze,
+									SUBITO!!!!!!!!!!!!!!! Massimo 5 commenti, poi "carica altri"...
+								</p>
+							</div>
+							<div class="post-comment mt-2 mb-5">
+								<p class="text-muted">
+									<img src="./images/profiles/profile-3.jpg" class="modal-post-img-profile me-2"
+									alt="comment profile icon" height="40">
+								di <a href="profile.php?Username=username"><em class="nickname-label">Xut-polisH</em></a>, il <em
+									class="modal-comment-post-date">04.08.2023</em> alle <em
+									class="modal-comment-post-time">18:39</em>
+								</p>
+								<p class="text-post-comment">
+									Da rabbrividire. Mi chiedo come non abbiano potuto far nulla per ovviare a tale
+									inconveniente.
+								</p>
+							</div>
+							<div class="post-comment mt-2 mb-5">
+								<p class="text-muted">
+									<img src="./images/profiles/profile-3.jpg" class="modal-post-img-profile me-2"
+									alt="comment profile icon" height="40">
+								di <a href="profile.php?Username=username"><em class="nickname-label">Xut-polisH</em></a>, il <em
+									class="modal-comment-post-date">04.08.2023</em> alle <em
+									class="modal-comment-post-time">18:39</em>
+								</p>
+								<p class="text-post-comment">
+									Da rabbrividire. Mi chiedo come non abbiano potuto far nulla per ovviare a tale
+									inconveniente.
+								</p>
+							</div>
+						</div>
+					<form>
+						<div class="mb-3">
+							<label for="message-text" class="col-form-label">Commenta:</label>
+							<textarea class="form-control" id="message-text"></textarea>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-primary">Mi piace</button> -->
+					<button type="button" class="btn btn-info">Invia commento</button>
+				</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="modal fade" id="likesModal" tabindex="-1" aria-labelledby="likesModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content bg-3">
+				<div class="modal-header">
+					<img src="./images/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="profile icon"
+						height="40">
+					<h1 class="modal-title fs-5" id="postModalLabel">I "Mi piace" di Colcos94</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p class="text-muted">
+						<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2"
+									alt="post user profile icon" height="40">
+						Hai apprezzato il <a href="" class="">post</a> di <a href="" class="nickname-label">Tux9000</a>
+					</p>
+
+					<img src="./images/posts/post-example-1.jpg" class="card-img-top rounded miniatura-immagine-post" alt="Post Image">
+					
+					<p class="post-body text-truncate mt-4 mb-5">
+						Guardate cos'è successo! Non ci posso credere, mai vista una cosa del genere... A voi i
+						commenti.
+					</p>
+					<div class="text-end">
+						<a href="#" class="btn liked-button m-1 text-right">Mi piace</a>
+					</div>
+					<hr>
+					<p class="text-muted">
+						<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2"
+									alt="post user profile icon" height="40">
+						Hai apprezzato il <a href="" class="">post</a> di <a href="" class="nickname-label">Tux9000</a>
+					</p>
+
+					<img src="./images/posts/post-example-1.jpg" class="card-img-top rounded miniatura-immagine-post" alt="Post Image">
+					
+					<p class="post-body text-truncate mt-4 mb-5">
+						Guardate cos'è successo! Non ci posso credere, mai vista una cosa del genere... A voi i
+						commenti.
+					</p>
+					
+					<div class="text-end">
+						<a href="#" class="btn liked-button m-1 text-right">Mi piace</a>
+					</div>
+
+					<hr>
+					<p class="text-muted">
+						<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2"
+									alt="post user profile icon" height="40">
+						Hai apprezzato il <a href="" class="">post</a> di <a href="" class="nickname-label">Tux9000</a>
+					</p>
+
+					<img src="./images/posts/post-example-1.jpg" class="card-img-top rounded miniatura-immagine-post" alt="Post Image">
+					
+					<p class="post-body text-truncate mt-4 mb-5">
+						Guardate cos'è successo! Non ci posso credere, mai vista una cosa del genere... A voi i
+						commenti.
+					</p>
+					
+					<div class="text-end">
+						<a href="#" class="btn liked-button m-1 text-right">Mi piace</a>
+					</div>
+					<hr>
+					<div class="row justify-content-center">
+						<a href="#" class="btn upload-button m-1">Carica altro...</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="commentsModal" tabindex="-1" aria-labelledby="commentsModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content bg-3">
+				<div class="modal-header">
+					<img src="./images/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="profile icon"
+						height="40">
+					<h1 class="modal-title fs-5" id="postModalLabel">Tutti i commenti di Colcos94</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p class="text-muted">
+						<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2"
+									alt="post user profile icon" height="40">
+						Nel <a href="" class="">post</a> di <a href="" class="nickname-label">Tux9000</a>
+					</p>
+
+					<img src="./images/posts/post-example-1.jpg" class="card-img-top rounded miniatura-immagine-post" alt="Post Image">
+					
+					<p class="post-body text-truncate mt-4 mb-5">
+						Guardate cos'è successo! Non ci posso credere, mai vista una cosa del genere... A voi i
+						commenti.
+					</p>
+					
+					<img src="./images/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="delete comment icon" height="40">
+									<img src="./images/icons/trash.png" class="me-2 text-right" alt="profile icon" height="20">
+									Il <em class="modal-comment-post-date">04.08.2023</em> 
+									alle <em
+									class="modal-comment-post-time">18:39</em>
+									hai commentato:
+							</p>
+							<p class="text-post-comment"> 
+								Da rabbrividire. Mi chiedo come non abbiano potuto far nulla per ovviare a tale
+								inconveniente.
+							</p>
+
+					<hr>
+					<p class="text-muted">
+						<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2"
+									alt="post user profile icon" height="40">
+						Nel <a href="" class="">post</a> di <a href="" class="nickname-label">Tux9000</a>
+					</p>
+
+					<img src="./images/posts/post-example-1.jpg" class="card-img-top rounded miniatura-immagine-post" alt="Post Image">
+					
+					<p class="post-body text-truncate mt-4 mb-5">
+						Guardate cos'è successo! Non ci posso credere, mai vista una cosa del genere... A voi i
+						commenti.
+					</p>
+					
+					<img src="./images/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="delete comment icon" height="40">
+									<img src="./images/icons/trash.png" class="me-2 text-right" alt="profile icon" height="20">
+									Il <em class="modal-comment-post-date">04.08.2023</em> 
+									alle <em
+									class="modal-comment-post-time">18:39</em>
+									hai commentato:
+							</p>
+							<p class="text-post-comment"> 
+								Da rabbrividire. Mi chiedo come non abbiano potuto far nulla per ovviare a tale
+								inconveniente.
+							</p>
+
+					<hr>
+					<p class="text-muted">
+						<img src="./images/profiles/profile-2.jpg" class="modal-post-img-profile me-2"
+									alt="post user profile icon" height="40">
+						Nel <a href="" class="">post</a> di <a href="" class="nickname-label">Tux9000</a>
+					</p>
+
+					<img src="./images/posts/post-example-1.jpg" class="card-img-top rounded miniatura-immagine-post" alt="Post Image">
+					
+					<p class="post-body text-truncate mt-4 mb-5">
+						Guardate cos'è successo! Non ci posso credere, mai vista una cosa del genere... A voi i
+						commenti.
+					</p>
+					
+					<img src="./images/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="delete comment icon" height="40">
+									<img src="./images/icons/trash.png" class="me-2 text-right" alt="profile icon" height="20">
+									Il <em class="modal-comment-post-date">04.08.2023</em> 
+									alle <em
+									class="modal-comment-post-time">18:39</em>
+									hai commentato:
+							</p>
+							<p class="text-post-comment"> 
+								Da rabbrividire. Mi chiedo come non abbiano potuto far nulla per ovviare a tale
+								inconveniente.
+							</p>
+
+					<hr>
+					<div class="row justify-content-center">
+						<a href="#" class="btn upload-button m-1">Carica altro...</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="followedModal" tabindex="-1" aria-labelledby="followedModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content bg-3">
+				<div class="modal-header">
+					<img src="./images/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="profile icon"
+						height="40">
+					<h1 class="modal-title fs-5" id="postModalLabel">Le persone seguite da Colcos94</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row justify-content-center">
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_1</p>
+								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_2</p>
+								<img src="./images/profiles/profile-3.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_3</p>
+								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_4</p>
+								<img src="./images/profiles/profile-3.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_5</p>
+								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_6</p>
+								<img src="./images/profiles/profile-3.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_7</p>
+								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_8</p>
+								<img src="./images/profiles/profile-3.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_9</p>
+								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile followed icon" height="100">
+							</a>
+						</div>
+					</div>
+					<hr>
+					<div class="row justify-content-center">
+						<a href="#" class="btn upload-button m-1">Carica altro...</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="modal fade" id="followerModal" tabindex="-1" aria-labelledby="followerModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content bg-3">
+				<div class="modal-header">
+					<img src="./images/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="profile icon"
+						height="40">
+					<h1 class="modal-title fs-5" id="postModalLabel">Le persone che seguono Colcos94</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="row justify-content-center">
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_1</p>
+								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile follower icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_2</p>
+								<img src="./images/profiles/profile-3.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile follower icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_3</p>
+								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile follower icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_4</p>
+								<img src="./images/profiles/profile-3.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile follower icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_5</p>
+								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile follower icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_6</p>
+								<img src="./images/profiles/profile-3.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile follower icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_7</p>
+								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile follower icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_8</p>
+								<img src="./images/profiles/profile-3.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile follower icon" height="100">
+							</a>
+						</div>
+						<div class="col-3 mx-2 mb-4">
+							<a href="" class="username-link">
+								<p class="text-center">username_9</p>
+								<img src="./images/profiles/profile-2.jpg" class="rounded-circle mb-2 follow-list-icon" alt="profile follower icon" height="100">
+							</a>
+						</div>
+					</div>
+					<hr>
+					<div class="row justify-content-center">
+						<a href="#" class="btn upload-button m-1">Carica altro...</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+  </body>
+
+</html>

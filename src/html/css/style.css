@@ -22,6 +22,10 @@
 	background-color: rgb(124, 53, 98);
 }
 
+.bg-7  {
+	background-color: rgb(212 167 167 / 98%)
+}
+
 .text-1 {
 	color: #ffe2e7;
 }
@@ -268,4 +272,11 @@ a {
 .alert-icon {
 	width: 25px;
 	height: 25px;
+}
+
+.post-author-img {
+	border-radius: 50%;
+    object-fit: cover;
+    width: 57px;
+    height: 57px;
 }

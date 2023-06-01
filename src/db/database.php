@@ -262,10 +262,10 @@ class DatabaseHelper
          if ($stmt->num_rows == 1) { // se l'utente esiste
             // verifichiamo che non sia disabilitato in seguito all'esecuzione di troppi tentativi di accesso errati.
             if ($this->checkbrute($user_id) == true) {
-               echo "account disabilitato per troppi tentativi"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
+               //echo "account disabilitato per troppi tentativi"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
                // Account disabilitato
                // Invia un e-mail all'utente avvisandolo che il suo account è stato disabilitato.
-               return false;
+               return 3;
             } else {
                if ($db_password == $passwordHashed) { // Verifica che la password memorizzata nel database corrisponda alla password fornita dall'utente.
                   // Password corretta! 
@@ -280,20 +280,20 @@ class DatabaseHelper
                   $_SESSION['username'] = $username;
                   $_SESSION['login_string'] = hash('sha512', $passwordHashed.$user_browser);
                   // Login eseguito con successo.
-                  return true;
+                  return 0;
                } else {
-                  echo "password non corretta"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
-                  // Password incorretta.
+                  //echo "password non corretta"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
+				  // Password incorretta.
                   // Registriamo il tentativo fallito nel database.
                   $now = time();
                   $this->db->query("INSERT INTO login_attempts (User_id, Time_login) VALUES ('$user_id', '$now')");
-                  return false;
+                  return 1;
                }
             }
          } else {
             // L'utente inserito non esiste.
-            echo "lutente inserito non esiste"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
-            return false;
+            //echo "lutente inserito non esiste"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
+            return 2;
          }
       }
    }

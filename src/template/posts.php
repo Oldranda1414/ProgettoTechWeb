@@ -17,7 +17,7 @@
 							data-bs-target="#post<?php echo $elemento["Post_id"] ?>Modal">Apri post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
-						<?php echo date("d-m-y" ,strtotime($elemento["DT"]))." alle ".date("h:i:s" ,strtotime($elemento["DT"]))?>
+						<?php echo date("d-m-y" ,strtotime($elemento["DT"]))." alle ".date("h:i" ,strtotime($elemento["DT"]))?>
 					</div>
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 						</div>
 						<div class="modal-body">
 							<p class="text-muted">di <a href="profile.php?Username=<?php echo $elemento["Username"]?>"><em class="nickname-label">
-									<?php echo $elemento["Username"] ?></em></a>, il <?php echo date("d-m-y" ,strtotime($elemento["DT"]))." alle ".date("h:i:s" ,strtotime($elemento["DT"]))?></p>
+									<?php echo $elemento["Username"] ?></em></a>, il <?php echo date("d-m-y" ,strtotime($elemento["DT"]))." alle ".date("h:i" ,strtotime($elemento["DT"]))?></p>
 							<img src="<?php echo UPLOAD_DIR . "posts/" . $elemento["Img"] ?>" class="card-img-top rounded"
 								alt="Post Image">
 							<p class="post-body my-3">
@@ -58,7 +58,7 @@
 											<img src="<?php echo UPLOAD_DIR . "profiles/" . $singleComment["Profile_img"] ?>"
 												class="modal-post-img-profile me-2" alt="comment profile icon" height="40">
 											di <a href="profile.php?Username=<?php echo $singleComment["Username"] ?>"><em class="nickname-label"><?php echo $singleComment["Username"] ?></em></a>, 
-												il <?php echo date("d-m-y" ,strtotime($singleComment["DT"]))." alle ".date("h:i:s" ,strtotime($singleComment["DT"]))?>
+												il <?php echo date("d-m-y" ,strtotime($singleComment["DT"]))." alle ".date("h:i" ,strtotime($singleComment["DT"]))?>
 										</p>
 										<p class="text-post-comment">
 											<?php echo $singleComment["Words"] ?>

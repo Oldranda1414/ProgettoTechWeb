@@ -7,7 +7,7 @@
 		</div>
 		<div class="toast-body">
 		  <p>Il post è stato pubblicato con successo!</p>
-		  <p><small>Clicca <a href="<?php echo "post.php?id=".$templateParams["newPostId"] ?>">qui</a> per visualizzarlo.</small></p>
+		  <p><small>Clicca <a href="<?php echo "post.php?id=".$templateParams["newPostId"] ?>"><b>qui</b></a> per visualizzarlo.</small></p>
 		</div>
 	  </div>
 	</div>

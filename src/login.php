@@ -9,7 +9,7 @@ if(isset($_POST["username"]) && isset($_POST["p"])){
         }
     }
     else{
-        echo("login non riuscito");
+        echo('<p class="text-center text-danger login-error-label mx-2"><u><img src="./upload/icons/alert.png" class="alert-icon img-fluid me-2" alt="alert icon">Password non corretta, riprovare.</u></p>');
 
         //login non riuscito
         //$templateParams["errorelogin"] = "Errore! Controllare username o password!";

@@ -89,14 +89,18 @@
       </div>
 
       <div class="form-floating">
-        <input type="password" class="form-control middleForm" id="floatingPassword" placeholder="Password">
+        <input type="password" class="form-control middleForm password" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
 
       <div class="form-floating">
-        <input type="password" class="form-control lastForm" id="floatingRPassword" placeholder="Password">
+        <input type="password" class="form-control lastForm password" id="floatingRPassword" placeholder="Password">
         <label for="floatingRPassword">Verifica password</label>
       </div>
+
+      <p>
+        <input type="checkbox" onclick="showhidePassword()">Mostra password
+      </p>
 
       <p class="text-center user">...</p>
       <p class="text-center mail">...</p>
@@ -112,6 +116,7 @@
 
   <script src='https://www.google.com/recaptcha/api.js'></script>
   <script src="../js/register.js" type="text/javascript"></script>
+  <script src="../js/password.js"></script>
 </body>
 
 </html>

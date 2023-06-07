@@ -29,9 +29,13 @@
         <label for="floatingText">Utente</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password" class="form-control password" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
+
+      <p>
+        <input type="checkbox" onclick="showhidePassword()">Mostra password
+      </p>
 
       <div class="checkbox mb-3">
         <label for="rememberMeCheckbox">
@@ -45,6 +49,7 @@
   </main>
 
   <script src="../js/login.js" type="text/javascript"></script>
+  <script src="../js/password.js"></script>
 </body>
 
 </html>

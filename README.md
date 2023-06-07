@@ -20,11 +20,23 @@ La progettazione deve essere:
 
 # Life&Games
 ## Descrizione dell'applicazione
-Life&Games, l'applicazione web da noi realizzata, si pone l'obiettivo di permettere agli utenti di condividere le proprie esperienze e di esprimere le proprie opinioni in ambito videoludico
+Life&Games, l'applicazione web da noi realizzata, si pone l'obiettivo di permettere agli utenti di condividere le proprie esperienze e di esprimere le proprie opinioni in ambito videoludico tramite sia post, composti da una descrizione, un tag ed una immagine, sia commenti, che ogni utente può fare a qualsiasi post.
 
-## Descrizione delle caratteristiche/features ...
-...
+## Descrizione delle caratteristiche
+- Necessità di un account per accedere al social network
 
-...
+- Post con immagini caricate dal proprio dispositivo
 
-...
+- Possibilità di segiure e di essere seguiti da altri utenti in modo dinamico
+
+- "Mi piace" reattivi
+
+- Notifiche dinamiche
+
+- Poter modificare la propria password o immagine profilo ...
+
+- ...
+
+- ...
+
+## ...

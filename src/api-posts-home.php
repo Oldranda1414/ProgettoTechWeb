@@ -1,10 +1,7 @@
 <?php
     require_once 'bootstrap.php';
-    $numberPosts=12;
-    $offset=0;
-    if (isset ($_GET["numberPosts"]) && $numberPosts<$_GET["numberPosts"] && $numberPosts!=$_GET["numberPosts"]){
-        $offset+=$numberPosts;
-    }
+    $numberPosts=$_GET["numberPosts"];
+    $offset=$_GET["offset"];
     
     $posts = $dbh->getLatestNPosts($offset,$numberPosts);
 

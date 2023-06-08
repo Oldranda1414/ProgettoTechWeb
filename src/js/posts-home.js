@@ -10,20 +10,20 @@ function createPost(posts){
         let post = `
             <div class="col-12 col-md-6 col-lg-4">
 				<div class="card m-2 bg-4">
-					<a href="profile.php?Username=${posts[i]["Username"]}>">
+					<a href="profile.php?Username=${posts[i]["Username"]}">
 						<img src="${posts[i]["Profile_img"]}" class="post-img-profile mr-3" alt="profile icon"
 							height="50">
-						<div class="nickname-post">${posts[i]["Username"]}></div>
+						<div class="nickname-post">${posts[i]["Username"]}</div>
 					</a>
 					<img src="${posts[i]["Img"]}" class="card-img-top" alt="Post Image">
 					<div class="card-body text-center">
-						<a href="TagPage.php?Tag=${posts[i]["Game_name"]}>">
+						<a href="TagPage.php?Tag=${posts[i]["Game_name"]}">
 						<div class="card-title post-title">${posts[i]["Game_name"]}</div>
 						</a>
 						<p class="card-text">${posts[i]["Words"]}</p>
 						<a href="#" class="btn like-button m-1">Mi piace</a>
 						<button type="button" class="btn post-button" data-bs-toggle="modal"
-							data-bs-target="#post${posts[i]["Post_id"]}>Modal">Apri post</button>
+							data-bs-target="#post${posts[i]["Post_id"]}Modal">Apri post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
                         ${formattedDate}

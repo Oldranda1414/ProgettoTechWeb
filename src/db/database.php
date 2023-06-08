@@ -45,15 +45,6 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
-   //receives an associative array of posts and compleates the array adding all the comments relative to each post
-   public function getPostsAndComments($result)
-   {
-      foreach ($result as &$post) {
-         $post["Comments"] = $this->getComment($post["Post_id"]);
-      }
-      return $result;
-   }
-
    //retrieves post data for the latest $n posts
    //note that the only data missing is about comments related to each post
 
@@ -72,12 +63,6 @@ class DatabaseHelper
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
-   }
-
-   //retrieves post data and the comments related to them for the latest $n posts
-   public function getLatestPostsAndComments($n){
-      $result = $this->getLatestNPosts($n);
-      return $this->getPostsAndComments($result);
    }
 
    //retrieves post data for the $n most liked posts of the day $day
@@ -99,13 +84,6 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
-   //retrieves post data and the comments related to them for the $n most liked posts of the day $day
-   public function getMostLikedPostsAndComments($day, $n)
-   {
-      $result = $this->getMostLikedPosts($day, $n);
-      return $this->getPostsAndComments($result);
-   }
-
    //retrieves post data for the latest $n posts posted by user with Username $username
    //note that the only data missing is about comments related to each post
    public function getPostsByUser($username, $n)
@@ -123,13 +101,6 @@ class DatabaseHelper
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
-   }
-
-   //retrieves post data and the comments related to them for the latest $n posts posted by user with Username $username
-   public function getPostsAndCommentsByUser($username, $n)
-   {
-      $result = $this->getPostsByUser($username, $n);
-      return $this->getPostsAndComments($result);
    }
 
    //retrieves data about a user with username $username

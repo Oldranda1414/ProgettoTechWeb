@@ -57,13 +57,14 @@ class DatabaseHelper
    //retrieves post data for the latest $n posts
    //note that the only data missing is about comments related to each post
    public function getLatestNPosts($n){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes 
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
                                  JOIN tag AS T ON P.Tag_id=T.Tag_id) 
                                  LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
                                              FROM Like_table GROUP BY Post_id) 
                                  AS L ON P.Post_id=L.Post_id) 
+                                 CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter 
                                  ORDER BY P.DT DESC LIMIT ?");
       $stmt->bind_param('i', $n);
       $stmt->execute();

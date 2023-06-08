@@ -1,5 +1,6 @@
+let numberPostsActive=0;
 function createPost(posts){
-    let result = `
+	let result = `
 	<div class="container my-3">
 		<div class="row">
 	`;
@@ -33,6 +34,7 @@ function createPost(posts){
         `;
         result += post;
     }
+	numberPostsActive += posts.length;
 	result += `
 		</div>
 	</div>
@@ -40,9 +42,33 @@ function createPost(posts){
     return result;
 }
 
-axios.get('api-posts-home.php').then(response => {
+axios.get('api-posts-home.php', {
+		params: {
+	 	numberPosts : (numberPostsActive)
+		}
+  	}).then(response => {
     console.log(response);
     let posts = createPost(response.data);
     const main = document.querySelector("main");
     main.innerHTML = posts;
+});
+
+window.addEventListener('scroll', () => {
+	if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight) {
+		numberPostsActive+=12;
+		axios.get('api-posts-home.php',{
+			params: {
+		  	numberPosts : (numberPostsActive)
+			}
+		})
+	  	.then(response => {
+			console.log(response);
+    		let posts = createPost(response.data);
+    		const main = document.querySelector("main");
+    		main.innerHTML += posts;
+	  	})
+	  	.catch(error => {
+			console.log(error);
+	  	});
+	}
 });

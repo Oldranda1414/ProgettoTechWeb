@@ -24,7 +24,7 @@
 		</div>
 	</div>
     <div class="container text-center my-3">
-		<div class="text-center display-3 text-2 mb-3">I MIEI POST</div>
+		<div class="text-center display-3 text-2 mb-3">I SUOI POST</div>
 		<div class="row">
         <?php 
 		if(isset($templateParams["posts"])){

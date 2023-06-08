@@ -34,8 +34,25 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
+   //returns data referring to post with $postId as Post_id
+   public function getPostById($postId){
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes
+                                 FROM (((post AS P 
+                                 JOIN user_table AS U ON P.User_id=U.User_id) 
+                                 JOIN tag AS T ON P.Tag_id=T.Tag_id) 
+                                 LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
+                                             FROM Like_table GROUP BY Post_id) 
+                                 AS L ON P.Post_id=L.Post_id)
+                                 WHERE P.Post_id = ?");
+      $stmt->bind_param('i', $postId);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC)["0"];
+
+   }
+
    //returns an assoc array containing comments referring to post with $postId as Post_id
-   public function getComment($postId)
+   public function getComments($postId)
    {
       $query = "SELECT U.Username, U.Profile_img, C.Words, C.DT FROM User_table AS U JOIN Comment AS C ON U.User_id = C.User_id WHERE C.Post_id = ? ORDER BY C.DT";
       $stmt = $this->db->prepare($query);
@@ -48,15 +65,14 @@ class DatabaseHelper
    //retrieves post data for the latest $n posts
    //note that the only data missing is about comments related to each post
 
-   public function getLatestNPosts($n){
+   public function getLatestNPosts($offset, $limit){
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
                                  JOIN tag AS T ON P.Tag_id=T.Tag_id) 
                                  LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
                                              FROM Like_table GROUP BY Post_id) 
-                                 AS L ON P.Post_id=L.Post_id) 
-
+                                 AS L ON P.Post_id=L.Post_id)
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter 
                                  ORDER BY P.DT DESC LIMIT ?, ?");
       $stmt->bind_param('ii',$offset, $limit);

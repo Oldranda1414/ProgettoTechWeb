@@ -10,6 +10,7 @@ if(isUserLoggedIn($dbh)){
     $templateParams["comments"] = $dbh->getUserComments($_SESSION['username']);
     $templateParams["followers"] = $dbh->getUserFollowers($_SESSION['username']);
     $templateParams["followed"] = $dbh->getUserFollowed($_SESSION['username']);
+    $templateParams["js"] = array ("js/changePassword.js");
     require 'template/base.php';
 }
 else{

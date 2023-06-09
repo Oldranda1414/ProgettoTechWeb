@@ -32,7 +32,7 @@
 
 							<div class="carousel-caption d-md-block">
 								<div class="title-carousel-post text-truncate" data-bs-toggle="modal"
-									data-bs-target="#post<?php echo $elemento["Post_id"] ?>ModalCarousel"><?php echo $elemento["Game_name"] ?></div>
+									data-bs-target="post.php?id=<?php echo $elemento["Post_id"] ?>"><?php echo $elemento["Game_name"] ?></div>
 								<div class="row justify-content-center">
 									<a href="profile.php?Username=<?php echo $elemento["Username"] ?>">
 										<div class="col">
@@ -72,7 +72,7 @@
 	<div class="row justify-content-center">
 		<div class="scheda-profilo mx-5 rounded col col-sm-12 col-lg-7 col-xl-6 justify-content-md-center">
 			<div class="row justify-content-center text-center mb-2">
-				<form action="#" method="POST" class="d-flex me-1 mw-50 navbar-right mt-3" role="search">
+				<form action="#" method="GET" class="d-flex me-1 mw-50 navbar-right mt-3" role="search">
 					<div class="col-xs-10 col-sm-9 col-lg-5 mb-2">
 
 						<!-- <form action="#" method="POST" class="d-flex me-1 mw-50 navbar-right mt-3" role="search"> -->

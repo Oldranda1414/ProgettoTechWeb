@@ -3,15 +3,15 @@ require_once 'bootstrap.php';
 require "base.php";
 
 if(isUserLoggedIn($dbh)){
-    if(isset($_POST["search"]) && isset($_POST["flexRadioDefault"]) && !empty($_POST["search"])){
-        if($_POST["flexRadioDefault"] == "post"){
-            $templateParams["posts"] = $dbh->getPostsByWords($_POST["search"],0,5);
+    if(isset($_GET["search"]) && isset($_GET["flexRadioDefault"]) && !empty($_GET["search"])){
+        if($_GET["flexRadioDefault"] == "post"){
+            $templateParams["posts"] = $dbh->getPostsByWords($_GET["search"],0,5);
         }
-        else if($_POST["flexRadioDefault"] == "tag"){
-            $templateParams["posts"] = $dbh->getPostsByGameName($_POST["search"],0,5);
+        else if($_GET["flexRadioDefault"] == "tag"){
+            $templateParams["posts"] = $dbh->getPostsByGameName($_GET["search"],0,5);
         }
-        else if($_POST["flexRadioDefault"] == "user"){
-            $templateParams["posts"] = $dbh->getPostsByUsername($_POST["search"],0,5);
+        else if($_GET["flexRadioDefault"] == "user"){
+            $templateParams["posts"] = $dbh->getPostsByUsername($_GET["search"],0,5);
         }
     }
     else{

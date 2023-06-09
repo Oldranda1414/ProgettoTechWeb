@@ -13,7 +13,7 @@
 						</a>
 						<p class="card-text"><?php echo $elemento["Words"]?></p>
 						<a href="#" class="btn like-button m-1">Mi piace</a>
-						<button type="button" class="btn post-button" onclick="location.href='post.php?id=<?php echo $elemento["Post_id"] ?>'">Apri post</button>
+						<button type="button" class="btn post-button" onclick="location.href='post.php?id=<?php echo $elemento['Post_id'] ?>'">Apri post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
 						<?php echo date("d-m-y" ,strtotime($elemento["DT"]))." alle ".date("h:i" ,strtotime($elemento["DT"]))?>

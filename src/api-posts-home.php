@@ -8,7 +8,7 @@
     
     if (isset($page)){
         if (strpos($page, "myprofile")!== false){
-            $posts = $dbh->getPostsByUser($username, $offset, $numberPosts);
+            $posts = $dbh->getPostsByUser2($username, $offset, $numberPosts);
         } else if (strpos($page, "home")!== false) {
             $posts = $dbh->getLatestNPosts($offset,$numberPosts);
         }

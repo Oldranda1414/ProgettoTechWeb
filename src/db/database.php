@@ -119,7 +119,7 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
-   public function getPostsByUser($username, $offset, $limit)
+   public function getPostsByUser2($username, $offset, $limit)
    {
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes 
                                  FROM (((post AS P 

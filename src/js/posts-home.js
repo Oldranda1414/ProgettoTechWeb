@@ -51,8 +51,8 @@ function fetchPosts(offs){
 		numberPosts : (offsetSta),
 		}
   	}).then(response => {
-    	console.log(response);
 		if(response.data.length>0){
+			console.log(response);
 			let posts = createPost(response.data);
 			const main = document.querySelector("main");
 			main.innerHTML += posts; 
@@ -69,7 +69,7 @@ window.addEventListener('load', () => {
 window.addEventListener('scroll', () => {
 	if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight) {
 		let offset=numberPostsActive;
-		if  (totalPosts>=offset){
+		if  (totalPosts>=numberPostsActive){
 			
 		} else {
 			if (numberPostsActive<=totalPosts-offsetSta)
@@ -77,8 +77,6 @@ window.addEventListener('scroll', () => {
 			else if (numberPostsActive>totalPosts-offsetSta){
 				numberPostsActive=totalPosts;
 			}
-			else if (totalPosts===numberPostsActive)
-				offset=totalPosts;
 		}
 		fetchPosts(offset);
 	}

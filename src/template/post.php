@@ -8,7 +8,7 @@
 						<img src="./upload/profiles/profile-1.jpg" class="post-author-img me-2" alt="profile icon"
 							height="100">
 						di <a href="profile.php?Username=<?php echo $templateParams["post"]["Username"] ?>"><em class="nickname-label"><?php echo $templateParams["post"]["Username"] ?></em></a>, il
-                            <?php echo date("d-m-y" ,strtotime($templateParams["post"]["DT"]))." alle ".date("h:i" ,strtotime($templateParams["post"]["DT"]))?></p>
+                            <?php echo date("d-m-y" ,strtotime($templateParams["post"]["DT"]))." alle ".date("H:i" ,strtotime($templateParams["post"]["DT"]))?></p>
 						<img src="./upload/posts/<?php echo $templateParams["post"]["Img"] ?>" class="card-img-top rounded" alt="Post Image">
 						<p class="post-body my-3">
                             <?php echo $templateParams["post"]["Words"] ?>
@@ -27,7 +27,7 @@
 									<img src="./upload/profiles/<?php echo $comment["Profile_img"] ?>" class="modal-post-img-profile me-2"
 									alt="comment profile icon" height="40">
 								di <a href="profile.php?Username=<?php echo $comment["Username"] ?>"><em class="nickname-label"><?php echo $comment["Username"] ?></em></a>, il 
-                                    <?php echo date("d-m-y" ,strtotime($comment["DT"]))." alle ".date("h:i" ,strtotime($comment["DT"]))?>
+                                    <?php echo date("d-m-y" ,strtotime($comment["DT"]))." alle ".date("H:i" ,strtotime($comment["DT"]))?>
 								</p>
 								<p class="text-post-comment">
                                     <?php echo $comment["Words"] ?>

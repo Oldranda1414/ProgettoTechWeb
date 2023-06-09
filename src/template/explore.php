@@ -72,41 +72,43 @@
 	<div class="row justify-content-center">
 		<div class="scheda-profilo mx-5 rounded col col-sm-12 col-lg-7 col-xl-6 justify-content-md-center">
 			<div class="row justify-content-center text-center mb-2">
-				<div class="col-xs-10 col-sm-9 col-lg-5 mb-2">
+				<form action="#" method="POST" class="d-flex me-1 mw-50 navbar-right mt-3" role="search">
+					<div class="col-xs-10 col-sm-9 col-lg-5 mb-2">
 
-					<form action="#" method="POST" class="d-flex me-1 mw-50 navbar-right mt-3" role="search">
-						<input class="form-control me-2 bg-4 search" type="search" placeholder="Cerca..." aria-label="Search" id="search" name="search">
-						<!--ci sono problemi di accessibilità per la label-->
-						<button class="w-25 btn btn-sm bg-1" type="submit">
-							<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/800px-Vector_search_icon.svg.png"
-								width="25" alt="search button icon">
-						</button>
-					</form>
+						<!-- <form action="#" method="POST" class="d-flex me-1 mw-50 navbar-right mt-3" role="search"> -->
+							<input class="form-control me-2 bg-4 search" type="search" placeholder="Cerca..." aria-label="Search" id="search" name="search">
+							<!--ci sono problemi di accessibilità per la label-->
+							<button class="w-25 btn btn-sm bg-1" type="submit">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/800px-Vector_search_icon.svg.png"
+									width="25" alt="search button icon">
+							</button>
+						<!-- </form> -->
 
-				</div>
-				<div class="col col-lg-4 col-sm-4 ">
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-							checked>
-						<label class="form-check-label" for="flexRadioDefault1">
-							Cerca per post
-						</label>
 					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-						<label class="form-check-label" for="flexRadioDefault2">
-							Cerca tag
-						</label>
-					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-						<label class="form-check-label" for="flexRadioDefault3">
-							Cerca utente
-						</label>
-					</div>
+					<div class="col col-lg-4 col-sm-4 ">
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="post"
+								checked>
+							<label class="form-check-label" for="flexRadioDefault1">
+								Cerca per post
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="tag">
+							<label class="form-check-label" for="flexRadioDefault2">
+								Cerca tag
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" value="user">
+							<label class="form-check-label" for="flexRadioDefault3">
+								Cerca utente
+							</label>
+						</div>
 
 
-				</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

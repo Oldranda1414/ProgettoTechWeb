@@ -1,5 +1,4 @@
 <?php if ($templateParams["nome"] != "login.php" && $templateParams["nome"] != "register.php") : ?>
-	<?php echo var_dump($_GET);?>
 
 	<!doctype html>
 	<html lang="it">

@@ -252,7 +252,7 @@ class DatabaseHelper
                                  WHERE T.Game_name LIKE ?
                                  ORDER BY P.DT DESC LIMIT ?, ?");
       $gameName = $gameName."%";
-      $stmt->bind_param('sii', $words, $offset, $limit);
+      $stmt->bind_param('sii', $gameName, $offset, $limit);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
@@ -271,7 +271,7 @@ class DatabaseHelper
                                     WHERE U.Username LIKE ?
                                     ORDER BY P.DT DESC LIMIT ?, ?");
          $username = $username."%";
-         $stmt->bind_param('sii', $words, $offset, $limit);
+         $stmt->bind_param('sii', $username, $offset, $limit);
          $stmt->execute();
          $result = $stmt->get_result();
          return $result->fetch_all(MYSQLI_ASSOC);

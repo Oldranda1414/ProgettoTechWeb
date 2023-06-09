@@ -9,6 +9,9 @@
     if (isset($page)){
         if (strpos($page, "myprofile")!== false){
             $posts = $dbh->getPostsByUser2($username, $offset, $numberPosts);
+        } else if (strpos($page, "profile")!== false){
+            $newuser = explode(".php?Username=", $page);
+            $posts = $dbh->getPostsByUser2($newuser[1], $offset, $numberPosts);
         } else if (strpos($page, "home")!== false) {
             $posts = $dbh->getLatestNPosts($offset,$numberPosts);
         }

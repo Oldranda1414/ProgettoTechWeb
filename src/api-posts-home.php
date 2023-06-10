@@ -14,6 +14,20 @@
             $posts = $dbh->getPostsByUser2($newuser[1], $offset, $numberPosts);
         } else if (strpos($page, "home")!== false) {
             $posts = $dbh->getLatestNPosts($offset,$numberPosts);
+        } else if (strpos($page, "explore")!== false){
+            $search = strpos($page, "?search=")[1];
+            $search = strpos($page "&flexRadioDefault=")[0];
+            $type = strpos($page "&flexRadioDefault=")[1];
+            $type = strpos($page "#")[0];
+            if (strpos($type, "user")!== false){
+                $posts = $dbh->getPostsByUsername($search,$offset,$numberPosts);
+            } else if (strpos($page, "tag")!== false){
+                $posts = $dbh->getLatestNPosts($search,$offset,$numberPosts);
+            } else if (strpos($page, "post")!== false){
+                $posts = $dbh-> $dbh->getPostsByUsername($search,$offset,$numberPosts);
+            } else {
+                $posts = $dbh->getLatestNPosts($offset,$numberPosts);
+            }
         }
     } else {
         $posts = $dbh->getLatestNPosts($offset,$numberPosts);

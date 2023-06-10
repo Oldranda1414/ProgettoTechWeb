@@ -12,7 +12,7 @@
 					<div class="col col-lg-3">
 						<div class="profile-schede-title">Informazioni profilo</div>
 						<ul class="list-group">
-                          <li class="list-group-item  bg-4">Segui</li>
+                          <li class="list-group-item  bg-4"><?php echo $templateParams["searchedUser"]["followed"]?"Non seguire più":"Segui" ?></li>
 						  <li class="list-group-item  bg-4" data-bs-toggle="modal" data-bs-target="#likesModal">I suoi <em>Mi piace</em></li>
 						  <li class="list-group-item  bg-4" data-bs-toggle="modal" data-bs-target="#commentsModal">I suoi commenti</li>
 						  <li class="list-group-item  bg-4" data-bs-toggle="modal" data-bs-target="#followedModal">Seguiti</li>

@@ -32,6 +32,6 @@
         }
     }
     $templateParams["notifications"] = $dbh->getNotifications($_SESSION['username']);
-    $templateParams["user"] = $dbh->getUserInfo($_SESSION['username'])[0];
+    $templateParams["user"] = $dbh->getUserInfo($_SESSION['user_id'], $_SESSION['username'])[0];
     $templateParams["js"] = array("https://code.jquery.com/jquery-3.6.0.min.js", "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", "js/base.js");
 ?>

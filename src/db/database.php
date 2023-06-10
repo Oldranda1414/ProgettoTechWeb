@@ -14,7 +14,7 @@ class DatabaseHelper
    //selection queries start here ------------------------------------------------------------------------------------------------------------
 
 
-   //TODO returns an array containing the notifications, that haven't still been read, referring to the user with username $username
+   //returns an array containing the notifications, that haven't still been read, referring to the user with username $username
    public function getNotifications($username){
       $query = "SELECT N.Notification_type, F.Username AS Follower_Username, F.Profile_img AS Follower_Profile_img, 
                Commenter.Username AS Commenter_Username, Commenter.Profile_img AS Commenter_Profile_img, 
@@ -193,10 +193,13 @@ class DatabaseHelper
    //end of post retrieval functions -------------------------------------------------------------------------------
 
    //retrieves data about a user with username $username
-   public function getUserInfo($username)
+   public function getUserInfo($sessionUserId, $username)
    {
-      $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img, DT FROM user_table WHERE Username = ?");
-      $stmt->bind_param('s', $username);
+      $stmt = $this->db->prepare("SELECT U.User_id, U.Username, U.E_mail, U.Passwrd, U.Profile_img, U.DT, (F.Followed_User_id IS NOT NULL) AS followed
+                                 FROM user_table AS U
+                                 LEFT JOIN (SELECT Followed_User_id, Follower_User_id FROM follow WHERE Follower_User_id = ?) AS F ON F.Followed_User_id = U.User_id
+                                 WHERE Username = ?");
+      $stmt->bind_param('ss', $sessionUserId, $username);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);

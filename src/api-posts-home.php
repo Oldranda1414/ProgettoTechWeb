@@ -12,25 +12,24 @@
         } else if (strpos($page, "profile")!== false){
             $newuser = explode(".php?Username=", $page);
             $posts = $dbh->getPostsByUser2($newuser[1], $offset, $numberPosts);
-        } else if (strpos($page, "home")!== false) {
+        } else if (strpos($page, "home")!== false || strpos($page, "index")!== false) {
             $posts = $dbh->getLatestNPosts($offset,$numberPosts);
         } else if (strpos($page, "explore")!== false){
-            $search = strpos($page, "?search=")[1];
-            $search = strpos($page "&flexRadioDefault=")[0];
-            $type = strpos($page "&flexRadioDefault=")[1];
-            $type = strpos($page "#")[0];
-            if (strpos($type, "user")!== false){
-                $posts = $dbh->getPostsByUsername($search,$offset,$numberPosts);
-            } else if (strpos($page, "tag")!== false){
-                $posts = $dbh->getLatestNPosts($search,$offset,$numberPosts);
-            } else if (strpos($page, "post")!== false){
-                $posts = $dbh-> $dbh->getPostsByUsername($search,$offset,$numberPosts);
+            if (isset($_POST["search"])){
+                $search = $_POST["search"]; 
+                $type = $_POST["flexRadioDefault"];
+                if (strpos($type, "user")!== false){
+                    $posts = $dbh->getPostsByUsername($search,$offset,$numberPosts);
+                } else if (strpos($type, "tag")!== false){
+                    $posts = $dbh->getPostsByGameName($search,$offset,$numberPosts);
+                } else if (strpos($type, "post")!== false){
+                    $posts = $dbh-> $dbh->getPostsByWords($search,$offset,$numberPosts);
+                }
             } else {
                 $posts = $dbh->getLatestNPosts($offset,$numberPosts);
             }
         }
     } else {
-        $posts = $dbh->getLatestNPosts($offset,$numberPosts);
     }
 
     for($i = 0; $i < count($posts); $i++){

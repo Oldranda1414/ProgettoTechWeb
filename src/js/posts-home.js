@@ -55,7 +55,7 @@ function fetchPosts(offs){
 		if(response.data.length>0){
 			console.log(response);
 			let posts = createPost(response.data);
-			const main = document.querySelector("main");
+			const main = document.getElementById('posts');
 			main.innerHTML += posts; 
 		}
 	}).catch(error => {

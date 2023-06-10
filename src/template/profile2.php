@@ -24,6 +24,13 @@
 		</div>
 	</div>
 
+	<div class="container my-3">
+		<div class="text-center display-3 text-2 mb-3">I SUOI POST</div>
+		<div class="row" id="posts">
+
+    	</div>
+	</div>
+
     <div class="modal fade" id="likesModal" tabindex="-1" aria-labelledby="likesModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content bg-3">

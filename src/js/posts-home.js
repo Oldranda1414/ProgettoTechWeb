@@ -1,12 +1,14 @@
 let numberPostsActive=0;
 let offsetSta=6;
 let totalPosts=100;
+
 function createPost(posts){
 	let result = `
 	<div class="container my-3">
 		<div class="row">
 	`;
     for(let i=0; i < posts.length; i++){
+		let id = `${posts[i]["Post_id"]}`;
 		let Date_time=new Date(`${posts[i]["DT"]}`);
         let formattedDate = `${Date_time.getDate()}-${Date_time.getMonth() + 1}-${Date_time.getFullYear()} alle ${Date_time.getHours()}:${Date_time.getMinutes()}`;
         let post = `
@@ -24,8 +26,7 @@ function createPost(posts){
 						</a>
 						<p class="card-text">${posts[i]["Words"]}</p>
 						<a href="#" class="btn like-button m-1">Mi piace</a>
-						<button type="button" class="btn post-button" data-bs-toggle="modal"
-							data-bs-target="#post${posts[i]["Post_id"]}Modal">Apri post</button>
+						<button type="button" class="btn post-button" onclick="location.href='post.php?id=${id}'">Apri Post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
                         ${formattedDate}

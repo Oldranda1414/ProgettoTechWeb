@@ -62,19 +62,23 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
+   //start of post retrieval functions -------------------------------------------------------------------------------
+
    //retrieves post data for the latest $n posts
    //note that the only data missing is about comments related to each post
-   public function getLatestNPosts($offset, $limit){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, counter.n AS Number_of_posts
+   public function getLatestNPosts($sessionUserId, $offset, $limit){
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
+                                 counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
                                  JOIN tag AS T ON P.Tag_id=T.Tag_id) 
+                                 LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
                                  LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
                                              FROM Like_table GROUP BY Post_id) 
                                  AS L ON P.Post_id=L.Post_id)
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter 
                                  ORDER BY P.DT DESC LIMIT ?, ?");
-      $stmt->bind_param('ii',$offset, $limit);
+      $stmt->bind_param('sii', $sessionUserId, $offset, $limit);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
@@ -82,18 +86,21 @@ class DatabaseHelper
 
    //retrieves post data for the $n most liked posts of the day $day
    //note that the only data missing is about comments related to each post
-   public function getMostLikedPosts($day, $n)
+   public function getMostLikedPosts($sessionUserId, $day, $n)
    {
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes 
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
+                                 counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
                                  JOIN tag AS T ON P.Tag_id=T.Tag_id) 
+                                 LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
                                  LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
                                              FROM Like_table GROUP BY Post_id) 
-                                 AS L ON P.Post_id=L.Post_id) 
+                                 AS L ON P.Post_id=L.Post_id)
+                                 CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
                                  WHERE P.DT<DATE_ADD(?, INTERVAL 1 DAY) AND P.DT>?
                                  ORDER BY L.Likes DESC LIMIT ?");
-      $stmt->bind_param('ssi', $day, $day, $n);
+      $stmt->bind_param('sssi', $sessionUserId, $day, $day, $n);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
@@ -101,18 +108,21 @@ class DatabaseHelper
 
    //retrieves post data for the latest $n posts posted by user with Username $username
    //note that the only data missing is about comments related to each post
-   public function getPostsByUser($username, $n)
+   public function getPostsByUser($sessionUserId, $username, $offset, $limit)
    {
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes 
-                                 FROM (((post AS P 
-                                 JOIN user_table AS U ON P.User_id=U.User_id) 
-                                 JOIN tag AS T ON P.Tag_id=T.Tag_id) 
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
+                                 counter.n AS Number_of_posts
+                                 FROM post AS P 
+                                 JOIN user_table AS U ON P.User_id=U.User_id
+                                 JOIN tag AS T ON P.Tag_id=T.Tag_id
+                                 LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
                                  LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
                                              FROM Like_table GROUP BY Post_id) 
-                                 AS L ON P.Post_id=L.Post_id)
-                                 WHERE U.Username= ?
-                                 ORDER BY P.DT DESC LIMIT ?");
-      $stmt->bind_param('si', $username, $n);
+                                 AS Likes ON P.Post_id=Likes.Post_id 
+                                 CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter 
+                                 WHERE U.Username= ? 
+                                 ORDER BY P.DT DESC LIMIT ?, ?");
+      $stmt->bind_param('ssii', $sessionUserId, $username, $offset, $limit);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
@@ -135,6 +145,69 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
+   //returns posts with matching words to $words, ordered by date
+   public function getPostsByWords($sessionUserId, $words, $offset, $limit){
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
+                                 counter.n AS Number_of_posts
+                                 FROM (((post AS P 
+                                 JOIN user_table AS U ON P.User_id=U.User_id) 
+                                 JOIN tag AS T ON P.Tag_id=T.Tag_id) 
+                                 LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
+                                 LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
+                                             FROM Like_table GROUP BY Post_id) 
+                                 AS L ON P.Post_id=L.Post_id)
+                                 CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
+                                 WHERE P.Words LIKE ?
+                                 ORDER BY P.DT DESC LIMIT ?, ?");
+      $words = "%".$words."%";
+      $stmt->bind_param('ssii', $sessionUserId, $words, $offset, $limit);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+   
+      //returns posts with matching game name (tag) to $gameName, ordered by date
+   public function getPostsByGameName($sessionUserId, $gameName, $offset, $limit){
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
+                                 counter.n AS Number_of_posts
+                                 FROM (((post AS P 
+                                 JOIN user_table AS U ON P.User_id=U.User_id) 
+                                 JOIN tag AS T ON P.Tag_id=T.Tag_id) 
+                                 LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
+                                 LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
+                                             FROM Like_table GROUP BY Post_id) 
+                                 AS L ON P.Post_id=L.Post_id)
+                                 CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
+                                 WHERE T.Game_name LIKE ?
+                                 ORDER BY P.DT DESC LIMIT ?, ?");
+      $gameName = "%".$gameName."%";
+      $stmt->bind_param('ssii', $sessionUserId, $gameName, $offset, $limit);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+   
+   //returns posts with matching Username to $username
+   public function getPostsByUsername($sessionUserId, $username, $offset, $limit){
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
+                                 counter.n AS Number_of_posts
+                                 FROM (((post AS P 
+                                 JOIN user_table AS U ON P.User_id=U.User_id) 
+                                 JOIN tag AS T ON P.Tag_id=T.Tag_id) 
+                                 LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
+                                             FROM Like_table GROUP BY Post_id) 
+                                    AS L ON P.Post_id=L.Post_id)
+                                 CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
+                                 WHERE U.Username LIKE ?
+                                 ORDER BY P.DT DESC LIMIT ?, ?");
+            $username = "%".$username."%";
+            $stmt->bind_param('ssii', $sessionUserId, $username, $offset, $limit);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_all(MYSQLI_ASSOC);
+         }
+
+   //end of post retrieval functions -------------------------------------------------------------------------------
    //retrieves data about a user with username $username
    public function getUserInfo($username)
    {
@@ -219,63 +292,6 @@ class DatabaseHelper
          }
       }
    }
-
-   //returns posts with matching words to $words, ordered by date
-   public function getPostsByWords($words, $offset, $limit){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, counter.n AS Number_of_posts
-                                 FROM (((post AS P 
-                                 JOIN user_table AS U ON P.User_id=U.User_id) 
-                                 JOIN tag AS T ON P.Tag_id=T.Tag_id) 
-                                 LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
-                                             FROM Like_table GROUP BY Post_id) 
-                                 AS L ON P.Post_id=L.Post_id)
-                                 CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
-                                 WHERE P.Words LIKE ?
-                                 ORDER BY P.DT DESC LIMIT ?, ?");
-      $words = "%".$words."%";
-      $stmt->bind_param('sii', $words, $offset, $limit);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      return $result->fetch_all(MYSQLI_ASSOC);
-   }
-   
-      //returns posts with matching game name (tag) to $gameName, ordered by date
-   public function getPostsByGameName($gameName, $offset, $limit){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, counter.n AS Number_of_posts
-                                 FROM (((post AS P 
-                                 JOIN user_table AS U ON P.User_id=U.User_id) 
-                                 JOIN tag AS T ON P.Tag_id=T.Tag_id) 
-                                 LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
-                                             FROM Like_table GROUP BY Post_id) 
-                                 AS L ON P.Post_id=L.Post_id)
-                                 CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
-                                 WHERE T.Game_name LIKE ?
-                                 ORDER BY P.DT DESC LIMIT ?, ?");
-      $gameName = "%".$gameName."%";
-      $stmt->bind_param('sii', $gameName, $offset, $limit);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      return $result->fetch_all(MYSQLI_ASSOC);
-   }
-   
-   //returns posts with matching Username to $username
-   public function getPostsByUsername($username, $offset, $limit){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, counter.n AS Number_of_posts
-                                    FROM (((post AS P 
-                                    JOIN user_table AS U ON P.User_id=U.User_id) 
-                                    JOIN tag AS T ON P.Tag_id=T.Tag_id) 
-                                    LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
-                                                FROM Like_table GROUP BY Post_id) 
-                                       AS L ON P.Post_id=L.Post_id)
-                                       CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
-                                       WHERE U.Username LIKE ?
-                                       ORDER BY P.DT DESC LIMIT ?, ?");
-            $username = "%".$username."%";
-            $stmt->bind_param('sii', $username, $offset, $limit);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            return $result->fetch_all(MYSQLI_ASSOC);
-         }
 
    //selection queries end here ------------------------------------------------------------------------------------------------------------
 

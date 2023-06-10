@@ -330,6 +330,11 @@ class DatabaseHelper
       $stmt = $this->db->prepare("INSERT INTO like_table(Post_id, User_id) VALUES(?, ?)");
       $stmt->bind_param('ii', $postId, $userId);
       $stmt->execute();
+      $stmt = $this->db->prepare("INSERT INTO notifications(Notification_type, User_id, Liked_Post_id, Like_User_id) VALUES('like', 
+                        (SELECT User_id FROM post WHERE Post_id = ?), 
+                        ?, ?)");
+      $stmt->bind_param('iii', $postId, $postId, $userId);
+      $stmt->execute();
    }
 
    //db insertions end here ------------------------------------------------------------------------------------------------------------

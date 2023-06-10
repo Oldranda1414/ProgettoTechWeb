@@ -1,7 +1,4 @@
 <?php
-var_dump($_POST);
-
-
     if(isset($_POST["tagNewPost"]) || isset($_POST["textNewPost"]) || isset($_POST["fileNewPost"])){
         if(!empty($_POST["tagNewPost"]) || !empty($_POST["textNewPost"]) || !empty($_POST["fileNewPost"])){
             if(isset($_FILES["fileNewPost"]) && strlen($_FILES["fileNewPost"]["name"])>0){

@@ -8,6 +8,12 @@ function createPost(posts){
 		<div class="row">
 	`;
     for(let i=0; i < posts.length; i++){
+		let like;
+		if (`${posts[i]["Liked"]}`==true){
+			like="Non mi piace più";
+		} else {
+			like="Mi piace";
+		}
 		let id = `${posts[i]["Post_id"]}`;
 		let Date_time=new Date(`${posts[i]["DT"]}`);
         let formattedDate = `${Date_time.getDate()}-${Date_time.getMonth() + 1}-${Date_time.getFullYear()} alle ${Date_time.getHours()}:${Date_time.getMinutes()}`;
@@ -25,7 +31,7 @@ function createPost(posts){
 						<div class="card-title post-title">${posts[i]["Game_name"]}</div>
 						</a>
 						<p class="card-text">${posts[i]["Words"]}</p>
-						<a href="#" class="btn like-button m-1">Mi piace</a>
+						<a href="#" class="btn like-button m-1">${like}</a>
 						<button type="button" class="btn post-button" onclick="location.href='post.php?id=${id}'">Apri Post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">

@@ -221,7 +221,7 @@ class DatabaseHelper
 
    //retrieves data about likes from the user with username $username
    public function getUserLikes($username){
-      $stmt = $this->db->prepare("SELECT P.Img AS Post_img, P.Words AS Post_Words, Up.Username AS Poster_Username, Up.Profile_img AS Poster_img 
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img AS Post_img, P.Words AS Post_Words, Up.Username AS Poster_Username, Up.Profile_img AS Poster_img 
                                  FROM like_table AS L 
                                  JOIN post AS P ON L.Post_id=P.Post_id 
                                  JOIN user_table AS Up ON Up.User_id=P.User_id 
@@ -235,7 +235,7 @@ class DatabaseHelper
 
    //retrieves data about comments by the user with username $username
    public function getUserComments($username){
-      $stmt = $this->db->prepare("SELECT C.Words, C.DT, P.Img AS Post_img, P.Words AS Post_Words, Up.Username AS Poster_Username, Up.Profile_img AS Poster_img 
+      $stmt = $this->db->prepare("SELECT C.Words, C.DT, P.Post_id, P.Img AS Post_img, P.Words AS Post_Words, Up.Username AS Poster_Username, Up.Profile_img AS Poster_img 
                                  FROM user_table AS Uc 
                                  JOIN comment AS C ON Uc.User_id=C.User_id 
                                  JOIN post AS P ON C.Post_id=P.Post_id 

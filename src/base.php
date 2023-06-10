@@ -1,4 +1,7 @@
 <?php
+var_dump($_POST);
+
+
     if(isset($_POST["tagNewPost"]) || isset($_POST["textNewPost"]) || isset($_POST["fileNewPost"])){
         if(!empty($_POST["tagNewPost"]) || !empty($_POST["textNewPost"]) || !empty($_POST["fileNewPost"])){
             if(isset($_FILES["fileNewPost"]) && strlen($_FILES["fileNewPost"]["name"])>0){
@@ -20,6 +23,16 @@
     }
     else{
         //TODO DATI NON INSERITI, NOTIFICARE UTENTE
+    }
+    if(isset($_POST["like_button"])){
+        parse_str($_POST["like_button"], $likeButtonAction);
+        var_dump($likeButtonAction);
+        if($likeButtonAction["type"] == "add"){
+            $dbh->addLike($likeButtonAction["postId"], $likeButtonAction["userId"]);
+        }
+        else if($likeButtonAction["type"] = "remove"){
+            $dbh->removeLike($likeButtonAction["postId"], $likeButtonAction["userId"]);
+        }
     }
     $templateParams["notifications"] = $dbh->getNotifications($_SESSION['username']);
     $templateParams["user"] = $dbh->getUserInfo($_SESSION['username'])[0];

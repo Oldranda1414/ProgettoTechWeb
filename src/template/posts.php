@@ -12,10 +12,19 @@
 						<div class="card-title post-title"><?php echo $post["Game_name"] ?></div>
 						</a>
 						<p class="card-text"><?php echo $post["Words"]?></p>
-						<a href="#" class="btn like-button m-1">
+						<!--
+						<button type="button" class="btn like-button" id="like_button" name="like_button" value="<?php echo ($post["Liked"])?"Non mi piace più":"Mi piace" ?>">
 							<?php echo ($post["Liked"])?"Non mi piace più":"Mi piace" ?>
-						</a>
-						<button type="button" class="btn post-button" onclick="location.href='post.php?id=<?php echo $post['Post_id'] ?>'">Apri post</button>
+						</button>
+						-->
+						<form action="" method="POST">
+    						<button type="submit" name="like_button" value="<?php echo ($post["Liked"])?"type=remove&postId=".$post["Post_id"]."&userId=".$_SESSION["user_id"]:"type=add&postId=".$post["Post_id"]."&userId=".$_SESSION["user_id"]?>" class="btn like-button">
+								<?php echo ($post["Liked"])?"Non mi piace più":"Mi piace" ?>
+							</button>
+						</form>
+						<button type="button" class="btn post-button" onclick="location.href='post.php?id=<?php echo $post['Post_id'] ?>'">
+							Apri post
+						</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
 						<?php echo date("d-m-y" ,strtotime($post["DT"]))." alle ".date("H:i" ,strtotime($post["DT"]))?>

@@ -7,7 +7,7 @@ use db_life_and_games;
 DROP USER 'admin'@'localhost';
 FLUSH PRIVILEGES;
 CREATE USER 'admin'@'localhost' IDENTIFIED BY '5MsJ6E7vcgTKuK4ddJsy4wpa';
-GRANT SELECT, INSERT, UPDATE ON `db_life_and_games`.* TO 'admin'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `db_life_and_games`.* TO 'admin'@'localhost';
 
 -- Tables Section
 -- _____________ 

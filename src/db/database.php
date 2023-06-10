@@ -67,7 +67,7 @@ class DatabaseHelper
    //retrieves post data for the latest $n posts
    //note that the only data missing is about comments related to each post
    public function getLatestNPosts($sessionUserId, $offset, $limit){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
@@ -75,7 +75,7 @@ class DatabaseHelper
                                  LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
                                  LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
                                              FROM Like_table GROUP BY Post_id) 
-                                 AS L ON P.Post_id=L.Post_id)
+                                 AS Likes ON P.Post_id=Likes.Post_id)
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter 
                                  ORDER BY P.DT DESC LIMIT ?, ?");
       $stmt->bind_param('sii', $sessionUserId, $offset, $limit);
@@ -88,7 +88,7 @@ class DatabaseHelper
    //note that the only data missing is about comments related to each post
    public function getMostLikedPosts($sessionUserId, $day, $n)
    {
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
@@ -96,10 +96,10 @@ class DatabaseHelper
                                  LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
                                  LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
                                              FROM Like_table GROUP BY Post_id) 
-                                 AS L ON P.Post_id=L.Post_id)
+                                 AS Likes ON P.Post_id=Likes.Post_id)
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
                                  WHERE P.DT<DATE_ADD(?, INTERVAL 1 DAY) AND P.DT>?
-                                 ORDER BY L.Likes DESC LIMIT ?");
+                                 ORDER BY Likes.Likes DESC LIMIT ?");
       $stmt->bind_param('sssi', $sessionUserId, $day, $day, $n);
       $stmt->execute();
       $result = $stmt->get_result();
@@ -208,6 +208,7 @@ class DatabaseHelper
          }
 
    //end of post retrieval functions -------------------------------------------------------------------------------
+
    //retrieves data about a user with username $username
    public function getUserInfo($username)
    {
@@ -325,7 +326,22 @@ class DatabaseHelper
       return $stmt->insert_id;
    }
 
+   public function addLike($postId, $userId){
+      $stmt = $this->db->prepare("INSERT INTO like_table(Post_id, User_id) VALUES(?, ?)");
+      $stmt->bind_param('ii', $postId, $userId);
+      $stmt->execute();
+   }
+
    //db insertions end here ------------------------------------------------------------------------------------------------------------
+
+   //db deletions start here ------------------------------------------------------------------------------------------------------------
+   
+   public function removeLike($postId, $userId){
+      $stmt = $this->db->prepare("DELETE FROM like_table WHERE Post_id = ? AND User_id = ?");
+      $stmt->bind_param('ii', $postId, $userId);
+      $stmt->execute();
+   }
+   //db deletions end here ------------------------------------------------------------------------------------------------------------
 
 
    public function secureLoginUser($user, $password)

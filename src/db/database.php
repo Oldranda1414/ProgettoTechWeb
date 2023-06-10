@@ -128,23 +128,6 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
-   public function getPostsByUser2($username, $offset, $limit)
-   {
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes 
-                                 FROM (((post AS P 
-                                 JOIN user_table AS U ON P.User_id=U.User_id) 
-                                 JOIN tag AS T ON P.Tag_id=T.Tag_id) 
-                                 LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
-                                             FROM Like_table GROUP BY Post_id) 
-                                 AS L ON P.Post_id=L.Post_id)
-                                 WHERE U.Username= ?
-                                 ORDER BY P.DT DESC LIMIT ?, ?");
-      $stmt->bind_param('sii', $username, $offset, $limit);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      return $result->fetch_all(MYSQLI_ASSOC);
-   }
-
    //returns posts with matching words to $words, ordered by date
    public function getPostsByWords($sessionUserId, $words, $offset, $limit){
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 

@@ -321,9 +321,11 @@ class DatabaseHelper
    }
 
    public function addLike($postId, $userId){
+      //adding the like to db
       $stmt = $this->db->prepare("INSERT INTO like_table(Post_id, User_id) VALUES(?, ?)");
       $stmt->bind_param('ii', $postId, $userId);
       $stmt->execute();
+      //adding the notification to db
       $stmt = $this->db->prepare("INSERT INTO notifications(Notification_type, User_id, Liked_Post_id, Like_User_id) VALUES('like', 
                         (SELECT User_id FROM post WHERE Post_id = ?), 
                         ?, ?)");
@@ -332,8 +334,14 @@ class DatabaseHelper
    }
 
    public function addComment($postId, $userId, $words){
+      //adding the comment to db
       $stmt = $this->db->prepare("INSERT INTO comment(Post_id, User_id, Words) VALUES(?, ?, ?)");
       $stmt->bind_param('iis', $postId, $userId, $words);
+      $stmt->execute();
+      //adding the notification to db
+      $stmt = $this->db->prepare("INSERT INTO notifications(Notification_type, User_id, Comment_id) VALUES('comment', 
+                        (SELECT User_id FROM post WHERE Post_id = ?), LAST_INSERT_ID())");
+      $stmt->bind_param('i', $postId);
       $stmt->execute();
    }
 

@@ -14,13 +14,15 @@
             $newuser = explode(".php?Username=", $page);
             $posts = $dbh->getPostsByUser($id, $newuser[1], $offset, $numberPosts);
         } else if (strpos($page, "home")!== false || strpos($page, "index")!== false) {
-            $posts = $dbh->getLatestNPosts($id,$offset,$numberPosts);
+            $posts = $dbh->getPostByFollowed($id,$offset,$numberPosts);
         } else if (strpos($page, "explore")!== false){
             if (isset($_GET["search"])){
                 $search = $_GET["search"]; 
                 $type = $_GET["type"];
                 if (strpos($type, 'user')!== false){
                     $posts = $dbh->getPostsByUsername($id,$search,$offset,$numberPosts);
+                } else if (strpos($type, 'ptag')!=false){
+                    $posts = $dbh->getPostsByPreciseGameName($id, $search, $offset, $limit);
                 } else if (strpos($type, 'tag')!== false){
                     $posts = $dbh->getPostsByGameName($id,$search,$offset,$numberPosts);
                 } else if (strpos($type, 'post')!== false){

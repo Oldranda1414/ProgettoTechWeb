@@ -79,7 +79,6 @@
 
 						</div>
 						<div class="modal-footer">
-							<!-- <button type="button" class="btn btn-primary">Mi piace</button> -->
 							<button type="submit" class="btn btn-info">Pubblica post</button>
 						</div>
 					</form>

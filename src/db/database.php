@@ -357,6 +357,16 @@ class DatabaseHelper
    }
    //db deletions end here ------------------------------------------------------------------------------------------------------------
 
+   //db updates start here ------------------------------------------------------------------------------------------------------------
+
+   public function updateProfileImg($userId, $img){
+      $stmt = $this->db->prepare("UPDATE user_table SET Profile_img = ? WHERE User_id = ?");
+      $stmt->bind_param('si', $img, $userId);
+      $stmt->execute();
+   }
+
+   //db updates end here ------------------------------------------------------------------------------------------------------------
+
 
    public function secureLoginUser($user, $password)
    {

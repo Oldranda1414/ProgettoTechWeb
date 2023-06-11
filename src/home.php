@@ -5,7 +5,7 @@ require "base.php";
 if(isUserLoggedIn($dbh)){
     $templateParams["titolo"] = "Home";
     $templateParams["nome"] = "home.php";
-    $templateParams["posts"] = $dbh->getLatestNPosts($_SESSION['user_id'], 0,8);
+    array_push($templateParams["js"],"https://unpkg.com/axios/dist/axios.min.js","js/posts.js");
     require 'template/base.php';
 }
 else{

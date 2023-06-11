@@ -76,7 +76,7 @@
 					<div class="col-xs-10 col-sm-9 col-lg-5 mb-2">
 
 						<!-- <form action="#" method="POST" class="d-flex me-1 mw-50 navbar-right mt-3" role="search"> -->
-							<input class="form-control me-2 bg-4 search" type="search" placeholder="Cerca..." aria-label="Search" id="search" name="search">
+							<input class="form-control me-2 bg-4 search" type="search" placeholder="Cerca..." aria-label="Search" name="search">
 							<!--ci sono problemi di accessibilità per la label-->
 							<button class="w-25 btn btn-sm bg-1" type="submit">
 								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/800px-Vector_search_icon.svg.png"
@@ -114,12 +114,8 @@
 	</div>
 </div>
 
-<div class="container  my-3">
-	<div class="row">
-	<?php 
-		if(isset($templateParams["posts"])){
-			require_once 'posts.php';
-		}
-		?>
-	</div>
+<div class="container my-3">
+	<div class="row" id="posts">
+
+    </div>
 </div>

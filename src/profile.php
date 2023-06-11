@@ -21,13 +21,12 @@ if(isUserLoggedIn($dbh)){
             $searchedUser = htmlspecialchars($_GET['Username']);
             $templateParams["titolo"] = "Profilo di ".$searchedUser;
             $templateParams["nome"] = "profile.php";
-            $templateParams["posts"] = $dbh->getPostsByUser($_SESSION['user_id'], $searchedUser, 0, 8);
             $templateParams["searchedUser"] = $dbh->getUserInfo($_SESSION['user_id'], $searchedUser)[0];
             $templateParams["likes"] = $dbh->getUserLikes($searchedUser);
             $templateParams["comments"] = $dbh->getUserComments($searchedUser);
             $templateParams["followers"] = $dbh->getUserFollowers($searchedUser);
             $templateParams["followed"] = $dbh->getUserFollowed($searchedUser);
-            array_push($templateParams["js"], "js/profile.js");
+            array_push($templateParams["js"],"https://unpkg.com/axios/dist/axios.min.js","js/posts.js","js/profile.js");
         }
     }
     else{

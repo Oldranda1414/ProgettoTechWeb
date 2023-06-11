@@ -14,7 +14,7 @@
 						<form action="" method="POST" id="follow-user" >
 						<input type="hidden" id="follow-data" name="follow-data" value="<?php echo ($templateParams["searchedUser"]["followed"])?"type=unfollow&followedUserId=".$templateParams["searchedUser"]["User_id"]:"type=follow&followedUserId=".$templateParams["searchedUser"]["User_id"] ?>">
 						<ul class="list-group">
-                          <li class="list-group-item  bg-4" id="follow-button"><?php echo $templateParams["searchedUser"]["followed"]?"Non seguire più":"Segui" ?></li>
+						  <li class="list-group-item  bg-4" id="follow-button"><?php echo $templateParams["searchedUser"]["followed"]?"Non seguire più":"Segui" ?></li>
 						  <li class="list-group-item  bg-4" data-bs-toggle="modal" data-bs-target="#likesModal">I suoi <em>Mi piace</em></li>
 						  <li class="list-group-item  bg-4" data-bs-toggle="modal" data-bs-target="#commentsModal">I suoi commenti</li>
 						  <li class="list-group-item  bg-4" data-bs-toggle="modal" data-bs-target="#followedModal">Seguiti</li>
@@ -26,16 +26,12 @@
 			</div>
 		</div>
 	</div>
-    <div class="container text-center my-3">
+
+	<div class="container my-3">
 		<div class="text-center display-3 text-2 mb-3">I SUOI POST</div>
-		<div class="row">
-        <?php 
-		if(isset($templateParams["posts"])){
-			require_once 'posts.php';
-		}
-		?>
-			
-        </div>
+		<div class="row" id="posts">
+
+    	</div>
 	</div>
 
     <div class="modal fade" id="likesModal" tabindex="-1" aria-labelledby="likesModalLabel" aria-hidden="true">

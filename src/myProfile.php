@@ -5,8 +5,19 @@ require "base.php";
 if(isUserLoggedIn($dbh)){
 
     //update profile img api
-    if(isset()){
-        
+    if(isset($_POST["updateProfileImg"])){
+        if(!empty($_POST["updateProfileImg"]) && isset($_FILES["updateProfileImg"]) && strlen($_FILES["updateProfileImg"]["name"])>0){
+            list($imgUploadResult, $imgUploadMsg) = uploadImage(UPLOAD_DIR."posts/", $_FILES["updateProfileImg"]);
+            if($imgUploadResult != 0){
+                $dbh->updateProfileImg($_SESSION["user_id"], $imgUploadMsg);
+            }
+            else{
+                //TODO ERRORE CARICAMENTO IMMAGINE, NOTIFICARE UTENTE (il tipo di errore è contenuto in $imgUploadMsg)
+            }
+        }
+        else{
+            //TODO NOTIFICARE CHE IL FILE CARICATO è VUOTO/errato
+        }
     }
 
     $templateParams["titolo"] = "Mio profilo";

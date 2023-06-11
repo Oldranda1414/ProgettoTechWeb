@@ -29,14 +29,14 @@ function createPost(posts){
         let post = `
             <div class="col-12 col-md-6 col-lg-4">
 				<div class="card m-2 bg-4">
-					<a href="profile.php?Username=${posts[i]["Username"]}">
+					<a href="profile2.php?Username=${posts[i]["Username"]}">
 						<img src="${posts[i]["Profile_img"]}" class="post-img-profile mr-3" alt="profile icon"
 							height="50">
 						<div class="nickname-post">${posts[i]["Username"]}</div>
 					</a>
 					<img src="${posts[i]["Img"]}" class="card-img-top" alt="Post Image">
 					<div class="card-body text-center">
-						<a href="explore.php?search=${posts[i]["Game_name"]}&flexRadioDefault=tag">
+						<a href="explore2.php?search=${posts[i]["Game_name"]}&flexRadioDefault=tag">
 						<div class="card-title post-title">${posts[i]["Game_name"]}</div>
 						</a>
 						<p class="card-text">${posts[i]["Words"]}</p>

@@ -16,14 +16,14 @@
         } else if (strpos($page, "home")!== false || strpos($page, "index")!== false) {
             $posts = $dbh->getLatestNPosts($id,$offset,$numberPosts);
         } else if (strpos($page, "explore")!== false){
-            if (isset($_POST["search"])){
-                $search = $_POST["search"]; 
-                $type = $_POST["flexRadioDefault"];
-                if (strpos($type, "user")!== false){
+            if (isset($_GET["search"])){
+                $search = $_GET["search"]; 
+                $type = $_GET["type"];
+                if (strpos($type, 'user')!== false){
                     $posts = $dbh->getPostsByUsername($id,$search,$offset,$numberPosts);
-                } else if (strpos($type, "tag")!== false){
+                } else if (strpos($type, 'tag')!== false){
                     $posts = $dbh->getPostsByGameName($id,$search,$offset,$numberPosts);
-                } else if (strpos($type, "post")!== false){
+                } else if (strpos($type, 'post')!== false){
                     $posts = $dbh-> $dbh->getPostsByWords($id,$search,$offset,$numberPosts);
                 }
             } else {

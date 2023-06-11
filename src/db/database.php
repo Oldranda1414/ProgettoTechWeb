@@ -26,7 +26,7 @@ class DatabaseHelper
                LEFT JOIN comment AS C ON C.Comment_id=N.Comment_id 
                LEFT JOIN user_table AS Commenter ON Commenter.User_id=C.User_id 
                LEFT JOIN user_table AS Liker ON Liker.User_id=N.Like_User_id 
-               WHERE U.Username = ? AND NOT N.Notified ORDER BY N.DT DESC";
+               WHERE U.Username = ? ORDER BY N.DT DESC";
       $stmt = $this->db->prepare($query);
       $stmt->bind_param('s', $username);
       $stmt->execute();

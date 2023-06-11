@@ -36,7 +36,7 @@ function createPost(posts){
 					</a>
 					<img src="${posts[i]["Img"]}" class="card-img-top" alt="Post Image">
 					<div class="card-body text-center">
-						<a href="TagPage.php?Tag=${posts[i]["Game_name"]}">
+						<a href="explore.php?search=${posts[i]["Game_name"]}&flexRadioDefault=tag">
 						<div class="card-title post-title">${posts[i]["Game_name"]}</div>
 						</a>
 						<p class="card-text">${posts[i]["Words"]}</p>
@@ -45,7 +45,9 @@ function createPost(posts){
 								${like}
 							</button>
 						</form>
-						<button type="button" class="btn post-button" onclick="location.href='post.php?id=${id}'">Apri Post</button>
+						<button type="button" class="btn post-button" onclick="location.href='post.php?id=${id}'">
+							Apri Post
+						</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">
                         ${formattedDate}

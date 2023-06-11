@@ -178,6 +178,7 @@ class DatabaseHelper
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
                                  JOIN tag AS T ON P.Tag_id=T.Tag_id) 
+                                 LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
                                  LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
                                              FROM Like_table GROUP BY Post_id) 
                                     AS Likes ON P.Post_id=Likes.Post_id)
@@ -346,6 +347,17 @@ class DatabaseHelper
       $stmt->execute();
    }
 
+   public function addFollower($sessionUserId, $followedUserId){
+      //adding the follow to db
+      $stmt = $this->db->prepare("INSERT INTO follow(Follower_User_id, Followed_User_id) VALUES(?, ?)");
+      $stmt->bind_param('ii', $sessionUserId, $followedUserId);
+      $stmt->execute();
+      //adding the notification to db
+      $stmt = $this->db->prepare("INSERT INTO notifications(Notification_type, User_id, Follower_User_id) VALUES('follower', ?, ?)");
+      $stmt->bind_param('ii', $followedUserId, $sessionUserId);
+      $stmt->execute();
+   }
+
    //db insertions end here ------------------------------------------------------------------------------------------------------------
 
    //db deletions start here ------------------------------------------------------------------------------------------------------------
@@ -353,6 +365,12 @@ class DatabaseHelper
    public function removeLike($postId, $userId){
       $stmt = $this->db->prepare("DELETE FROM like_table WHERE Post_id = ? AND User_id = ?");
       $stmt->bind_param('ii', $postId, $userId);
+      $stmt->execute();
+   }
+
+   public function removeFollower($sessionUserId, $followedUserId){
+      $stmt = $this->db->prepare("DELETE FROM follow WHERE Follower_User_id = ? AND Followed_User_id = ?");
+      $stmt->bind_param('ss', $sessionUserId, $followedUserId);
       $stmt->execute();
    }
    //db deletions end here ------------------------------------------------------------------------------------------------------------

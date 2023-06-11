@@ -16,7 +16,7 @@
 						<div class="like-number text-end me-3">
 							A <?php echo $templateParams["post"]["Likes"] ?> utenti è piaciuto
 							<form action="" method="POST">
-    							<button type="submit" name="like_button" value="<?php echo ($templateParams["post"]["Liked"])?"type=remove&postId=".$templateParams["post"]["Post_id"]."&userId=".$_SESSION["user_id"]:"type=add&postId=".$templateParams["post"]["Post_id"]."&userId=".$_SESSION["user_id"]?>" class="btn like-button m-1">
+    							<button type="submit" name="like_button" value="<?php echo ($templateParams["post"]["Liked"])?"type=remove&postId=".$templateParams["post"]["Post_id"]:"type=add&postId=".$templateParams["post"]["Post_id"]?>" class="btn like-button m-1">
 									<?php echo ($templateParams["post"]["Liked"])?"Non mi piace più":"Mi piace" ?>
 								</button>
 							</form>

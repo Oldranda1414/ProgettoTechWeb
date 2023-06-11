@@ -130,7 +130,7 @@ alter table Notifications add constraint FKCreato_FK
 
 alter table Notifications add constraint FKReferencesFollower_FK
      foreign key (Follower_User_id)
-     references User_table(User_id)
+     references follow(Follower_User_id)
      on update cascade
      on delete cascade;
 

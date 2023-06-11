@@ -26,13 +26,13 @@ var_dump($_POST);
 
     //api for like button
     if(isset($_POST["like_button"])){
-        parse_str($_POST["like_button"], $likeButtonAction);
-        var_dump($likeButtonAction);
+        parse_str(html_entity_decode(htmlspecialchars($_POST["like_button"])), $likeButtonAction);
         if($likeButtonAction["type"] == "add"){
-            $dbh->addLike($likeButtonAction["postId"], $likeButtonAction["userId"]);
+            var_dump($likeButtonAction);
+            $dbh->addLike($likeButtonAction["postId"], $_SESSION["user_id"]);
         }
         else if($likeButtonAction["type"] = "remove"){
-            $dbh->removeLike($likeButtonAction["postId"], $likeButtonAction["userId"]);
+            $dbh->removeLike($likeButtonAction["postId"], $_SESSION["user_id"]);
         }
     }
 

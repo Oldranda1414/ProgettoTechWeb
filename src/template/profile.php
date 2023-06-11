@@ -11,14 +11,10 @@
 					</div>
 					<div class="col col-lg-3">
 						<div class="profile-schede-title">Informazioni profilo</div>
-						<form action="" method="POST" id="follow-user">
+						<form action="" method="POST" id="follow-user" >
+						<input type="hidden" id="follow-data" name="follow-data" value="<?php echo ($templateParams["searchedUser"]["followed"])?"type=unfollow&followedUserId=".$templateParams["searchedUser"]["User_id"]:"type=follow&followedUserId=".$templateParams["searchedUser"]["User_id"] ?>">
 						<ul class="list-group">
                           <li class="list-group-item  bg-4" id="follow-button"><?php echo $templateParams["searchedUser"]["followed"]?"Non seguire più":"Segui" ?></li>
-						  <script>
-							document.getElementById("follow-button").addEventListener("click", function() {
-								document.getElementById("follow-user").submit();
-							});
-						  </script>
 						  <li class="list-group-item  bg-4" data-bs-toggle="modal" data-bs-target="#likesModal">I suoi <em>Mi piace</em></li>
 						  <li class="list-group-item  bg-4" data-bs-toggle="modal" data-bs-target="#commentsModal">I suoi commenti</li>
 						  <li class="list-group-item  bg-4" data-bs-toggle="modal" data-bs-target="#followedModal">Seguiti</li>

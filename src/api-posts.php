@@ -31,8 +31,9 @@
             } else {
                 $posts = $dbh->getLatestNPosts($id,$offset,$numberPosts);
             }
+        } else {
+            $posts = $dbh->getPostByFollowed($id,$offset,$numberPosts);
         }
-    } else {
     }
 
     for($i = 0; $i < count($posts); $i++){

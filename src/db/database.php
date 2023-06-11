@@ -373,6 +373,13 @@ class DatabaseHelper
       $stmt->bind_param('ss', $sessionUserId, $followedUserId);
       $stmt->execute();
    }
+
+   public function removeNotifications($sessionUserId){
+      $stmt = $this->db->prepare("DELETE FROM notifications WHERE User_id = ?");
+      $stmt->bind_param('i', $sessionUserId);
+      $stmt->execute();
+   }
+
    //db deletions end here ------------------------------------------------------------------------------------------------------------
 
    //db updates start here ------------------------------------------------------------------------------------------------------------

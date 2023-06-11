@@ -24,6 +24,11 @@ var_dump($_POST);
         //TODO DATI NON INSERITI, NOTIFICARE UTENTE
     }
 
+    //api for deleting notifications
+    if(isset($_POST["deleteNotifications"])){
+        $dbh->removeNotifications($_SESSION["user_id"]);
+    }
+
     //api for like button
     if(isset($_POST["like_button"])){
         parse_str(html_entity_decode(htmlspecialchars($_POST["like_button"])), $likeButtonAction);

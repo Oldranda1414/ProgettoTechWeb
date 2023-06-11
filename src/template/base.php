@@ -99,7 +99,9 @@
 					}
 					?>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-info">Cancella tutto</button>
+						<form action="#" method="POST">
+							<button type="submit" name="deleteNotifications" id="deleteNotifications" class="btn btn-info">Cancella tutto</button>
+						</form>
 					</div>
 				</div>
 			</div>

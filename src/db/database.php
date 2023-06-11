@@ -93,7 +93,7 @@ class DatabaseHelper
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
                                  JOIN tag AS T ON P.Tag_id=T.Tag_id)
-                                 JOIN (SELECT * FROM follow WHERE Follower_User_id = ?) AS F ON Follwed_User_id = P.User_id
+                                 JOIN (SELECT * FROM follow WHERE Follower_User_id = ?) AS F ON Followed_User_id = P.User_id
                                  LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
                                  LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
                                              FROM Like_table GROUP BY Post_id) 

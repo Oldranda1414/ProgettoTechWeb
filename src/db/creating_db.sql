@@ -142,13 +142,13 @@ alter table Notifications add constraint FKReferencesComment_FK
 
 alter table Notifications add constraint FKReferencesLikedPost_FK
      foreign key (Liked_Post_id)
-     references Post(Post_id)
+     references Like_table(Post_id)
      on update cascade
      on delete cascade;
 
 alter table Notifications add constraint FKReferencesLikedUser_FK
      foreign key (Like_User_id)
-     references User_table(User_id)
+     references Like_table(User_id)
      on update cascade
      on delete cascade;
 

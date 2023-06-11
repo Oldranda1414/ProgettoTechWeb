@@ -42,14 +42,15 @@
     <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content bg-3">
-				<div class="modal-header">
-					<img src="<?php echo UPLOAD_DIR."icons/key.png"; ?>" class="me-2" alt="profile icon"
-						height="40">
-					<h1 class="modal-title fs-5" id="postModalLabel">Cambia Password</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<form>
+				<form action="#" method="POST">
+					<div class="modal-header">
+						<img src="<?php echo UPLOAD_DIR."icons/key.png"; ?>" class="me-2" alt="profile icon"
+							height="40">
+						<h1 class="modal-title fs-5" id="postModalLabel">Cambia Password</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+					
 						<div class="mb-3">
 							<label for="message-text" class="col-form-label">Inserisci la password attuale:</label>
 							<input class="form-control me-2 bg-4  mb-2 oldpass" type="password" placeholder="Password corrente" aria-label="Password" name="oldPassword">
@@ -62,14 +63,11 @@
 						<p class="text-center opass">...</p>
 						<p class="text-center pass">...</p>
       					<p class="text-center Rpass">...</p>
-					</form>
-
-					
-				</div>
-				<div class="modal-footer">
-					<!-- <button type="button" class="btn btn-primary">Mi piace</button> -->
-					<button type="button" class="btn btn-info changePswd">Conferma</button>
-				</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-info changePswd" onclick="multipleFormhash(this.form, this.form.oldPassword, this.form.newPassword)">Conferma</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

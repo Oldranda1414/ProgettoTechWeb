@@ -1,6 +1,7 @@
 <?php
 
 require_once 'bootstrap.php';
+var_dump($_POST);
 //TODO check if passwords are the same
 //TODO check if values inserted by user are correct/usable
 //getting the password from the register form

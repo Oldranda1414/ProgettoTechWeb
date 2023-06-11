@@ -1,3 +1,7 @@
+let params = new URLSearchParams(window.location.search);
+let search = params.get('search');
+let type = params.get('flexRadioDefault');
+
 let numberPostsActive=0;
 let offsetSta=6;
 let totalPosts=100;
@@ -65,6 +69,8 @@ function fetchPosts(offs){
 		params: {
 	 	offset : (offs),
 		numberPosts : (offsetSta),
+		search: (search),
+		type: (type),
 		}
   	}).then(response => {
 		if(response.data.length>0){

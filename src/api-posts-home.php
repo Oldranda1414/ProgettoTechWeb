@@ -24,7 +24,7 @@
                 } else if (strpos($type, 'tag')!== false){
                     $posts = $dbh->getPostsByGameName($id,$search,$offset,$numberPosts);
                 } else if (strpos($type, 'post')!== false){
-                    $posts = $dbh-> $dbh->getPostsByWords($id,$search,$offset,$numberPosts);
+                    $posts = $dbh->getPostsByWords($id,$search,$offset,$numberPosts);
                 }
             } else {
                 $posts = $dbh->getLatestNPosts($id,$offset,$numberPosts);

@@ -85,7 +85,6 @@
 				</div>
 				<form action="#" method="POST" enctype="multipart/form-data">
 					<div class="modal-body">
-					
 						<div class="mb-3">
 							<h2 class="fs-5 text-center">
 								Carica immagine

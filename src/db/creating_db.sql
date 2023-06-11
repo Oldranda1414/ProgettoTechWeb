@@ -15,7 +15,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON `db_life_and_games`.* TO 'admin'@'localh
 CREATE TABLE db_life_and_games.Post (
      Post_id int not null auto_increment,
      Img char(100) not null,
-     Words char(300) not null,
+     Words char(255) not null,
      DT DATETIME DEFAULT CURRENT_TIMESTAMP,
      Tag_id int not null,
      User_id int not null,
@@ -52,7 +52,8 @@ CREATE TABLE db_life_and_games.User_table (
      Profile_img char(100),
      DT DATETIME DEFAULT CURRENT_TIMESTAMP,
      Salt char(128) not null,
-     constraint ID_USER_ID primary key (User_id));
+     constraint ID_USER_ID primary key (User_id),
+     constraint ID_USERNAME UNIQUE (Username));
 
 CREATE TABLE db_life_and_games.Login_attempts (
      User_id int not null,

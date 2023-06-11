@@ -78,6 +78,9 @@
 							</div>
 
 						</div>
+						<?php if(isset($templateParams["newPostError"])): ?>
+						<p class="text-center text-danger new-post-error-label mx-2"><u><img src="./upload/icons/alert.png" class="alert-icon img-fluid mx-2" alt="alert icon"><?php echo $templateParams["newPostError"]; ?></u></p>
+						<?php endif; ?>
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-info">Pubblica post</button>
 						</div>

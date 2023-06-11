@@ -9,19 +9,16 @@ var_dump($_POST);
                     $templateParams["newPostId"] = $dbh->insertPost($_SESSION["user_id"], htmlspecialchars($_POST["textNewPost"]), htmlspecialchars($_POST["tagNewPost"]), $imgUploadMsg);
                 }
                 else{
-                    //TODO ERRORE CARICAMENTO IMMAGINE, NOTIFICARE UTENTE (il tipo di errore è contenuto in $imgUploadMsg)
+                    $templateParams["newPostError"] = "Si è verificato un errore nel caricamento dell'immagine: ".$imgUploadMsg;
                 }
             }
             else{
-                //TODO IMMAGINE NON SELEZIONATA, NOTIFICARE UTENTE
+                $templateParams["newPostError"] = 'Immagine non selezionata, si prega di sceglierne una cliccando su <i>"Scegli il file"</i> e di riprovare.';
             }
         }
         else{
-            //TODO ALCUNI DATI SONO VUOTI, NOTIFICARE UTENTE
+            $templateParams["newPostError"] = 'Alcuni campi sono vuoti, si prega di compilare tutti i campi e riprovare.';
         }
-    }
-    else{
-        //TODO DATI NON INSERITI, NOTIFICARE UTENTE
     }
 
     //api for deleting notifications

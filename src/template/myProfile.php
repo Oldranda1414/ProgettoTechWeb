@@ -53,7 +53,7 @@
 					
 						<div class="mb-3">
 							<label for="message-text" class="col-form-label">Inserisci la password attuale:</label>
-							<input class="form-control me-2 bg-4  mb-2 oldpass" type="password" placeholder="Password corrente" aria-label="Password" name="oldPassword">
+							<input class="form-control me-2 bg-4  mb-2 oldpass" type="password" placeholder="Password corrente" aria-label="Password" name="oldPassword" id="oldPassword">
 							<label for="message-text" class="col-form-label">Inserisci la nuova password scelta:</label>
 							<input class="form-control me-2 bg-4  mb-2 newpass" type="password" placeholder="Nuova password" aria-label="Password" name="newPassword">
 							<label for="message-text" class="col-form-label">Digitare nuovamente la nuova password:</label>
@@ -65,7 +65,7 @@
       					<p class="text-center Rpass">...</p>
 					</div>
 					<div class="modal-footer">
-						<button type="submit" class="btn btn-info changePswd" onclick="multipleFormhash(this.form, this.form.oldPassword, this.form.newPassword)">Conferma</button>
+						<button type="submit" class="btn btn-info changePswd" onclick="multipleFormhash(this.form, this.form.oldPassword, this.form.newPassword);">Conferma</button>
 					</div>
 				</form>
 			</div>

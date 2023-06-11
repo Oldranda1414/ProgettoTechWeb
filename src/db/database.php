@@ -399,6 +399,28 @@ class DatabaseHelper
       $stmt->execute();
    }
 
+   public function registerUser($username, $email, $password)
+   {
+      // Crea una chiave casuale
+      $random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
+      // Crea una password usando la chiave appena creata.
+      $password = hash('sha512', $password . $random_salt);
+	   $default_imgpath = "user.jpg";
+      // Inserisci a questo punto il codice SQL per eseguire la INSERT nel tuo database
+      // Assicurati di usare statement SQL 'prepared'.
+      if ($insert_stmt = $this->db->prepare("INSERT INTO User_table (Username, E_mail, Passwrd, Salt, Profile_img) VALUES (?, ?, ?, ?, ?)")) {
+         $insert_stmt->bind_param('sssss', $username, $email, $password, $random_salt, $default_imgpath);
+         // Esegui la query ottenuta.
+         try{
+            $insert_stmt->execute();
+         }
+         catch(Exception $e){
+            return $e->getCode();
+         }
+         return 0;
+      }
+   }
+
    //db insertions end here ------------------------------------------------------------------------------------------------------------
 
    //db deletions start here ------------------------------------------------------------------------------------------------------------
@@ -428,6 +450,16 @@ class DatabaseHelper
    public function updateProfileImg($userId, $img){
       $stmt = $this->db->prepare("UPDATE user_table SET Profile_img = ? WHERE User_id = ?");
       $stmt->bind_param('si', $img, $userId);
+      $stmt->execute();
+   }
+
+   public function updatePassword($userId, $newPassword){
+      // Crea una chiave casuale
+      $random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
+      // Crea una password usando la chiave appena creata.
+      $newPassword = hash('sha512', $newPassword . $random_salt);
+      $stmt = $this->db->prepare("UPDATE user_table SET Passwrd = ?, Salt = ? WHERE User_id = ?");
+      $stmt->bind_param('ssi', $newPassword, $random_salt, $userId);
       $stmt->execute();
    }
 
@@ -483,8 +515,6 @@ class DatabaseHelper
       }
    }
 
-   
-
    //TODO understand which is correct and used: checkLogin or login_check
    public function checkLogin($username, $password)
    {
@@ -522,28 +552,6 @@ class DatabaseHelper
       } else {
          // Login non eseguito
          return false;
-      }
-   }
-
-   public function registerUser($username, $email, $password)
-   {
-      // Crea una chiave casuale
-      $random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
-      // Crea una password usando la chiave appena creata.
-      $password = hash('sha512', $password . $random_salt);
-	  $default_imgpath = "user.jpg";
-      // Inserisci a questo punto il codice SQL per eseguire la INSERT nel tuo database
-      // Assicurati di usare statement SQL 'prepared'.
-      if ($insert_stmt = $this->db->prepare("INSERT INTO User_table (Username, E_mail, Passwrd, Salt, Profile_img) VALUES (?, ?, ?, ?, ?)")) {
-         $insert_stmt->bind_param('sssss', $username, $email, $password, $random_salt, $default_imgpath);
-         // Esegui la query ottenuta.
-         try{
-            $insert_stmt->execute();
-         }
-         catch(Exception $e){
-            return $e->getCode();
-         }
-         return 0;
       }
    }
 }

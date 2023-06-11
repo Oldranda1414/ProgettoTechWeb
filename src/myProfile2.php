@@ -30,7 +30,7 @@ if(isUserLoggedIn($dbh)){
     $templateParams["comments"] = $dbh->getUserComments($_SESSION['username']);
     $templateParams["followers"] = $dbh->getUserFollowers($_SESSION['username']);
     $templateParams["followed"] = $dbh->getUserFollowed($_SESSION['username']);
-    array_push ($templateParams["js"],"https://unpkg.com/axios/dist/axios.min.js", "js/changePassword.js", "js/posts-home.js");
+    array_push ($templateParams["js"],"https://unpkg.com/axios/dist/axios.min.js", "js/changePassword.js", "js/posts.js");
     require 'template/base.php';
 }
 else{

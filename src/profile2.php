@@ -26,7 +26,7 @@ if(isUserLoggedIn($dbh)){
             $templateParams["comments"] = $dbh->getUserComments($searchedUser);
             $templateParams["followers"] = $dbh->getUserFollowers($searchedUser);
             $templateParams["followed"] = $dbh->getUserFollowed($searchedUser);
-            array_push($templateParams["js"],"https://unpkg.com/axios/dist/axios.min.js","js/posts-home.js","js/profile.js");
+            array_push($templateParams["js"],"https://unpkg.com/axios/dist/axios.min.js","js/posts.js","js/profile.js");
         }
     }
     else{

@@ -67,7 +67,7 @@ function createPost(posts){
 }
 
 function fetchPosts(offs){
-	axios.get('api-posts-home.php', {
+	axios.get('api-posts.php', {
 		params: {
 	 	offset : (offs),
 		numberPosts : (offsetSta),

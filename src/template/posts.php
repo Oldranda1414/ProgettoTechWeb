@@ -18,7 +18,7 @@
 						</button>
 						-->
 						<form action="" method="POST">
-    						<button type="submit" name="like_button" value="<?php echo ($post["Liked"])?"type=remove&postId=".$post["Post_id"]."&userId=".$_SESSION["user_id"]:"type=add&postId=".$post["Post_id"]."&userId=".$_SESSION["user_id"]?>" class="btn like-button">
+    						<button type="submit" name="like_button" value="<?php echo ($post["Liked"])?"type=remove&postId=".$post["Post_id"]:"type=add&postId=".$post["Post_id"]?>" class="btn like-button">
 								<?php echo ($post["Liked"])?"Non mi piace più":"Mi piace" ?>
 							</button>
 						</form>

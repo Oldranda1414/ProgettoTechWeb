@@ -15,7 +15,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON `db_life_and_games`.* TO 'admin'@'localh
 CREATE TABLE db_life_and_games.Post (
      Post_id int not null auto_increment,
      Img char(100) not null,
-     Words char(100) not null,
+     Words char(300) not null,
      DT DATETIME DEFAULT CURRENT_TIMESTAMP,
      Tag_id int not null,
      User_id int not null,

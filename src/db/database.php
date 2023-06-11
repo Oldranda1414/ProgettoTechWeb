@@ -193,10 +193,21 @@ class DatabaseHelper
    //end of post retrieval functions -------------------------------------------------------------------------------
 
    //retrieves data about a user with username $username
-   public function getUserInfo($username)
+   public function getUserInfo($sessionUserId, $username)
    {
-      $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img, DT FROM user_table WHERE Username = ?");
-      $stmt->bind_param('s', $username);
+      $stmt = $this->db->prepare("SELECT U.User_id, U.Username, U.E_mail, U.Passwrd, U.Profile_img, U.DT, (F.Followed_User_id IS NOT NULL) AS followed
+                                 FROM user_table AS U
+                                 LEFT JOIN (SELECT Followed_User_id, Follower_User_id FROM follow WHERE Follower_User_id = ?) AS F ON F.Followed_User_id = U.User_id
+                                 WHERE Username = ?");
+      $stmt->bind_param('is', $sessionUserId, $username);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+
+   public function getCurrentUserInfo($userId){
+      $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img, DT FROM user_table WHERE User_id = ?");
+      $stmt->bind_param('i', $userId);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
@@ -317,6 +328,12 @@ class DatabaseHelper
                         (SELECT User_id FROM post WHERE Post_id = ?), 
                         ?, ?)");
       $stmt->bind_param('iii', $postId, $postId, $userId);
+      $stmt->execute();
+   }
+
+   public function addComment($postId, $userId, $words){
+      $stmt = $this->db->prepare("INSERT INTO comment(Post_id, User_id, Words) VALUES(?, ?, ?)");
+      $stmt->bind_param('iis', $postId, $userId, $words);
       $stmt->execute();
    }
 

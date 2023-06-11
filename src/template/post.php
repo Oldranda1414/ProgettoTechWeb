@@ -35,11 +35,11 @@
 							</div>
                             <?php endforeach; ?>
 						</div>
-						<form>
+						<form action="#" method="POST">
 							<div class="mb-3">
 								<label for="message-text" class="col-form-label">Commenta:</label>
-								<textarea class="form-control" id="message-text"></textarea>
-								<button type="button" class="btn btn-info mt-2">Invia commento</button>
+								<textarea class="form-control" id="comment-text" name="comment-text"></textarea>
+								<button type="submit" class="btn btn-info mt-2">Invia commento</button>
 							</div>
 						</form>
 					</div>

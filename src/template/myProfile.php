@@ -84,14 +84,14 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<form>
+					<form action="#" method="POST" enctype="multipart/form-data">
 						<div class="mb-3">
 							<h2 class="fs-5 text-center">
-						Carica immagine
-					</h2>
-					<div class="mb-3">
-						<input class="form-control" type="file" id="formFile" accept=".jpg,.png">
-					</div>
+								Carica immagine
+							</h2>
+							<div class="mb-3">
+								<input class="form-control" type="file" id="updateProfileImg" name="updateProfileImg" accept=".jpg,.png">
+							</div>
 						</div>
 					</form>
 

@@ -131,7 +131,7 @@ class DatabaseHelper
 
    //returns posts with matching words to $words, ordered by date
    public function getPostsByWords($sessionUserId, $words, $offset, $limit){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
@@ -139,7 +139,7 @@ class DatabaseHelper
                                  LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
                                  LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
                                              FROM Like_table GROUP BY Post_id) 
-                                 AS L ON P.Post_id=L.Post_id)
+                                 AS Likes ON P.Post_id=Likes.Post_id)
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
                                  WHERE P.Words LIKE ?
                                  ORDER BY P.DT DESC LIMIT ?, ?");
@@ -152,7 +152,7 @@ class DatabaseHelper
    
       //returns posts with matching game name (tag) to $gameName, ordered by date
    public function getPostsByGameName($sessionUserId, $gameName, $offset, $limit){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
@@ -160,7 +160,7 @@ class DatabaseHelper
                                  LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
                                  LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
                                              FROM Like_table GROUP BY Post_id) 
-                                 AS L ON P.Post_id=L.Post_id)
+                                 AS Likes ON P.Post_id=Likes.Post_id)
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
                                  WHERE T.Game_name LIKE ?
                                  ORDER BY P.DT DESC LIMIT ?, ?");
@@ -173,14 +173,14 @@ class DatabaseHelper
    
    //returns posts with matching Username to $username
    public function getPostsByUsername($sessionUserId, $username, $offset, $limit){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
                                  JOIN tag AS T ON P.Tag_id=T.Tag_id) 
                                  LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
                                              FROM Like_table GROUP BY Post_id) 
-                                    AS L ON P.Post_id=L.Post_id)
+                                    AS Likes ON P.Post_id=Likes.Post_id)
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
                                  WHERE U.Username LIKE ?
                                  ORDER BY P.DT DESC LIMIT ?, ?");

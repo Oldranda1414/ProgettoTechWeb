@@ -12,7 +12,7 @@ if(isUserLoggedIn($dbh)){
             $searchedUser = htmlspecialchars($_GET['Username']);
             $templateParams["titolo"] = "Profilo di ".$searchedUser;
             $templateParams["nome"] = "profile2.php";
-            $templateParams["searchedUser"] = $dbh->getUserInfo($searchedUser)[0];
+            $templateParams["searchedUser"] = $dbh->getUserInfo($_SESSION['user_id'], $searchedUser)[0];
             $templateParams["likes"] = $dbh->getUserLikes($searchedUser);
             $templateParams["comments"] = $dbh->getUserComments($searchedUser);
             $templateParams["followers"] = $dbh->getUserFollowers($searchedUser);

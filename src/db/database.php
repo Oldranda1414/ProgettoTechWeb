@@ -409,7 +409,7 @@ class DatabaseHelper
                //echo "account disabilitato per troppi tentativi"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
                // Account disabilitato
                // Invia un e-mail all'utente avvisandolo che il suo account è stato disabilitato.
-               return 3;
+               return array(0, "accountDisabled");
             } else {
                if ($db_password == $passwordHashed) { // Verifica che la password memorizzata nel database corrisponda alla password fornita dall'utente.
                   // Password corretta! 
@@ -424,20 +424,20 @@ class DatabaseHelper
                   $_SESSION['username'] = $username;
                   $_SESSION['login_string'] = hash('sha512', $passwordHashed.$user_browser);
                   // Login eseguito con successo.
-                  return 0;
+                  return array(1,"");
                } else {
                   //echo "password non corretta"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
 				  // Password incorretta.
                   // Registriamo il tentativo fallito nel database.
                   $now = time();
                   $this->db->query("INSERT INTO login_attempts (User_id, Time_login) VALUES ('$user_id', '$now')");
-                  return 1;
+                  return array(0, "passwordWrong");
                }
             }
          } else {
             // L'utente inserito non esiste.
             //echo "lutente inserito non esiste"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
-            return 2;
+            return array(0, "userDoesNotExist");
          }
       }
    }

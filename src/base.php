@@ -1,9 +1,9 @@
 <?php
 var_dump($_POST);
     //api for adding a new post
-    if(isset($_POST["tagNewPost"]) || isset($_POST["textNewPost"]) || isset($_POST["fileNewPost"])){
-        if(!empty($_POST["tagNewPost"]) || !empty($_POST["textNewPost"]) || !empty($_POST["fileNewPost"])){
-            if(isset($_FILES["fileNewPost"]) && strlen($_FILES["fileNewPost"]["name"])>0){
+    if(isset($_POST["tagNewPost"]) || isset($_POST["textNewPost"]) || isset($_FILES["fileNewPost"])){
+        if(!empty($_POST["tagNewPost"]) && !empty($_POST["textNewPost"])){
+            if(strlen($_FILES["fileNewPost"]["name"])>0){
                 list($imgUploadResult, $imgUploadMsg) = uploadImage(UPLOAD_DIR."posts/", $_FILES["fileNewPost"]);
                 if($imgUploadResult != 0){
                     $templateParams["newPostId"] = $dbh->insertPost($_SESSION["user_id"], htmlspecialchars($_POST["textNewPost"]), htmlspecialchars($_POST["tagNewPost"]), $imgUploadMsg);

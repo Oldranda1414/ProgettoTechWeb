@@ -1,15 +1,22 @@
 <?php
 require_once 'bootstrap.php';
 require "base.php";
+var_dump($_POST);
 
 if(isUserLoggedIn($dbh)){
 
     //update profile img api
-    if(isset($_POST["updateProfileImg"])){
-        if(!empty($_POST["updateProfileImg"]) && isset($_FILES["updateProfileImg"]) && strlen($_FILES["updateProfileImg"]["name"])>0){
-            list($imgUploadResult, $imgUploadMsg) = uploadImage(UPLOAD_DIR."posts/", $_FILES["updateProfileImg"]);
+    if(isset($_FILES["updateProfileImg"])){
+        if(strlen($_FILES["updateProfileImg"]["name"])>0){
+            //deleting old img from server
+            deleteImg(UPLOAD_DIR."profiles/".$templateParams["user"]["Profile_img"]);
+            //uploading new profile img
+            list($imgUploadResult, $imgUploadMsg) = uploadImage(UPLOAD_DIR."profiles/", $_FILES["updateProfileImg"]);
             if($imgUploadResult != 0){
+                //updating db
                 $dbh->updateProfileImg($_SESSION["user_id"], $imgUploadMsg);
+                //updating $templateParams["user"]
+                $templateParams["user"]["Profile_img"] = $_FILES["updateProfileImg"]["name"];
             }
             else{
                 //TODO ERRORE CARICAMENTO IMMAGINE, NOTIFICARE UTENTE (il tipo di errore è contenuto in $imgUploadMsg)

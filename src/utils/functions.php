@@ -58,6 +58,17 @@ function uploadImage($path, $image)
     return array($result, $msg);
 }
 
+//deletes image at $path
+function deleteImg($path){
+    $acceptedExtensions = array("jpg", "jpeg", "png", "gif");
+    $imageFileType = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+    if (in_array($imageFileType, $acceptedExtensions)) {
+        if (file_exists($path)) {
+            unlink($path);
+        }
+    }
+}
+
 //TODO delete this function and implement it elsewere. Ugly use of $dbh
 //checks if the user is logged in, through session or cookies. returns true if yes, false otherwise
 function isUserLoggedIn($dbh)

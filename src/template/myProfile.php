@@ -85,14 +85,13 @@
 				</div>
 				<form action="#" method="POST" enctype="multipart/form-data">
 					<div class="modal-body">
+						<h2 class="fs-5 text-center">
+							Carica immagine
+						</h2>
 						<div class="mb-3">
-							<h2 class="fs-5 text-center">
-								Carica immagine
-							</h2>
-							<div class="mb-3">
-								<input class="form-control" type="file" id="updateProfileImg" name="updateProfileImg" accept=".jpg,.png">
-							</div>
+							<input class="form-control" type="file" id="updateProfileImg" name="updateProfileImg" accept=".jpg,.png">
 						</div>
+						
 					</div>
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-info">Invia</button>

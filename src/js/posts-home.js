@@ -36,7 +36,7 @@ function createPost(posts){
 					</a>
 					<img src="${posts[i]["Img"]}" class="card-img-top" alt="Post Image">
 					<div class="card-body text-center">
-						<a href="explore2.php?search=${posts[i]["Game_name"]}&flexRadioDefault=tag">
+						<a href="explore2.php?search=${posts[i]["Game_name"]}&flexRadioDefault=ptag">
 						<div class="card-title post-title">${posts[i]["Game_name"]}</div>
 						</a>
 						<p class="card-text">${posts[i]["Words"]}</p>

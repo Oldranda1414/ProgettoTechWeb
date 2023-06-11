@@ -8,12 +8,17 @@ function createPost(posts){
 		<div class="row">
 	`;
     for(let i=0; i < posts.length; i++){
+		let user_id=`${posts[i]['session_ID']}`;
 		let like;
+		let likeAction;
 		if (`${posts[i]["Liked"]}`==true){
 			like="Non mi piace più";
+			likeAction = `remove&postId=${posts[i]["Post_id"]}&userId=${user_id}`;
 		} else {
 			like="Mi piace";
+			likeAction = `add&postId=${posts[i]["Post_id"]}&userId=${user_id}`;
 		}
+
 		let id = `${posts[i]["Post_id"]}`;
 		let Date_time=new Date(`${posts[i]["DT"]}`);
         let formattedDate = `${Date_time.getDate()}-${Date_time.getMonth() + 1}-${Date_time.getFullYear()} alle ${Date_time.getHours()}:${Date_time.getMinutes()}`;
@@ -31,7 +36,11 @@ function createPost(posts){
 						<div class="card-title post-title">${posts[i]["Game_name"]}</div>
 						</a>
 						<p class="card-text">${posts[i]["Words"]}</p>
-						<a href="#" class="btn like-button m-1">${like}</a>
+						<form action="" method="POST">
+    						<button type="submit" name="like_button" value="type=${likeAction}" class="btn like-button">
+								${like}
+							</button>
+						</form>
 						<button type="button" class="btn post-button" onclick="location.href='post.php?id=${id}'">Apri Post</button>
 					</div>
 					<div class="card-footer text-muted small font-italic">

@@ -14,7 +14,7 @@ class DatabaseHelper
    //selection queries start here ------------------------------------------------------------------------------------------------------------
 
 
-   //returns an array containing the notifications, that haven't still been read, referring to the user with username $username
+   //TODO returns an array containing the notifications, that haven't still been read, referring to the user with username $username
    public function getNotifications($username){
       $query = "SELECT N.Notification_type, F.Username AS Follower_Username, F.Profile_img AS Follower_Profile_img, 
                Commenter.Username AS Commenter_Username, Commenter.Profile_img AS Commenter_Profile_img, 
@@ -67,7 +67,7 @@ class DatabaseHelper
    //retrieves post data for the latest $n posts
    //note that the only data missing is about comments related to each post
    public function getLatestNPosts($sessionUserId, $offset, $limit){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
@@ -78,7 +78,7 @@ class DatabaseHelper
                                  AS Likes ON P.Post_id=Likes.Post_id)
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter 
                                  ORDER BY P.DT DESC LIMIT ?, ?");
-      $stmt->bind_param('sii', $sessionUserId, $offset, $limit);
+      $stmt->bind_param('ssii', $sessionUserId, $sessionUserId, $offset, $limit);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
@@ -88,7 +88,7 @@ class DatabaseHelper
    //note that the only data missing is about comments related to each post
    public function getMostLikedPosts($sessionUserId, $day, $n)
    {
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
@@ -100,7 +100,7 @@ class DatabaseHelper
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
                                  WHERE P.DT<DATE_ADD(?, INTERVAL 1 DAY) AND P.DT>?
                                  ORDER BY Likes.Likes DESC LIMIT ?");
-      $stmt->bind_param('sssi', $sessionUserId, $day, $day, $n);
+      $stmt->bind_param('ssssi', $sessionUserId, $sessionUserId, $day, $day, $n);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
@@ -110,7 +110,7 @@ class DatabaseHelper
    //note that the only data missing is about comments related to each post
    public function getPostsByUser($sessionUserId, $username, $offset, $limit)
    {
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
                                  counter.n AS Number_of_posts
                                  FROM post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id
@@ -122,7 +122,7 @@ class DatabaseHelper
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter 
                                  WHERE U.Username= ? 
                                  ORDER BY P.DT DESC LIMIT ?, ?");
-      $stmt->bind_param('ssii', $sessionUserId, $username, $offset, $limit);
+      $stmt->bind_param('sssii', $sessionUserId, $sessionUserId, $username, $offset, $limit);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
@@ -130,7 +130,7 @@ class DatabaseHelper
 
    //returns posts with matching words to $words, ordered by date
    public function getPostsByWords($sessionUserId, $words, $offset, $limit){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
@@ -143,7 +143,7 @@ class DatabaseHelper
                                  WHERE P.Words LIKE ?
                                  ORDER BY P.DT DESC LIMIT ?, ?");
       $words = "%".$words."%";
-      $stmt->bind_param('ssii', $sessionUserId, $words, $offset, $limit);
+      $stmt->bind_param('sssii', $sessionUserId, $sessionUserId, $words, $offset, $limit);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
@@ -151,7 +151,7 @@ class DatabaseHelper
    
       //returns posts with matching game name (tag) to $gameName, ordered by date
    public function getPostsByGameName($sessionUserId, $gameName, $offset, $limit){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
@@ -164,7 +164,7 @@ class DatabaseHelper
                                  WHERE T.Game_name LIKE ?
                                  ORDER BY P.DT DESC LIMIT ?, ?");
       $gameName = "%".$gameName."%";
-      $stmt->bind_param('ssii', $sessionUserId, $gameName, $offset, $limit);
+      $stmt->bind_param('sssii', $sessionUserId, $sessionUserId, $gameName, $offset, $limit);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
@@ -172,7 +172,7 @@ class DatabaseHelper
    
    //returns posts with matching Username to $username
    public function getPostsByUsername($sessionUserId, $username, $offset, $limit){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(L.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
@@ -184,7 +184,7 @@ class DatabaseHelper
                                  WHERE U.Username LIKE ?
                                  ORDER BY P.DT DESC LIMIT ?, ?");
             $username = "%".$username."%";
-            $stmt->bind_param('ssii', $sessionUserId, $username, $offset, $limit);
+            $stmt->bind_param('sssii', $sessionUserId, $sessionUserId, $username, $offset, $limit);
             $stmt->execute();
             $result = $stmt->get_result();
             return $result->fetch_all(MYSQLI_ASSOC);
@@ -193,13 +193,10 @@ class DatabaseHelper
    //end of post retrieval functions -------------------------------------------------------------------------------
 
    //retrieves data about a user with username $username
-   public function getUserInfo($sessionUserId, $username)
+   public function getUserInfo($username)
    {
-      $stmt = $this->db->prepare("SELECT U.User_id, U.Username, U.E_mail, U.Passwrd, U.Profile_img, U.DT, (F.Followed_User_id IS NOT NULL) AS followed
-                                 FROM user_table AS U
-                                 LEFT JOIN (SELECT Followed_User_id, Follower_User_id FROM follow WHERE Follower_User_id = ?) AS F ON F.Followed_User_id = U.User_id
-                                 WHERE Username = ?");
-      $stmt->bind_param('ss', $sessionUserId, $username);
+      $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img, DT FROM user_table WHERE Username = ?");
+      $stmt->bind_param('s', $username);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);

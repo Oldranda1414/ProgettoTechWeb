@@ -5,7 +5,7 @@
 				<div class="row justify-content-md-center text-center">
 					<div class="col-12 col-lg-7 mb-2">
 					<p class="text-muted">
-						<img src="./upload/profiles/profile-1.jpg" class="post-author-img me-2" alt="profile icon"
+						<img src="./upload/profiles/<?php echo $templateParams["post"]["Profile_img"] ?>" class="post-author-img me-2" alt="profile icon"
 							height="100">
 						di <a href="profile.php?Username=<?php echo $templateParams["post"]["Username"] ?>"><em class="nickname-label"><?php echo $templateParams["post"]["Username"] ?></em></a>, il
                             <?php echo date("d-m-y" ,strtotime($templateParams["post"]["DT"]))." alle ".date("H:i" ,strtotime($templateParams["post"]["DT"]))?></p>
@@ -15,7 +15,11 @@
 						</p>
 						<div class="like-number text-end me-3">
 							A <?php echo $templateParams["post"]["Likes"] ?> utenti è piaciuto
-							<a href="#" class="btn like-button m-1">Mi piace</a>
+							<form action="" method="POST">
+    							<button type="submit" name="like_button" value="<?php echo ($templateParams["post"]["Liked"])?"type=remove&postId=".$templateParams["post"]["Post_id"]."&userId=".$_SESSION["user_id"]:"type=add&postId=".$templateParams["post"]["Post_id"]."&userId=".$_SESSION["user_id"]?>" class="btn like-button m-1">
+									<?php echo ($templateParams["post"]["Liked"])?"Non mi piace più":"Mi piace" ?>
+								</button>
+							</form>
 						</div>
 					</div>
 					<div class="col col-lg-5 mt-2 bg-7 rounded">

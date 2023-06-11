@@ -34,23 +34,6 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
-   //returns data referring to post with $postId as Post_id
-   public function getPostById($postId){
-      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(L.Likes,0) AS Likes
-                                 FROM (((post AS P 
-                                 JOIN user_table AS U ON P.User_id=U.User_id) 
-                                 JOIN tag AS T ON P.Tag_id=T.Tag_id) 
-                                 LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
-                                             FROM Like_table GROUP BY Post_id) 
-                                 AS L ON P.Post_id=L.Post_id)
-                                 WHERE P.Post_id = ?");
-      $stmt->bind_param('i', $postId);
-      $stmt->execute();
-      $result = $stmt->get_result();
-      return $result->fetch_all(MYSQLI_ASSOC)["0"];
-
-   }
-
    //returns an assoc array containing comments referring to post with $postId as Post_id
    public function getComments($postId)
    {
@@ -63,6 +46,24 @@ class DatabaseHelper
    }
 
    //start of post retrieval functions -------------------------------------------------------------------------------
+
+   //returns data referring to post with $postId as Post_id
+   public function getPostById($sessionUserId, $postId){
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked
+                                 FROM (((post AS P 
+                                 JOIN user_table AS U ON P.User_id=U.User_id) 
+                                 JOIN tag AS T ON P.Tag_id=T.Tag_id) 
+                                 LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
+                                 LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
+                                             FROM Like_table GROUP BY Post_id) 
+                                 AS Likes ON P.Post_id=Likes.Post_id)
+                                 WHERE P.Post_id = ?");
+      $stmt->bind_param('ii', $sessionUserId, $postId);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC)[0];
+
+   }
 
    //retrieves post data for the latest $n posts
    //note that the only data missing is about comments related to each post

@@ -26,7 +26,7 @@ if(isUserLoggedIn($dbh)){
         
         $templateParams["titolo"] = "Post";
         $templateParams["nome"] = "post.php";
-        $templateParams["post"] = $dbh->getPostById($searchedPostId);
+        $templateParams["post"] = $dbh->getPostById($_SESSION["user_id"], $searchedPostId);
         $templateParams["comments"] = $dbh->getComments($searchedPostId);
     }
     else{

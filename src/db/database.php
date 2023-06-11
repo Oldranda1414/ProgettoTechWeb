@@ -85,6 +85,27 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
+
+   //returns posts by users followed by $sessionUserId
+   public function getPostByFollowed($sessionUserId, $offset, $limit){
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
+                                 counter.n AS Number_of_posts
+                                 FROM (((post AS P 
+                                 JOIN user_table AS U ON P.User_id=U.User_id) 
+                                 JOIN tag AS T ON P.Tag_id=T.Tag_id)
+                                 JOIN (SELECT * FROM follow WHERE Follower_User_id = ?) AS F ON Follwed_User_id = P.User_id
+                                 LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
+                                 LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
+                                             FROM Like_table GROUP BY Post_id) 
+                                 AS Likes ON P.Post_id=Likes.Post_id)
+                                 CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter 
+                                 ORDER BY P.DT DESC LIMIT ?, ?");
+      $stmt->bind_param('sssii', $sessionUserId, $sessionUserId, $sessionUserId, $offset, $limit);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+
    //retrieves post data for the $n most liked posts of the day $day
    //note that the only data missing is about comments related to each post
    public function getMostLikedPosts($sessionUserId, $day, $n)
@@ -165,6 +186,26 @@ class DatabaseHelper
                                  WHERE T.Game_name LIKE ?
                                  ORDER BY P.DT DESC LIMIT ?, ?");
       $gameName = "%".$gameName."%";
+      $stmt->bind_param('sssii', $sessionUserId, $sessionUserId, $gameName, $offset, $limit);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
+
+   public function getPostsByPreciseGameName($sessionUserId, $gameName, $offset, $limit){
+      $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
+                                 counter.n AS Number_of_posts
+                                 FROM (((post AS P 
+                                 JOIN user_table AS U ON P.User_id=U.User_id) 
+                                 JOIN tag AS T ON P.Tag_id=T.Tag_id) 
+                                 LEFT JOIN Like_table AS L ON P.Post_id=L.Post_id AND L.User_id = ?
+                                 LEFT JOIN (SELECT Post_id, COUNT(User_id) AS Likes 
+                                             FROM Like_table GROUP BY Post_id) 
+                                 AS Likes ON P.Post_id=Likes.Post_id)
+                                 CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
+                                 WHERE T.Game_name LIKE ?
+                                 ORDER BY P.DT DESC LIMIT ?, ?");
+      $gameName = $gameName;
       $stmt->bind_param('sssii', $sessionUserId, $sessionUserId, $gameName, $offset, $limit);
       $stmt->execute();
       $result = $stmt->get_result();

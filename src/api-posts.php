@@ -8,11 +8,11 @@
     $id=$_SESSION['user_id'];
     
     if (isset($page)){
-        if (strpos($page, "myprofile")!== false){
+        if (strpos($page, "rofile")!== false){
+            if (isset($_GET["user"])){
+                $username=$_GET["user"];
+            }
             $posts = $dbh->getPostsByUser($id, $username, $offset, $numberPosts);
-        } else if (strpos($page, "profile")!== false){
-            $newuser = explode(".php?Username=", $page);
-            $posts = $dbh->getPostsByUser($id, $newuser[1], $offset, $numberPosts);
         } else if (strpos($page, "home")!== false || strpos($page, "index")!== false) {
             $posts = $dbh->getPostByFollowed($id,$offset,$numberPosts);
         } else if (strpos($page, "explore")!== false){

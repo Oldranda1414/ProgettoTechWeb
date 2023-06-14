@@ -13,7 +13,4 @@
 					</p>
 					<hr>
 					<?php endforeach; ?>
-					<div class="row justify-content-center">
-						<a href="#" class="btn upload-button m-1">Carica altro...</a>
-					</div>
 				</div>	

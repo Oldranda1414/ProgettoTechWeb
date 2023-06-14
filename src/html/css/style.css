@@ -298,3 +298,12 @@ a {
     width: 57px;
     height: 57px;
 }
+
+.comment-img-profile {
+	border-radius: 50%
+}
+
+form {
+	display: inline-block;
+	width: auto;
+}

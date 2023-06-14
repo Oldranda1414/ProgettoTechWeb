@@ -72,7 +72,6 @@
 			</div>
 		  </div>
 		</div>
-
 		<?php endif; ?>
 
 		<div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="newPostModalLabel" aria-hidden="true">

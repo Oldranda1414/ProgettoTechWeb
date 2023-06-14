@@ -14,7 +14,7 @@ if(isUserLoggedIn($dbh)){
                 $dbh->addComment($searchedPostId, $_SESSION["user_id"], htmlspecialchars($_POST["comment-text"]));
             }
             else{
-                //TODO notificare l'utente che non si può fare un commento vuoto
+                $templateParams["commentError"] = "Commento non fatto. Non si può fare un commento vuoto";
             }
         }
 
@@ -26,9 +26,6 @@ if(isUserLoggedIn($dbh)){
             $templateParams["post"] = $templateParams["post"][0];
         }
         $templateParams["comments"] = $dbh->getComments($searchedPostId);
-    }
-    else{
-        //TODO if the post does not exist create page to inform post does not exist
     }
     require 'template/base.php';
 }

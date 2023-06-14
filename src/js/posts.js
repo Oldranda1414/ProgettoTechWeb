@@ -24,6 +24,8 @@ function createPost(posts){
 			likeAction = `add&postId=${posts[i]["Post_id"]}&userId=${user_id}`;
 		}
 
+		let tag = `${posts[i]["Game_name"]}`;
+		tag = tag.replace(" ", "_");
 		let id = `${posts[i]["Post_id"]}`;
 		let Date_time=new Date(`${posts[i]["DT"]}`);
         let formattedDate = `${Date_time.getDate()}-${Date_time.getMonth() + 1}-${Date_time.getFullYear()} alle ${Date_time.getHours()}:${Date_time.getMinutes()}`;
@@ -37,7 +39,7 @@ function createPost(posts){
 					</a>
 					<img src="${posts[i]["Img"]}" class="card-img-top" alt="Post Image">
 					<div class="card-body text-center">
-						<a href="explore.php?search=${posts[i]["Game_name"]}&flexRadioDefault=ptag">
+						<a href="explore.php?search=${tag}&flexRadioDefault=ptag">
 						<div class="card-title post-title">${posts[i]["Game_name"]}</div>
 						</a>
 						<p class="card-text">${posts[i]["Words"]}</p>

@@ -24,6 +24,9 @@
                     if ($type=='user'){
                         $posts = $dbh->getPostsByUsername($id,$search,$offset,$numberPosts);
                     } else if ($type=='ptag'){
+                        if (strpos($search, "_")!==false){
+                            $search = str_replace("_", " ", $search);
+                        }
                         $posts = $dbh->getPostsByPreciseGameName($id, $search, $offset, $numberPosts);
                     } else if ($type=='tag'){
                         $posts = $dbh->getPostsByGameName($id,$search,$offset,$numberPosts);

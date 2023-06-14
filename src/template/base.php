@@ -54,6 +54,27 @@
 			</div>
 		</nav>
 
+		<?php if(isset($templateParams["newPostError"])): ?>
+			<div aria-live="" aria-atomic="true" class="" style="position: absolute; min-height: 200px; z-index:5">
+		  <div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2800">
+			<div class="toast-header bg-3">
+				<img src="./upload/icons/alert.png" class="rounded mr-2 alert-icon" alt="alert icon">
+				<strong class="mr-auto ms-2">Avviso · Post non pubblicato</strong>
+				</button>
+			</div>
+			<div class="toast-body">
+				<p class="text-center text-danger new-post-error-label mx-2">- <u>
+					<?php echo $templateParams["newPostError"];?>
+				</u></p>
+				<p class="text-center text-danger new-post-error-label mx-2">- <u></u></p>
+				<p class="text-center text-danger new-post-error-label mx-2">- <u></u></p>
+				<p class="text-center text-danger new-post-error-label mx-2">- <u></u></p>
+			</div>
+		  </div>
+		</div>
+
+		<?php endif; ?>
+
 		<div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="newPostModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content bg-3">

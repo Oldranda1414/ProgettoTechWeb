@@ -19,13 +19,13 @@
             if (isset($_GET["search"])){
                 $search = $_GET["search"]; 
                 $type = $_GET["type"];
-                if (strpos($type, 'user')!== false){
+                if ($type=='user'){
                     $posts = $dbh->getPostsByUsername($id,$search,$offset,$numberPosts);
-                } else if (strpos($type, 'ptag')!=false){
-                    $posts = $dbh->getPostsByPreciseGameName($id, $search, $offset, $limit);
-                } else if (strpos($type, 'tag')!== false){
+                } else if ($type=='ptag'){
+                    $posts = $dbh->getPostsByPreciseGameName($id, $search, $offset, $numberPosts);
+                } else if ($type=='tag'){
                     $posts = $dbh->getPostsByGameName($id,$search,$offset,$numberPosts);
-                } else if (strpos($type, 'post')!== false){
+                } else if ($type=='post'){
                     $posts = $dbh->getPostsByWords($id,$search,$offset,$numberPosts);
                 }
             } else {

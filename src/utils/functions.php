@@ -70,7 +70,6 @@ function deleteImg($path)
     }
 }
 
-//TODO delete this function and implement it elsewere. Ugly use of $dbh
 //checks if the user is logged in, through session or cookies. returns true if yes, false otherwise
 function isUserLoggedIn($dbh)
 {

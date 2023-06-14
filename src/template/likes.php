@@ -11,9 +11,6 @@
 					<p class="post-body text-truncate mt-4 mb-5">
 						<?php echo $like["Post_Words"] ?>
 					</p>
-					<div class="text-end">
-						<a href="#" class="btn liked-button m-1 text-right">Mi piace</a>
-					</div>
 					<hr>
 					<?php endforeach; ?>
 					<div class="row justify-content-center">

@@ -65,10 +65,10 @@
 					</div>
 					<div class="modal-body">
 						<input class="form-control me-2 bg-4  mb-2 oldpass" type="password" placeholder="Password corrente" aria-label="Password" name="oldPassword" id="oldPassword">
-						<label for="message-text" class="col-form-label">Inserisci la nuova password scelta:</label>
-						<input class="form-control me-2 bg-4  mb-2 newpass" type="password" placeholder="Nuova password" aria-label="Password" name="newPassword">
-						<label for="message-text" class="col-form-label">Digitare nuovamente la nuova password:</label>
-						<input class="form-control me-2 bg-4  mb-2 newRpass" type="password" placeholder="Nuova password" aria-label="Password" name="newRepeatedPassword">
+						<label for="newPassword" class="col-form-label">Inserisci la nuova password scelta:</label>
+						<input class="form-control me-2 bg-4  mb-2 newpass" type="password" placeholder="Nuova password" aria-label="Password" name="newPassword" id="newPassword">
+						<label for="newRepeatedPassword" class="col-form-label">Digitare nuovamente la nuova password:</label>
+						<input class="form-control me-2 bg-4  mb-2 newRpass" type="password" placeholder="Nuova password" aria-label="Password" name="newRepeatedPassword" id="newRepeatedPassword">
 					</div>
 					<p class="text-center opass">...</p>
 					<p class="text-center pass">...</p>

@@ -83,7 +83,7 @@
 						<div class="modal-body">
 							<div class="mb-3">
 								<input class="form-control me-2 bg-4  mb-2" type="search" placeholder="Inserisci tag..." aria-label="Search" id="tagNewPost" name="tagNewPost">
-								<label for="message-text" class="col-form-label">Testo:</label>
+								<label for="textNewPost" class="col-form-label">Testo:</label>
 								<textarea class="form-control" id="textNewPost" name="textNewPost" maxlength="250"></textarea>
 							</div>
 							<hr>

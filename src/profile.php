@@ -23,7 +23,7 @@ if(isUserLoggedIn($dbh)){
             $templateParams["nome"] = "profile.php";
             $templateParams["searchedUser"] = $dbh->getUserInfo($_SESSION['user_id'], $searchedUser);
             if(!empty($templateParams["searchedUser"])){
-                $templateParams["searchedUser"][0] = $templateParams["searchedUser"];
+                $templateParams["searchedUser"] = $templateParams["searchedUser"][0];
             }
             $templateParams["likes"] = $dbh->getUserLikes($searchedUser);
             $templateParams["comments"] = $dbh->getUserComments($searchedUser);

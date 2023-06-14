@@ -1,7 +1,7 @@
 <?php if ($templateParams["nome"] != "login.php" && $templateParams["nome"] != "register.php") : ?>
 
 	<!doctype html>
-	<html lang="it">
+	<html xml:lang="it" lang="it">
 
 	<head>
 		<meta charset="utf-8">
@@ -82,14 +82,15 @@
 					<form action="#" method="POST" enctype="multipart/form-data">
 						<div class="modal-body">
 							<div class="mb-3">
-								<input class="form-control me-2 bg-4  mb-2" type="search" placeholder="Inserisci tag..." aria-label="Search" id="tagNewPost" name="tagNewPost">
+								<label for="tagNewPost" class="col-form-label" hidden>Inserisci tag:</label>
+								<input class="form-control me-2 bg-4  mb-2" id="tagNewPost" name="tagNewPost" placeholder="Inserici tag...">
 								<label for="textNewPost" class="col-form-label">Testo:</label>
 								<textarea class="form-control" id="textNewPost" name="textNewPost" maxlength="250"></textarea>
 							</div>
 							<hr>
-							<h2 class="fs-5 text-center">
-								Carica immagine
-							</h2>
+							<label for="fileNewPost" class="fs-5 text-center">
+								Carica immagine:
+							</label>
 							<div class="mb-3">
 								<input class="form-control" type="file" id="fileNewPost" name="fileNewPost" accept=".jpg,.png">
 							</div>
@@ -111,7 +112,7 @@
 				<div class="modal-content bg-5">
 					<div class="modal-header">
 						<img src="./upload/icons/bell.png" class="modal-post-img-profile me-2" alt="profile icon" height="40">
-						<h1 class="modal-title fs-5" id="postModalLabel">Notifiche</h1>
+						<h1 class="modal-title fs-5" id="notificationModalLabel">Notifiche</h1>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<?php if (isset($templateParams["notifications"])) {

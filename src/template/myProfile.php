@@ -53,17 +53,13 @@
 		<div class="modal-content bg-3">
 			<div class="modal-header">
 				<img src="<?php echo UPLOAD_DIR . "icons/key.png"; ?>" class="me-2" alt="profile icon" height="40">
-				<h1 class="modal-title fs-5" id="postModalLabel">Cambia Password</h1>
+				<h1 class="modal-title fs-5" id="newPasswordModalLabel">Cambia Password</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
 				<form action="#" method="POST">
-					<div class="modal-header">
-						<img src="<?php echo UPLOAD_DIR . "icons/key.png"; ?>" class="me-2" alt="profile icon" height="40">
-						<h1 class="modal-title fs-5" id="postModalLabel">Cambia Password</h1>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
 					<div class="modal-body">
+						<label for="oldPassword" class="col-form-label" hidden>Password corrente:</label>
 						<input class="form-control me-2 bg-4  mb-2 oldpass" type="password" placeholder="Password corrente" aria-label="Password" name="oldPassword" id="oldPassword">
 						<label for="newPassword" class="col-form-label">Inserisci la nuova password scelta:</label>
 						<input class="form-control me-2 bg-4  mb-2 newpass" type="password" placeholder="Nuova password" aria-label="Password" name="newPassword" id="newPassword">
@@ -87,7 +83,7 @@
 		<div class="modal-content bg-3">
 			<div class="modal-header">
 				<img src="<?php echo UPLOAD_DIR . "profiles/" . $templateParams["user"]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon" height="40">
-				<h1 class="modal-title fs-5" id="postModalLabel">Nuova foto profilo</h1>
+				<h1 class="modal-title fs-5" id="newImgModalLabel">Nuova foto profilo</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<form action="#" method="POST" enctype="multipart/form-data">
@@ -96,6 +92,7 @@
 						Carica immagine
 					</h2>
 					<div class="mb-3">
+						<label for="updateProfileImg" class="col-form-label" hidden>Carica immagine:</label>
 						<input class="form-control" type="file" id="updateProfileImg" name="updateProfileImg" accept=".jpg,.png">
 					</div>
 
@@ -113,7 +110,7 @@
 		<div class="modal-content bg-3">
 			<div class="modal-header">
 				<img src="<?php echo UPLOAD_DIR . "profiles/" . $templateParams["user"]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon" height="40">
-				<h1 class="modal-title fs-5" id="postModalLabel">I miei "Mi piace"</h1>
+				<h1 class="modal-title fs-5" id="likesModalLabel">I miei "Mi piace"</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<?php
@@ -130,7 +127,7 @@
 		<div class="modal-content bg-3">
 			<div class="modal-header">
 				<img src="<?php echo UPLOAD_DIR . "profiles/" . $templateParams["user"]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon" height="40">
-				<h1 class="modal-title fs-5" id="postModalLabel">I miei commenti</h1>
+				<h1 class="modal-title fs-5" id="commentsModalLabel">I miei commenti</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<?php
@@ -147,7 +144,7 @@
 		<div class="modal-content bg-3">
 			<div class="modal-header">
 				<img src="<?php echo UPLOAD_DIR . "profiles/" . $templateParams["user"]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon" height="40">
-				<h1 class="modal-title fs-5" id="postModalLabel">Le persone che seguo</h1>
+				<h1 class="modal-title fs-5" id="followedModalLabel">Le persone che seguo</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<?php
@@ -165,7 +162,7 @@
 		<div class="modal-content bg-3">
 			<div class="modal-header">
 				<img src="<?php echo UPLOAD_DIR . "profiles/" . $templateParams["user"]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon" height="40">
-				<h1 class="modal-title fs-5" id="postModalLabel">Le persone che mi seguono</h1>
+				<h1 class="modal-title fs-5" id="followersModalLabel">Le persone che mi seguono</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<?php

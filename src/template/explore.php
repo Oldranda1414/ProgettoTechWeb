@@ -76,7 +76,8 @@
 					<div class="col-xs-10 col-sm-9 col-lg-5 mb-2">
 
 						<div class="d-flex me-1 mw-50 navbar-right mt-3">
-							<input class="form-control me-2 bg-4 search" type="search" placeholder="Cerca..." aria-label="Search" name="search">
+							<label for="search" hidden>Inserire ricerca:</label>
+							<input class="form-control me-2 bg-4 search" type="search" placeholder="Cerca..." aria-label="Search" name="search" id="search">
 							<!--ci sono problemi di accessibilità per la label-->
 							<button class="w-25 btn btn-sm bg-1" type="submit">
 								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/800px-Vector_search_icon.svg.png"
@@ -86,6 +87,8 @@
 
 					</div>
 					<div class="col col-lg-4 col-sm-4 ">
+						<fieldset>
+						<legend hidden>Tipo di ricerca:</legend>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="post"
 								checked>
@@ -105,7 +108,7 @@
 								Cerca utente
 							</label>
 						</div>
-
+						</fieldset>
 
 					</div>
 				</form>

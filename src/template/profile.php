@@ -47,7 +47,7 @@
 				<div class="modal-header">
 					<img src="<?php echo UPLOAD_DIR."profiles/".$templateParams["searchedUser"]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon"
 						height="40">
-					<h1 class="modal-title fs-5" id="postModalLabel">I "Mi piace" di <?php echo $templateParams["searchedUser"]["Username"]?></h1>
+					<h1 class="modal-title fs-5" id="likesModalLabel">I "Mi piace" di <?php echo $templateParams["searchedUser"]["Username"]?></h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<?php
@@ -65,7 +65,7 @@
 				<div class="modal-header">
 					<img src="<?php echo UPLOAD_DIR."profiles/".$templateParams["searchedUser"]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon"
 						height="40">
-					<h1 class="modal-title fs-5" id="postModalLabel">Tutti i commenti di <?php echo $templateParams["searchedUser"]["Username"]?></h1>
+					<h1 class="modal-title fs-5" id="commentsModalLabel">Tutti i commenti di <?php echo $templateParams["searchedUser"]["Username"]?></h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<?php
@@ -83,7 +83,7 @@
 				<div class="modal-header">
 					<img src="./upload/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="profile icon"
 						height="40">
-					<h1 class="modal-title fs-5" id="postModalLabel">Le persone seguite da <?php echo $templateParams["searchedUser"]["Username"]?></h1>
+					<h1 class="modal-title fs-5" id="followedModalLabel">Le persone seguite da <?php echo $templateParams["searchedUser"]["Username"]?></h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<?php
@@ -102,7 +102,7 @@
 				<div class="modal-header">
 					<img src="./upload/profiles/profile-1.jpg" class="modal-post-img-profile me-2" alt="profile icon"
 						height="40">
-					<h1 class="modal-title fs-5" id="postModalLabel">Le persone che seguono <?php echo $templateParams["searchedUser"]["Username"]?></h1>
+					<h1 class="modal-title fs-5" id="followersModalLabel">Le persone che seguono <?php echo $templateParams["searchedUser"]["Username"]?></h1>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<?php

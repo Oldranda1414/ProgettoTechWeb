@@ -26,7 +26,10 @@
 							<img src="<?php echo UPLOAD_DIR . "posts/" . $elemento["Img"] ?>" class="d-block w-100 blurredbackground rounded-2" alt="Post Image">
 
 							<div class="carousel-caption d-md-block">
-								<div class="title-carousel-post text-truncate" data-bs-toggle="modal" data-bs-target="post.php?id=<?php echo $elemento["Post_id"] ?>"><?php echo $elemento["Game_name"] ?></div>
+								<a href="explore.php?search=<?php echo $elemento["Game_name"] ?>&flexRadioDefault=ptag">
+									<div class="title-carousel-post text-truncate" data-bs-toggle="modal"><?php echo $elemento["Game_name"] ?></div>
+								</a>
+								
 								<div class="row justify-content-center">
 									<a href="profile.php?Username=<?php echo $elemento["Username"] ?>">
 										<div class="col">

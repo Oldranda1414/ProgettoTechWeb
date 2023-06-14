@@ -1,8 +1,8 @@
-                <div class="modal-body">
+				<div class="modal-body">
                 	<?php foreach ($templateParams["comments"] as $comment) : ?>
                 		<p class="text-muted">
                 			<img src="<?php echo UPLOAD_DIR . "profiles/" . $comment["Poster_img"] ?>" alt="post user profile icon" height="40" class="comment-img-profile">
-                			Nel <a href="post.php?id=<?php echo $comment["Post_id"] ?>">post</a> di <a href="profile.php?Username=<?php $comment["Poster_Username"] ?>" class="nickname-label"><?php echo $comment["Poster_Username"] ?></a>
+                			Nel <a href="post.php?id=<?php echo $comment["Post_id"] ?>">post</a> di <a href="profile.php?Username=<?php echo $comment["Poster_Username"] ?>" class="nickname-label"><?php echo $comment["Poster_Username"] ?></a>
                 		</p>
 
                 		<img src="<?php echo UPLOAD_DIR . "posts/" . $comment["Post_img"] ?>" class="card-img-top rounded miniatura-immagine-post" alt="Post Image">

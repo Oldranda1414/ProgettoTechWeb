@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
     //api for adding a new post
     if(isset($_POST["tagNewPost"]) || isset($_POST["textNewPost"]) || isset($_FILES["fileNewPost"])){
         if(!empty($_POST["tagNewPost"]) && !empty($_POST["textNewPost"])){

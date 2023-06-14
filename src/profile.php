@@ -21,16 +21,16 @@ if(isUserLoggedIn($dbh)){
             $searchedUser = htmlspecialchars($_GET['Username']);
             $templateParams["titolo"] = "Profilo di ".$searchedUser;
             $templateParams["nome"] = "profile.php";
-            $templateParams["searchedUser"] = $dbh->getUserInfo($_SESSION['user_id'], $searchedUser)[0];
+            $templateParams["searchedUser"] = $dbh->getUserInfo($_SESSION['user_id'], $searchedUser);
+            if(!empty($templateParams["searchedUser"])){
+                $templateParams["searchedUser"][0] = $templateParams["searchedUser"];
+            }
             $templateParams["likes"] = $dbh->getUserLikes($searchedUser);
             $templateParams["comments"] = $dbh->getUserComments($searchedUser);
             $templateParams["followers"] = $dbh->getUserFollowers($searchedUser);
             $templateParams["followed"] = $dbh->getUserFollowed($searchedUser);
             array_push($templateParams["js"],"https://unpkg.com/axios/dist/axios.min.js","js/posts.js","js/profile.js");
         }
-    }
-    else{
-        //TODO if the user does not exist or is not set create a new page informing the current user
     }
     require 'template/base.php';
 }

@@ -72,17 +72,17 @@
 	<div class="row justify-content-center">
 		<div class="scheda-profilo mx-5 rounded col col-sm-12 col-lg-7 col-xl-6 justify-content-md-center">
 			<div class="row justify-content-center text-center mb-2">
-				<form action="#" method="GET" class="d-flex me-1 mw-50 navbar-right mt-3" role="search">
+				<form action="#" method="GET" role="search" class="text-center">
 					<div class="col-xs-10 col-sm-9 col-lg-5 mb-2">
 
-						<!-- <form action="#" method="POST" class="d-flex me-1 mw-50 navbar-right mt-3" role="search"> -->
+						<div class="d-flex me-1 mw-50 navbar-right mt-3">
 							<input class="form-control me-2 bg-4 search" type="search" placeholder="Cerca..." aria-label="Search" name="search">
 							<!--ci sono problemi di accessibilità per la label-->
 							<button class="w-25 btn btn-sm bg-1" type="submit">
 								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/800px-Vector_search_icon.svg.png"
 									width="25" alt="search button icon">
 							</button>
-						<!-- </form> -->
+						</div>
 
 					</div>
 					<div class="col col-lg-4 col-sm-4 ">

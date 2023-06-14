@@ -19,6 +19,6 @@ if (isset($_POST["username"]) && isset($_POST["p"]) && isset($_POST["email"])) {
 } else {
     $templateParams["titolo"] = "Register";
     $templateParams["nome"] = "register.php";
-    array_push($templateParams["js"], "js/sha512.js", "js/forms.js", "js/register.js");
+    array_push($templateParams["js"], "js/sha512.js", "js/register.js");
 }
 require 'template/base.php';

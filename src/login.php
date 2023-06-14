@@ -29,6 +29,6 @@ if(isUserLoggedIn($dbh)){
 else{
     $templateParams["titolo"] = "Login";
     $templateParams["nome"] = "login.php";
-    array_push($templateParams["js"], "js/sha512.js", "js/forms.js", "js/login.js");
+    array_push($templateParams["js"], "js/sha512.js", "js/login.js");
     require 'template/base.php';
 }

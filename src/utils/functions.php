@@ -59,7 +59,8 @@ function uploadImage($path, $image)
 }
 
 //deletes image at $path
-function deleteImg($path){
+function deleteImg($path)
+{
     $acceptedExtensions = array("jpg", "jpeg", "png", "gif");
     $imageFileType = strtolower(pathinfo($path, PATHINFO_EXTENSION));
     if (in_array($imageFileType, $acceptedExtensions)) {

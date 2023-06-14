@@ -1,17 +1,15 @@
-
-
 <?php if (isset($templateParams["titolo_pagina"])) : ?>
 	<h2><?php echo $templateParams["titolo_pagina"]; ?></h2>
 <?php endif; ?>
 
 <div class="container fascia-profilo pt-3 pb-5">
 
-	<?php if (isset($templateParams["errorToast"])){
+	<?php if (isset($templateParams["errorToast"])) {
 		require "errorToast.php";
 	} ?>
-	
 
-	<?php if (isset($templateParams["successWords"])){
+
+	<?php if (isset($templateParams["successWords"])) {
 		require "successToast.php";
 	} ?>
 
@@ -173,4 +171,3 @@
 		</div>
 	</div>
 </div>
-

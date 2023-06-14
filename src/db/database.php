@@ -15,7 +15,8 @@ class DatabaseHelper
 
 
    //returns an array containing the notifications referring to the user with username $username
-   public function getNotifications($username){
+   public function getNotifications($username)
+   {
       $query = "SELECT N.Notification_type, F.Username AS Follower_Username, F.Profile_img AS Follower_Profile_img, 
                Commenter.Username AS Commenter_Username, Commenter.Profile_img AS Commenter_Profile_img, 
                C.Post_id AS Commented_Post_id, N.Liked_Post_id, Liker.Username AS Liker_Username, 
@@ -48,7 +49,8 @@ class DatabaseHelper
    //start of post retrieval functions -------------------------------------------------------------------------------
 
    //returns data referring to post with $postId as Post_id. if post does not exist it returns an empty string
-   public function getPostById($sessionUserId, $postId){
+   public function getPostById($sessionUserId, $postId)
+   {
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked
                                  FROM (((post AS P 
                                  JOIN user_table AS U ON P.User_id=U.User_id) 
@@ -62,12 +64,12 @@ class DatabaseHelper
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
-
    }
 
    //retrieves post data for the latest $n posts
    //note that the only data missing is about comments related to each post
-   public function getLatestNPosts($sessionUserId, $offset, $limit){
+   public function getLatestNPosts($sessionUserId, $offset, $limit)
+   {
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
@@ -87,7 +89,8 @@ class DatabaseHelper
 
 
    //returns posts by users followed by $sessionUserId
-   public function getPostByFollowed($sessionUserId, $offset, $limit){
+   public function getPostByFollowed($sessionUserId, $offset, $limit)
+   {
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
@@ -151,7 +154,8 @@ class DatabaseHelper
    }
 
    //returns posts with matching words to $words, ordered by date
-   public function getPostsByWords($sessionUserId, $words, $offset, $limit){
+   public function getPostsByWords($sessionUserId, $words, $offset, $limit)
+   {
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
@@ -164,15 +168,16 @@ class DatabaseHelper
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
                                  WHERE P.Words LIKE ?
                                  ORDER BY P.DT DESC LIMIT ?, ?");
-      $words = "%".$words."%";
+      $words = "%" . $words . "%";
       $stmt->bind_param('sssii', $sessionUserId, $sessionUserId, $words, $offset, $limit);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
    }
-   
-      //returns posts with matching game name (tag) to $gameName, ordered by date
-   public function getPostsByGameName($sessionUserId, $gameName, $offset, $limit){
+
+   //returns posts with matching game name (tag) to $gameName, ordered by date
+   public function getPostsByGameName($sessionUserId, $gameName, $offset, $limit)
+   {
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
@@ -185,14 +190,15 @@ class DatabaseHelper
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
                                  WHERE T.Game_name LIKE ?
                                  ORDER BY P.DT DESC LIMIT ?, ?");
-      $gameName = "%".$gameName."%";
+      $gameName = "%" . $gameName . "%";
       $stmt->bind_param('sssii', $sessionUserId, $sessionUserId, $gameName, $offset, $limit);
       $stmt->execute();
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
-   public function getPostsByPreciseGameName($sessionUserId, $gameName, $offset, $limit){
+   public function getPostsByPreciseGameName($sessionUserId, $gameName, $offset, $limit)
+   {
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
@@ -210,9 +216,10 @@ class DatabaseHelper
       $result = $stmt->get_result();
       return $result->fetch_all(MYSQLI_ASSOC);
    }
-   
+
    //returns posts with matching Username to $username
-   public function getPostsByUsername($sessionUserId, $username, $offset, $limit){
+   public function getPostsByUsername($sessionUserId, $username, $offset, $limit)
+   {
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
                                  counter.n AS Number_of_posts
                                  FROM (((post AS P 
@@ -225,12 +232,12 @@ class DatabaseHelper
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
                                  WHERE U.Username LIKE ?
                                  ORDER BY P.DT DESC LIMIT ?, ?");
-            $username = "%".$username."%";
-            $stmt->bind_param('sssii', $sessionUserId, $sessionUserId, $username, $offset, $limit);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            return $result->fetch_all(MYSQLI_ASSOC);
-         }
+      $username = "%" . $username . "%";
+      $stmt->bind_param('sssii', $sessionUserId, $sessionUserId, $username, $offset, $limit);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      return $result->fetch_all(MYSQLI_ASSOC);
+   }
 
    //end of post retrieval functions -------------------------------------------------------------------------------
 
@@ -247,7 +254,8 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
-   public function getCurrentUserInfo($userId){
+   public function getCurrentUserInfo($userId)
+   {
       $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img, DT FROM user_table WHERE User_id = ?");
       $stmt->bind_param('i', $userId);
       $stmt->execute();
@@ -256,7 +264,8 @@ class DatabaseHelper
    }
 
    //retrieves data about likes from the user with username $username
-   public function getUserLikes($username){
+   public function getUserLikes($username)
+   {
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img AS Post_img, P.Words AS Post_Words, Up.Username AS Poster_Username, Up.Profile_img AS Poster_img 
                                  FROM like_table AS L 
                                  JOIN post AS P ON L.Post_id=P.Post_id 
@@ -270,7 +279,8 @@ class DatabaseHelper
    }
 
    //retrieves data about comments by the user with username $username
-   public function getUserComments($username){
+   public function getUserComments($username)
+   {
       $stmt = $this->db->prepare("SELECT C.Words, C.DT, P.Post_id, P.Img AS Post_img, P.Words AS Post_Words, Up.Username AS Poster_Username, Up.Profile_img AS Poster_img 
                                  FROM user_table AS Uc 
                                  JOIN comment AS C ON Uc.User_id=C.User_id 
@@ -284,7 +294,8 @@ class DatabaseHelper
    }
 
    //retrieves usernames and profile imgs of users following the user with username $username
-   public function getUserFollowers($username){
+   public function getUserFollowers($username)
+   {
       $stmt = $this->db->prepare("SELECT Uf.Username, Uf.Profile_img 
                                  FROM user_table AS Uq 
                                  JOIN follow AS F ON Uq.User_id=F.Followed_User_id 
@@ -297,7 +308,8 @@ class DatabaseHelper
    }
 
    //retrieves usernames and profile imgs of users followed by the user with username $username
-   public function getUserFollowed($username){
+   public function getUserFollowed($username)
+   {
       $stmt = $this->db->prepare("SELECT Uf.Username, Uf.Profile_img 
                                  FROM user_table AS Uq 
                                  JOIN follow AS F ON Uq.User_id=F.Follower_User_id 
@@ -335,7 +347,8 @@ class DatabaseHelper
    //db insertions start here ------------------------------------------------------------------------------------------------------------
 
    //inserts new post in the db and adds the post img to the upload directory.
-   public function insertPost($user_id, $words, $tag, $img){
+   public function insertPost($user_id, $words, $tag, $img)
+   {
       //check if tag exists already in database
       $stmt = $this->db->prepare("SELECT Tag_id FROM tag WHERE Game_name = ?");
       $stmt->bind_param('s', $tag);
@@ -343,7 +356,7 @@ class DatabaseHelper
       $result = $stmt->get_result();
       $result = $result->fetch_all(MYSQLI_ASSOC);
       //if tag doesn't exist, create new tag and retrieve tag_id
-      if(empty($result)){
+      if (empty($result)) {
          $stmt = $this->db->prepare("INSERT INTO tag(Game_name) VALUES(?)");
          $stmt->bind_param('s', $tag);
          $stmt->execute();
@@ -352,8 +365,7 @@ class DatabaseHelper
          $stmt->execute();
          $result = $stmt->get_result();
          $tagId = $result->fetch_all(MYSQLI_ASSOC)[0]["Tag_id"];
-      }
-      else{
+      } else {
          $tagId = $result[0]["Tag_id"];
       }
       $stmt = $this->db->prepare("INSERT INTO post(Img, Words, Tag_id, User_id) VALUES(?, ?, ?, ?)");
@@ -362,7 +374,8 @@ class DatabaseHelper
       return $stmt->insert_id;
    }
 
-   public function addLike($postId, $userId){
+   public function addLike($postId, $userId)
+   {
       //adding the like to db
       $stmt = $this->db->prepare("INSERT INTO like_table(Post_id, User_id) VALUES(?, ?)");
       $stmt->bind_param('ii', $postId, $userId);
@@ -375,7 +388,8 @@ class DatabaseHelper
       $stmt->execute();
    }
 
-   public function addComment($postId, $userId, $words){
+   public function addComment($postId, $userId, $words)
+   {
       //adding the comment to db
       $stmt = $this->db->prepare("INSERT INTO comment(Post_id, User_id, Words) VALUES(?, ?, ?)");
       $stmt->bind_param('iis', $postId, $userId, $words);
@@ -387,7 +401,8 @@ class DatabaseHelper
       $stmt->execute();
    }
 
-   public function addFollower($sessionUserId, $followedUserId){
+   public function addFollower($sessionUserId, $followedUserId)
+   {
       //adding the follow to db
       $stmt = $this->db->prepare("INSERT INTO follow(Follower_User_id, Followed_User_id) VALUES(?, ?)");
       $stmt->bind_param('ii', $sessionUserId, $followedUserId);
@@ -404,16 +419,15 @@ class DatabaseHelper
       $random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
       // Crea una password usando la chiave appena creata.
       $password = hash('sha512', $password . $random_salt);
-	   $default_imgpath = "user.jpg";
+      $default_imgpath = "user.jpg";
       // Inserisci a questo punto il codice SQL per eseguire la INSERT nel tuo database
       // Assicurati di usare statement SQL 'prepared'.
       if ($insert_stmt = $this->db->prepare("INSERT INTO User_table (Username, E_mail, Passwrd, Salt, Profile_img) VALUES (?, ?, ?, ?, ?)")) {
          $insert_stmt->bind_param('sssss', $username, $email, $password, $random_salt, $default_imgpath);
          // Esegui la query ottenuta.
-         try{
+         try {
             $insert_stmt->execute();
-         }
-         catch(Exception $e){
+         } catch (Exception $e) {
             return $e->getCode();
          }
          return 0;
@@ -423,20 +437,23 @@ class DatabaseHelper
    //db insertions end here ------------------------------------------------------------------------------------------------------------
 
    //db deletions start here ------------------------------------------------------------------------------------------------------------
-   
-   public function removeLike($postId, $userId){
+
+   public function removeLike($postId, $userId)
+   {
       $stmt = $this->db->prepare("DELETE FROM like_table WHERE Post_id = ? AND User_id = ?");
       $stmt->bind_param('ii', $postId, $userId);
       $stmt->execute();
    }
 
-   public function removeFollower($sessionUserId, $followedUserId){
+   public function removeFollower($sessionUserId, $followedUserId)
+   {
       $stmt = $this->db->prepare("DELETE FROM follow WHERE Follower_User_id = ? AND Followed_User_id = ?");
       $stmt->bind_param('ss', $sessionUserId, $followedUserId);
       $stmt->execute();
    }
 
-   public function removeNotifications($sessionUserId){
+   public function removeNotifications($sessionUserId)
+   {
       $stmt = $this->db->prepare("DELETE FROM notifications WHERE User_id = ?");
       $stmt->bind_param('i', $sessionUserId);
       $stmt->execute();
@@ -446,13 +463,15 @@ class DatabaseHelper
 
    //db updates start here ------------------------------------------------------------------------------------------------------------
 
-   public function updateProfileImg($userId, $img){
+   public function updateProfileImg($userId, $img)
+   {
       $stmt = $this->db->prepare("UPDATE user_table SET Profile_img = ? WHERE User_id = ?");
       $stmt->bind_param('si', $img, $userId);
       $stmt->execute();
    }
 
-   public function updatePassword($userId, $newPassword){
+   public function updatePassword($userId, $newPassword)
+   {
       // Crea una chiave casuale
       $random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
       // Crea una password usando la chiave appena creata.
@@ -474,7 +493,7 @@ class DatabaseHelper
          $stmt->store_result();
          $stmt->bind_result($user_id, $username, $db_password, $salt); // recupera il risultato della query e lo memorizza nelle relative variabili.
          $stmt->fetch();
-         $passwordHashed = hash('sha512', $password.$salt); // codifica la password usando una chiave univoca.
+         $passwordHashed = hash('sha512', $password . $salt); // codifica la password usando una chiave univoca.
          if ($stmt->num_rows == 1) { // se l'utente esiste
             // verifichiamo che non sia disabilitato in seguito all'esecuzione di troppi tentativi di accesso errati.
             if ($this->checkbrute($user_id) == true) {
@@ -491,11 +510,11 @@ class DatabaseHelper
                   //$username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); // ci proteggiamo da un attacco XSS
                   $username = htmlspecialchars($username);
                   $_SESSION['username'] = $username;
-                  $_SESSION['login_string'] = hash('sha512', $passwordHashed.$user_browser);
+                  $_SESSION['login_string'] = hash('sha512', $passwordHashed . $user_browser);
                   // Login eseguito con successo.
-                  return array(1,"");
+                  return array(1, "");
                } else {
-				  // Password incorretta.
+                  // Password incorretta.
                   // Registriamo il tentativo fallito nel database.
                   $now = time();
                   $this->db->query("INSERT INTO login_attempts (User_id, Time_login) VALUES ('$user_id', '$now')");

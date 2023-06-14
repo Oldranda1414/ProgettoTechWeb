@@ -43,4 +43,3 @@
 
     
     $templateParams["js"] = array("https://code.jquery.com/jquery-3.6.0.min.js", "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", "js/base.js");
-?>

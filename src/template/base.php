@@ -1,12 +1,12 @@
 <?php if ($templateParams["nome"] != "login.php" && $templateParams["nome"] != "register.php") : ?>
 
 	<!doctype html>
-	<html xml:lang="it" lang="it">
+	<html lang="it">
 
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="home page">
+		<meta name="description" content="<?php echo $templateParams["titolo"] ?>">
 		<title>Life&Games - <?php echo $templateParams["titolo"] ?></title>
 		<link href="./bootstrap-5.2.3-dist/bootstrap-5.2.3-dist/css/bootstrap.css" rel="stylesheet">
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

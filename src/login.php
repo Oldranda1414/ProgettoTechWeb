@@ -32,5 +32,3 @@ else{
     array_push($templateParams["js"], "js/sha512.js", "js/forms.js", "js/login.js");
     require 'template/base.php';
 }
-
-?>

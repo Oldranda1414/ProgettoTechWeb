@@ -45,7 +45,7 @@ if (isUserLoggedIn($dbh)) {
                 $templateParams["user"]["Profile_img"] = $_FILES["updateProfileImg"]["name"];
             } else {
                 $templateParams["errorToast"]["warningWords"] = "Immagine profilo non cambiata";
-                $templateParams["errorToast"]["words"] = "Errore caricamento immagine: ".$imgUploadMsg;
+                $templateParams["errorToast"]["words"] = "Errore caricamento immagine: " . $imgUploadMsg;
             }
         } else {
             $templateParams["errorToast"]["warningWords"] = "Immagine profilo non cambiata";

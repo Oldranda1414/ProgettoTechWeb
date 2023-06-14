@@ -1,11 +1,8 @@
 <?php
 require_once 'bootstrap.php';
 
-if(isUserLoggedIn($dbh)){
+if (isUserLoggedIn($dbh)) {
     require 'home.php';
-}
-else{
+} else {
     require 'login.php';
 }
-
-?>

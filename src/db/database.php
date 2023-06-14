@@ -47,7 +47,7 @@ class DatabaseHelper
 
    //start of post retrieval functions -------------------------------------------------------------------------------
 
-   //returns data referring to post with $postId as Post_id
+   //returns data referring to post with $postId as Post_id. if post does not exist it returns an empty string
    public function getPostById($sessionUserId, $postId){
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked
                                  FROM (((post AS P 
@@ -61,7 +61,7 @@ class DatabaseHelper
       $stmt->bind_param('ii', $sessionUserId, $postId);
       $stmt->execute();
       $result = $stmt->get_result();
-      return $result->fetch_all(MYSQLI_ASSOC)[0];
+      return !empty($result->fetch_all(MYSQLI_ASSOC)[0])?$result->fetch_all(MYSQLI_ASSOC)[0]:"";
 
    }
 

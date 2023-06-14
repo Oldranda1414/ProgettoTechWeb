@@ -1,4 +1,6 @@
-    <div class="container fascia-profilo pt-3 pb-5">
+    <?php if(!empty($templateParams["post"])): ?>
+	
+	<div class="container fascia-profilo pt-3 pb-5">
 		<div class="text-center display-4 text-1 mb-3"><?php echo $templateParams["post"]["Game_name"] ?></div>
 		<div class="row justify-content-center">
 			<div class="scheda-profilo mx-1 rounded col col-lg-10 justify-content-md-center">
@@ -56,3 +58,18 @@
 			</div>
 		</div>
 	</div>
+	<?php else: ?>
+
+		<div class="container fascia col-12 mx-0">
+		<div class="text-center display-5 pt-1 text-1 mt-5">Post non trovato!</div>
+		<div class="text-center lead text-1 subtitle-fascia"><p class="font-italic font-weight-bold">Ci dispiace, ma il contenuto a cui hai cercato di accedere potrebbe essere stato rimosso.</p></div>
+		<div class="row justify-content-center my-3">
+			
+		</div>
+	</div>
+	
+	<div class="container text-center my-3">
+		
+	</div>
+
+	<?php endif; ?>

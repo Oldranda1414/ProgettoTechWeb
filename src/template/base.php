@@ -66,9 +66,6 @@
 				<p class="text-center text-danger new-post-error-label mx-2">- <u>
 					<?php echo $templateParams["newPostError"];?>
 				</u></p>
-				<p class="text-center text-danger new-post-error-label mx-2">- <u></u></p>
-				<p class="text-center text-danger new-post-error-label mx-2">- <u></u></p>
-				<p class="text-center text-danger new-post-error-label mx-2">- <u></u></p>
 			</div>
 		  </div>
 		</div>

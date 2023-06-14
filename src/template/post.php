@@ -5,16 +5,13 @@
 		  <div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2800">
 			<div class="toast-header bg-3">
 				<img src="./upload/icons/alert.png" class="rounded mr-2 alert-icon" alt="alert icon">
-				<strong class="mr-auto ms-2">Avviso · Post non pubblicato</strong>
+				<strong class="mr-auto ms-2">Avviso · Commento non pubblicato</strong>
 				</button>
 			</div>
 			<div class="toast-body">
 				<p class="text-center text-danger new-post-error-label mx-2">- <u>
 					<?php echo $templateParams["commentError"];?>
 				</u></p>
-				<p class="text-center text-danger new-post-error-label mx-2">- <u></u></p>
-				<p class="text-center text-danger new-post-error-label mx-2">- <u></u></p>
-				<p class="text-center text-danger new-post-error-label mx-2">- <u></u></p>
 			</div>
 		  </div>
 		</div>

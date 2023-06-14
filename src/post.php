@@ -14,7 +14,7 @@ if(isUserLoggedIn($dbh)){
                 $dbh->addComment($searchedPostId, $_SESSION["user_id"], htmlspecialchars($_POST["comment-text"]));
             }
             else{
-                $templateParams["commentError"] = "Commento non fatto. Non si può fare un commento vuoto";
+                $templateParams["commentError"] = "Non si può fare un commento vuoto";
             }
         }
 

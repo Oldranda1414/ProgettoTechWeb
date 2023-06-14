@@ -32,21 +32,21 @@
 				</div>
 				<div class="collapse navbar-collapse order-3 order-lg-2" id="navbarNavAltMarkup">
 					<div class="navbar-nav">
-						<?php if ($templateParams["nome"] == "index.php" || $templateParams["nome"] == "home.php"):?>
+						<?php if ($templateParams["nome"] == "index.php" || $templateParams["nome"] == "home.php") : ?>
 							<a class="nav-link active" aria-current="page" href="index.php">Home</a>
-						<?php else: ?>
+						<?php else : ?>
 							<a class="nav-link" href="index.php">Home</a>
 						<?php endif ?>
-						<?php if ($templateParams["nome"] == "explore.php"):?>
+						<?php if ($templateParams["nome"] == "explore.php") : ?>
 							<a class="nav-link active" aria-current="page" href="explore.php">Esplora</a>
-						<?php else: ?>
+						<?php else : ?>
 							<a class="nav-link" href="explore.php">Esplora</a>
 						<?php endif ?>
-						<?php if ($templateParams["nome"] == "myprofile.php"):?>
+						<?php if ($templateParams["nome"] == "myprofile.php") : ?>
 							<a class="nav-link active" aria-current="page" href="explore.php">Mio profilo</a>
-						<?php else: ?>
+						<?php else : ?>
 							<a class="nav-link" href="myprofile.php">Mio profilo</a>
-						<?php endif ?>				
+						<?php endif ?>
 						<a class="nav-link" href="exit.php">Esci</a>
 
 					</div>
@@ -54,38 +54,38 @@
 			</div>
 		</nav>
 
-		<?php if(isset($templateParams["newPostError"])): ?>
+		<?php if (isset($templateParams["newPostError"])) : ?>
 			<div aria-live="" aria-atomic="true" class="" style="position: absolute; min-height: 200px; z-index:5">
-		  <div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2800">
-			<div class="toast-header bg-3">
-				<img src="./upload/icons/alert.png" class="rounded mr-2 alert-icon" alt="alert icon">
-				<strong class="mr-auto ms-2">Avviso · Post non pubblicato</strong>
-				</button>
+				<div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2800">
+					<div class="toast-header bg-3">
+						<img src="./upload/icons/alert.png" class="rounded mr-2 alert-icon" alt="alert icon">
+						<strong class="mr-auto ms-2">Avviso · Post non pubblicato</strong>
+						</button>
+					</div>
+					<div class="toast-body">
+						<p class="text-center text-danger new-post-error-label mx-2">- <u>
+								<?php echo $templateParams["newPostError"]; ?>
+							</u></p>
+					</div>
+				</div>
 			</div>
-			<div class="toast-body">
-				<p class="text-center text-danger new-post-error-label mx-2">- <u>
-					<?php echo $templateParams["newPostError"];?>
-				</u></p>
-			</div>
-		  </div>
-		</div>
 		<?php endif; ?>
 
 		<div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="newPostModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content bg-3">
 					<div class="modal-header">
-						<img src="<?php echo UPLOAD_DIR."profiles/".$templateParams["user"]["Profile_img"]?>" class="modal-post-img-profile me-2" alt="profile icon" height="40">
+						<img src="<?php echo UPLOAD_DIR . "profiles/" . $templateParams["user"]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon" height="40">
 						<h1 class="modal-title fs-5" id="postModalLabel">Nuovo post</h1>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<form action="#" method="POST" enctype="multipart/form-data">
 						<div class="modal-body">
-								<div class="mb-3">
-									<input class="form-control me-2 bg-4  mb-2" type="search" placeholder="Inserisci tag..." aria-label="Search" id="tagNewPost" name="tagNewPost">
-									<label for="message-text" class="col-form-label">Testo:</label>
-									<textarea class="form-control" id="textNewPost" name="textNewPost"maxlength="250"></textarea>
-								</div>
+							<div class="mb-3">
+								<input class="form-control me-2 bg-4  mb-2" type="search" placeholder="Inserisci tag..." aria-label="Search" id="tagNewPost" name="tagNewPost">
+								<label for="message-text" class="col-form-label">Testo:</label>
+								<textarea class="form-control" id="textNewPost" name="textNewPost" maxlength="250"></textarea>
+							</div>
 							<hr>
 							<h2 class="fs-5 text-center">
 								Carica immagine
@@ -95,8 +95,8 @@
 							</div>
 
 						</div>
-						<?php if(isset($templateParams["newPostError"])): ?>
-						<p class="text-center text-danger new-post-error-label mx-2"><u><img src="./upload/icons/alert.png" class="alert-icon img-fluid mx-2" alt="alert icon"><?php echo $templateParams["newPostError"]; ?></u></p>
+						<?php if (isset($templateParams["newPostError"])) : ?>
+							<p class="text-center text-danger new-post-error-label mx-2"><u><img src="./upload/icons/alert.png" class="alert-icon img-fluid mx-2" alt="alert icon"><?php echo $templateParams["newPostError"]; ?></u></p>
 						<?php endif; ?>
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-info">Pubblica post</button>
@@ -114,7 +114,7 @@
 						<h1 class="modal-title fs-5" id="postModalLabel">Notifiche</h1>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
-					<?php if(isset($templateParams["notifications"])){
+					<?php if (isset($templateParams["notifications"])) {
 						require "notifications.php";
 					}
 					?>
@@ -127,21 +127,21 @@
 			</div>
 		</div>
 		<main>
-			<?php if(isset($templateParams["newPostId"])): ?>
-				  	<!-- qua comincia la notifica toast "POST PUBBLICATO CON SUCCESSO" -->
-					  <div aria-live="" aria-atomic="true" class="m-3" style="position: absolute; min-height: 200px; z-index:5">
-	  <div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3300">
-		<div class="toast-header bg-3">
-		  <img src="<?php echo UPLOAD_DIR."icons/success.png" ?>" class="rounded mr-2 alert-icon" alt="post published icon">
-		  <strong class="mr-auto">Avviso</strong>
-		</div>
-		<div class="toast-body">
-		  <p>Il post è stato pubblicato con successo!</p>
-		  <p><small>Clicca <a href="<?php echo "post.php?id=".$templateParams["newPostId"] ?>"><b>qui</b></a> per visualizzarlo.</small></p>
-		</div>
-	  </div>
-	</div>
-	<!-- fine notifica toast -->
+			<?php if (isset($templateParams["newPostId"])) : ?>
+				<!-- qua comincia la notifica toast "POST PUBBLICATO CON SUCCESSO" -->
+				<div aria-live="" aria-atomic="true" class="m-3" style="position: absolute; min-height: 200px; z-index:5">
+					<div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3300">
+						<div class="toast-header bg-3">
+							<img src="<?php echo UPLOAD_DIR . "icons/success.png" ?>" class="rounded mr-2 alert-icon" alt="post published icon">
+							<strong class="mr-auto">Avviso</strong>
+						</div>
+						<div class="toast-body">
+							<p>Il post è stato pubblicato con successo!</p>
+							<p><small>Clicca <a href="<?php echo "post.php?id=" . $templateParams["newPostId"] ?>"><b>qui</b></a> per visualizzarlo.</small></p>
+						</div>
+					</div>
+				</div>
+				<!-- fine notifica toast -->
 			<?php endif ?>
 			<?php
 			if (isset($templateParams["nome"])) {

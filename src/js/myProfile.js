@@ -50,7 +50,7 @@ function validatePassword(){
     } else if (p==false && checkDifferentPassword()) {
         pass.textContent="Inserire una password nuova e diversa dalla precedente";
     } else {
-        pass.textContent="Inserire una nuova password sicura";
+        pass.textContent="Inserire una password di almeno 6 caratteri con almeno 1 lettera minuscola, 1 maiuscola, 1 numero e 1 carattere tra !,?,%,&,*,@,$";
     }
     return p;
 }
@@ -58,7 +58,7 @@ function validatePassword(){
 window.onload = function () {
     button.disabled = true;
     oldpass.textContent = "Inserire la vecchia password"
-    pass.textContent = "Inserire una nuova password sicura";
+    pass.textContent = "Inserire una password di almeno 6 caratteri con almeno 1 lettera minuscola, 1 maiuscola, 1 numero e 1 carattere tra !,?,%,&,*,@,$";
     rpass.textContent = "Reinserire la nuova password per conferma";
 }
 

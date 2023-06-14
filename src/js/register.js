@@ -37,7 +37,7 @@ function validatePassword(){
     if (p==false){
         pass.textContent="";
     } else {
-        pass.textContent="Inserire una password sicura";
+        pass.textContent="Inserire una password di almeno 6 caratteri con almeno 1 lettera minuscola, 1 maiuscola, 1 numero e 1 carattere tra !,?,%,&,*,@,$";
     }
     return p;
 }
@@ -73,7 +73,7 @@ window.onload = function () {
     button.disabled = true;
     user.textContent = "Inserire un username";
     mail.textContent = "Inserire un indirizzo mail";
-    pass.textContent = "Inserire una password sicura";
+    pass.textContent = "Inserire una password di almeno 6 caratteri con almeno 1 lettera minuscola, 1 maiuscola, 1 numero e 1 carattere tra !,?,%,&,*,@,$";
     rpass.textContent = "Reinserire la password per conferma";
 }
 

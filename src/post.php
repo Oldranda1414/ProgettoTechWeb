@@ -4,11 +4,6 @@ require "base.php";
 
 if(isUserLoggedIn($dbh)){
 
-    //api for adding new comments
-    if(isset($_GET["id"]) && isset($_POST["comment-text"]) && !empty($_POST["comment-text"])){
-
-    }
-
     if(isset($_GET["id"])){
 
         $searchedPostId = htmlspecialchars($_GET['id']);
@@ -27,6 +22,9 @@ if(isUserLoggedIn($dbh)){
         $templateParams["titolo"] = "Post";
         $templateParams["nome"] = "post.php";
         $templateParams["post"] = $dbh->getPostById($_SESSION["user_id"], $searchedPostId);
+        if(!empty($templateParams["post"])){
+            $templateParams["post"] = $templateParams["post"][0];
+        }
         $templateParams["comments"] = $dbh->getComments($searchedPostId);
     }
     else{

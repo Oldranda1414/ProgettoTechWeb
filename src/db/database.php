@@ -61,7 +61,7 @@ class DatabaseHelper
       $stmt->bind_param('ii', $sessionUserId, $postId);
       $stmt->execute();
       $result = $stmt->get_result();
-      return !empty($result->fetch_all(MYSQLI_ASSOC)[0])?$result->fetch_all(MYSQLI_ASSOC)[0]:"";
+      return $result->fetch_all(MYSQLI_ASSOC);
 
    }
 

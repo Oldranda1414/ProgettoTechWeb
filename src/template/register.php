@@ -20,10 +20,8 @@
   <main class="form-signin w-100 m-auto">
     <?php
     //TODO modificare la pagina se la registrazione è riuscita o meno
-    if (isset($templateParams["registrationResult"])) {
-      if ($templateParams["registrationResult"]) {
-        echo "EVVIVA, REGISTRAZIONE AVVENUTA";
-      }
+    if (isset($templateParams["successWords"])) {
+      require "successToast.php";
     }
     ?>
     <form action="#" method="POST">

@@ -14,7 +14,7 @@ class DatabaseHelper
    //selection queries start here ------------------------------------------------------------------------------------------------------------
 
 
-   //TODO returns an array containing the notifications, that haven't still been read, referring to the user with username $username
+   //returns an array containing the notifications referring to the user with username $username
    public function getNotifications($username){
       $query = "SELECT N.Notification_type, F.Username AS Follower_Username, F.Profile_img AS Follower_Profile_img, 
                Commenter.Username AS Commenter_Username, Commenter.Profile_img AS Commenter_Profile_img, 
@@ -479,7 +479,6 @@ class DatabaseHelper
          if ($stmt->num_rows == 1) { // se l'utente esiste
             // verifichiamo che non sia disabilitato in seguito all'esecuzione di troppi tentativi di accesso errati.
             if ($this->checkbrute($user_id) == true) {
-               //echo "account disabilitato per troppi tentativi"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
                // Account disabilitato
                // Invia un e-mail all'utente avvisandolo che il suo account è stato disabilitato.
                return array(0, "accountDisabled");
@@ -487,8 +486,6 @@ class DatabaseHelper
                if ($db_password == $passwordHashed) { // Verifica che la password memorizzata nel database corrisponda alla password fornita dall'utente.
                   // Password corretta! 
                   $user_browser = $_SERVER['HTTP_USER_AGENT']; // Recupero il parametro 'user-agent' relativo all'utente corrente.
-                  
-                  //TODO CHECK IF THIS IS A PROBLEM. I HAVE SUBSTITUTED THE FOLLOWING LINE WITH A SIMPLER CHECK FOR CARACTERS
                   //$user_id = preg_replace("/[^0-9]+/", "", $user_id); // ci proteggiamo da un attacco XSS
                   $user_id = htmlspecialchars($user_id);
                   $_SESSION['user_id'] = $user_id;
@@ -499,7 +496,6 @@ class DatabaseHelper
                   // Login eseguito con successo.
                   return array(1,"");
                } else {
-                  //echo "password non corretta"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
 				  // Password incorretta.
                   // Registriamo il tentativo fallito nel database.
                   $now = time();

@@ -5,71 +5,16 @@
 <?php endif; ?>
 
 <div class="container fascia-profilo pt-3 pb-5">
-	<!-- qua comincia la notifica toast "ERRORE DURANTE IL CAMBIO PASSWORD" -->
-	<?php if (isset($templateParams["changePasswordError"])) : ?>
-		<div aria-live="" aria-atomic="true" class="" style="position: absolute; min-height: 200px; z-index:5">
-			<div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2800">
-				<div class="toast-header bg-3">
-					<img src="./upload/icons/alert.png" class="rounded mr-2 alert-icon" alt="alert icon">
-					<strong class="mr-auto ms-2">Avviso · Password non cambiata</strong>
-					</button>
-				</div>
-				<div class="toast-body">
-					<p class="text-center text-danger change-password-error-label mx-2">- <u><?php echo $templateParams["changePasswordError"] ?></u></p>
-				</div>
-			</div>
-		</div>
-		<!-- fine notifica toast -->
-	<?php endif ?>
 
-	<!-- qua comincia la notifica toast "ERRORE DURANTE IL CAMBIO DI FOTO PROFILO" -->
-	<?php if (isset($templateParams["changeImgError"])) : ?>
-		<div aria-live="" aria-atomic="true" class="" style="position: absolute; min-height: 200px; z-index:5">
-			<div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2800">
-				<div class="toast-header bg-3">
-					<img src="./upload/icons/alert.png" class="rounded mr-2 alert-icon" alt="alert icon">
-					<strong class="mr-auto ms-2">Avviso · Immagine profile non cambiata</strong>
-					</button>
-				</div>
-				<div class="toast-body">
-					<p class="text-center text-danger change-password-error-label mx-2">- <u><?php echo $templateParams["changeImgError"] ?></u></p>
-				</div>
-			</div>
-		</div>
-		<!-- fine notifica toast -->
-	<?php endif ?>
+	<?php if (isset($templateParams["errorToast"])){
+		require "errorToast.php";
+	} ?>
+	
 
-	<?php if (isset($templateParams["changePasswordSuccess"])) : ?>
-		<!-- qua comincia la notifica toast "PASSWORD CAMBIATA CON SUCCESSO" -->
-		<div aria-live="" aria-atomic="true" class="" style="position: absolute; min-height: 200px; z-index:5">
-			<div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2800">
-				<div class="toast-header bg-3">
-					<img src="./upload/icons/success.png" class="rounded mr-2 alert-icon" alt="post published icon">
-					<strong class="mr-auto">Avviso</strong>
-				</div>
-				<div class="toast-body">
-					<p>La password è stata modificata correttamente</p>
-				</div>
-			</div>
-		</div>
-		<!-- fine notifica toast -->
-	<?php endif ?>
+	<?php if (isset($templateParams["successWords"])){
+		require "successToast.php";
+	} ?>
 
-	<?php if (isset($templateParams["changeImgSuccess"])) : ?>
-		<!-- qua comincia la notifica toast "PASSWORD CAMBIATA CON SUCCESSO" -->
-		<div aria-live="" aria-atomic="true" class="" style="position: absolute; min-height: 200px; z-index:5">
-			<div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2800">
-				<div class="toast-header bg-3">
-					<img src="./upload/icons/success.png" class="rounded mr-2 alert-icon" alt="post published icon">
-					<strong class="mr-auto">Avviso</strong>
-				</div>
-				<div class="toast-body">
-					<p>L'immagine di profilo è stata modificata correttamente</p>
-				</div>
-			</div>
-		</div>
-		<!-- fine notifica toast -->
-	<?php endif ?>
 	<div class="text-center display-3 text-1 mb-3">IL MIO PROFILO</div>
 	<div class="row justify-content-center">
 		<div class="scheda-profilo mx-5 rounded col col-lg-9 justify-content-md-center">

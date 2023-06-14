@@ -1,5 +1,6 @@
 <?php
 require_once 'bootstrap.php';
+require "base.php";
 
 if(isset($_POST["username"]) && isset($_POST["p"])){
 	list($result, $errorMsg) = $dbh->secureLoginUser($_POST["username"], $_POST["p"]);
@@ -28,7 +29,7 @@ if(isUserLoggedIn($dbh)){
 else{
     $templateParams["titolo"] = "Login";
     $templateParams["nome"] = "login.php";
-    $templateParams["js"] = array("js/sha512.js", "js/forms.js", "js/login.js");
+    array_push($templateParams["js"], "js/sha512.js", "js/forms.js", "js/login.js");
     require 'template/base.php';
 }
 

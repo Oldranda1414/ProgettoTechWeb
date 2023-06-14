@@ -29,7 +29,6 @@
     if(isset($_POST["like_button"])){
         parse_str(html_entity_decode(htmlspecialchars($_POST["like_button"])), $likeButtonAction);
         if($likeButtonAction["type"] == "add"){
-            var_dump($likeButtonAction);
             $dbh->addLike($likeButtonAction["postId"], $_SESSION["user_id"]);
         }
         else if($likeButtonAction["type"] = "remove"){
@@ -37,7 +36,11 @@
         }
     }
 
-    $templateParams["notifications"] = $dbh->getNotifications($_SESSION['username']);
-    $templateParams["user"] = $dbh->getCurrentUserInfo($_SESSION['user_id'])[0];
+    if(isUserLoggedIn($dbh)){
+        $templateParams["notifications"] = $dbh->getNotifications($_SESSION['username']);
+        $templateParams["user"] = $dbh->getCurrentUserInfo($_SESSION['user_id'])[0];
+    }
+
+    
     $templateParams["js"] = array("https://code.jquery.com/jquery-3.6.0.min.js", "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", "js/base.js");
 ?>

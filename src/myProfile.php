@@ -10,18 +10,22 @@ if (isUserLoggedIn($dbh)) {
             list($result, $errorMsg) = $dbh->secureLoginUser($_SESSION["username"], $_POST["p"]);
             if ($result != 0) {
                 $dbh->updatePassword($_SESSION['user_id'], $_POST["newp"]);
-                $templateParams["changePasswordSuccess"] = 1;                                               //this is set to activate the change passord correct toast
+                $templateParams["successWords"] = "La password è stata modificata correttamente";                                               //this is set to activate the change passord correct toast
             } else {
                 if ($errorMsg == "accountDisabled") {
-                    $templateParams["changePasswordError"] = "L'account è stato disabilitato per troppi tentativi falliti. Riprovare tra un po";
+                    $templateParams["errorToast"]["warningWords"] = "Password non cambiata";
+                    $templateParams["errorToast"]["words"] = "L'account è stato disabilitato per troppi tentativi falliti. Riprovare tra un po";
                 } else if ($errorMsg == "passwordWrong") {
-                    $templateParams["changePasswordError"] = "La password inserita non è corretta. Inserire la password corrente";
+                    $templateParams["errorToast"]["warningWords"] = "Password non cambiata";
+                    $templateParams["errorToast"]["words"] = "La password inserita non è corretta. Inserire la password corrente";
                 } else if ($errorMsg == "userDoesNotExist") {
-                    $templateParams["changePasswordError"] = "L'utente richiesto non esiste";
+                    $templateParams["errorToast"]["warningWords"] = "Password non cambiata";
+                    $templateParams["errorToast"]["words"] = "L'utente richiesto non esiste";
                 }
             }
         } else {
-            $templateParams["changePasswordError"] = "Alcuni campi sono vuoti. Riempire tutti i campi";
+            $templateParams["errorToast"]["warningWords"] = "Password non cambiata";
+            $templateParams["errorToast"]["words"] = "Alcuni campi sono vuoti. Riempire tutti i campi";
         }
     }
 
@@ -36,14 +40,16 @@ if (isUserLoggedIn($dbh)) {
             if ($imgUploadResult != 0) {
                 //updating db
                 $dbh->updateProfileImg($_SESSION["user_id"], $imgUploadMsg);
-                $templateParams["changeImgSuccess"] = 1;                                //this is set to activate the change img correct toast
+                $templateParams["successWords"] = "L'immagine di profilo è stata modificata correttamente";                                //this is set to activate the change img correct toast
                 //updating $templateParams["user"]
                 $templateParams["user"]["Profile_img"] = $_FILES["updateProfileImg"]["name"];
             } else {
-                $templateParams["changeImgError"] = "Errore caricamento immagine: ".$imgUploadMsg;
+                $templateParams["errorToast"]["warningWords"] = "Immagine profilo non cambiata";
+                $templateParams["errorToast"]["words"] = "Errore caricamento immagine: ".$imgUploadMsg;
             }
         } else {
-            $templateParams["changeImgError"] = "Nuova immagine di profilo non selezionata. Selezionare una nuova immagine di profilo";
+            $templateParams["errorToast"]["warningWords"] = "Immagine profilo non cambiata";
+            $templateParams["errorToast"]["words"] = "Nuova immagine di profilo non selezionata. Selezionare una nuova immagine di profilo";
         }
     }
     $templateParams["titolo"] = "Mio profilo";

@@ -10,15 +10,13 @@ if (isUserLoggedIn($dbh)) {
             list($result, $errorMsg) = $dbh->secureLoginUser($_SESSION["username"], $_POST["p"]);
             if ($result != 0) {
                 $dbh->updatePassword($_SESSION['user_id'], $_POST["newp"]);
-                var_dump("password aggiornata");
+                $templateParams["changePasswordSuccess"] = 1;                                               //this is set to activate the change passord correct toast
             } else {
-                if($errorMsg == "accountDisabled"){
+                if ($errorMsg == "accountDisabled") {
                     $templateParams["changePasswordError"] = "L'account è stato disabilitato per troppi tentativi falliti. Riprovare tra un po";
-                }
-                else if($errorMsg == "passwordWrong"){
+                } else if ($errorMsg == "passwordWrong") {
                     $templateParams["changePasswordError"] = "La password inserita non è corretta. Inserire la password corrente";
-                }
-                else if($errorMsg == "userDoesNotExist"){
+                } else if ($errorMsg == "userDoesNotExist") {
                     $templateParams["changePasswordError"] = "L'utente richiesto non esiste";
                 }
             }
@@ -41,10 +39,10 @@ if (isUserLoggedIn($dbh)) {
                 //updating $templateParams["user"]
                 $templateParams["user"]["Profile_img"] = $_FILES["updateProfileImg"]["name"];
             } else {
-                //TODO ERRORE CARICAMENTO IMMAGINE, NOTIFICARE UTENTE (il tipo di errore è contenuto in $imgUploadMsg)
+                $templateParams["changeImgError"] = "Errore caricamento immagine: ".$imgUploadMsg;
             }
         } else {
-            //TODO NOTIFICARE CHE IL FILE CARICATO è VUOTO/errato
+            $templateParams["changeImgError"] = "Nuova immagine di profilo non selezionata. Selezionare una nuova immagine di profilo";
         }
     }
     $templateParams["titolo"] = "Mio profilo";

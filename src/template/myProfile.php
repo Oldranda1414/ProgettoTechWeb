@@ -55,7 +55,7 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<form action="#" method="POST">
+				<form action="#" method="POST" id="form">
 					<div class="modal-body">
 						<label for="oldPassword" class="col-form-label" hidden>Password corrente:</label>
 						<input class="form-control me-2 bg-4  mb-2 oldpass" type="password" placeholder="Password corrente" aria-label="Password" name="oldPassword" id="oldPassword">

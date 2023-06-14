@@ -81,13 +81,7 @@ opass.addEventListener("keyup", () => {
     validatePassword();
 });
 
-
-button.addEventListener("onclick", ()=>{
-    multipleFormhash(this.form, this.form.oldPassword, this.form.newPassword, this.form.newRepeatedPassword);
-});
-
 function multipleFormhash(form, password, newPassword, newRPassword){
-    //cripts new password for usage (code is the same as formhash())
     // Crea un elemento di input che verrà usato come campo di output per la password criptata.
     var newp = document.createElement("input");
     // Aggiungi un nuovo elemento al tuo form.
@@ -111,3 +105,8 @@ function multipleFormhash(form, password, newPassword, newRPassword){
     // Come ultimo passaggio, esegui il 'submit' del form.
     form.submit();
 }
+
+button.addEventListener("click", ()=>{
+    multipleFormhash(document.getElementById("form"), form[0], form[1], form[2]);
+});
+

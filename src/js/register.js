@@ -87,8 +87,8 @@ for(let i=0; i<form.length; i++){
     });
 }
 
-button.addEventListener("onclick", ()=>{
-    formhash(this.form, this.form.password, this.form.verificaPassword);
+button.addEventListener("click", ()=>{
+    formhash(document.getElementById("form"), form[2], form[3]);
 });
 
 function formhash(form, password, rPassword) {

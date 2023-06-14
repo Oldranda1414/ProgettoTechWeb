@@ -205,7 +205,6 @@ class DatabaseHelper
                                  CROSS JOIN (SELECT COUNT(Post_id) AS n FROM POST) AS counter
                                  WHERE T.Game_name LIKE ?
                                  ORDER BY P.DT DESC LIMIT ?, ?");
-      $gameName = $gameName;
       $stmt->bind_param('sssii', $sessionUserId, $sessionUserId, $gameName, $offset, $limit);
       $stmt->execute();
       $result = $stmt->get_result();

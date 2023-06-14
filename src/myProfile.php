@@ -36,6 +36,7 @@ if (isUserLoggedIn($dbh)) {
             if ($imgUploadResult != 0) {
                 //updating db
                 $dbh->updateProfileImg($_SESSION["user_id"], $imgUploadMsg);
+                $templateParams["changeImgSuccess"] = 1;                                //this is set to activate the change img correct toast
                 //updating $templateParams["user"]
                 $templateParams["user"]["Profile_img"] = $_FILES["updateProfileImg"]["name"];
             } else {

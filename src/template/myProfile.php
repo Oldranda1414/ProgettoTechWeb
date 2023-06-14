@@ -42,7 +42,7 @@
 	<?php endif ?>
 
 	<?php if (isset($templateParams["changePasswordSuccess"])) : ?>
-		<!-- qua comincia la notifica toast "POST PUBBLICATO CON SUCCESSO" -->
+		<!-- qua comincia la notifica toast "PASSWORD CAMBIATA CON SUCCESSO" -->
 		<div aria-live="" aria-atomic="true" class="" style="position: absolute; min-height: 200px; z-index:5">
 			<div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2800">
 				<div class="toast-header bg-3">
@@ -51,6 +51,22 @@
 				</div>
 				<div class="toast-body">
 					<p>La password è stata modificata correttamente</p>
+				</div>
+			</div>
+		</div>
+		<!-- fine notifica toast -->
+	<?php endif ?>
+
+	<?php if (isset($templateParams["changeImgSuccess"])) : ?>
+		<!-- qua comincia la notifica toast "PASSWORD CAMBIATA CON SUCCESSO" -->
+		<div aria-live="" aria-atomic="true" class="" style="position: absolute; min-height: 200px; z-index:5">
+			<div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2800">
+				<div class="toast-header bg-3">
+					<img src="./upload/icons/success.png" class="rounded mr-2 alert-icon" alt="post published icon">
+					<strong class="mr-auto">Avviso</strong>
+				</div>
+				<div class="toast-body">
+					<p>L'immagine di profilo è stata modificata correttamente</p>
 				</div>
 			</div>
 		</div>

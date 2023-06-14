@@ -12,10 +12,18 @@ if (isUserLoggedIn($dbh)) {
                 $dbh->updatePassword($_SESSION['user_id'], $_POST["newp"]);
                 var_dump("password aggiornata");
             } else {
-                //TODO PASSWORD NON CORRETTA NOTIFICARE UTENTE (errore contenuto in $errorMsg)
+                if($errorMsg == "accountDisabled"){
+                    $templateParams["changePasswordError"] = "L'account è stato disabilitato per troppi tentativi falliti. Riprovare tra un po";
+                }
+                else if($errorMsg == "passwordWrong"){
+                    $templateParams["changePasswordError"] = "La password inserita non è corretta. Inserire la password corrente";
+                }
+                else if($errorMsg == "userDoesNotExist"){
+                    $templateParams["changePasswordError"] = "L'utente richiesto non esiste";
+                }
             }
         } else {
-            //TODO NOTIFICARE UTENTE. DEI CAMPI SONO VUOTI
+            $templateParams["changePasswordError"] = "Alcuni campi sono vuoti. Riempire tutti i campi";
         }
     }
 

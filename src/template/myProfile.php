@@ -1,6 +1,23 @@
 <?php if (isset($templateParams["titolo_pagina"])) : ?>
 	<h2><?php echo $templateParams["titolo_pagina"]; ?></h2>
 <?php endif; ?>
+
+<!-- qua comincia la notifica toast "ERRORE DURANTE IL CAMBIO PASSWORD" -->
+<?php if (isset($templateParams["changePasswordError"])) : ?>
+	<div aria-live="" aria-atomic="true" class="" style="position: absolute; min-height: 200px; z-index:5">
+		<div class="toast bg-4" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2800">
+			<div class="toast-header bg-3">
+				<img src="./upload/icons/alert.png" class="rounded mr-2 alert-icon" alt="alert icon">
+				<strong class="mr-auto ms-2">Avviso · Password non cambiata</strong>
+				</button>
+			</div>
+			<div class="toast-body">
+				<p class="text-center text-danger change-password-error-label mx-2">- <u><?php echo $templateParams["changePasswordError"] ?></u></p>
+		</div>
+	</div>
+	<!-- fine notifica toast -->
+<?php endif ?>
+
 <div class="container fascia-profilo pt-3 pb-5">
 	<div class="text-center display-3 text-1 mb-3">IL MIO PROFILO</div>
 	<div class="row justify-content-center">

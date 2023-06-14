@@ -509,7 +509,6 @@ class DatabaseHelper
             }
          } else {
             // L'utente inserito non esiste.
-            //echo "lutente inserito non esiste"; //TODO RIMUOVERE QUESTO ECHO DI DEBUG
             return array(0, "userDoesNotExist");
          }
       }

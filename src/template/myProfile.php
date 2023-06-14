@@ -1,4 +1,4 @@
-<?php if (!empty($templateParams["searchedUser"])) : ?>
+
 
 <?php if (isset($templateParams["titolo_pagina"])) : ?>
 	<h2><?php echo $templateParams["titolo_pagina"]; ?></h2>
@@ -232,20 +232,3 @@
 	</div>
 </div>
 
-<?php else : ?>
-
-<div class="container fascia col-12 mx-0">
-	<div class="text-center display-5 pt-1 text-1 mt-5">Utente non trovato!</div>
-	<div class="text-center lead text-1 subtitle-fascia">
-		<p class="font-italic font-weight-bold">Ci dispiace, ma l'utente cercato potrebbe essere stato rimosso</p>
-	</div>
-	<div class="row justify-content-center my-3">
-
-	</div>
-</div>
-
-<div class="container text-center my-3">
-
-</div>
-
-<?php endif; ?>

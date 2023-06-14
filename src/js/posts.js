@@ -41,7 +41,7 @@ function createPost(posts){
 						<div class="card-title post-title">${posts[i]["Game_name"]}</div>
 						</a>
 						<p class="card-text">${posts[i]["Words"]}</p>
-						<form action="" method="POST">
+						<form action="#" method="POST">
     						<button type="submit" name="like_button" value="type=${likeAction}" class="btn like-button">
 								${like}
 							</button>

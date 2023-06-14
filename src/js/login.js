@@ -26,3 +26,7 @@ for(let i=0; i<form.length; i++){
         reactiveButton();
     });
 }
+
+button.addEventListener("onclick", ()=>{
+    formhash(this.form, this.form.password);
+});

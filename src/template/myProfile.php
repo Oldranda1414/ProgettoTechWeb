@@ -69,7 +69,7 @@
 					<p class="text-center Rpass">...</p>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-info changePswd" onclick="multipleFormhash(this.form, this.form.oldPassword, this.form.newPassword);">Conferma</button>
+				<button type="submit" class="btn btn-info changePswd">Conferma</button>
 			</div>
 			</form>
 		</div>

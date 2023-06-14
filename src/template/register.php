@@ -59,7 +59,7 @@
         </p>
       <?php endif ?>
 
-      <button class="w-100 btn btn-lg btn-primary button" type="submit" onclick="formhash(this.form, this.form.password)">Registrati</button>
+      <button class="w-100 btn btn-lg btn-primary button" type="submit">Registrati</button>
 
       <p class="mt-3 mb-2 text-muted">Già iscritto? <a href="login.php">Accedi ora</a>.</p>
     </form>

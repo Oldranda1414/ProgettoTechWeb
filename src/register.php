@@ -2,8 +2,6 @@
 
 require_once 'bootstrap.php';
 require "base.php";
-//TODO check if passwords are the same
-//TODO check if values inserted by user are correct/usable
 //getting the password from the register form
 if (isset($_POST["username"]) && isset($_POST["p"]) && isset($_POST["email"])) {
     $errorCode = $dbh->registerUser($_POST["username"], $_POST["email"],  $_POST["p"]);

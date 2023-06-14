@@ -62,6 +62,9 @@ window.onload = function () {
     rpass.textContent = "Reinserire la nuova password per conferma";
 }
 
+button.addEventListener("onclick", ()=>{
+    formhash(this.form, this.form.password, this.form.verificaPassword);
+})
 
 npass.addEventListener("keyup", () => {
     reactiveButton();

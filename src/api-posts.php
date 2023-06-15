@@ -36,6 +36,9 @@
                 }
             } else {
                 $posts = $dbh->getPostByFollowed($id,$offset,$numberPosts);
+                if ($posts == null && $dbh->getUserFollowed($username) == null){
+                    $posts = $dbh->getLatestNPosts($id,$offset,$numberPosts);
+                }
             }
         }
 

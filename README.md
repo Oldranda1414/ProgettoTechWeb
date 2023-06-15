@@ -99,8 +99,8 @@ Life&Games, the web application we developed, aims to allow users to share their
 ## Description of its characteristics
 
 1. [Registration and Login](#registration-and-login)
-2. [Home](#homepage)
-3. [Post](#posts)
+2. [Homepage](#homepage)
+3. [Posts](#posts)
     - [Content](#content)
     - [Likes](#likes)
     - [Dynamic loading of posts on pages](#dynamic-loading-of-posts-on-pages)

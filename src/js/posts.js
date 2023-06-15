@@ -107,5 +107,8 @@ window.addEventListener('scroll', () => {
 			}
 		}
 		fetchPosts(offset);
+		if (numberPostsActive>=totalPosts){
+			window.removeEventListener('scroll', arguments.callee)
+		}
 	}
 });

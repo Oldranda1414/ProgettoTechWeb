@@ -11,11 +11,11 @@
 							<div class="card-title post-title"><?php echo $post["Game_name"] ?></div>
 						</a>
 						<p class="card-text"><?php echo $post["Words"] ?></p>
-						<!--
+						
 						<button type="button" class="btn like-button" id="like_button" name="like_button" value="<?php echo ($post["Liked"]) ? "Non mi piace più" : "Mi piace" ?>">
 							<?php echo ($post["Liked"]) ? "Non mi piace più" : "Mi piace" ?>
 						</button>
-						-->
+						
 						<form action="" method="POST">
 							<button type="submit" name="like_button" value="<?php echo ($post["Liked"]) ? "type=remove&postId=" . $post["Post_id"] : "type=add&postId=" . $post["Post_id"] ?>" class="btn like-button">
 								<?php echo ($post["Liked"]) ? "Non mi piace più" : "Mi piace" ?>

@@ -67,7 +67,6 @@ class DatabaseHelper
    }
 
    //retrieves post data for the latest $n posts
-   //note that the only data missing is about comments related to each post
    public function getLatestNPosts($sessionUserId, $offset, $limit)
    {
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
@@ -110,7 +109,6 @@ class DatabaseHelper
    }
 
    //retrieves post data for the $n most liked posts of the day $day
-   //note that the only data missing is about comments related to each post
    public function getMostLikedPosts($sessionUserId, $day, $n)
    {
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
@@ -132,7 +130,6 @@ class DatabaseHelper
    }
 
    //retrieves post data for the latest $n posts posted by user with Username $username
-   //note that the only data missing is about comments related to each post
    public function getPostsByUser($sessionUserId, $username, $offset, $limit)
    {
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked, 
@@ -197,6 +194,7 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
+   //returns post with the tag exactly $gameName
    public function getPostsByPreciseGameName($sessionUserId, $gameName, $offset, $limit)
    {
       $stmt = $this->db->prepare("SELECT P.Post_id, P.Img, P.Words, P.DT, P.User_id, U.Username, U.Profile_img, T.Game_name, ? AS session_ID, IFNULL(Likes.Likes,0) AS Likes, (L.User_id IS NOT NULL) AS Liked,
@@ -254,6 +252,7 @@ class DatabaseHelper
       return $result->fetch_all(MYSQLI_ASSOC);
    }
 
+   //retrieves data for the current user
    public function getCurrentUserInfo($userId)
    {
       $stmt = $this->db->prepare("SELECT User_id, Username, E_mail, Passwrd, Profile_img, DT FROM user_table WHERE User_id = ?");
@@ -504,10 +503,8 @@ class DatabaseHelper
                if ($db_password == $passwordHashed) { // Verifica che la password memorizzata nel database corrisponda alla password fornita dall'utente.
                   // Password corretta! 
                   $user_browser = $_SERVER['HTTP_USER_AGENT']; // Recupero il parametro 'user-agent' relativo all'utente corrente.
-                  //$user_id = preg_replace("/[^0-9]+/", "", $user_id); // ci proteggiamo da un attacco XSS
                   $user_id = htmlspecialchars($user_id);
                   $_SESSION['user_id'] = $user_id;
-                  //$username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username); // ci proteggiamo da un attacco XSS
                   $username = htmlspecialchars($username);
                   $_SESSION['username'] = $username;
                   $_SESSION['login_string'] = hash('sha512', $passwordHashed . $user_browser);

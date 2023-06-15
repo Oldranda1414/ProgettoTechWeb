@@ -26,7 +26,7 @@
 							<img src="<?php echo UPLOAD_DIR . "posts/" . $elemento["Img"] ?>" class="d-block w-100 blurredbackground rounded-2" alt="Post Image">
 
 							<div class="carousel-caption d-md-block">
-								<a href="explore.php?search=<?php echo $elemento["Game_name"] ?>&flexRadioDefault=ptag">
+								<a href="explore.php?search=<?php echo str_replace(" ", "+", $elemento["Game_name"]) ?>&flexRadioDefault=ptag">
 									<div class="title-carousel-post text-truncate" data-bs-toggle="modal"><?php echo $elemento["Game_name"] ?></div>
 								</a>
 								
@@ -72,7 +72,6 @@
 						<div class="d-flex me-1 mw-50 navbar-right mt-3">
 							<label for="search" hidden>Inserire ricerca:</label>
 							<input class="form-control me-2 bg-4 search" type="search" placeholder="Cerca..." aria-label="Search" name="search" id="search">
-							<!--ci sono problemi di accessibilità per la label-->
 							<button class="w-25 btn btn-sm bg-1" type="submit">
 								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/800px-Vector_search_icon.svg.png" width="25" alt="search button icon">
 							</button>

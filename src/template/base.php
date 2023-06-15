@@ -72,7 +72,7 @@
 		</div>
 	<?php endif; ?>
 
-	<div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="newPostModalLabel" aria-hidden="true">
+	<div class="modal fade" id="newPostModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content bg-3">
 				<div class="modal-header">

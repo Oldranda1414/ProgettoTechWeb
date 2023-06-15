@@ -1,37 +1,33 @@
 .bg-1 {
-	background-color: #DDD8C4;
+	background-color: rgb(255, 170, 170);
 }
 
 .bg-2 {
-	background-color: #A3C9A8;
+	background-color: rgb(212, 106, 106);
 }
 
 .bg-3 {
-	background-color: #84B59F;
+	background-color: rgb(230 201 201);
 }
 
 .bg-4 {
-	background-color: #fffbec;
+	background-color: #ffe5e5;
 }
 
 .bg-5 {
-	background-color: #abc4e9;
+	background-color: #6ca7ff;
 }
 
 .bg-6 {
 	background-color: rgb(124, 53, 98);
 }
 
-.bg-7  {
-	background-color: #69a297b3;
-}
-
 .text-1 {
-	color: #DDD8C4;
+	color: #ffe2e7;
 }
 
 .text-2 {
-	color: #50808E;
+	color: rgb(122, 52, 52);
 }
 
 .post-img-profile {
@@ -60,7 +56,7 @@ min-height: 500px;
 	position: absolute;
     margin-top: 20px;
     margin-left: 70px;
-    color: #faf4dc;
+    color: #ffe2e7;
     font-weight: 600;
     text-shadow: 2px 2px 4px #000000;
 }
@@ -69,7 +65,7 @@ min-height: 500px;
 	position: absolute;
     margin-top: 20px;
     margin-left: 70px;
-    color: #c7f2cd;
+    color: #75ff75;
     font-weight: 600;
     text-shadow: 2px 2px 4px #000000;
 }
@@ -78,14 +74,14 @@ min-height: 500px;
 	display: inline-block;
 	font-size: 0.85em;
     margin-left: 10px;
-    color: #faf4dc;
+    color: #ffe2e7;
     font-weight: 600;
     text-shadow: 2px 2px 4px #000000;
 }
 
 .nickname-carousel-post:hover {
     margin-left: 10px;
-    color: #c7f2cd;
+    color: #75ff75;
     font-weight: 600;
     text-shadow: 2px 2px 4px #000000;
 }
@@ -93,11 +89,11 @@ min-height: 500px;
 .title-carousel-post {
 	cursor: pointer;
 	font-size: 1.40rem;
-	color: #faf4dc;
+	color: #ffe2e7;
 }
 
 .title-carousel-post:hover {
-    color: #50808E;
+    color: #90CFFF;
 }
 
 .modal-nickname-post {
@@ -138,24 +134,6 @@ min-height: 500px;
 	max-width:100%;
 	background-attachment: fixed;
     background-size: cover;
-}
-
-.fascia {
-	z-index:0;
-	position:relative;
-	background-image: url("../upload/wallpapers/gaming-background.jpg") !important;
-	background-position-y: center;
-	min-height: 450px;
-	padding-top: 20px;
-	padding-bottom: 50px;
-	max-width:100%;
-	background-attachment: fixed;
-    background-size: cover; 
-}
-
-.fascia .subtitle-fascia {
-	font-weight: 400;
-	font-style: oblique;
 }
 
 .like-button {
@@ -218,7 +196,7 @@ min-height: 500px;
 }
 
 .scheda-profilo {
-	background: #a3c9a8de;
+	background: rgba(255, 219, 219, 0.9);
 	padding: 2em;
 	/* border-radius: 5px; */
 }
@@ -256,7 +234,7 @@ min-height: 500px;
 
 .scheda-profilo .list-group-item:hover {
 	cursor: pointer;
-	background-color: #69A297;
+	background-color: #ac7e7e;
 }
 
 .miniatura-immagine-post {
@@ -285,25 +263,4 @@ a {
 
 .nickname-label {
 	font-style: italic;
-}
-
-.alert-icon {
-	width: 25px;
-	height: 25px;
-}
-
-.post-author-img {
-	border-radius: 50%;
-    object-fit: cover;
-    width: 57px;
-    height: 57px;
-}
-
-.comment-img-profile {
-	border-radius: 50%
-}
-
-form {
-	display: inline-block;
-	width: auto;
 }

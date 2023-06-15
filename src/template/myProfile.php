@@ -64,9 +64,9 @@
 						<label for="newRepeatedPassword" class="col-form-label">Digitare nuovamente la nuova password:</label>
 						<input class="form-control me-2 bg-4  mb-2 newRpass" type="password" placeholder="Nuova password" aria-label="Password" name="newRepeatedPassword" id="newRepeatedPassword">
 					</div>
-					<p class="text-center opass">...</p>
-					<p class="text-center pass">...</p>
-					<p class="text-center Rpass">...</p>
+					<p class="text-center opass"> </p>
+					<p class="text-center pass"> </p>
+					<p class="text-center Rpass"> </p>
 			</div>
 			<div class="modal-footer">
 				<button type="submit" class="btn btn-info changePswd">Conferma</button>

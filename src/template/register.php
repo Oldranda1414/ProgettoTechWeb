@@ -45,10 +45,10 @@
         <label for="floatingRPassword">Verifica password</label>
       </div>
 
-      <p class="text-center user">...</p>
-      <p class="text-center mail">...</p>
-      <p class="text-center pass">...</p>
-      <p class="text-center Rpass">...</p>
+      <p class="text-center user"> </p>
+      <p class="text-center mail"> </p>
+      <p class="text-center pass"> </p>
+      <p class="text-center Rpass"> </p>
       <?php if (isset($templateParams["registerError"])) : ?>
         <p class="">
         <p class="text-center text-danger login-error-label mx-2">

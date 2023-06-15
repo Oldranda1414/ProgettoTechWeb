@@ -72,7 +72,7 @@ I commenti sono la seconda modalità di comunicazione tra gli utenti fornita da 
 Inoltre, è da segnalare che si possono iniziare delle conversazioni nella sezione commenti di un post, dato che un utente piò inserire più commenti riferiti ad uno stesso post.
 
 ### Pagina profilo
-Ogni profilo possiede una propria pagina, dove sono mostarti i post e commenti pubblicati, i mi piace che ha messo ai post, la lista degli utenti che lo seguono/follower e di quelli che segue/followed.
+Ogni profilo possiede una propria pagina, dove sono mostrati i post e commenti pubblicati, i mi piace che ha messo ai post, la lista degli utenti che lo seguono/follower e di quelli che segue/followed.
 
 Da questa pagina si può scegliere se seguire quell'utente o meno.
 

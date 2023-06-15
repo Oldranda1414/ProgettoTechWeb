@@ -64,9 +64,9 @@
 
 <div class="container mt-4">
 	<div class="row justify-content-center">
-		<div class="scheda-profilo mx-5 rounded col col-sm-12 col-lg-7 col-xl-6 justify-content-md-center">
+		<div class="scheda-profilo mx-5 rounded col col-sm-12 col-sm-12 col-lg-7 col-xl-6 justify-content-md-center">
 			<div class="row justify-content-center text-center mb-2">
-				<form action="#" method="GET" role="search" class="text-center">
+				<form action="#" method="GET" role="search" class="text-center" style="display: contents;">
 					<div class="col-xs-10 col-sm-9 col-lg-5 mb-2">
 
 						<div class="d-flex me-1 mw-50 navbar-right mt-3">
@@ -79,7 +79,7 @@
 						</div>
 
 					</div>
-					<div class="col col-lg-4 col-sm-4 ">
+					<div class="col col-lg-4 col-sm-4">
 						<fieldset>
 							<legend hidden>Tipo di ricerca:</legend>
 							<div class="form-check">

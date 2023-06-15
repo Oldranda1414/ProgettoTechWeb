@@ -62,8 +62,7 @@ N.B. Nell'inserimento dei tag bisogna fare attenzione a non inserire i caratteri
 
 ### 5. Link dei post
 
-
-Ogni post oltre a presentre il tasto per l'aggiunta o rimozione del 'mi piace', presenta un link al profilo dell'autore, uno al tag specifico che genera una ricerca con i post che hanno lo stesso tag del post in questione e uno alla pagina vera e propria del post, dove vengono, inoltre, mostrati i commenti riferiti ad esso.
+Ogni post, oltre a includere il tasto per l'aggiunta o rimozione del 'mi piace', presenta un link al profilo dell'autore, uno al tag specifico che genera una ricerca con i post che hanno lo stesso tag del post in questione e uno alla pagina vera e propria del post, dove vengono, inoltre, mostrati i commenti riferiti ad esso.
 
 ### Commenti
 I commenti sono la seconda modalità di comunicazione tra gli utenti fornita da Life&Games. Si riferiscono ad un post e si possono visualizzare dalla pagina specifica di quel post, accessibile dalle preview presenti nelle altre pagine.
@@ -77,9 +76,17 @@ Ogni profilo possiede una propria pagina, dove sono mostarti i post e commenti p
 
 Da questa pagina si può scegliere se seguire quell'utente o meno.
 
+Ogni pagina profilo mostra anche l'indirizzo e-mail utilizzato da quel utente in fase di registrazione.
+
 Se si accede alla pagina del proprio profilo, al posto dell'opzione di seguire l'utente si ha accesso alla possibilità di modificare l'immagine profilo e la propria password.
 
 ### Notifiche
 Quando un utente mette 'mi piace' ad un proprio post o quando un utente inizia a seguirci, si riceveranno delle notifiche. Queste possono essere visualizzate cliccando sulla capanella. Da lì possono anche essere eliminate del tutto.
 
-###
+### Aspetti di sicurezza
+In ogni operazione che si occupa della gestione delle credenziali di un utente, si utilizza il protocollo SHA-512.
+
+In questo modo all'interno del database vi entra solo la versione crittografata delle credenziali e non la password in chiaro.
+
+### Altre informazioni
+Il sito è stato costruito mediante l'uso di HTML, CSS e Bootstrap, PHP, MySQL, Javascript e Axios.

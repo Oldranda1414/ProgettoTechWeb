@@ -1,20 +1,4 @@
-# ProgettoTechWeb
-
-## Obiettivo
-- Scrivere un’applicazione web accessibile e
-responsive che metta a disposizione le
-funzionalità più comuni di un social network
-su una qualsiasi tematica a scelta (es:
-fotografia, tecnologia, lavoro).
-
-- Ci sarà un solo tipo di utente, che si iscrive al
-social per connettersi con altre persone. 
-
-## Design
-La progettazione deve essere:
-1. Mobile First
-2. User Centered
-3. Accessibile
+- Scrivere un’applicazione web accessibile e responsive che metta a disposizione le funzionalità più comuni di un social network su una qualsiasi tematica a scelta. Ci sarà un solo tipo di utente, che si iscrive al social per connettersi con altre persone. La progettazione deve essere: Mobile First, User Centered, Accessibile
 
 ---
 
@@ -114,7 +98,7 @@ Il sito è stato costruito mediante l'uso di HTML, CSS e Bootstrap, PHP, MySQL, 
 ## ENG
 
 ## Description of the web application
-Life&Games, the web application we developed, aims to allow users to share their experiences and express their opinions on videogames through the use of both posts, consisting of a description, a tag and an image, and comments, that any user canmake to any post.
+Life&Games, the web application we developed, aims to allow users to share their experiences and express their opinions on videogames through the use of both posts, consisting of a description, a tag and an image, and comments, that any user can make to any post.
 
 ## Description of its characteristics
 
@@ -135,15 +119,15 @@ Life&Games, the web application we developed, aims to allow users to share their
 ### Registration and Login
 In order to access the services and content offered by Life&Games, any person must log in. Therefore, it is required for any user to have an account of their own. 
 
-In fase di registrazione e di eventuale cambio password sarà necessario inserire una password con dei criteri, già indicati nei casi sopraindicati, ovvero deve essere almeno di 6 caratteri e deve contenere almeno 1 lettera minuscola, 1 maiuscola, 1 numero ed almeno 1 carattere speciale tra !, ?, %, &, *, @ e $.
+When registering and changing your password, you will need to enter a password with certain criteria, already indicated in the cases above, that is, it must be at least 6 characters and must contain at least 1 lowercase letter, 1 uppercase letter, 1 number and at least 1 special character between !, ?, %, &, *, @ and $.
 
 ### Homepage
-La pagina iniziale di Life&Games, dopo la fase di logging, presenta una serie di post appartenenti agli utenti che si segue; se non si seguono utenti, allora verranno caricati i post più recenti.
+The Life&Games homepage, after the logging phase, presents a series of posts belonging to users you follow; if you do not follow any user, then the most recent posts will be shown.
 
 ### Posts
 ### Content
 
-In tutte le pagine del sito verranno mostrati i post, ovvero il metodo principale di comunicazione offerto agli utenti che utilizzaranno questo social network, che permette loro di condividere loro esperienze o esprimere propri pareri o anche chiedere quelli di altri utenti, sempre nell'ambito dei vidogiochi.
+Almost all pages of the site will show posts, which is the main method of communication offered to users who will use this social network, allowing them to share their experiences or express their own opinions or even ask for those of other users, again in the area of vidogames.
 
 ### Likes
 

@@ -21,15 +21,29 @@ La progettazione deve essere:
 # Life&Games
 
 ## Sviluppato da
-- Vittorio Damiano Brasini
-- Leonardo Randacio
-- Filippo Velli
+- [Vittorio Damiano Brasini](https://github.com/vdamianob)
+- [Leonardo Randacio](https://github.com/Oldranda1414)
+- [Filippo Velli](https://github.com/FilVel)
 ---
 
 ## Descrizione dell'applicazione
 Life&Games, l'applicazione web da noi realizzata, si pone l'obiettivo di permettere agli utenti di condividere le proprie esperienze e di esprimere le proprie opinioni in ambito videoludico tramite sia post, composti da una descrizione, un tag ed una immagine, sia commenti, che ogni utente può fare a qualsiasi post.
 
 ## Descrizione delle caratteristiche
+
+1. [Registrazione e Login](#registrazione-e-login)
+2. [Home](#home)
+3. [Post](#post)
+- [Contenuto](#contenuto)
+- [Mi piace](#mi-piace)
+- [Caricamento dei post sulle pagine](#caricamento-dei-post-sulle-pagine)
+- [Creazione di nuovi post](#creazione-di-nuovi-post)
+- [Link dei post](#link-dei-post)
+4. [Commenti](#commenti)
+5. [Pagina profilo](#pagina-profilo)
+6. [Notifiche](#notifiche)
+7. [Aspetti di sicurezza](#aspetti-di-sicurezza)
+8. [Altre informazioni](#altre-informazioni)
 
 ### Registrazione e Login
 Per poter accedere ai servizi e ai contenuti offerti a Life&Games si deve fare log-in. Quindi, è necessario possedere un proprio account.
@@ -40,19 +54,19 @@ In fase di registrazione e di eventuale cambio password sarà necessario inserir
 La pagina iniziale di Life&Games, dopo la fase di logging, presenta una serie di post appartenenti agli utenti che si segue; se non si seguono utenti, allora verranno caricati i post più recenti.
 
 ### Post
-### 1. Contenuto
+### Contenuto
 
 In tutte le pagine del sito verranno mostrati i post, ovvero il metodo principale di comunicazione offerto agli utenti che utilizzaranno questo social network, che permette loro di condividere loro esperienze o esprimere propri pareri o anche chiedere quelli di altri utenti, sempre nell'ambito dei vidogiochi.
 
-### 2. Mi piace
+### Mi piace
 
 Da ogni post è possibile aggiungere o togliere il proprio 'mi piace', indicatore del gradimento del post da parte di un utente. Un utente può mettersi 'mi piace' solo.
 
-### 3. Caricamento dei post sulle pagine
+### Caricamento dei post sulle pagine
 
 In base alla pagina verranno mostrati dei post differenti (per esempio i risultati di una ricerca per contenuto, tag o utente, i post realizzati da un utente...) ed essi verranno generati dinamicamente attraverso richieste Axios. Infatti, tramite uno script ed un API apposito, appena l'utente fa lo scrolling della pagina vengono effettuate ulteriori richieste al database che caricherà ulteriori post.
 
-### 4. Creazione di nuovi post
+### Creazione di nuovi post
 
 Ogni utente può, fatto il log-in, da qualsiasi pagina del sito creare un nuovo post, composto da una descrizione, un tag ed un'immagine caricata dal proprio dispositivo.
 
@@ -60,7 +74,7 @@ Il tag può essere sia il titolo del gioco a cui il post fa riferimento, sia il 
 
 N.B. Nell'inserimento dei tag bisogna fare attenzione a non inserire i caratteri _ e &, altrimenti risulterà essere non valido e si dovrà ritentare la procedura di aggiunta del post.
 
-### 5. Link dei post
+### Link dei post
 
 Ogni post, oltre a includere il tasto per l'aggiunta o rimozione del 'mi piace', presenta un link al profilo dell'autore, uno al tag specifico che genera una ricerca con i post che hanno lo stesso tag del post in questione e uno alla pagina vera e propria del post, dove vengono, inoltre, mostrati i commenti riferiti ad esso.
 

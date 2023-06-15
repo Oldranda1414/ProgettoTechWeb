@@ -109,6 +109,14 @@
 	</div>
 </div>
 
+<?php if(isset($templateParams["searchData"])): ?>
+<div class="text-center display-5 text-2 mb-4">Ricerca per <div class="typeOfSearch" style="display: inline"><?php echo $templateParams["searchData"]["type"] ?></div>: '<em id="searchedContent"><?php echo $templateParams["searchData"]["words"] ?></em>'</div>
+<?php endif; ?>
+
+<?php if(isset($templateParams["preciseSearch"])): ?>
+	<div class="text-center display-4 text-2 mb-3 mt-2 pb-5"><?php echo $templateParams["preciseSearch"] ?></div>
+<?php endif; ?>
+
 <div class="container my-3">
 	<div class="row" id="posts">
 

@@ -3,6 +3,18 @@ require_once 'bootstrap.php';
 require "base.php";
 
 if (isUserLoggedIn($dbh)) {
+
+    //api for search result explenation
+    if(isset($_GET["search"]) && isset($_GET["flexRadioDefault"])){
+        if($_GET["flexRadioDefault"] != "ptag"){
+            $templateParams["searchData"]["type"] = $_GET["flexRadioDefault"];
+            $templateParams["searchData"]["words"] = $_GET["search"];
+        }
+        else{
+            $templateParams["preciseSearch"] = "Ecco i post con il tag '".str_replace("_"," ", $_GET["search"])."'";
+        }
+    }
+
     $templateParams["titolo"] = "Esplora";
     $templateParams["nome"] = "explore.php";
     //TODO update date with todays date using {date("y-m-d")}

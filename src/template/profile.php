@@ -18,7 +18,7 @@
 					</div>
 					<div class="col col-lg-3">
 						<div class="profile-schede-title">Informazioni profilo</div>
-						<form action="" method="POST" id="follow-user" style="display:contents">
+						<form action="#" method="POST" id="follow-user" style="display:contents">
 							<input type="hidden" id="follow-data" name="follow-data" value="<?php echo ($templateParams["searchedUser"]["followed"]) ? "type=unfollow&followedUserId=" . $templateParams["searchedUser"]["User_id"] : "type=follow&followedUserId=" . $templateParams["searchedUser"]["User_id"] ?>">
 							<ul class="list-group">
 								<li class="list-group-item  bg-4" id="follow-button"><?php echo $templateParams["searchedUser"]["followed"] ? "Non seguire più" : "Segui" ?></li>
@@ -93,7 +93,7 @@
 	</div>
 
 
-	<div class="modal fade" id="followerModal" tabindex="-1" aria-labelledby="followerModalLabel" aria-hidden="true">
+	<div class="modal fade" id="followerModal" tabindex="-1" aria-labelledby="followersModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content bg-3">
 				<div class="modal-header">

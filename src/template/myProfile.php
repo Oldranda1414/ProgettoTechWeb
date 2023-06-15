@@ -46,7 +46,7 @@
 	</div>
 </div>
 
-<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="newPasswordModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content bg-3">
 			<div class="modal-header">
@@ -76,7 +76,7 @@
 	</div>
 </div>
 
-<div class="modal fade" id="changeImageProfileModal" tabindex="-1" aria-labelledby="changeImageProfileModalLabel" aria-hidden="true">
+<div class="modal fade" id="changeImageProfileModal" tabindex="-1" aria-labelledby="newImgModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content bg-3">
 			<div class="modal-header">
@@ -137,7 +137,7 @@
 	</div>
 </div>
 
-<div class="modal fade" id="myFollowedModal" tabindex="-1" aria-labelledby="myFollowedModalLabel" aria-hidden="true">
+<div class="modal fade" id="myFollowedModal" tabindex="-1" aria-labelledby="followedModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content bg-3">
 			<div class="modal-header">
@@ -155,7 +155,7 @@
 </div>
 
 
-<div class="modal fade" id="myFollowerModal" tabindex="-1" aria-labelledby="myFollowerModalLabel" aria-hidden="true">
+<div class="modal fade" id="myFollowerModal" tabindex="-1" aria-labelledby="followersModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content bg-3">
 			<div class="modal-header">

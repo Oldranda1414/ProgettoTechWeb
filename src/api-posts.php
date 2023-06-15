@@ -15,8 +15,6 @@
                     $username=$_GET["user"];
                 }
                 $posts = $dbh->getPostsByUser($id, $username, $offset, $numberPosts);
-            } else if (strpos($page, "home")!== false || strpos($page, "index")!== false) {
-                $posts = $dbh->getPostByFollowed($id,$offset,$numberPosts);
             } else if (strpos($page, "explore")!== false){
                 if (isset($_GET["search"])){
                     $search = $_GET["search"]; 
@@ -48,3 +46,4 @@
         header('Content-Type: application/json');
         echo json_encode($posts);
     }
+?>

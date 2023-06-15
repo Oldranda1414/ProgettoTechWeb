@@ -86,7 +86,7 @@ Quando un utente mette 'mi piace' ad un proprio post o lo commenta o quando un u
 ### Aspetti di sicurezza
 In ogni operazione che si occupa della gestione delle credenziali di un utente, si utilizza il protocollo SHA-512.
 
-In questo modo all'interno del database vi entra solo la versione crittografata delle credenziali e non la password in chiaro.
+In questo modo all'interno del database e nella rete in generale transita solo la versione crittografata delle credenziali e non la password in chiaro.
 
 ### Altre informazioni
 Il sito è stato costruito mediante l'uso di HTML, CSS e Bootstrap, PHP, MySQL, Javascript e Axios.

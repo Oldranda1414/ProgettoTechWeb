@@ -42,7 +42,7 @@ La pagina iniziale di Life&Games, dopo la fase di logging, presenta una serie di
 ### Post
 ### 1. Contenuto
 
-In tutte le pagine del sito verranno mostrati i post, ovvero il metodo principale di comunicazione offerto agli utenti che utilizzaranno questo social network, che permette loro di condividere loro esperienze o esprimere prorpi pareri o anche chiedere quelli di altri utenti, sempre nell'ambito dei vidogiochi.
+In tutte le pagine del sito verranno mostrati i post, ovvero il metodo principale di comunicazione offerto agli utenti che utilizzaranno questo social network, che permette loro di condividere loro esperienze o esprimere propri pareri o anche chiedere quelli di altri utenti, sempre nell'ambito dei vidogiochi.
 
 ### 2. Mi piace
 
@@ -50,7 +50,7 @@ Da ogni post è possibile aggiungere o togliere il proprio 'mi piace', indicator
 
 ### 3. Caricamento dei post sulle pagine
 
-In base alla pagina verranno mostrati dei post differenti (per esempio i risultati di una ricerca per contenuto, tag o utente, i post realizzati da un utente...) ed essi verranno generati dinamicamente attraverso richieste Axios. Infatti, tramite uno script ed un API apposito, appena l'utente fa lo scrolling della pagina vengono effettuate ulteriori richieste al database che caricaherà ulteriori post.
+In base alla pagina verranno mostrati dei post differenti (per esempio i risultati di una ricerca per contenuto, tag o utente, i post realizzati da un utente...) ed essi verranno generati dinamicamente attraverso richieste Axios. Infatti, tramite uno script ed un API apposito, appena l'utente fa lo scrolling della pagina vengono effettuate ulteriori richieste al database che caricherà ulteriori post.
 
 ### 4. Creazione di nuovi post
 

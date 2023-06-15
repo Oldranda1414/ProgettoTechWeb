@@ -26,7 +26,7 @@ function createPost(posts){
 		}
 
 		let tag = `${posts[i]["Game_name"]}`;
-		tag = tag.replace(" ", "_");
+		tag = tag.replaceAll(" ", "_");
 		let id = `${posts[i]["Post_id"]}`;
 		let Date_time=new Date(`${posts[i]["DT"]}`);
         let formattedDate = `${Date_time.getDate()}-${Date_time.getMonth() + 1}-${Date_time.getFullYear()} alle ${Date_time.getHours()}:${Date_time.getMinutes()}`;

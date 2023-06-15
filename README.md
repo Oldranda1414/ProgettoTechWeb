@@ -81,7 +81,7 @@ Ogni pagina profilo mostra anche l'indirizzo e-mail utilizzato da quel utente in
 Se si accede alla pagina del proprio profilo, al posto dell'opzione di seguire l'utente si ha accesso alla possibilità di modificare l'immagine profilo e la propria password.
 
 ### Notifiche
-Quando un utente mette 'mi piace' ad un proprio post o quando un utente inizia a seguirci, si riceveranno delle notifiche. Queste possono essere visualizzate cliccando sulla capanella. Da lì possono anche essere eliminate del tutto.
+Quando un utente mette 'mi piace' ad un proprio post o lo commenta o quando un utente inizia a seguirci, si riceveranno delle notifiche. Queste possono essere visualizzate cliccando sulla capanella. Da lì possono anche essere eliminate del tutto.
 
 ### Aspetti di sicurezza
 In ogni operazione che si occupa della gestione delle credenziali di un utente, si utilizza il protocollo SHA-512.

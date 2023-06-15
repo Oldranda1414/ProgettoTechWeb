@@ -90,6 +90,8 @@ In questo modo all'interno del database e nella rete in generale transita solo l
 ### Altre informazioni
 Il sito è stato costruito mediante l'uso di HTML, CSS e Bootstrap, PHP, MySQL, Javascript e Axios.
 
+Sono stati mantenuti i file realizzati nella fase di prototipo in HTML a solo scopo documentale, così come alcuni file, come posts.php e password.js, che non sono utilizzati nella versione finale di Life&Games.
+
 ---
 ## ENG
 
@@ -171,3 +173,5 @@ In this way, only the encrypted version of the credentials and not the plaintext
 
 ### Further Information
 This website has been made through the use of HTML, CSS and Bootstrap, PHP, MySql, Javascript and Axios.
+
+Files made in the prototype phase in HTML have been retained for documentation purposes only, as well as certian files, such as posts.php and password.js, that are unused in the final version of Life&Games.

@@ -109,7 +109,7 @@ Life&Games, the web application we developed, aims to allow users to share their
 4. [Comments](#comments)
 5. [Profile page](#profile-page)
 6. [Notifications](#notifications)
-7. [Aspetti di sicurezza](#aspetti-di-sicurezza)
+7. [Security](#security)
 8. [Further Information](#further-information)
 
 ### Registration and Login
@@ -164,7 +164,7 @@ If you go to your profile page, instead of the option to follow yourself, you ha
 ### Notifications
 When a user likes or comments on one of your posts or when a user starts following you, you will receive a notification. Notifications can be viewed by clicking on the bell on the top right. From there they can also be removed altogether.
 
-### Security Aspects
+### Security
 In every operation that deals a user's credentials, the SHA-512 protocol is used.
 
 In this way, only the encrypted version of the credentials and not the plaintext version transits within the database and the net.

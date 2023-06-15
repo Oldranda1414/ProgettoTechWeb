@@ -1,7 +1,3 @@
-- Scrivere un’applicazione web accessibile e responsive che metta a disposizione le funzionalità più comuni di un social network su una qualsiasi tematica a scelta. Ci sarà un solo tipo di utente, che si iscrive al social per connettersi con altre persone. La progettazione deve essere: Mobile First, User Centered, Accessibile
-
----
-
 # Life&Games
 
 ## Sviluppato da/Developed by
@@ -45,11 +41,11 @@ La pagina iniziale di Life&Games, dopo la fase di logging, presenta una serie di
 ### Post
 ### Contenuto
 
-In tutte le pagine del sito verranno mostrati i post, ovvero il metodo principale di comunicazione offerto agli utenti che utilizzaranno questo social network, che permette loro di condividere loro esperienze o esprimere propri pareri o anche chiedere quelli di altri utenti, sempre nell'ambito dei vidogiochi.
+In tutte le pagine del sito verranno mostrati i post, ovvero il metodo principale di comunicazione offerto agli utenti che utilizzeranno questo social network, che permette loro di condividere loro esperienze o esprimere propri pareri o anche chiedere quelli di altri utenti, sempre nell'ambito dei videogiochi.
 
 ### Mi piace
 
-Da ogni post è possibile aggiungere o togliere il proprio 'mi piace', indicatore del gradimento del post da parte di un utente. Un utente può mettersi 'mi piace' solo.
+Da ogni post è possibile aggiungere o togliere il proprio 'mi piace', indicatore del gradimento del post da parte di un utente. Un utente può mettersi 'mi piace' sui propri post.
 
 ### Caricamento dei post sulle pagine
 
@@ -75,7 +71,7 @@ I commenti sono la seconda modalità di comunicazione tra gli utenti fornita da 
 Inoltre, è da segnalare che si possono iniziare delle conversazioni nella sezione commenti di un post, dato che un utente piò inserire più commenti riferiti ad uno stesso post.
 
 ### Pagina profilo
-Ogni profilo possiede una propria pagina, dove sono mostrati i post e commenti pubblicati, i mi piace che ha messo ai post, la lista degli utenti che lo seguono/follower e di quelli che segue/followed.
+Ogni utente possiede una propria pagina profilo, dove sono mostrati i post e commenti pubblicati, i mi piace che ha messo ai post, la lista degli utenti che lo seguono/follower e di quelli che segue/followed.
 
 Da questa pagina si può scegliere se seguire quell'utente o meno.
 
@@ -106,15 +102,15 @@ Life&Games, the web application we developed, aims to allow users to share their
 2. [Home](#homepage)
 3. [Post](#posts)
     - [Content](#content)
-    - [Likes](#mi-piace)
-    - [Caricamento dei post sulle pagine](#caricamento-dei-post-sulle-pagine)
-    - [Creazione di nuovi post](#creazione-di-nuovi-post)
-    - [Posts' links](#link-dei-post)
+    - [Likes](#likes)
+    - [Dynamic loading of posts on pages](#dynamic-loading-of-posts-on-pages)
+    - [New post creation](#new-post-creation)
+    - [Posts' links](#posts-links)
 4. [Comments](#comments)
-5. [Pagina profilo](#pagina-profilo)
-6. [Notifiche](#notifiche)
+5. [Profile page](#profile-page)
+6. [Notifications](#notifications)
 7. [Aspetti di sicurezza](#aspetti-di-sicurezza)
-8. [Altre informazioni](#altre-informazioni)
+8. [Further Information](#further-information)
 
 ### Registration and Login
 In order to access the services and content offered by Life&Games, any person must log in. Therefore, it is required for any user to have an account of their own. 
@@ -127,51 +123,51 @@ The Life&Games homepage, after the logging phase, presents a series of posts bel
 ### Posts
 ### Content
 
-Almost all pages of the site will show posts, which is the main method of communication offered to users who will use this social network, allowing them to share their experiences or express their own opinions or even ask for those of other users, again in the area of vidogames.
+Almost all pages of the site will show posts, which is the main method of communication offered to users who will use this social network, allowing them to share their experiences or express their own opinions or even ask for those of other users, again in the area of viedogames.
 
 ### Likes
 
-Da ogni post è possibile aggiungere o togliere il proprio 'mi piace', indicatore del gradimento del post da parte di un utente. Un utente può mettersi 'mi piace' solo.
+From each post you can add or remove your 'like' (here shown with its italian equivalent 'mi piace'), an indicator of a user's liking of the post. A user can put 'like' on their own posts.
 
-### Caricamento dei post sulle pagine
+### Dynamic loading of posts on pages
 
-In base alla pagina verranno mostrati dei post differenti (per esempio i risultati di una ricerca per contenuto, tag o utente, i post realizzati da un utente...) ed essi verranno generati dinamicamente attraverso richieste Axios. Infatti, tramite uno script ed un API apposito, appena l'utente fa lo scrolling della pagina vengono effettuate ulteriori richieste al database che caricherà ulteriori post.
+Depending on the page different posts will be shown (e.g. search results by description, tag or user, posts made by a certain user...) and they will be dynamically generated through a series of Axios requests. In fact, through a script and a special API, as soon as the user scrolls the page to its end, additional requests are made to the database that will load additional posts.
 
-### Creazione di nuovi post
+### New post creation
 
-Ogni utente può, fatto il log-in, da qualsiasi pagina del sito creare un nuovo post, composto da una descrizione, un tag ed un'immagine caricata dal proprio dispositivo.
+Each user can, having logged in, from any page of the site create a new post, consisting of a description, a tag and an image uploaded from their own device.
 
-Il tag può essere sia il titolo del gioco a cui il post fa riferimento, sia il nome di un franchise, sia una tipologia di evento presente in più giochi, come può essere 'boss battle' o di altro tipo, si lascia agli utenti la creatività di indicare il tag che loro ritengono più appropriato.
+The tag can be either the title of the game to which the post refers, or the name of a franchise, or a type of event present in more than one game, e.g. 'boss battle', or others, it is left to the users' creativity and imagination to indicate the tag they deem most appropriate.
 
-N.B. Nell'inserimento dei tag bisogna fare attenzione a non inserire i caratteri _ e &, altrimenti risulterà essere non valido e si dovrà ritentare la procedura di aggiunta del post.
+NB When entering tags care must be taken not to enter the characters _ and &, otherwise it will turn out to be not valid and you will have to retry the process of adding the post.
 
-### Link dei post
+### Posts' links
 
-Ogni post, oltre a includere il tasto per l'aggiunta o rimozione del 'mi piace', presenta un link al profilo dell'autore, uno al tag specifico che genera una ricerca con i post che hanno lo stesso tag del post in questione e uno alla pagina vera e propria del post, dove vengono, inoltre, mostrati i commenti riferiti ad esso.
+Each post, in addition to including the button for adding/removing the 'mi piace', has a link to the author's profile, one to the specific tag, that generates a search with posts that have the same tag as the post in question, and one to the actual page of the post, where comments referring to it are, in addition, shown.
 
 ### Comments
-I commenti sono la seconda modalità di comunicazione tra gli utenti fornita da Life&Games. Si riferiscono ad un post e si possono visualizzare dalla pagina specifica di quel post, accessibile dalle preview presenti nelle altre pagine.
+Comments are the second mode of communication between users provided by Life&Games. They relate to a post and can be viewed from the specific page of that post, accessible from the previews on the other pages.
 
-È possibile aggiungerne di nuovi sempre dalla pagina del post specifico sotto a tutti gli altri già fatti in precedenza. Questo rende possibile l'inizio di una discussione tra vari utenti.
+New ones can always be added from the page of the specific post below any others made previously. This makes it possible to start a discussion between several users.
 
-Inoltre, è da segnalare che si possono iniziare delle conversazioni nella sezione commenti di un post, dato che un utente piò inserire più commenti riferiti ad uno stesso post.
+Also, it should be noted that conversations can be started in the comments section of a post, since a user can enter multiple comments referring to the same post.
 
-### Pagina profilo
-Ogni profilo possiede una propria pagina, dove sono mostrati i post e commenti pubblicati, i mi piace che ha messo ai post, la lista degli utenti che lo seguono/follower e di quelli che segue/followed.
+### Profile page
+Each user has his or her own profile page, where his or her published posts and comments are shown, the 'mi piace' he or she has put on posts, and the list of users who follow him or her/followers and those he or she follows/followed.
 
-Da questa pagina si può scegliere se seguire quell'utente o meno.
+From this page one can choose whether to follow that user or not.
 
-Ogni pagina profilo mostra anche l'indirizzo e-mail utilizzato da quel utente in fase di registrazione.
+Each profile page also shows the e-mail address used by that user during the registration phase.
 
-Se si accede alla pagina del proprio profilo, al posto dell'opzione di seguire l'utente si ha accesso alla possibilità di modificare l'immagine profilo e la propria password.
+If you go to your profile page, instead of the option to follow yourself, you have access to the ability to change the profile picture and your password.
 
-### Notifiche
-Quando un utente mette 'mi piace' ad un proprio post o lo commenta o quando un utente inizia a seguirci, si riceveranno delle notifiche. Queste possono essere visualizzate cliccando sulla capanella. Da lì possono anche essere eliminate del tutto.
+### Notifications
+When a user likes or comments on one of your posts or when a user starts following you, you will receive a notification. Notifications can be viewed by clicking on the bell on the top right. From there they can also be removed altogether.
 
-### Aspetti di sicurezza
-In ogni operazione che si occupa della gestione delle credenziali di un utente, si utilizza il protocollo SHA-512.
+### Security Aspects
+In every operation that deals a user's credentials, the SHA-512 protocol is used.
 
-In questo modo all'interno del database e nella rete in generale transita solo la versione crittografata delle credenziali e non la password in chiaro.
+In this way, only the encrypted version of the credentials and not the plaintext version transits within the database and the net.
 
-### Altre informazioni
-Il sito è stato costruito mediante l'uso di HTML, CSS e Bootstrap, PHP, MySQL, Javascript e Axios.
+### Further Information
+This website has been made through the use of HTML, CSS and Bootstrap, PHP, MySql, Javascript and Axios.

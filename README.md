@@ -40,16 +40,19 @@ In fase di registrazione e di eventuale cambio password sarà necessario inserir
 La pagina iniziale di Life&Games, dopo la fase di logging, presenta una serie di post appartenenti agli utenti che si segue; se non si seguono utenti, allora verranno caricati i post più recenti.
 
 ### Post
-### Contenuto
+1. Contenuto
+
 In tutte le pagine del sito verranno mostrati i post, ovvero il metodo principale di comunicazione offerto agli utenti che utilizzaranno questo social network, che permette loro di condividere loro esperienze o esprimere prorpi pareri o anche chiedere quelli di altri utenti, sempre nell'ambito dei vidogiochi.
 
-### Mi piace
+2. Mi piace
+
 Da ogni post è possibile aggiungere o togliere il proprio 'mi piace', indicatore del gradimento del post da parte di un utente. Un utente può mettersi 'mi piace' solo.
 
-### Caricamento dei post sulle pagine
+3. Caricamento dei post sulle pagine
+
 In base alla pagina verranno mostrati dei post differenti (per esempio i risultati di una ricerca per contenuto, tag o utente, i post realizzati da un utente...) ed essi verranno generati dinamicamente attraverso richieste Axios. Infatti, tramite uno script ed un API apposito, appena l'utente fa lo scrolling della pagina vengono effettuate ulteriori richieste al database che caricaherà ulteriori post.
 
-### Creazione di nuovi post
+4. Creazione di nuovi post
 
 Ogni utente può, fatto il log-in, da qualsiasi pagina del sito creare un nuovo post, composto da una descrizione, un tag ed un'immagine caricata dal proprio dispositivo.
 
@@ -57,7 +60,9 @@ Il tag può essere sia il titolo del gioco a cui il post fa riferimento, sia il 
 
 N.B. Nell'inserimento dei tag bisogna fare attenzione a non inserire i caratteri _ e &, altrimenti risulterà essere non valido e si dovrà ritentare la procedura di aggiunta del post.
 
-### Link dei post
+5. Link dei post
+
+
 Ogni post oltre a presentre il tasto per l'aggiunta o rimozione del 'mi piace', presenta un link al profilo dell'autore, uno al tag specifico che genera una ricerca con i post che hanno lo stesso tag del post in questione e uno alla pagina vera e propria del post, dove vengono, inoltre, mostrati i commenti riferiti ad esso.
 
 ### Commenti
@@ -75,3 +80,6 @@ Da questa pagina si può scegliere se seguire quell'utente o meno.
 Se si accede alla pagina del proprio profilo, al posto dell'opzione di seguire l'utente si ha accesso alla possibilità di modificare l'immagine profilo e la propria password.
 
 ### Notifiche
+Quando un utente mette 'mi piace' ad un proprio post o quando un utente inizia a seguirci, si riceveranno delle notifiche. Queste possono essere visualizzate cliccando sulla capanella. Da lì possono anche essere eliminate del tutto.
+
+###

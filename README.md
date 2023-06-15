@@ -72,7 +72,7 @@ I commenti sono la seconda modalità di comunicazione tra gli utenti fornita da 
 Inoltre, è da segnalare che si possono iniziare delle conversazioni nella sezione commenti di un post, dato che un utente piò inserire più commenti riferiti ad uno stesso post.
 
 ### Pagina profilo
-Ogni profilo possiede una propria pagina, dove sono mostarti i post e commenti pubblicati, i mi piace che ha messo ai post, la lista degli utenti che lo seguono/follower e di quelli che segue/followed.
+Ogni profilo possiede una propria pagina, dove sono mostrati i post e commenti pubblicati, i mi piace che ha messo ai post, la lista degli utenti che lo seguono/follower e di quelli che segue/followed.
 
 Da questa pagina si può scegliere se seguire quell'utente o meno.
 
@@ -86,7 +86,7 @@ Quando un utente mette 'mi piace' ad un proprio post o lo commenta o quando un u
 ### Aspetti di sicurezza
 In ogni operazione che si occupa della gestione delle credenziali di un utente, si utilizza il protocollo SHA-512.
 
-In questo modo all'interno del database vi entra solo la versione crittografata delle credenziali e non la password in chiaro.
+In questo modo all'interno del database e nella rete in generale transita solo la versione crittografata delle credenziali e non la password in chiaro.
 
 ### Altre informazioni
 Il sito è stato costruito mediante l'uso di HTML, CSS e Bootstrap, PHP, MySQL, Javascript e Axios.

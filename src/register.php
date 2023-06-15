@@ -22,3 +22,4 @@ if (isset($_POST["username"]) && isset($_POST["p"]) && isset($_POST["email"])) {
     array_push($templateParams["js"], "js/sha512.js", "js/register.js");
 }
 require 'template/base.php';
+?>

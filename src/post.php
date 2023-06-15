@@ -30,3 +30,4 @@ if (isUserLoggedIn($dbh)) {
 } else {
     require 'login.php';
 }
+?>

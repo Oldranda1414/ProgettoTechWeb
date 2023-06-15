@@ -3,6 +3,7 @@ let search = params.get('search');
 let type = params.get('flexRadioDefault');
 let user = params.get('Username');
 
+let isFetching = false;
 let numberPostsActive=0;
 let offsetSta=6;
 let totalPosts=100;
@@ -70,6 +71,9 @@ function createPost(posts){
 }
 
 function fetchPosts(offs){
+	if (isFetching)
+		return;
+	isFetching=true;
 	axios.get('api-posts.php', {
 		params: {
 	 	offset : (offs),
@@ -87,6 +91,8 @@ function fetchPosts(offs){
 		}
 	}).catch(error => {
 		console.log(error);
+	}) .finally(() => {
+		isFetching = false;
 	})
 };
 
@@ -97,18 +103,10 @@ window.addEventListener('load', () => {
 window.addEventListener('scroll', () => {
 	if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1) {
 		let offset=numberPostsActive;
-		if  (totalPosts>=numberPostsActive){
-			
+		if  (totalPosts>numberPostsActive){
 		} else {
-			if (numberPostsActive<=totalPosts-offsetSta)
-				numberPostsActive+=offsetSta;
-			else if (numberPostsActive>totalPosts-offsetSta){
-				numberPostsActive=totalPosts;
-			}
+			window.removeEventListener('scroll', () => {})
 		}
 		fetchPosts(offset);
-		if (numberPostsActive>=totalPosts){
-			window.removeEventListener('scroll', arguments.callee)
-		}
 	}
 });

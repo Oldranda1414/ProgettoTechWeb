@@ -10,7 +10,6 @@ let totalPosts=100;
 
 function createPost(posts){
 	let result = `
-	<div class="container my-3">
 		<div class="row">
 	`;
     for(let i=0; i < posts.length; i++){
@@ -76,7 +75,6 @@ function createPost(posts){
 	totalPosts=parseInt(`${posts[0]["Number_of_posts"]}`);
 	result += `
 		</div>
-	</div>
 	`;
     return result;
 }

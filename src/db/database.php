@@ -424,12 +424,13 @@ class DatabaseHelper
       if ($insert_stmt = $this->db->prepare("INSERT INTO User_table (Username, E_mail, Passwrd, Salt, Profile_img) VALUES (?, ?, ?, ?, ?)")) {
          $insert_stmt->bind_param('sssss', $username, $email, $password, $random_salt, $default_imgpath);
          // Esegui la query ottenuta.
+         $result = 0;
          try {
             $insert_stmt->execute();
          } catch (Exception $e) {
-            return $e->getCode();
+            $result = $e->getCode();
          }
-         return 0;
+         return $result;
       }
    }
 

@@ -28,8 +28,19 @@ function createPost(posts){
 		let tag = `${posts[i]["Game_name"]}`;
 		tag = tag.replaceAll(" ", "_");
 		let id = `${posts[i]["Post_id"]}`;
-		let Date_time=new Date(`${posts[i]["DT"]}`);
-        let formattedDate = `${Date_time.getDate()}-${Date_time.getMonth() + 1}-${Date_time.getFullYear()} alle ${Date_time.getHours()}:${Date_time.getMinutes()}`;
+
+		let Date_time = new Date(`${posts[i]["DT"]}`);
+		let month = `${Date_time.getMonth() + 1}`;
+		let date = `${Date_time.getDate()}`;
+		let minutes = `${Date_time.getMinutes()}`;
+		let hour = `${Date_time.getHours()}`;
+
+		month = month.padStart(2,"0");
+		date = date.padStart(2,"0");
+		hour = hour.padStart(2,"0");
+		minutes = minutes.padStart(2, "0");
+        let formattedDate = `${date}-${month}-${Date_time.getFullYear()} alle ${hour}:${minutes}`;
+
         let post = `
             <div class="col-12 col-md-6 col-lg-4">
 				<div class="card m-2 bg-4">

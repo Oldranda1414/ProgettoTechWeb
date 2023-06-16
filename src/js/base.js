@@ -17,10 +17,15 @@ function disableButton(){
 }
 
 window.onload = function() {
-  message.textContent="";
-  submitbutton.disabled=false;
+  if (message!=null){
+    message.textContent="";
+  }
+  if (submitbutton!=null)
+    submitbutton.disabled=false;
 }
 
-tag.addEventListener("keyup", () => {
-  disableButton();
-});
+if (tag!=null){
+  tag.addEventListener("keyup", () => {
+    disableButton();
+  });
+}

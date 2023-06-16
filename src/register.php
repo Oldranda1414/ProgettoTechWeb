@@ -12,10 +12,12 @@ if (isset($_POST["username"]) && isset($_POST["p"]) && isset($_POST["email"])) {
             $templateParams["registerError"] = "E' avvenuto un errore. Codice errore: " . $errorCode;
         }
     }
+    else{
+        $templateParams["successWords"] = "Registrazione avvenuta con successo! Ora puoi accedere con le tue credenziali";
+    }
     $templateParams["titolo"] = "Register";
     $templateParams["nome"] = "register.php";
     array_push($templateParams["js"], "js/sha512.js", "js/forms.js", "js/register.js");
-    $templateParams["successWords"] = "Registrazione avvenuta con successo! Ora puoi accedere con le tue credenziali";
 } else {
     $templateParams["titolo"] = "Register";
     $templateParams["nome"] = "register.php";

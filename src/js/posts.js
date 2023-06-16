@@ -112,8 +112,7 @@ window.addEventListener('load', () => {
 window.addEventListener('scroll', () => {
 	if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1) {
 		let offset=numberPostsActive;
-		if  (totalPosts>numberPostsActive){
-		} else {
+		if  (totalPosts<=numberPostsActive){
 			window.removeEventListener('scroll', () => {})
 		}
 		fetchPosts(offset);

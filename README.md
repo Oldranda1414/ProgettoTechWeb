@@ -92,7 +92,7 @@ Il sito è stato costruito mediante l'uso di HTML, CSS e Bootstrap, PHP, MySQL, 
 
 Sono stati mantenuti i file realizzati nella fase di prototipo in HTML a solo scopo documentale, così come alcuni file, come posts.php e password.js, che non sono utilizzati nella versione finale di Life&Games.
 
-La palette di colori usata in Life&Games è [questa](https://coolors.co/ddd8c4-a3c9a8-84b59f-69a297-50808e).
+L'ispirazione della palette di colori usata in Life&Games è [questa](https://coolors.co/ddd8c4-a3c9a8-84b59f-69a297-50808e).
 
 ---
 ## ENG
@@ -178,4 +178,4 @@ This website has been made through the use of HTML, CSS and Bootstrap, PHP, MySq
 
 Files made in the prototype phase in HTML have been retained for documentation purposes only, as well as certian files, such as posts.php and password.js, that are unused in the final version of Life&Games.
 
-The color palette used in Life&Games is [this one](https://coolors.co/ddd8c4-a3c9a8-84b59f-69a297-50808e).
+The inspiration for color palette used in Life&Games is [this one](https://coolors.co/ddd8c4-a3c9a8-84b59f-69a297-50808e).

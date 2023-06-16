@@ -14,6 +14,8 @@ if (isset($_POST["username"]) && isset($_POST["p"]) && isset($_POST["email"])) {
     }
     else{
         $templateParams["successWords"] = "Registrazione avvenuta con successo! Ora puoi accedere con le tue credenziali";
+        list($result, $errorMsg) = $dbh->secureLoginUser($_POST["username"], $_POST["p"]);
+        header('Location: ./');
     }
     $templateParams["titolo"] = "Register";
     $templateParams["nome"] = "register.php";

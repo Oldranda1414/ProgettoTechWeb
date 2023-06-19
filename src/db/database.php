@@ -280,7 +280,7 @@ class DatabaseHelper
    //retrieves data about comments by the user with username $username
    public function getUserComments($username)
    {
-      $stmt = $this->db->prepare("SELECT C.Words, C.DT, P.Post_id, P.Img AS Post_img, P.Words AS Post_Words, Up.Username AS Poster_Username, Up.Profile_img AS Poster_img 
+      $stmt = $this->db->prepare("SELECT Uc.Username, Uc.Profile_img, C.Words, C.DT, P.Post_id, P.Img AS Post_img, P.Words AS Post_Words, Up.Username AS Poster_Username, Up.Profile_img AS Poster_img 
                                  FROM user_table AS Uc 
                                  JOIN comment AS C ON Uc.User_id=C.User_id 
                                  JOIN post AS P ON C.Post_id=P.Post_id 

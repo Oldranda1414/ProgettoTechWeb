@@ -11,8 +11,8 @@
 							<?php echo $comment["Post_Words"] ?>
 						</p>
 
-						<img src="<?php echo UPLOAD_DIR . "profiles/" . $templateParams["user"]["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon" height="40">
-						<?php echo $templateParams["user"]["Username"] ?></em></a>, il <?php echo date("d-m-y", strtotime($comment["DT"])) . " alle " . date("H:i:s", strtotime($comment["DT"])) ?>
+						<img src="<?php echo UPLOAD_DIR . "profiles/" . $comment["Profile_img"] ?>" class="modal-post-img-profile me-2" alt="profile icon" height="40">
+						<?php echo $comment["Username"] ?></em></a>, il <?php echo date("d-m-y", strtotime($comment["DT"])) . " alle " . date("H:i:s", strtotime($comment["DT"])) ?>
 						ha commentato:
 						</p>
 						<p class="text-post-comment">

@@ -65,7 +65,10 @@ function deleteImg($path)
     $imageFileType = strtolower(pathinfo($path, PATHINFO_EXTENSION));
     if (in_array($imageFileType, $acceptedExtensions)) {
         if (file_exists($path)) {
-            unlink($path);
+            if($path != UPLOAD_DIR."/profiles/user.jpg"){
+                unlink($path);
+            }
+            
         }
     }
 }
